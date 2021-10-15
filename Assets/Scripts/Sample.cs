@@ -1,21 +1,21 @@
-using System.Collections;
+ï»¿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-/// <summary>ƒNƒ‰ƒXà–¾</summary>
+/// <summary>ã‚¯ãƒ©ã‚¹èª¬æ˜</summary>
 public class Samaple : MonoBehaviour
 {
     public static Samaple Instance { get; private set; }
 
-    /// <summary>ƒTƒ}ƒŠ[‚Íˆês‚Å‹LÚ‚·‚é</summary>
-    [SerializeField]                //SerializeField‚Å‰üs
-    GameObject m_obj = default;     //ƒƒ“ƒo[•Ï”‚É‚Í"m_"
-                                    //Ÿ‚Ì•Ï”‚Í‰üs‚·‚é
-    /// <summary>ƒTƒ“ƒvƒ‹</summary>
+    /// <summary>ã‚µãƒãƒªãƒ¼ã¯ä¸€è¡Œã§è¨˜è¼‰ã™ã‚‹</summary>
+    [SerializeField]                //SerializeFieldã§æ”¹è¡Œ
+    GameObject m_obj = default;     //ãƒ¡ãƒ³ãƒãƒ¼å¤‰æ•°ã«ã¯"m_"
+                                    //æ¬¡ã®å¤‰æ•°ã¯æ”¹è¡Œã™ã‚‹
+    /// <summary>ã‚µãƒ³ãƒ—ãƒ«</summary>
     GameObject m_obj2 = default;
 
     /// <summary>
-    /// ŠÖ”–¼
+    /// é–¢æ•°å
     /// </summary>
     void SampleVoid()
     {
@@ -23,10 +23,10 @@ public class Samaple : MonoBehaviour
     }
 
     /// <summary>
-    /// ŠÖ”–¼
+    /// é–¢æ•°å
     /// </summary>
-    /// <param name="value">ˆø”‚ÌÚ×</param>
-    /// <returns>•Ô‚è’l</returns>
+    /// <param name="value">å¼•æ•°ã®è©³ç´°</param>
+    /// <returns>è¿”ã‚Šå€¤</returns>
     int Sample(int value)
     {
         int a = value;
