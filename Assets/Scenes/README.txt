@@ -1,1 +1,2 @@
-新しく自分の作業用のSceneを作成する時はDevelopをDuplicateしてください
+新しく自分の作業用のSceneを作成する時はDevelopをDuplicateしてください。
+また、自分の作業用フォルダを作製してその中にDuplicateしたSceneを入れてください。フォルダ名の例:Nakajima
