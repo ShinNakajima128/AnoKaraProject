@@ -11,8 +11,10 @@ https://drive.google.com/drive/folders/1EwIOxDUXA3VMiXBjZzvWy8vnHS-tq2vs
 ブランチ名は担当する機能を英語表記したものをつけてください。(英語だと分かりにくそうな場合はローマ字でも可)
 また、単語が連なる場合、間に"_"をはさんでください。
 
-例：チュートリアルの機能を作る際のブランチ名　tutorial
-　　学習パートの機能を作る際のブランチ名　study_part
+例：チュートリアルの機能を作る際のブランチ名　「tutorial」
+
+
+　　学習パートの機能を作る際のブランチ名　「study_part」
 
 英語表記に悩んだらDeepL翻訳で訳したもので大丈夫です。
  **DeepL翻訳** 　https://www.deepl.com/ja/translator
