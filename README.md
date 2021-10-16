@@ -1,7 +1,7 @@
 # AnoKaraProject
 後期チーム制作「あの頃のあの場所から」プロジェクトのリポジトリ
 
-プロジェクトの全体の資料等を確認したい時は以下のリンクから確認できます。
+プロジェクトの全体の資料等を確認したい時は、以下のリンクから確認できます。
 https://drive.google.com/drive/folders/1EwIOxDUXA3VMiXBjZzvWy8vnHS-tq2vs
 
 ## 以下の注意事項は随時更新していく予定です。更新があった場合はSlackにてお知らせします。
@@ -18,3 +18,11 @@ https://drive.google.com/drive/folders/1EwIOxDUXA3VMiXBjZzvWy8vnHS-tq2vs
 
 英語表記に悩んだらDeepL翻訳で訳したもので大丈夫です。
  **DeepL翻訳** 　https://www.deepl.com/ja/translator
+
+### プルリクエストについて
+***
+プルリクエストを作成する際は、マージ先の「base」ブランチと、マージする機能の「compare」ブランチが間違っていないか確認をお願いします。
+
+CreatePullrequestボタンを押した後、画面右の方にあるReviewersという項目に「**ShinNakajima128**」と「**HiraEi**」を追加してください。
+
+**※プルリクエストについて不明な点がある場合はSlackからリーダーまたはサブリーダーに連絡してください。**
