@@ -8,17 +8,19 @@ using MasterData;
 /// </summary>
 public class QuizDataManager : SingletonMonoBehaviour<QuizDataManager>
 {
+    [Header("クイズデータを更新したかどうかのフラグ")]
     [SerializeField]
-    bool IsVersionUpFlag = false;
+    bool m_isVersionUpFlag = false;
 
+    [Header("各クイズデータのScriptableObjectデータ")]
     [SerializeField]
     FourChoicesQuizData[] m_fourChoicesQuizDatas = default;
 
-    QuizMasterDataClass<FourChoicesQuiz> fourChoicesQuisMaster;
+    QuizMasterDataClass<FourChoicesQuiz> m_fourChoicesQuisMaster;
     delegate void LoadQuizDataCallback<T>(T data);
     int m_loadingCount = 0;
 
-    FourChoicesQuiz[] FourChoicesQuizMaster => fourChoicesQuisMaster.Data;
+    FourChoicesQuiz[] FourChoicesQuizMaster => m_fourChoicesQuisMaster.Data;
 
     void Awake()
     {
@@ -30,23 +32,32 @@ public class QuizDataManager : SingletonMonoBehaviour<QuizDataManager>
         DontDestroyOnLoad(gameObject);
     }
 
-    private void Start()
+    void Start()
     {
-        LoadQuizMasterData("Jomon", (QuizMasterDataClass<FourChoicesQuiz> data) => fourChoicesQuisMaster = data);
+        LoadQuizMasterData("Jomon", (QuizMasterDataClass<FourChoicesQuiz> data) => m_fourChoicesQuisMaster = data);
     }
 
+    /// <summary>
+    /// 各クイズのScriptableObjectにデータをセットする
+    /// </summary>
     void SetData()
     {
         for (int i = 0; i < m_fourChoicesQuizDatas.Length; i++)
         {
-
+            m_fourChoicesQuizDatas[i].FourChoicesQuiz = m_fourChoicesQuisMaster.Data[i];
         }
     }
 
+    /// <summary>
+    /// クイズデータを読み込む
+    /// </summary>
+    /// <typeparam name="T"> クイズデータのクラス </typeparam>
+    /// <param name="file"> クイズの時代名 </param>
+    /// <param name="callback"></param>
     void LoadQuizMasterData<T>(string file, LoadQuizDataCallback<T> callback)
     {
         var data = LocalData.Load<T>(file);
-        if (data == null || IsVersionUpFlag)
+        if (data == null || m_isVersionUpFlag)
         {
             m_loadingCount++;
             Network.WebRequest.Request<Network.WebRequest.GetString>("https://script.google.com/macros/s/AKfycbySn0LqADyPQokOnUhHLJ_Bm6eai9oJXJmhnWn4jmInvmhepe8/exec?Sheet=" + file, Network.WebRequest.ResultType.String, (string json) =>
@@ -56,6 +67,7 @@ public class QuizDataManager : SingletonMonoBehaviour<QuizDataManager>
                 callback(dldata);
                 Debug.Log("Network download. : " + file + " / " + json + "/" + dldata);
                 --m_loadingCount;
+                SetData();
             });
         }
         else

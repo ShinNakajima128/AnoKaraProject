@@ -1,16 +1,13 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using System;
+using MasterData;
 
 [CreateAssetMenu(menuName = "MyScriptable / Create FourChoicesQuizData")]
 public class FourChoicesQuizData : ScriptableObject
 {
-    public int PeriodsID;
-    public string Question;
-    public string Choices1;
-    public string Choices2;
-    public string Choices3;
-    public string Choices4;
-    public string Answer;
+    [SerializeField]
+    FourChoicesQuiz m_fourChoicesQuiz = default;
+
+    public FourChoicesQuiz FourChoicesQuiz { get => m_fourChoicesQuiz; set => m_fourChoicesQuiz = value; }
 }

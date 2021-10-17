@@ -20,7 +20,7 @@ namespace MasterData
     [Serializable]
     public class FourChoicesQuiz
     {
-        public int PeriodsID;
+        public int Id;
         public string Question;
         public string Choices1;
         public string Choices2;
