@@ -3,6 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using MasterData;
 
+/// <summary>
+/// クイズデータを管理するクラス
+/// </summary>
 public class QuizDataManager : SingletonMonoBehaviour<QuizDataManager>
 {
     [SerializeField]
