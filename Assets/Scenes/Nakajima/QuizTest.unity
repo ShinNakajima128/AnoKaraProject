@@ -134,7 +134,7 @@ GameObject:
   - component: {fileID: 5826918}
   - component: {fileID: 5826919}
   m_Layer: 0
-  m_Name: GameManager
+  m_Name: QuizDataManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -163,11 +163,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 5826917}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5476bfd4c57f11d4bb78b2521c7b60e7, type: 3}
+  m_Script: {fileID: 11500000, guid: 5b206c78c69b3504ea0646e84f3680d8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   IsVersionUpFlag: 0
-  m_fourChoicesQuizDatas: []
+  m_fourChoicesQuizDatas:
+  - {fileID: 11400000, guid: b6ac0cc908b950847b54e4960c32670f, type: 2}
+  - {fileID: 11400000, guid: 31cceef78fe22bf4bb3b4f30482e520d, type: 2}
+  - {fileID: 11400000, guid: cf952ec8a688ae94c974cc66e708036e, type: 2}
+  - {fileID: 11400000, guid: 38fcf4dcc487b4c4c933e0268bee0baa, type: 2}
 --- !u!1 &195416516
 GameObject:
   m_ObjectHideFlags: 0
