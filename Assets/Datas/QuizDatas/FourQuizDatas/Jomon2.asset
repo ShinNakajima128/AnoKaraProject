@@ -12,10 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 880b9701897616147bbd840a54947f8e, type: 3}
   m_Name: Jomon2
   m_EditorClassIdentifier: 
-  PeriodsID: 0
-  Question: 
-  Choices1: 
-  Choices2: 
-  Choices3: 
-  Choices4: 
-  Answer: 
+  m_fourChoicesQuiz:
+    Id: 2
+    Question: "\u5F25\u751F\u6642\u4EE3\u306B\u53CE\u7A6B\u3057\u305F\u7A40\u7269\u3092\u84C4\u3048\u308B\u305F\u3081\u306B\u3064\u304F\u3089\u308C\u305F\u5009\u5EAB\u3092\u4F55\u3068\u3044\u3046\u304B\uFF1F"
+    Choices1: "\u9AD8\u5009\u5009\u5EAB"
+    Choices2: "\u6821\u5009\u5009\u5EAB"
+    Choices3: "\u6B63\u5009\u9662"
+    Choices4: "\u7A40\u5009\u5EAB"
+    Answer: "\u9AD8\u5009\u5009\u5EAB"

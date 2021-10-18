@@ -12,7 +12,7 @@ public class QuizDataManager : SingletonMonoBehaviour<QuizDataManager>
     [SerializeField]
     bool m_isVersionUpFlag = false;
 
-    [Header("各クイズデータのScriptableObjectデータ")]
+    [Header("四択クイズのデータ")]
     [SerializeField]
     FourChoicesQuizData[] m_fourChoicesQuizDatas = default;
 
@@ -22,6 +22,7 @@ public class QuizDataManager : SingletonMonoBehaviour<QuizDataManager>
 
     public FourChoicesQuiz[] FourChoicesQuizMaster => m_fourChoicesQuisMaster.Data;
     public bool OnData { get; private set; }
+
     void Awake()
     {
         if (this != Instance)
