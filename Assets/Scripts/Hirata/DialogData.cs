@@ -8,6 +8,14 @@ using UnityEngine;
 [CreateAssetMenu(menuName = "MyScriptable/Create DialogData")]
 public class DialogData : ScriptableObject
 {
+    /// <summary>背景の画像</summary>
+    [SerializeField]
+    Sprite m_backGroundImage;
+
+    /// <summary>背景の有無</summary>
+    [SerializeField]
+    bool m_isBackGround = false;
+
     /// <summary>左のキャラクターの画像</summary>
     [SerializeField]
     Sprite m_charcterLeftImage;
@@ -31,6 +39,10 @@ public class DialogData : ScriptableObject
     /// <summary>テキストの再生スピード</summary>
     [SerializeField]
     float m_dialogSendingSpeed = 0.5F;
+
+    public Sprite backGroundImage => m_backGroundImage;
+
+    public bool isBackGroundImage => m_isBackGround;
 
     public Sprite charctorRightImage => m_charcterRightImage;
 

@@ -12,6 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c27d6758564e58045a560e39ad2ec584, type: 3}
   m_Name: dialog4
   m_EditorClassIdentifier: 
+  m_backGroundImage: {fileID: 21300000, guid: 6de1881098ec56b4b8b710f388070eca, type: 3}
+  m_isBackGround: 1
   m_charcterLeftImage: {fileID: 10917, guid: 0000000000000000f000000000000000, type: 0}
   m_charcterCenterImage: {fileID: 21300000, guid: 36050a36b49af174b829f54857db4b58, type: 3}
   m_charcterRightImage: {fileID: 10917, guid: 0000000000000000f000000000000000, type: 0}

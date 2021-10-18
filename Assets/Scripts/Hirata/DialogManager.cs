@@ -16,6 +16,10 @@ public class DialogManager : MonoBehaviour
     [SerializeField]
     DialogData[] m_dialogData;
 
+    /// <summary>背景のイメージ</summary>
+    [SerializeField]
+    Image m_backGroundImage;
+
     /// <summary>キャラクターポジションのイメージ</summary>
     [SerializeField]
     Image[] m_charcterPositionImage;
@@ -42,9 +46,19 @@ public class DialogManager : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
+        //if (Input.GetKeyDown(KeyCode.Space))
+        //{
+        //    SendDialogText();
+        //}
+
+        if (Input.touchCount > 0)
         {
-            SendDialogText();
+            Touch touch = Input.GetTouch(0);
+
+            if (touch.phase == TouchPhase.Began)    //タップした瞬間
+            {
+                SendDialogText();
+            }
         }
     }
 
@@ -55,14 +69,17 @@ public class DialogManager : MonoBehaviour
     /// <param name="speed">再生スピード</param>
     IEnumerator SendingDialogText(DialogData data, float speed)
     {
-        RefreshText(m_dialogName, m_dialogText);
-        m_isSendingText = true;
-        SetCharcterSprite(data);
-        m_dialogName.text = data.dialogName;
-        int i = 0;
+        //再生中の文字カウント
+        int sendingTextCount = 0;
+        //タイマー
         float timer = 999;
 
-        while (i < data.dialogText.Length)
+        RefreshText(m_dialogName, m_dialogText);    //テキストをリセットする
+        m_isSendingText = true;                     //フラグを有効化する
+        SetDialogSprite(data);                      //画像をセットする
+        m_dialogName.text = data.dialogName;        //名前のテキストをセットする
+        
+        while (sendingTextCount < data.dialogText.Length)
         {
             timer += Time.deltaTime;
 
@@ -74,9 +91,9 @@ public class DialogManager : MonoBehaviour
 
             if (timer > speed)      //通常の文字送りの処理
             {
-                m_dialogText.text += data.dialogText[i];
+                m_dialogText.text += data.dialogText[sendingTextCount];
                 timer = 0;
-                i++;
+                sendingTextCount++;
             }
             yield return new WaitForEndOfFrame();
         }
@@ -96,7 +113,7 @@ public class DialogManager : MonoBehaviour
         else
         {
             m_dialogCount++;
-            //次の会話データを読み込む
+            //次の会話データを読み込む。次がなければUIを落とす
             if (m_dialogCount < m_dialogData.Length)
             {
                 StartCoroutine(SendingDialogText(m_dialogData[m_dialogCount],
@@ -110,11 +127,21 @@ public class DialogManager : MonoBehaviour
     }
 
     /// <summary>
-    /// キャラクターを各ポジションに配置する
+    ///　背景、キャラクターの画像をセットする
     /// </summary>
     /// <param name="data">会話データ</param>
-    void SetCharcterSprite(DialogData data)
+    void SetDialogSprite(DialogData data)
     {
+        if (m_backGroundImage != null)
+        {
+            m_backGroundImage.sprite = data.backGroundImage;
+        }
+        else
+        {
+            
+        }
+        
+
         m_charcterPositionImage[0].sprite = data.charctorLeftImage;
         m_charcterPositionImage[1].sprite = data.charctorCenterImage;
         m_charcterPositionImage[2].sprite = data.charctorRightImage;
