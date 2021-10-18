@@ -46,20 +46,20 @@ public class DialogManager : MonoBehaviour
 
     private void Update()
     {
-        //if (Input.GetKeyDown(KeyCode.Space))
-        //{
-        //    SendDialogText();
-        //}
-
-        if (Input.touchCount > 0)
+        if (Input.GetKeyDown(KeyCode.Space))
         {
-            Touch touch = Input.GetTouch(0);
-
-            if (touch.phase == TouchPhase.Began)    //タップした瞬間
-            {
-                SendDialogText();
-            }
+            SendDialogText();
         }
+
+        //if (Input.touchCount > 0)
+        //{
+        //    Touch touch = Input.GetTouch(0);
+
+        //    if (touch.phase == TouchPhase.Began)    //タップした瞬間
+        //    {
+        //        SendDialogText();
+        //    }
+        //}
     }
 
     /// <summary>
@@ -74,10 +74,10 @@ public class DialogManager : MonoBehaviour
         //タイマー
         float timer = 999;
 
-        RefreshText(m_dialogName, m_dialogText);    //テキストをリセットする
-        m_isSendingText = true;                     //フラグを有効化する
-        SetDialogSprite(data);                      //画像をセットする
-        m_dialogName.text = data.dialogName;        //名前のテキストをセットする
+        m_isSendingText = true;
+        RefreshText(m_dialogName, m_dialogText);
+        SetDialogSprite(data);
+        m_dialogName.text = data.dialogName;
         
         while (sendingTextCount < data.dialogText.Length)
         {
@@ -132,16 +132,7 @@ public class DialogManager : MonoBehaviour
     /// <param name="data">会話データ</param>
     void SetDialogSprite(DialogData data)
     {
-        if (m_backGroundImage != null)
-        {
-            m_backGroundImage.sprite = data.backGroundImage;
-        }
-        else
-        {
-            
-        }
-        
-
+        m_backGroundImage.sprite = data.backGroundImage;   
         m_charcterPositionImage[0].sprite = data.charctorLeftImage;
         m_charcterPositionImage[1].sprite = data.charctorCenterImage;
         m_charcterPositionImage[2].sprite = data.charctorRightImage;
@@ -156,5 +147,15 @@ public class DialogManager : MonoBehaviour
     {
         name.text = "";
         dialog.text = "";
+    }
+
+    void StartDialog(DialogData data)
+    {
+        m_dialogDisplay.SetActive(true);
+    }
+
+    void EndDialog()
+    {
+        m_dialogDisplay.SetActive(false);
     }
 }
