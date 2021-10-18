@@ -38,6 +38,12 @@ public class DialogManager : MonoBehaviour
     /// <summary>ダイアログの再生番号</summary>
     int m_dialogCount = 0;
 
+    /// <summary>ダイアログの開始インデックス</summary>
+    int m_dialogStartIndex = 0;
+
+    /// <summary>ダイアログの終了のインデックス</summary>
+    int m_dialogEndIndex = 0;
+
     private void Start()
     {
         StartCoroutine(SendingDialogText(m_dialogData[m_dialogCount],
@@ -149,11 +155,21 @@ public class DialogManager : MonoBehaviour
         dialog.text = "";
     }
 
-    void StartDialog(DialogData data)
+    /// <summary>
+    /// 会話を開始する
+    /// </summary>
+    /// <param name="data">ダイアログデータ</param>
+    /// <param name="startIndex">開始する番号</param>
+    /// <param name="endIndex">終了する番号</param>
+    void StartDialog(DialogData data, int startIndex, int endIndex)
     {
         m_dialogDisplay.SetActive(true);
+        m_dialogCount = startIndex;
     }
 
+    /// <summary>
+    /// 会話を終了する
+    /// </summary>
     void EndDialog()
     {
         m_dialogDisplay.SetActive(false);
