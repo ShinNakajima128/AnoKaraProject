@@ -21,6 +21,7 @@ namespace MasterData
     public class FourChoicesQuiz
     {
         public int Id;
+        [TextArea(0, 10)]
         public string Question;
         public string Choices1;
         public string Choices2;

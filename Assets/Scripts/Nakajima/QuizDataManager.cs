@@ -20,8 +20,8 @@ public class QuizDataManager : SingletonMonoBehaviour<QuizDataManager>
     delegate void LoadQuizDataCallback<T>(T data);
     int m_loadingCount = 0;
 
-    FourChoicesQuiz[] FourChoicesQuizMaster => m_fourChoicesQuisMaster.Data;
-
+    public FourChoicesQuiz[] FourChoicesQuizMaster => m_fourChoicesQuisMaster.Data;
+    public bool OnData { get; private set; }
     void Awake()
     {
         if (this != Instance)
@@ -46,6 +46,7 @@ public class QuizDataManager : SingletonMonoBehaviour<QuizDataManager>
         {
             m_fourChoicesQuizDatas[i].FourChoicesQuiz = m_fourChoicesQuisMaster.Data[i];
         }
+        OnData = true;
     }
 
     /// <summary>
