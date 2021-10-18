@@ -62,7 +62,7 @@ public class QuizDataManager : SingletonMonoBehaviour<QuizDataManager>
         if (data == null || m_isVersionUpFlag)
         {
             m_loadingCount++;
-            Network.WebRequest.Request<Network.WebRequest.GetString>("https://script.google.com/macros/s/AKfycbySn0LqADyPQokOnUhHLJ_Bm6eai9oJXJmhnWn4jmInvmhepe8/exec?Sheet=" + file, Network.WebRequest.ResultType.String, (string json) =>
+            Network.WebRequest.Request<Network.WebRequest.GetString>("https://script.google.com/macros/s/AKfycbyinSwGwk5ddGQbX158tmosL6CsOPIkEf0ka2xg/exec?Sheet=" + file, Network.WebRequest.ResultType.String, (string json) =>
             {
                 var dldata = JsonUtility.FromJson<T>(json);
                 LocalData.Save<T>(file, dldata);

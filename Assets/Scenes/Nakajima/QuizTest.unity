@@ -167,7 +167,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5b206c78c69b3504ea0646e84f3680d8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_isVersionUpFlag: 0
+  m_isVersionUpFlag: 1
   m_fourChoicesQuizDatas:
   - {fileID: 11400000, guid: b6ac0cc908b950847b54e4960c32670f, type: 2}
   - {fileID: 11400000, guid: 31cceef78fe22bf4bb3b4f30482e520d, type: 2}
