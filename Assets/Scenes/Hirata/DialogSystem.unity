@@ -1604,12 +1604,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 24f597580567f6340ab4c3c1c1cfb447, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_sendingSpeed: 1
+  m_sendingLowSpeed: 1
+  m_sendingMiddleSpeed: 0.2
+  m_sendingHighSpeed: 0.01
   m_dialogDisplay: {fileID: 853558915}
-  m_dialogData:
-  - {fileID: 11400000, guid: ae9519e96f85e404d866cabfc833c1b6, type: 2}
-  - {fileID: 11400000, guid: b315280ed241b3a49814b739b234c233, type: 2}
-  - {fileID: 11400000, guid: 37f9abc655e92a946a4084ef439129a4, type: 2}
-  - {fileID: 11400000, guid: 20f371c5de14b5d4c9ac4d563c8a1236, type: 2}
+  m_dialogData: {fileID: 11400000, guid: db3e6239fc9ab374086391907ad0277d, type: 2}
   m_backGroundImage: {fileID: 2048723921}
   m_charcterPositionImage:
   - {fileID: 1653314194}

@@ -42,10 +42,6 @@ public class DialogDataBase
     [SerializeField, TextArea(0, 10)]
     string m_dialogText;
 
-    /// <summary>テキストの再生スピード</summary>
-    [SerializeField]
-    float m_dialogSendingSpeed = 0.5F;
-
     public Sprite backGroundImage => m_backGroundImage;
 
     public bool isBackGroundImage => m_isBackGround;
@@ -59,6 +55,4 @@ public class DialogDataBase
     public string dialogName => m_dialogName;
 
     public string dialogText => m_dialogText;
-
-    public float dialogSendingSpeed => m_dialogSendingSpeed;
 }
