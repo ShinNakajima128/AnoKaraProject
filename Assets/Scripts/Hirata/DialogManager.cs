@@ -14,7 +14,7 @@ public class DialogManager : MonoBehaviour
 
     /// <summary>会話データ</summary>
     [SerializeField]
-    DialogData[] m_dialogData;
+    DialogDataBase[] m_dialogData;
 
     /// <summary>背景のイメージ</summary>
     [SerializeField]
@@ -73,7 +73,7 @@ public class DialogManager : MonoBehaviour
     /// </summary>
     /// <param name="data">テキストデータ</param>
     /// <param name="speed">再生スピード</param>
-    IEnumerator SendingDialogText(DialogData data, float speed)
+    IEnumerator SendingDialogText(DialogDataBase data, float speed)
     {
         //再生中の文字カウント
         int sendingTextCount = 0;
@@ -136,7 +136,7 @@ public class DialogManager : MonoBehaviour
     ///　背景、キャラクターの画像をセットする
     /// </summary>
     /// <param name="data">会話データ</param>
-    void SetDialogSprite(DialogData data)
+    void SetDialogSprite(DialogDataBase data)
     {
         m_backGroundImage.sprite = data.backGroundImage;   
         m_charcterPositionImage[0].sprite = data.charctorLeftImage;
@@ -161,7 +161,7 @@ public class DialogManager : MonoBehaviour
     /// <param name="data">ダイアログデータ</param>
     /// <param name="startIndex">開始する番号</param>
     /// <param name="endIndex">終了する番号</param>
-    void StartDialog(DialogData data, int startIndex, int endIndex)
+    void StartDialog(DialogDataBase data, int startIndex, int endIndex)
     {
         m_dialogDisplay.SetActive(true);
         m_dialogCount = startIndex;

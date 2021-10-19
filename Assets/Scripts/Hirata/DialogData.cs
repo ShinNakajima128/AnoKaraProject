@@ -8,6 +8,12 @@ using UnityEngine;
 [CreateAssetMenu(menuName = "MyScriptable/Create DialogData")]
 public class DialogData : ScriptableObject
 {
+    public List<DialogDataBase> m_dialogData = new List<DialogDataBase>();
+}
+
+[System.Serializable]
+public class DialogDataBase
+{
     /// <summary>背景の画像</summary>
     [SerializeField]
     Sprite m_backGroundImage;
