@@ -71,8 +71,19 @@ public class DialogManager : MonoBehaviour
     [SerializeField]
     Text m_dialogText;
 
+    /// <summary>会話ログのオブジェクト</summary>
+    [SerializeField]
+    GameObject m_dialogLogObject;
+
+    /// <summary>会話ログのテキスト</summary>
+    [SerializeField]
+    Text m_dialogLogText;
+
     /// <summary>テキストの再生中かどうか</summary>
     bool m_isSendingText = false;
+
+    /// <summary>会話ログがアクティブかどうか</summary>
+    bool m_isActiveDiaLog = false;
 
     /// <summary>ダイアログの再生番号</summary>
     int m_dialogCount = 0;
@@ -117,6 +128,7 @@ public class DialogManager : MonoBehaviour
         RefreshText(m_dialogName, m_dialogText);
         SetDialogSprite(data);
         m_dialogName.text = data.dialogName;
+        AddDialogLog(data.dialogName, data.dialogText);
         
         while (sendingTextCount < data.dialogText.Length)
         {
@@ -223,6 +235,23 @@ public class DialogManager : MonoBehaviour
     }
 
     /// <summary>
+    /// 会話ログにデータを追加する
+    /// </summary>
+    /// <param name="name">名前データ</param>
+    /// <param name="text">会話データ</param>
+    void AddDialogLog(string name, string text)
+    {
+        m_dialogLogText.text += name;
+        m_dialogLogText.text += "\n";
+        m_dialogLogText.text += text;
+        
+        for (int i = 0; i < 3; i++)
+        {
+            m_dialogLogText.text += "\n";
+        }
+    }
+
+    /// <summary>
     ///　背景、キャラクターの画像をセットする
     /// </summary>
     /// <param name="data">会話データ</param>
@@ -267,6 +296,22 @@ public class DialogManager : MonoBehaviour
                     m_sendingSpeed = SendingSpeed.Low;
                 }
                 break;
+        }
+    }
+
+    public void ActiveLog()
+    {
+        if (!m_isActiveDiaLog)
+        {
+            m_isActiveDiaLog = true;
+            m_dialogLogObject.SetActive(true);
+            //StopCoroutine("SendingDialogText");
+        }
+        else
+        {
+            m_isActiveDiaLog = false;
+            m_dialogLogObject.SetActive(false);
+            //StopCoroutine("SendingDialogText");
         }
     }
 
