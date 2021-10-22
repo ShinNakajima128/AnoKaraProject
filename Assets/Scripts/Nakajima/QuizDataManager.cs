@@ -18,7 +18,6 @@ public class QuizDataManager : SingletonMonoBehaviour<QuizDataManager>
 
     QuizMasterDataClass<FourChoicesQuiz> m_fourChoicesQuisMaster;
     delegate void LoadQuizDataCallback<T>(T data);
-    int m_loadingCount = 0;
 
     public FourChoicesQuiz[] FourChoicesQuizMaster => m_fourChoicesQuisMaster.Data;
     public bool OnData { get; private set; }
@@ -43,6 +42,12 @@ public class QuizDataManager : SingletonMonoBehaviour<QuizDataManager>
     /// </summary>
     void SetData()
     {
+        if (!m_isVersionUpFlag)
+        {
+            OnData = true;
+            return;
+        }
+
         for (int i = 0; i < m_fourChoicesQuizDatas.Length; i++)
         {
             m_fourChoicesQuizDatas[i].FourChoicesQuiz = m_fourChoicesQuisMaster.Data[i];
@@ -61,14 +66,12 @@ public class QuizDataManager : SingletonMonoBehaviour<QuizDataManager>
         var data = LocalData.Load<T>(file);
         if (data == null || m_isVersionUpFlag)
         {
-            m_loadingCount++;
             Network.WebRequest.Request<Network.WebRequest.GetString>("https://script.google.com/macros/s/AKfycbyinSwGwk5ddGQbX158tmosL6CsOPIkEf0ka2xg/exec?Sheet=" + file, Network.WebRequest.ResultType.String, (string json) =>
             {
                 var dldata = JsonUtility.FromJson<T>(json);
                 LocalData.Save<T>(file, dldata);
                 callback(dldata);
                 Debug.Log("Network download. : " + file + " / " + json + "/" + dldata);
-                --m_loadingCount;
                 SetData();
             });
         }
@@ -76,6 +79,7 @@ public class QuizDataManager : SingletonMonoBehaviour<QuizDataManager>
         {
             Debug.Log("Local load. : " + file + " / " + data);
             callback(data);
+            SetData();
         }
     }
 }
