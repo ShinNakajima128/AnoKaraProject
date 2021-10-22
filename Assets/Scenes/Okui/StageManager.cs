@@ -8,12 +8,16 @@ public class StageManager : MonoBehaviour
 {
     // Start is called before the first frame update
     [SerializeField]
-    GameObject button;
+    GameObject panel;
     
    public void backButton()
     {
         Debug.Log("push");
         SceneManager.LoadScene("StudyPart");
+    }
+   public void pushStage1()
+    {
+        panel.SetActive(true);
     }
     
 }
