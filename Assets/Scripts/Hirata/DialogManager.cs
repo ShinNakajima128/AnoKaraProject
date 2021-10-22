@@ -146,7 +146,8 @@ public class DialogManager : MonoBehaviour
         RefreshText(m_dialogName, m_dialogText);
         SetDialogSprite(data);
         m_dialogName.text = data.dialogName;
-        m_dialogLogText.text += data.dialogName + "\n"; 
+        AddDialogLog(data.dialogName, data.dialogText);
+        //m_dialogLogText.text += data.dialogName + "\n";   ログも順次出力する時
         
         while (sendingTextCount < data.dialogText.Length)
         {
@@ -155,7 +156,7 @@ public class DialogManager : MonoBehaviour
             if (!m_isSendingText)   //スキップ時の処理
             {
                 m_dialogText.text = data.dialogText;
-                m_dialogLogText.text += data.dialogText;
+                //m_dialogLogText.text += data.dialogText;  ログも順次出力する時
                 break;
             }
 
@@ -187,10 +188,8 @@ public class DialogManager : MonoBehaviour
         if (m_isAuto)
         {
             m_dialogCount++;
-            if (m_dialogCount > m_dialogData.m_dialogData.Count)
+            if (m_dialogCount < m_dialogData.m_dialogData.Count)
             {
-                Debug.Log(m_dialogCount);
-                Debug.Log(m_dialogData.m_dialogData.Count);
                 StartCoroutine(AutoSending());
             }
         }
@@ -200,7 +199,7 @@ public class DialogManager : MonoBehaviour
         void SendingText()
         {
             m_dialogText.text += data.dialogText[sendingTextCount];
-            m_dialogLogText.text += data.dialogText[sendingTextCount];
+            //m_dialogLogText.text += data.dialogText[sendingTextCount]; ログも順次出力する時
             timer = 0;
             sendingTextCount++;
         }
@@ -371,8 +370,6 @@ public class DialogManager : MonoBehaviour
     /// 会話を開始する
     /// </summary>
     /// <param name="data">ダイアログデータ</param>
-    /// <param name="startIndex">開始する番号</param>
-    /// <param name="endIndex">終了する番号</param>
     public void StartDialog(DialogData data)
     {
         m_dialogDisplay.SetActive(true);
