@@ -19,18 +19,74 @@ MonoBehaviour:
     m_charcterCenterImage: {fileID: 10917, guid: 0000000000000000f000000000000000, type: 0}
     m_charcterRightImage: {fileID: 21300000, guid: 36050a36b49af174b829f54857db4b58, type: 3}
     m_dialogName: AAA
-    m_dialogText: AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+    m_dialogText: 'AAAAAAAAAAAAAAAAAAAAAA
+
+      AAAAAAAAAAAAAAAAAAAAAA
+
+      AAAAAAAAAAAAAA'
   - m_backGroundImage: {fileID: 21300000, guid: 6de1881098ec56b4b8b710f388070eca, type: 3}
     m_isBackGround: 1
     m_charcterLeftImage: {fileID: 21300000, guid: 54075aaaccc997c438d04fd0de39d6e1, type: 3}
     m_charcterCenterImage: {fileID: 10917, guid: 0000000000000000f000000000000000, type: 0}
     m_charcterRightImage: {fileID: 21300000, guid: 36050a36b49af174b829f54857db4b58, type: 3}
     m_dialogName: BBB
-    m_dialogText: BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB
+    m_dialogText: 'BBBBBBBBBBBBBBBBBBBBB
+
+      BBBBBBBBBBBBBBBBBBBBBBB
+
+      BBBBBBBBBBBBBBB'
   - m_backGroundImage: {fileID: 21300000, guid: 6de1881098ec56b4b8b710f388070eca, type: 3}
     m_isBackGround: 1
     m_charcterLeftImage: {fileID: 10917, guid: 0000000000000000f000000000000000, type: 0}
     m_charcterCenterImage: {fileID: 21300000, guid: d29599b6e92c39a4390822d68e8f35f8, type: 3}
     m_charcterRightImage: {fileID: 10917, guid: 0000000000000000f000000000000000, type: 0}
     m_dialogName: CCC
-    m_dialogText: CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
+    m_dialogText: 'CCCCCCCCCCCCCCCCCCC
+
+      CCCCCCCCCCCCCCCCCCC
+
+      CCCCCCCCCCCCCCCC'
+  - m_backGroundImage: {fileID: 21300000, guid: 8b1af99dc465d004cb51dcded40d61f4, type: 3}
+    m_isBackGround: 1
+    m_charcterLeftImage: {fileID: 21300000, guid: 54075aaaccc997c438d04fd0de39d6e1, type: 3}
+    m_charcterCenterImage: {fileID: 21300000, guid: d29599b6e92c39a4390822d68e8f35f8, type: 3}
+    m_charcterRightImage: {fileID: 21300000, guid: 36050a36b49af174b829f54857db4b58, type: 3}
+    m_dialogName: DDD
+    m_dialogText: 'DDDDDDDDDDDDDDDDDDDDD
+
+      DDDDDDDDDDDDDDDDD
+
+      DDDDDDDDDDDDDD'
+  - m_backGroundImage: {fileID: 21300000, guid: 8b1af99dc465d004cb51dcded40d61f4, type: 3}
+    m_isBackGround: 1
+    m_charcterLeftImage: {fileID: 10917, guid: 0000000000000000f000000000000000, type: 0}
+    m_charcterCenterImage: {fileID: 21300000, guid: d29599b6e92c39a4390822d68e8f35f8, type: 3}
+    m_charcterRightImage: {fileID: 10917, guid: 0000000000000000f000000000000000, type: 0}
+    m_dialogName: EEEEE
+    m_dialogText: 'EEEEEEEEEEEEEEEEEEEEE
+
+      EEEEEEEEEEEE
+
+      EEEEEEEEEEEEEEEEEEEEEEE'
+  - m_backGroundImage: {fileID: 21300000, guid: 8b1af99dc465d004cb51dcded40d61f4, type: 3}
+    m_isBackGround: 1
+    m_charcterLeftImage: {fileID: 10917, guid: 0000000000000000f000000000000000, type: 0}
+    m_charcterCenterImage: {fileID: 10917, guid: 0000000000000000f000000000000000, type: 0}
+    m_charcterRightImage: {fileID: 10917, guid: 0000000000000000f000000000000000, type: 0}
+    m_dialogName: FFFFFFFF
+    m_dialogText: 'FFFFFFFFFFFFFFFFFFFFFFFFFFF
+
+      FFFFFFFFFFFFFFFFFFFFFFFFF
+
+      FFFFFFFFFFFFFFFFFFFFFFFF'
+  - m_backGroundImage: {fileID: 21300000, guid: 8b1af99dc465d004cb51dcded40d61f4, type: 3}
+    m_isBackGround: 1
+    m_charcterLeftImage: {fileID: 10917, guid: 0000000000000000f000000000000000, type: 0}
+    m_charcterCenterImage: {fileID: 10917, guid: 0000000000000000f000000000000000, type: 0}
+    m_charcterRightImage: {fileID: 21300000, guid: 36050a36b49af174b829f54857db4b58, type: 3}
+    m_dialogName: GGGGGGGGGGGGGG
+    m_dialogText: 'GGGGGGGGGGGGGGGGGGGGGGGGGGG
+
+      GGGGGGGGGGGGGGGGGGGGGGGGGGG
+
+      GGGGGGGGGGGGGGGGGGGGGGGGggg'
