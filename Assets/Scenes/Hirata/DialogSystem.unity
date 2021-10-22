@@ -1780,9 +1780,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 24f597580567f6340ab4c3c1c1cfb447, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_isAuto: 1
-  m_autoSendingTime: 2
-  m_sendingSpeed: 2
+  m_isDebug: 1
+  m_isAuto: 0
+  m_autoSendingTime: 1
+  m_sendingSpeed: 1
   m_sendingLowSpeed: 1
   m_sendingMiddleSpeed: 0.2
   m_sendingHighSpeed: 0.01

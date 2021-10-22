@@ -8,6 +8,10 @@ using UnityEngine.UI;
 /// </summary>
 public class DialogManager : MonoBehaviour
 {
+    /// <summary>デバッグモード</summary>
+    [SerializeField]
+    bool m_isDebug = false;
+
     /// <summary>オート再生か否か</summary>
     [SerializeField]
     bool m_isAuto = false;
@@ -88,19 +92,34 @@ public class DialogManager : MonoBehaviour
     /// <summary>ダイアログの再生番号</summary>
     int m_dialogCount = 0;
 
+    /// <summary>テキスト再生コルーチンの保存先</summary>
+    IEnumerator m_saveSendingDialogText;
+
+    /// <summary>オートコルーチンの保存先</summary>
+    IEnumerator m_saveAutoSending;
+
+    /// <summary>オート再生時のタイマーフラグ</summary>
+    bool m_isAutoTimer = true;
+
     private void Start()
     {
-        m_dialogDataBase = m_dialogData.m_dialogData[m_dialogCount];
-        StartCoroutine(SendingDialogText(m_dialogDataBase));
+        if (m_isDebug)
+        {
+            StartSendingDialogText();
+        }
     }
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (m_isActiveDiaLog)
         {
-            SendDialogText();
+            if (Input.GetKeyDown(KeyCode.Space))
+            {
+                SendDialogText();
+            }
         }
 
+        //スマホ用(タップ)
         //if (Input.touchCount > 0)
         //{
         //    Touch touch = Input.GetTouch(0);
@@ -116,7 +135,6 @@ public class DialogManager : MonoBehaviour
     /// テキストの再生
     /// </summary>
     /// <param name="data">テキストデータ</param>
-    /// <param name="speed">再生スピード</param>
     IEnumerator SendingDialogText(DialogDataBase data)
     {
         //再生中の文字カウント
@@ -128,7 +146,7 @@ public class DialogManager : MonoBehaviour
         RefreshText(m_dialogName, m_dialogText);
         SetDialogSprite(data);
         m_dialogName.text = data.dialogName;
-        AddDialogLog(data.dialogName, data.dialogText);
+        m_dialogLogText.text += data.dialogName + "\n"; 
         
         while (sendingTextCount < data.dialogText.Length)
         {
@@ -137,6 +155,7 @@ public class DialogManager : MonoBehaviour
             if (!m_isSendingText)   //スキップ時の処理
             {
                 m_dialogText.text = data.dialogText;
+                m_dialogLogText.text += data.dialogText;
                 break;
             }
 
@@ -167,7 +186,13 @@ public class DialogManager : MonoBehaviour
 
         if (m_isAuto)
         {
-            StartCoroutine(AutoSending());
+            m_dialogCount++;
+            if (m_dialogCount > m_dialogData.m_dialogData.Count)
+            {
+                Debug.Log(m_dialogCount);
+                Debug.Log(m_dialogData.m_dialogData.Count);
+                StartCoroutine(AutoSending());
+            }
         }
         yield break;
 
@@ -175,6 +200,7 @@ public class DialogManager : MonoBehaviour
         void SendingText()
         {
             m_dialogText.text += data.dialogText[sendingTextCount];
+            m_dialogLogText.text += data.dialogText[sendingTextCount];
             timer = 0;
             sendingTextCount++;
         }
@@ -198,8 +224,7 @@ public class DialogManager : MonoBehaviour
                 //次の会話データを読み込む。次がなければ止まる
                 if (m_dialogCount < m_dialogData.m_dialogData.Count)
                 {
-                    m_dialogDataBase = m_dialogData.m_dialogData[m_dialogCount];
-                    StartCoroutine(SendingDialogText(m_dialogDataBase));
+                    StartSendingDialogText();
                 }
             }
         }
@@ -212,21 +237,22 @@ public class DialogManager : MonoBehaviour
     IEnumerator AutoSending()
     {
         float timer = 0;
-        m_dialogCount++;
 
         if (m_dialogCount >= m_dialogData.m_dialogData.Count)
         {
             yield break;
         }
 
-        while (true)
+        while (m_isAutoTimer)
         {
             timer += Time.deltaTime;
 
             if (timer > m_autoSendingTime)
             {
-                m_dialogDataBase = m_dialogData.m_dialogData[m_dialogCount];
-                StartCoroutine(SendingDialogText(m_dialogDataBase));
+                if (m_dialogCount < m_dialogData.m_dialogData.Count)
+                {
+                    StartSendingDialogText();
+                }
                 break;
             }
             yield return new WaitForEndOfFrame();
@@ -299,19 +325,45 @@ public class DialogManager : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// 会話を再生する
+    /// </summary>
+    void StartSendingDialogText()
+    {
+        m_dialogDataBase = m_dialogData.m_dialogData[m_dialogCount];
+        m_saveSendingDialogText = SendingDialogText(m_dialogDataBase);
+        m_saveAutoSending = AutoSending();
+        StartCoroutine(m_saveSendingDialogText);
+    }
+
+    /// <summary>
+    /// 会話ログを起動する
+    /// </summary>
     public void ActiveLog()
     {
         if (!m_isActiveDiaLog)
         {
+            m_isSendingText = false;
             m_isActiveDiaLog = true;
             m_dialogLogObject.SetActive(true);
-            //StopCoroutine("SendingDialogText");
+            StopCoroutine(m_saveSendingDialogText);
+            if (m_isAuto)
+            {
+                m_isAutoTimer = false;
+                StopCoroutine(m_saveAutoSending);
+            }
         }
         else
         {
+            m_isSendingText = true;
             m_isActiveDiaLog = false;
             m_dialogLogObject.SetActive(false);
-            //StopCoroutine("SendingDialogText");
+            StartCoroutine(m_saveSendingDialogText);
+            if (m_isAuto)
+            {
+                m_isAutoTimer = true;
+                StartCoroutine(m_saveAutoSending);
+            }
         }
     }
 
@@ -321,10 +373,9 @@ public class DialogManager : MonoBehaviour
     /// <param name="data">ダイアログデータ</param>
     /// <param name="startIndex">開始する番号</param>
     /// <param name="endIndex">終了する番号</param>
-    public void StartDialog(DialogDataBase data, int startIndex, int endIndex)
+    public void StartDialog(DialogData data)
     {
         m_dialogDisplay.SetActive(true);
-        m_dialogCount = startIndex;
     }
 
     /// <summary>
