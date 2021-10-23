@@ -14,7 +14,7 @@ public class QuizDataManager : SingletonMonoBehaviour<QuizDataManager>
 
     [Header("四択クイズのデータ")]
     [SerializeField]
-    FourChoicesQuizData[] m_fourChoicesQuizDatas = default;
+    FourChoicesQuizData m_fourChoicesQuizData = default;
 
     QuizMasterDataClass<FourChoicesQuiz> m_fourChoicesQuisMaster;
     delegate void LoadQuizDataCallback<T>(T data);
@@ -48,10 +48,12 @@ public class QuizDataManager : SingletonMonoBehaviour<QuizDataManager>
             return;
         }
 
-        for (int i = 0; i < m_fourChoicesQuizDatas.Length; i++)
-        {
-            m_fourChoicesQuizDatas[i].FourChoicesQuiz = m_fourChoicesQuisMaster.Data[i];
-        }
+        m_fourChoicesQuizData.FourChoicesQuiz = m_fourChoicesQuisMaster.Data;
+
+        //for (int i = 0; i < m_fourChoicesQuizDatas.Length; i++)
+        //{
+        //    m_fourChoicesQuizDatas[i].FourChoicesQuiz = m_fourChoicesQuisMaster.Data[i];
+        //}
         OnData = true;
     }
 

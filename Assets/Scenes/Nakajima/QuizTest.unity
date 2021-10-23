@@ -167,12 +167,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5b206c78c69b3504ea0646e84f3680d8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_isVersionUpFlag: 1
-  m_fourChoicesQuizDatas:
-  - {fileID: 11400000, guid: b6ac0cc908b950847b54e4960c32670f, type: 2}
-  - {fileID: 11400000, guid: 31cceef78fe22bf4bb3b4f30482e520d, type: 2}
-  - {fileID: 11400000, guid: cf952ec8a688ae94c974cc66e708036e, type: 2}
-  - {fileID: 11400000, guid: 38fcf4dcc487b4c4c933e0268bee0baa, type: 2}
+  m_isVersionUpFlag: 0
+  m_fourChoicesQuizData: {fileID: 11400000, guid: b6ac0cc908b950847b54e4960c32670f, type: 2}
 --- !u!114 &5826920
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -250,7 +246,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 5, y: 173}
+  m_AnchoredPosition: {x: -82, y: 364}
   m_SizeDelta: {x: 525, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &325172370
@@ -290,11 +286,11 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 25
+    m_FontSize: 55
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 2
-    m_MaxSize: 42
+    m_MaxSize: 67
     m_Alignment: 0
     m_AlignByGeometry: 0
     m_RichText: 1
@@ -560,7 +556,7 @@ MonoBehaviour:
   m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
-  m_ReferenceResolution: {x: 1080, y: 1920}
+  m_ReferenceResolution: {x: 1920, y: 1200}
   m_ScreenMatchMode: 0
   m_MatchWidthOrHeight: 0
   m_PhysicalUnit: 3

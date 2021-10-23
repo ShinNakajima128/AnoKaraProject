@@ -7,7 +7,7 @@ using MasterData;
 public class FourChoicesQuizData : ScriptableObject
 {
     [SerializeField]
-    FourChoicesQuiz m_fourChoicesQuiz = default;
+    FourChoicesQuiz[] m_fourChoicesQuiz = default;
 
-    public FourChoicesQuiz FourChoicesQuiz { get => m_fourChoicesQuiz; set => m_fourChoicesQuiz = value; }
+    public FourChoicesQuiz[] FourChoicesQuiz { get => m_fourChoicesQuiz; set => m_fourChoicesQuiz = value; }
 }
