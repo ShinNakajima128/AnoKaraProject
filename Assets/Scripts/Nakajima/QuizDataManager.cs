@@ -56,7 +56,7 @@ public class QuizDataManager : SingletonMonoBehaviour<QuizDataManager>
             Debug.LogError("クイズデータの時代を指定してください");
             return;
         }
-        Network.WebRequest.Request<Network.WebRequest.GetString>("https://script.google.com/macros/s/AKfycbwMDfg7S09aVHqyLve2ypq1jwgbYDgIZT25abH-Yp3oHIhtieA/exec?Sheet=" + file, Network.WebRequest.ResultType.String, (string json) =>
+        Network.WebRequest.Request<Network.WebRequest.GetString>("https://script.google.com/macros/s/AKfycbwMDfg7S09aVHqyLve2ypq1jwgbYDgIZT25abH-Yp3oHIhtieA/exec?sheet=" + file, Network.WebRequest.ResultType.String, (string json) =>
         {
             var dldata = JsonUtility.FromJson<T>(json);
             callback(dldata);
