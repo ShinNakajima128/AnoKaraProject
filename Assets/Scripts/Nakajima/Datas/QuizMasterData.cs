@@ -8,7 +8,8 @@ using System;
 /// </summary>
 namespace MasterData
 {
-    public enum PeriodType
+    /// <summary> 時代の種類 </summary>
+    public enum PeriodTypes
     {
         None,
         Jomon_Yayoi,

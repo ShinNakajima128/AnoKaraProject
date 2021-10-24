@@ -7,11 +7,12 @@ using MasterData;
 public class FourChoicesQuizData : ScriptableObject
 {
     [SerializeField]
-    PeriodType m_periodName = default;
+    PeriodTypes m_periodType = default;
 
     [SerializeField]
     FourChoicesQuiz[] m_fourChoicesQuiz = default;
 
-    public string PeriodName => m_periodName.ToString();
+    public string PeriodTypeName => m_periodType.ToString();
+    public PeriodTypes PeriodType => m_periodType;
     public FourChoicesQuiz[] FourChoicesQuiz { get => m_fourChoicesQuiz; set => m_fourChoicesQuiz = value; }
 }

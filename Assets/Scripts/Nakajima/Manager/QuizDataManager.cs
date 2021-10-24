@@ -8,13 +8,13 @@ using MasterData;
 /// </summary>
 public class QuizDataManager : SingletonMonoBehaviour<QuizDataManager>
 {
-    [Header("四択クイズのデータ")]
+    [Header("クイズデータ")]
     [SerializeField]
-    FourChoicesQuizData m_fourChoicesQuizData = default;
+    AllQuizData m_allQuizData = default;
 
     delegate void LoadQuizDataCallback<T>(T data);
 
-    public FourChoicesQuiz[] FourChoicesQuizMaster => m_fourChoicesQuizData.FourChoicesQuiz;
+    public FourChoicesQuizData[] FourChoicesQuizDatas => m_allQuizData.FourChoicesQuizDatas;
 
     void Awake()
     {
@@ -32,15 +32,19 @@ public class QuizDataManager : SingletonMonoBehaviour<QuizDataManager>
     /// <param name="sheetName"> シート名 </param>
     public void LoadDataFromSpreadsheet(string sheetName)
     {
-        LoadQuizMasterData(sheetName, (QuizMasterDataClass<FourChoicesQuiz> data) =>
+        for (int i = 0; i < m_allQuizData.FourChoicesQuizDatas.Length; i++)
         {
-            if (m_fourChoicesQuizData.FourChoicesQuiz != null)
+            if (m_allQuizData.FourChoicesQuizDatas[i].PeriodTypeName == sheetName)  //プロパティとシート名が一致したら
             {
-                m_fourChoicesQuizData.FourChoicesQuiz = null;
+                LoadQuizMasterData(sheetName, (QuizMasterDataClass<FourChoicesQuiz> data) =>
+                {
+                    m_allQuizData.FourChoicesQuizDatas[i].FourChoicesQuiz = data.Data;  //データ更新
+                });
+                return;
             }
-            var fourChoicesQuisMaster = data;
-            m_fourChoicesQuizData.FourChoicesQuiz = fourChoicesQuisMaster.Data;
-        });
+        }
+        //データがロードできなかった場合
+        Debug.LogError("データをロードできませんでした");　
     }
 
     /// <summary>

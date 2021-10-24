@@ -17,7 +17,7 @@ public class FourChoicesQuizDataCustomInspector : Editor
         
         if (GUILayout.Button("Update"))
         {
-            QuizDataManager.Instance.LoadDataFromSpreadsheet(m_fourChoicesQuizData.PeriodName);
+            QuizDataManager.Instance.LoadDataFromSpreadsheet(m_fourChoicesQuizData.PeriodTypeName);
         }
         base.OnInspectorGUI();
         EditorUtility.SetDirty(m_fourChoicesQuizData);
