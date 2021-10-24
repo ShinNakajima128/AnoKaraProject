@@ -18,9 +18,8 @@ public class QuizManager : MonoBehaviour
     [SerializeField]
     float m_nextQuestionTimer = 2.0f;
 
-    [Header("ゲーム画面の各オブジェクト")]
-    #region
-    [SerializeField]
+    #region display
+    [SerializeField, Header("ゲーム画面の各オブジェクト")]
     GameObject m_quizPanel = default;
 
     [SerializeField]
@@ -37,6 +36,9 @@ public class QuizManager : MonoBehaviour
 
     [SerializeField]
     Image[] m_judgeImages = default;
+
+    [SerializeField]
+    Text m_countDown = default;
     #endregion
     string m_playerAnswer = default;
     string m_correctAnswer = default;
@@ -64,6 +66,59 @@ public class QuizManager : MonoBehaviour
         StartCoroutine(FourQuizSet());
     }
 
+    #region Method
+    /// <summary>
+    /// 解答する
+    /// </summary>
+    /// <param name="answerType"> 選択肢の種類 </param>
+    public void SelectAnswer(int answerType)
+    {
+        m_timeLimit.text = "";
+
+        switch (answerType)
+        {
+            case 0:
+                m_playerAnswer = "解答無し";
+                break;
+            case 1:
+                m_playerAnswer = m_choices[0].text;
+                break;
+            case 2:
+                m_playerAnswer = m_choices[1].text;
+                break;
+            case 3:
+                m_playerAnswer = m_choices[2].text;
+                break;
+            case 4:
+                m_playerAnswer = m_choices[3].text;
+                break;
+        }
+        Debug.Log("プレイヤーの回答 : " + m_playerAnswer);
+        Debug.Log("正しい答え : " + m_correctAnswer);
+        m_isAnswered = true;
+    }
+
+    /// <summary>
+    /// 判定の結果を表示する
+    /// </summary>
+    /// <param name="correct"> 判定 </param>
+    void ShowJudge(bool correct)
+    {
+        //正解
+        if (correct)
+        {
+            m_JudgePanel.SetActive(true);
+            m_judgeImages[0].enabled = true;
+        }
+        //不正解
+        else
+        {
+            m_JudgePanel.SetActive(true);
+            m_judgeImages[1].enabled = true;
+        }
+    }
+    #endregion
+
     IEnumerator FourQuizSet()
     {
         FourChoicesQuiz[] quizData = default;
@@ -86,6 +141,8 @@ public class QuizManager : MonoBehaviour
             Debug.LogError("クイズデータが見つかりませんでした。");
             yield break;
         }
+
+        yield return StartCoroutine(CountDown());
 
         m_quizPanel.SetActive(true);
 
@@ -121,37 +178,6 @@ public class QuizManager : MonoBehaviour
     }
 
     /// <summary>
-    /// 解答する
-    /// </summary>
-    /// <param name="answerType"> 選択肢の種類 </param>
-    public void SelectAnswer(int answerType)
-    {
-        m_timeLimit.text = "";
-
-        switch (answerType)
-        {
-            case 0:
-                m_playerAnswer = "解答無し";
-                break;
-            case 1:
-                m_playerAnswer = m_choices[0].text;
-                break;
-            case 2:
-                m_playerAnswer = m_choices[1].text;
-                break;
-            case 3:
-                m_playerAnswer = m_choices[2].text;
-                break;
-            case 4:
-                m_playerAnswer = m_choices[3].text;
-                break;
-        }
-        Debug.Log("プレイヤーの回答 : " + m_playerAnswer);
-        Debug.Log("正しい答え : " + m_correctAnswer);
-        m_isAnswered = true;
-    }
-
-    /// <summary>
     /// 判定する
     /// </summary>
     /// <returns></returns>
@@ -175,24 +201,21 @@ public class QuizManager : MonoBehaviour
         }
         m_JudgePanel.SetActive(false);
     }
-
-    /// <summary>
-    /// 判定の結果を表示する
-    /// </summary>
-    /// <param name="correct"> 判定 </param>
-    void ShowJudge(bool correct)
+    
+    IEnumerator CountDown()
     {
-        //正解
-        if (correct)    
-        {
-            m_JudgePanel.SetActive(true);
-            m_judgeImages[0].enabled = true;
-        }
-        //不正解
-        else
-        {
-            m_JudgePanel.SetActive(true);
-            m_judgeImages[1].enabled = true;
-        }
+        m_countDown.enabled = true;
+        m_countDown.text = "3";
+        
+        yield return new WaitForSeconds(1.0f);
+        m_countDown.text = "2";
+
+        yield return new WaitForSeconds(1.0f);
+        m_countDown.text = "1";
+
+        yield return new WaitForSeconds(1.0f);
+        m_countDown.text = "スタート！";
+        yield return new WaitForSeconds(1.0f);
+        m_countDown.enabled = false;
     }
 }
