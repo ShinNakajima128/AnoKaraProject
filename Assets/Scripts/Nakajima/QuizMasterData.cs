@@ -11,7 +11,7 @@ namespace MasterData
     public enum PeriodType
     {
         None,
-        Jomon,
+        Jomon_Yayoi,
         Asuka,
         Heian,
         Kamakura,
