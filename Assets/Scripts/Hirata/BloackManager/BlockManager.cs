@@ -5,10 +5,6 @@ using UnityEngine.UI;
 
 public class BlockManager : MonoBehaviour
 {
-    [SerializeField]
-    Button[] m_buttons;
-    
-
     void Start()
     {
         
