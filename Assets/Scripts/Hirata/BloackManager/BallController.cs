@@ -25,10 +25,9 @@ public class BallController : MonoBehaviour
     [SerializeField]
     float m_addSpeed = 5f;
 
-    void Start()
+    void Awake()
     {
         m_rb2d = GetComponent<Rigidbody2D>();
-        StartPush();
     }
 
     void Update()
@@ -44,6 +43,14 @@ public class BallController : MonoBehaviour
     /// </summary>
     public void StartPush()
     {
-        m_rb2d.AddForce(m_startDirection.normalized * m_startPowar, ForceMode2D.Impulse);
+        //スタート方向固定ver
+        //m_rb2d.AddForce(m_startDirection.normalized * m_startPowar, ForceMode2D.Impulse);
+        
+        //ランダム方向ver
+        float x = Random.Range(-0.5f, 0.5f);
+        float y = Random.Range(0, 1f);
+        Vector2 dir = Vector2.right * x + Vector2.up * y;
+        dir = dir.normalized;
+        m_rb2d.AddForce(dir * m_startPowar, ForceMode2D.Impulse);
     }
 }
