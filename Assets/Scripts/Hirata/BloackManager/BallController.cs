@@ -2,9 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-/// <summary>
-/// ブロック崩しのボール
-/// </summary>
+/// <summary>ブロック崩しのボール</summary>
 [RequireComponent(typeof(Rigidbody2D))]
 public class BallController : MonoBehaviour
 {

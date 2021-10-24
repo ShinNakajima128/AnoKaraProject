@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>パドルコントローラー</summary>
 [RequireComponent(typeof(Rigidbody2D))]
 public class PaddleController : MonoBehaviour
 {
