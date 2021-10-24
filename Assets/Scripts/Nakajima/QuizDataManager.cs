@@ -8,19 +8,13 @@ using MasterData;
 /// </summary>
 public class QuizDataManager : SingletonMonoBehaviour<QuizDataManager>
 {
-    [Header("クイズデータを更新したかどうかのフラグ")]
-    [SerializeField]
-    bool m_isVersionUpFlag = false;
-
     [Header("四択クイズのデータ")]
     [SerializeField]
     FourChoicesQuizData m_fourChoicesQuizData = default;
 
-    QuizMasterDataClass<FourChoicesQuiz> m_fourChoicesQuisMaster;
     delegate void LoadQuizDataCallback<T>(T data);
 
-    public FourChoicesQuiz[] FourChoicesQuizMaster => m_fourChoicesQuisMaster.Data;
-    public bool OnData { get; private set; }
+    public FourChoicesQuiz[] FourChoicesQuizMaster => m_fourChoicesQuizData.FourChoicesQuiz;
 
     void Awake()
     {
@@ -32,29 +26,21 @@ public class QuizDataManager : SingletonMonoBehaviour<QuizDataManager>
         DontDestroyOnLoad(gameObject);
     }
 
-    void Start()
-    {
-        LoadQuizMasterData("Jomon", (QuizMasterDataClass<FourChoicesQuiz> data) => m_fourChoicesQuisMaster = data);
-    }
-
     /// <summary>
-    /// 各クイズのScriptableObjectにデータをセットする
+    /// スプレッドシートからデータをロードする。※この関数はEditor上でのみ使用する関数なので、ゲーム中に実行されるクラスでは使わないでください。
     /// </summary>
-    void SetData()
+    /// <param name="sheetName"> シート名 </param>
+    public void LoadDataFromSpreadsheet(string sheetName)
     {
-        if (!m_isVersionUpFlag)
+        LoadQuizMasterData(sheetName, (QuizMasterDataClass<FourChoicesQuiz> data) =>
         {
-            OnData = true;
-            return;
-        }
-
-        m_fourChoicesQuizData.FourChoicesQuiz = m_fourChoicesQuisMaster.Data;
-
-        //for (int i = 0; i < m_fourChoicesQuizDatas.Length; i++)
-        //{
-        //    m_fourChoicesQuizDatas[i].FourChoicesQuiz = m_fourChoicesQuisMaster.Data[i];
-        //}
-        OnData = true;
+            if (m_fourChoicesQuizData.FourChoicesQuiz != null)
+            {
+                m_fourChoicesQuizData.FourChoicesQuiz = null;
+            }
+            var fourChoicesQuisMaster = data;
+            m_fourChoicesQuizData.FourChoicesQuiz = fourChoicesQuisMaster.Data;
+        });
     }
 
     /// <summary>
@@ -65,23 +51,16 @@ public class QuizDataManager : SingletonMonoBehaviour<QuizDataManager>
     /// <param name="callback"></param>
     void LoadQuizMasterData<T>(string file, LoadQuizDataCallback<T> callback)
     {
-        var data = LocalData.Load<T>(file);
-        if (data == null || m_isVersionUpFlag)
+        if (file == "None")
         {
-            Network.WebRequest.Request<Network.WebRequest.GetString>("https://script.google.com/macros/s/AKfycbyinSwGwk5ddGQbX158tmosL6CsOPIkEf0ka2xg/exec?Sheet=" + file, Network.WebRequest.ResultType.String, (string json) =>
-            {
-                var dldata = JsonUtility.FromJson<T>(json);
-                LocalData.Save<T>(file, dldata);
-                callback(dldata);
-                Debug.Log("Network download. : " + file + " / " + json + "/" + dldata);
-                SetData();
-            });
+            Debug.LogError("クイズデータの時代を指定してください");
+            return;
         }
-        else
+        Network.WebRequest.Request<Network.WebRequest.GetString>("https://script.google.com/macros/s/AKfycbwMDfg7S09aVHqyLve2ypq1jwgbYDgIZT25abH-Yp3oHIhtieA/exec?Sheet=" + file, Network.WebRequest.ResultType.String, (string json) =>
         {
-            Debug.Log("Local load. : " + file + " / " + data);
-            callback(data);
-            SetData();
-        }
+            var dldata = JsonUtility.FromJson<T>(json);
+            callback(dldata);
+            Debug.Log("Network download. : " + file + " / " + json + "/" + dldata);
+        });
     }
 }

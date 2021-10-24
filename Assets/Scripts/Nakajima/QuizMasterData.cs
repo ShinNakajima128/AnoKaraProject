@@ -8,9 +8,19 @@ using System;
 /// </summary>
 namespace MasterData
 {
+    public enum PeriodType
+    {
+        None,
+        Jomon,
+        Asuka,
+        Heian,
+        Kamakura,
+        Sengoku,
+        Edo
+    }
+
     public class QuizMasterDataClass<T>
     {
-        public string Version;
         public T[] Data;
     }
 

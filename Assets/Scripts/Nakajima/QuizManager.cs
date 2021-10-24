@@ -48,10 +48,6 @@ public class QuizManager : MonoBehaviour
 
     IEnumerator FourQuizSet()
     {
-        while (!QuizDataManager.Instance.OnData)
-        {
-            yield return null;
-        }
         var quizData = QuizDataManager.Instance.FourChoicesQuizMaster;
         
         for (int i = 0; i < quizData.Length; i++)
