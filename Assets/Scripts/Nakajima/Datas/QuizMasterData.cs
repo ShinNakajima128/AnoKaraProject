@@ -8,9 +8,20 @@ using System;
 /// </summary>
 namespace MasterData
 {
+    /// <summary> 時代の種類 </summary>
+    public enum PeriodTypes
+    {
+        None,
+        Jomon_Yayoi,
+        Asuka,
+        Heian,
+        Kamakura,
+        Sengoku,
+        Edo
+    }
+
     public class QuizMasterDataClass<T>
     {
-        public string Version;
         public T[] Data;
     }
 
