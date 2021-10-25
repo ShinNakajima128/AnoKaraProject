@@ -42,6 +42,10 @@ public class BlockGameManager : MonoBehaviour
     /// <summary>ゲーム中か否か</summary>
     bool m_isGame = false;
 
+    /// <summary>スタートボタン</summary>
+    [SerializeField]
+    Button m_startButton;
+
     /// <summary>シェイクボタン</summary>
     [SerializeField]
     Button m_shakeButton;
@@ -111,18 +115,20 @@ public class BlockGameManager : MonoBehaviour
     public void GameStart()
     {
         m_isGame = true;
+        m_startButton.interactable = false;
         m_ballCon.StartPush();
     }
 
     /// <summary>リスタートする時の処理</summary>
     public void ReStart()
     {
-        m_isGame = true;
+        //m_isGame = true;
+        m_startButton.interactable = true;
+        StartCoroutine(ButtonLock());
         m_gameClearUi.SetActive(false);
         m_gameOverUi.SetActive(false);
         m_ball.SetActive(true);
         SetObj(m_stagePrefab, m_sprite);
-        
         Debug.Log("リスタート");
     }
 
@@ -130,6 +136,7 @@ public class BlockGameManager : MonoBehaviour
     void GameClear()
     {
         m_isGame = false;
+        m_startButton.interactable = false;
         StartCoroutine(ButtonLock());
         m_gameClearUi.SetActive(true);
         Debug.Log("ゲームクリア");
@@ -141,6 +148,7 @@ public class BlockGameManager : MonoBehaviour
         m_ball.gameObject.SetActive(false);
         m_ball.gameObject.transform.position = new Vector3(0, -3, 0);
         m_isGame = false;
+        m_startButton.interactable = false;
         StartCoroutine(ButtonLock());
         m_gameOverUi.SetActive(true);
         Debug.Log("ゲームオーバー");
