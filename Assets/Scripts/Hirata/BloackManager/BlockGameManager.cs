@@ -5,13 +5,36 @@ using UnityEngine.UI;
 
 public class BlockGameManager : MonoBehaviour
 {
-    /// <summary>ステージのオブジェクト</summary>
+    /// <summary>デバッグモード</summary>
     [SerializeField]
-    Transform m_stageObj;
+    bool m_isDebug = false;
+
+    /// <summary>ステージのオブジェクト</summary>
+    GameObject m_stageObj;
+
+    /// <summary>ステージのプレファブ</summary>
+    [SerializeField]
+    GameObject m_stagePrefab;
+
+    /// <summary>目標の画像</summary>
+    [SerializeField]
+    Sprite m_sprite;
+
+    /// <summary>目標の画像置き場</summary>
+    [SerializeField]
+    SpriteRenderer m_targetSprite;
 
     /// <summary>ボールのオブジェクト</summary>
     [SerializeField]
     GameObject m_ball;
+
+    /// <summary>ゲームクリアした時のUI</summary>
+    [SerializeField]
+    GameObject m_gameClearUi;
+
+    /// <summary>ゲームオーバーした時のUI</summary>
+    [SerializeField]
+    GameObject m_gameOverUi;
 
     /// <summary>BallController</summary>
     BallController m_ballCon;
@@ -26,7 +49,7 @@ public class BlockGameManager : MonoBehaviour
 
     void Start()
     {
-        GameStart();
+        SetObj(m_stagePrefab, m_sprite);
     }
 
     void Update()
@@ -46,50 +69,71 @@ public class BlockGameManager : MonoBehaviour
     {
         if (m_isGame)
         {
-            if (m_stageObj.childCount == 0)
+            if (m_stageObj.transform.childCount == 0)
             {
+                m_ball.SetActive(false);
                 GameClear();
             }
         }
     }
 
     /// <summary>
-    /// BallControllerの開始する関数を呼ぶ
+    /// ステージと画像を設定する
+    /// ゲーム開始前に呼んでもらう
     /// </summary>
-    void GameStart()
+    public void SetObj(GameObject obj, Sprite sprite)
+    {
+        m_stageObj = Instantiate(obj);
+        m_stageObj.transform.position = Vector3.zero;
+        m_targetSprite.sprite = sprite;
+    }
+
+    /// <summary>
+    /// ゲームを開始する関数
+    /// SetObjを呼んでから、この関数を呼ぶ
+    /// </summary>
+    public void GameStart()
     {
         m_isGame = true;
         m_ballCon.StartPush();
     }
 
     /// <summary>リスタートする時の処理</summary>
-    void ReStart()
+    public void ReStart()
     {
+        m_gameClearUi.SetActive(false);
+        m_gameOverUi.SetActive(false);
         Debug.Log("リスタート");
         m_ball.SetActive(true);
-        GameStart();
+        SetObj(m_stagePrefab, m_sprite);
     }
 
     /// <summary>クリアした時の処理</summary>
     void GameClear()
     {
         m_isGame = false;
+        m_gameClearUi.SetActive(true);
         Debug.Log("ゲームクリア");
     }
 
     /// <summary>ゲームオーバーした時の処理</summary>
     void GameOver()
     {
+        m_ball.gameObject.SetActive(false);
+        m_ball.gameObject.transform.position = new Vector3(0, -3, 0);
         m_isGame = false;
+        m_gameOverUi.SetActive(true);
         Debug.Log("ゲームオーバー");
+        if (m_isDebug)
+        {
+            ReStart();
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.tag == "Ball")
         {
-            collision.gameObject.SetActive(false);
-            collision.gameObject.transform.position = new Vector3(0, -3, 0);
             GameOver();
         }
     }
