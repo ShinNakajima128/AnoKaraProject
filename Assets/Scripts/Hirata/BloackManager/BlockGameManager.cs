@@ -42,6 +42,21 @@ public class BlockGameManager : MonoBehaviour
     /// <summary>ゲーム中か否か</summary>
     bool m_isGame = false;
 
+    /// <summary>シェイクボタン</summary>
+    [SerializeField]
+    Button m_shakeButton;
+
+    /// <summary>シェイクボタンテキスト</summary>
+    [SerializeField]
+    Text m_shakeButtonText;
+
+    /// <summary>シェイクボタンのクールタイム</summary>
+    [SerializeField]
+    float m_shakeCoolTime = 5;
+
+    /// <summary>シェイクできるか否か</summary>
+    bool m_isShake = true;
+
     void Awake()
     {
         m_ballCon = m_ball.GetComponent<BallController>();
@@ -50,6 +65,7 @@ public class BlockGameManager : MonoBehaviour
     void Start()
     {
         SetObj(m_stagePrefab, m_sprite);
+        StartCoroutine(ButtonLock());
     }
 
     void Update()
@@ -101,17 +117,20 @@ public class BlockGameManager : MonoBehaviour
     /// <summary>リスタートする時の処理</summary>
     public void ReStart()
     {
+        m_isGame = true;
         m_gameClearUi.SetActive(false);
         m_gameOverUi.SetActive(false);
-        Debug.Log("リスタート");
         m_ball.SetActive(true);
         SetObj(m_stagePrefab, m_sprite);
+        
+        Debug.Log("リスタート");
     }
 
     /// <summary>クリアした時の処理</summary>
     void GameClear()
     {
         m_isGame = false;
+        StartCoroutine(ButtonLock());
         m_gameClearUi.SetActive(true);
         Debug.Log("ゲームクリア");
     }
@@ -122,12 +141,64 @@ public class BlockGameManager : MonoBehaviour
         m_ball.gameObject.SetActive(false);
         m_ball.gameObject.transform.position = new Vector3(0, -3, 0);
         m_isGame = false;
+        StartCoroutine(ButtonLock());
         m_gameOverUi.SetActive(true);
         Debug.Log("ゲームオーバー");
         if (m_isDebug)
         {
             ReStart();
         }
+    }
+
+    /// <summary>
+    /// シェイクボタンのクールタイム
+    /// シェイクボタンに設定する
+    /// </summary>
+    public void IsShake()
+    {
+        if (m_isShake)
+        {
+            m_isShake = false;
+            m_shakeButton.interactable = false;
+            StartCoroutine(ShakeTimer());
+        }
+    }
+
+    /// <summary>シェイクボタンのクールダウンタイマー</summary>
+    /// <returns></returns>
+    IEnumerator ShakeTimer()
+    {
+        float timer = m_shakeCoolTime;
+        while (!m_isShake)
+        {
+            timer -= Time.deltaTime;
+            if (timer > 0)
+            {
+                m_shakeButtonText.text = timer.ToString("f1");
+            }
+            else
+            {
+                m_isShake = true;
+                m_shakeButtonText.text = "0";
+            }
+            yield return new WaitForEndOfFrame();
+        }
+        m_shakeButton.interactable = true;
+        m_shakeButtonText.text = "Shake";
+        yield break;
+    }
+
+    /// <summary>シェイクボタンにゲーム開始までロックをかける</summary>
+    /// <returns></returns>
+    IEnumerator ButtonLock()
+    {
+        while (!m_isGame)
+        {
+            m_shakeButton.interactable = false;
+            yield return new WaitForEndOfFrame();
+        }
+        m_shakeButton.interactable = true;
+        yield break;
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
