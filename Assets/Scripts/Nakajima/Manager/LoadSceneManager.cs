@@ -161,18 +161,27 @@ public class LoadSceneManager : MonoBehaviour
             yield return null;
         }
     }
-    
-    public void FadeInPanel()
+
+    /// <summary>
+    /// フェードイン(画面を徐々に表示)する
+    /// </summary>
+    /// <param name="callBack"> フェードイン後のコールバック </param>
+    public void FadeInPanel(Action callBack = null)
     {
         m_isFadeIn = true;
-        m_currentFade = StartCoroutine(FadeIn());
+        m_currentFade = StartCoroutine(FadeIn(callBack));
     }
 
-    public void FadeOutPanel()
+    /// <summary>
+    /// フェードアウト(画面が徐々に暗転)する
+    /// </summary>
+    /// <param name="action"> フェードアウト後のコールバック </param>
+    public void FadeOutPanel(Action callBack = null)
     {
         m_isFadeOut = true;
-        m_currentFade = StartCoroutine(FadeOut());
+        m_currentFade = StartCoroutine(FadeOut(callBack));
     }
+
     /// <summary>
     /// アルファ値をImageにセットする
     /// </summary>
