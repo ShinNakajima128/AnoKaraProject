@@ -10,13 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 880b9701897616147bbd840a54947f8e, type: 3}
-  m_Name: Jomon4
+  m_Name: Kamakura
   m_EditorClassIdentifier: 
-  m_fourChoicesQuiz:
-    Id: 4
-    Question: "\u9752\u9285\u5668\u306E\u3046\u3061\u3001\u65E5\u672C\u72EC\u81EA\u306E\u3082\u306E\u306F\u3069\u308C\u304B\uFF1F"
-    Choices1: "\u9285\u5263"
-    Choices2: "\u9285\u9438"
-    Choices3: "\u9285\u93E1"
-    Choices4: "\u9285\u76FE"
-    Answer: "\u9285\u9438"
+  m_periodType: 4
+  m_fourChoicesQuiz: []
