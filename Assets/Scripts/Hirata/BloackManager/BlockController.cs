@@ -5,10 +5,6 @@ using UnityEngine;
 /// <summary>ブロックコントローラー</summary>
 public class BlockController : MonoBehaviour
 {
-    /// <summary>壊れるかどうか</summary>
-    [SerializeField]
-    bool m_isDestroy = true;
-
     /// <summary>ブロックの耐久力</summary>
     [SerializeField]
     int m_life = 0;
@@ -17,14 +13,7 @@ public class BlockController : MonoBehaviour
     {
         if (collision.gameObject.tag == "Ball")
         {
-            if (m_isDestroy)
-            {
-                m_life--;
-                if (m_life <= 0)
-                {
-                    Destroy(gameObject);
-                }
-            }
+            Hit();
         }
     }
 
@@ -32,11 +21,19 @@ public class BlockController : MonoBehaviour
     {
         if (collision.gameObject.tag == "Ball")
         {
-            m_life--;
-            if (m_life <= 0)
-            {
-                Destroy(gameObject);
-            }
+            Hit();
+        }
+    }
+
+    /// <summary>
+    /// 当てられた時の処理
+    /// </summary>
+    void Hit()
+    {
+        m_life--;
+        if (m_life <= 0)
+        {
+            Destroy(gameObject);
         }
     }
 }
