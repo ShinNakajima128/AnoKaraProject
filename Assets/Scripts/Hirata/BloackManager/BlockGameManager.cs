@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+/// <summary>ブロック崩しのゲームマネージャー</summary>
 public class BlockGameManager : MonoBehaviour
 {
     /// <summary>デバッグモード</summary>
@@ -68,13 +69,11 @@ public class BlockGameManager : MonoBehaviour
 
     void Start()
     {
-        SetObj(m_stagePrefab, m_sprite);
-        StartCoroutine(ButtonLock());
-    }
-
-    void Update()
-    {
-        
+        if (m_isDebug)
+        {
+            Debug.LogWarning("!!!デバッグモード!!!");
+            SetObj(m_stagePrefab, m_sprite);
+        }
     }
 
     void FixedUpdate()
@@ -98,11 +97,23 @@ public class BlockGameManager : MonoBehaviour
     }
 
     /// <summary>
+    /// 次のシーン移動する
+    /// </summary>
+    public void SceneMove(string scene)
+    {
+        LoadSceneManager.AnyLoadScene(scene, () =>
+        {
+            LoadSceneManager.FadeOutPanel();
+        });
+    }
+
+    /// <summary>
     /// ステージと画像を設定する
     /// ゲーム開始前に呼んでもらう
     /// </summary>
     public void SetObj(GameObject obj, Sprite sprite)
     {
+        StartCoroutine(ButtonLock());
         m_stageObj = Instantiate(obj);
         m_stageObj.transform.position = Vector3.zero;
         m_targetSprite.sprite = sprite;
@@ -110,7 +121,7 @@ public class BlockGameManager : MonoBehaviour
 
     /// <summary>
     /// ゲームを開始する関数
-    /// SetObjを呼んでから、この関数を呼ぶ
+    /// ボタンに設定
     /// </summary>
     public void GameStart()
     {
@@ -119,39 +130,45 @@ public class BlockGameManager : MonoBehaviour
         m_ballCon.StartPush();
     }
 
-    /// <summary>リスタートする時の処理</summary>
+    /// <summary>
+    /// リスタートする時の処理
+    /// </summary>
     public void ReStart()
     {
-        //m_isGame = true;
         m_startButton.interactable = true;
         StartCoroutine(ButtonLock());
         m_gameClearUi.SetActive(false);
         m_gameOverUi.SetActive(false);
         m_ball.SetActive(true);
-        SetObj(m_stagePrefab, m_sprite);
-        Debug.Log("リスタート");
+        if (!m_isDebug)
+        {
+            SetObj(m_stagePrefab, m_sprite);
+        }
     }
 
-    /// <summary>クリアした時の処理</summary>
+    /// <summary>
+    /// クリアした時の処理
+    /// </summary>
     void GameClear()
     {
         m_isGame = false;
         m_startButton.interactable = false;
         StartCoroutine(ButtonLock());
         m_gameClearUi.SetActive(true);
-        Debug.Log("ゲームクリア");
     }
 
-    /// <summary>ゲームオーバーした時の処理</summary>
+    /// <summary>
+    /// ゲームオーバーした時の処理
+    /// </summary>
     void GameOver()
     {
         m_ball.gameObject.SetActive(false);
         m_ball.gameObject.transform.position = new Vector3(0, -3, 0);
         m_isGame = false;
         m_startButton.interactable = false;
+        m_isShake = true;
         StartCoroutine(ButtonLock());
         m_gameOverUi.SetActive(true);
-        Debug.Log("ゲームオーバー");
         if (m_isDebug)
         {
             ReStart();
@@ -172,7 +189,9 @@ public class BlockGameManager : MonoBehaviour
         }
     }
 
-    /// <summary>シェイクボタンのクールダウンタイマー</summary>
+    /// <summary>
+    /// シェイクボタンのクールダウンタイマー
+    /// </summary>
     /// <returns></returns>
     IEnumerator ShakeTimer()
     {
@@ -196,7 +215,9 @@ public class BlockGameManager : MonoBehaviour
         yield break;
     }
 
-    /// <summary>シェイクボタンにゲーム開始までロックをかける</summary>
+    /// <summary>
+    /// シェイクボタンにゲーム開始までロックをかける
+    /// </summary>
     /// <returns></returns>
     IEnumerator ButtonLock()
     {
