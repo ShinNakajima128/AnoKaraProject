@@ -76,51 +76,78 @@ public class LoadSceneManager : MonoBehaviour
 
         m_currentScene = SceneManager.GetActiveScene().name;
 
-        if (m_alfa > 0)
-        {
-            m_isFadeIn = true;
-            m_currentFade = StartCoroutine(FadeIn());
-        }
+        FadeInPanel();
     }
 
+    #region Method
     /// <summary>
     /// 任意のSceneへ遷移する
     /// </summary>
     /// <param name="name"> 遷移先のScene名 </param>
     /// <param name="callBack"> フェード後に呼ばれるコールバック </param>
-    public void AnyLoadScene(string name, Action callBack = null)
+    public static void AnyLoadScene(string name, Action callBack = null)
     {
-        m_isFadeOut = true;
-        StartCoroutine(LoadScene(name, m_LoadTimer, callBack));
+        Instance.m_isFadeOut = true;
+        Instance.StartCoroutine(Instance.LoadScene(name, Instance.m_LoadTimer, callBack));
     }
 
     /// <summary>
     /// Sceneのリスタート。もう一度遊ぶ、やり直すといった機能を使いたい時に使用してください
     /// </summary>
-    public void Restart()
+    public static void Restart(Action callBack = null)
     {
-        m_isFadeOut = true;
-        StartCoroutine(LoadScene(m_currentScene, m_LoadTimer));
+        Instance.m_isFadeOut = true;
+        Instance.StartCoroutine(Instance.LoadScene(CurrentScene, Instance.m_LoadTimer, callBack));
     }
 
     /// <summary>
     /// 前のSceneに遷移する。ゲームを中断する時などに使用してください。
     /// </summary>
-    public void LoadBeforeScene()
+    public static void LoadBeforeScene(Action callBack = null)
     {
-        m_isFadeOut = true;
-        StartCoroutine(LoadScene(m_beforeScene, m_LoadTimer));
+        Instance.m_isFadeOut = true;
+        Instance.StartCoroutine(Instance.LoadScene(BeforeScene, Instance.m_LoadTimer, callBack));
     }
 
     /// <summary>
     /// ゲームを終了する
     /// </summary>
-    public void QuitGame()
+    public static void QuitGame()
     {
-        m_isFadeOut = true;
-        StartCoroutine(QuitScene(m_LoadTimer));
+        Instance.m_isFadeOut = true;
+        Instance.StartCoroutine(Instance.QuitScene(Instance.m_LoadTimer));
     }
 
+    /// <summary>
+    /// フェードイン(画面を徐々に表示)する
+    /// </summary>
+    /// <param name="callBack"> フェードイン後のコールバック </param>
+    public static void FadeInPanel(Action callBack = null)
+    {
+        Instance.m_isFadeIn = true;
+        Instance.m_currentFade = Instance.StartCoroutine(Instance.FadeIn(callBack));
+    }
+
+    /// <summary>
+    /// フェードアウト(画面が徐々に暗転)する
+    /// </summary>
+    /// <param name="action"> フェードアウト後のコールバック </param>
+    public static void FadeOutPanel(Action callBack = null)
+    {
+        Instance.m_isFadeOut = true;
+        Instance.m_currentFade = Instance.StartCoroutine(Instance.FadeOut(callBack));
+    }
+
+    /// <summary>
+    /// アルファ値をImageにセットする
+    /// </summary>
+    void SetAlfa()
+    {
+        m_fadeImage.color = new Color(m_red, m_green, m_blue, m_alfa);
+    }
+    #endregion
+
+    #region Coroutine
     IEnumerator FadeOut(Action callback = null)
     {
         m_fadeImage.raycastTarget = true;
@@ -162,42 +189,13 @@ public class LoadSceneManager : MonoBehaviour
         }
     }
 
-    /// <summary>
-    /// フェードイン(画面を徐々に表示)する
-    /// </summary>
-    /// <param name="callBack"> フェードイン後のコールバック </param>
-    public void FadeInPanel(Action callBack = null)
-    {
-        m_isFadeIn = true;
-        m_currentFade = StartCoroutine(FadeIn(callBack));
-    }
-
-    /// <summary>
-    /// フェードアウト(画面が徐々に暗転)する
-    /// </summary>
-    /// <param name="action"> フェードアウト後のコールバック </param>
-    public void FadeOutPanel(Action callBack = null)
-    {
-        m_isFadeOut = true;
-        m_currentFade = StartCoroutine(FadeOut(callBack));
-    }
-
-    /// <summary>
-    /// アルファ値をImageにセットする
-    /// </summary>
-    void SetAlfa()
-    {
-        m_fadeImage.color = new Color(m_red, m_green, m_blue, m_alfa);
-    }
-
     IEnumerator LoadScene(string name, float timer, Action callBack = null)
     {
-        m_currentFade = StartCoroutine(FadeOut());
+        m_currentFade = StartCoroutine(FadeOut(callBack));
 
         yield return new WaitForSeconds(timer);
 
         m_beforeScene = SceneManager.GetActiveScene().name; //前のScene名を保持している変数の値を現在のScene名に更新する
-        callBack?.Invoke();
         SceneManager.LoadScene(name);
     }
 
@@ -209,4 +207,5 @@ public class LoadSceneManager : MonoBehaviour
 
         Application.Quit();
     }
+    #endregion
 }
