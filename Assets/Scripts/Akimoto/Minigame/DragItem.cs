@@ -11,7 +11,7 @@ public class DragItem : MonoBehaviour, IDragHandler, IEndDragHandler, IBeginDrag
 
     private void Start()
     {
-        transform.GetChild(0).gameObject.GetComponent<Text>().text = num.ToString();
+        //transform.GetChild(0).gameObject.GetComponent<Text>().text = num.ToString();
     }
 
     public void OnBeginDrag(PointerEventData eventData)

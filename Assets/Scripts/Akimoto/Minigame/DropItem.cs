@@ -7,15 +7,10 @@ using UnityEngine.UI;
 public class DropItem : MonoBehaviour, IDropHandler
 {
     //ドロップ=>正誤判定=>合ってたらオブジェクトを消してfaze++、間違ってたら何も起こらない
-
     [SerializeField]
-    int[] m_clearNum = { 0, 1, 2 };
+    DragdropMinigameManager m_gamemanager;
 
-    [SerializeField]
-    string[] m_text;
-
-    [SerializeField]
-    Text m_viewText;
+    private int[] m_clearNum = { 0, 1, 2 };
 
     private int m_faze = 0;
 
@@ -32,16 +27,11 @@ public class DropItem : MonoBehaviour, IDropHandler
             item.gameObject.SetActive(false);
             m_faze++;
             SetText();
-            if (m_faze == m_clearNum.Length)
-            {
-                Debug.Log("クリア");
-            }
         }
     }
 
     private void SetText()
     {
-        Debug.Log(m_faze);
-        m_viewText.text = m_text[m_faze];
+        m_gamemanager.VIewTextChange(m_faze);
     }
 }
