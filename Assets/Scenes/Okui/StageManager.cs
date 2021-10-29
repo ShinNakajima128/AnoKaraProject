@@ -19,16 +19,25 @@ public class StageManager : MonoBehaviour
     {
         //animator = GetComponent<Animator>();
     }
+    /// <summary>
+    /// 戻るボタン
+    /// </summary>
     public void BackButton()
     {
         Debug.Log("push");
         SceneManager.LoadScene("StudyPart");
     }
+    /// <summary>
+    /// stage１のボタン
+    /// </summary>
     public void PushStage1()
     {
         m_animator.SetFloat("Speed", 1);
         m_panel.SetActive(true);
     }
+    /// <summary>
+    /// アクティブのパネルをAnimationから逆再生する関数
+    /// </summary>
     public void PopupClose()
     {
         m_animator.SetFloat("Speed", -1);
