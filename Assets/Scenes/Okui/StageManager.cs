@@ -7,28 +7,31 @@ using UnityEditor.Animations;
 
 public class StageManager : MonoBehaviour
 {
-    // Start is called before the first frame update
+    /// <summary>非アクティブにしてるパネル</summary>
     [SerializeField]
-    GameObject panel;
+    GameObject m_panel;
+
+    /// <summary>UIのAnimator</summary>
     [SerializeField]
-    Animator animator;
+    Animator m_animator;
+
     private void Start()
     {
         //animator = GetComponent<Animator>();
     }
-    public void backButton()
+    public void BackButton()
     {
         Debug.Log("push");
         SceneManager.LoadScene("StudyPart");
     }
-    public void pushStage1()
+    public void PushStage1()
     {
-        animator.SetFloat("Speed", 1);
-        panel.SetActive(true);
+        m_animator.SetFloat("Speed", 1);
+        m_panel.SetActive(true);
     }
-    public void PopupCroze()
+    public void PopupClose()
     {
-        animator.SetFloat("Speed", -1);
+        m_animator.SetFloat("Speed", -1);
     }
 
 }
