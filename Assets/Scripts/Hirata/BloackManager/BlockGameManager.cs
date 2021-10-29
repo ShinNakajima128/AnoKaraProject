@@ -130,6 +130,18 @@ public class BlockGameManager : MonoBehaviour
     }
 
     /// <summary>
+    /// ゲームクリアのデバックボタン
+    /// </summary>
+    public void DebugGameClear()
+    {
+        m_isGame = true;
+        foreach (Transform n in m_stageObj.transform)
+        {
+            Destroy(n.gameObject);
+        }
+    }
+
+    /// <summary>
     /// ボールを下に落としてリスタートする時の処理
     /// </summary>
     void Restart()
