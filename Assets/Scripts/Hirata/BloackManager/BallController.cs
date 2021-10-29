@@ -25,6 +25,10 @@ public class BallController : MonoBehaviour
     [SerializeField]
     float m_addSpeed = 5f;
 
+    /// <summary>最高スピード</summary>
+    [SerializeField]
+    float m_maxSpeed = 5f;
+
     void Awake()
     {
         m_rb2d = GetComponent<Rigidbody2D>();
@@ -33,6 +37,11 @@ public class BallController : MonoBehaviour
     void Update()
     {
         if (m_rb2d.velocity.magnitude < m_lowSpeed)
+        {
+            m_rb2d.velocity = m_rb2d.velocity.normalized * m_addSpeed;
+        }
+
+        if (m_rb2d.velocity.magnitude > m_maxSpeed)
         {
             m_rb2d.velocity = m_rb2d.velocity.normalized * m_addSpeed;
         }
