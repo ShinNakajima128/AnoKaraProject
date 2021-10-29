@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9e4453edd2d1d0d42869a97c4a08237e, type: 3}
+  m_Name: Dragdrop Data
+  m_EditorClassIdentifier: 
+  m_database:
+  - m_objective: "\u53CB\u9054\u3092\u4F5C\u308D\u3046\uFF01"
+    m_dropImage: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
+    m_dragitems:
+    - m_dragImage: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
+      m_text: "0\u756A\u3092\u5165\u308C\u3088\u3046"
+    - m_dragImage: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
+      m_text: "1\u756A\u3092\u5165\u308C\u3088\u3046"
+    - m_dragImage: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
+      m_text: "2\u756A\u3092\u5165\u308C\u3088\u3046"
