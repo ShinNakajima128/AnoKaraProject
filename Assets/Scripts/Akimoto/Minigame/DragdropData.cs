@@ -29,12 +29,16 @@ public class DragDropDataBase
         /// <summary>下部のテキスト</summary>
         [SerializeField] string m_text;
 
-        public Sprite GetDragImage { get { return m_dragImage; } }
-        public string GetText { get { return m_text; } }
+        public Sprite DragImage { get { return m_dragImage; } }
+        public string Text { get { return m_text; } }
     }
     /// <summary>ドラッグするアイテム達の画像やドロップ後の下部テキスト</summary>
     public DragItemSettings[] m_dragitems;
 
-    public string GetObjective { get { return m_objective; } }
-    public Sprite GetDropImage { get { return m_dropImage; } }
+    [SerializeField]
+    string m_crearText;
+
+    public string Objective { get { return m_objective; } }
+    public Sprite DropImage { get { return m_dropImage; } }
+    public string CrearText { get { return m_crearText; } }
 }
