@@ -6,10 +6,6 @@ using UnityEngine.UI;
 /// <summary>ブロック崩しのゲームマネージャー</summary>
 public class BlockGameManager : MonoBehaviour
 {
-    /// <summary>デバッグモード</summary>
-    [SerializeField]
-    bool m_isDebug = false;
-
     /// <summary>ステージのオブジェクト</summary>
     GameObject m_stageObj;
 
@@ -32,10 +28,6 @@ public class BlockGameManager : MonoBehaviour
     /// <summary>ゲームクリアした時のUI</summary>
     [SerializeField]
     GameObject m_gameClearUi;
-
-    /// <summary>ゲームオーバーした時のUI</summary>
-    [SerializeField]
-    GameObject m_gameOverUi;
 
     /// <summary>BallController</summary>
     BallController m_ballCon;
@@ -69,11 +61,7 @@ public class BlockGameManager : MonoBehaviour
 
     void Start()
     {
-        if (m_isDebug)
-        {
-            Debug.LogWarning("!!!デバッグモード!!!");
-            SetObj(m_stagePrefab, m_sprite);
-        }
+        SetObj(m_stagePrefab, m_sprite);
     }
 
     void FixedUpdate()
@@ -131,22 +119,6 @@ public class BlockGameManager : MonoBehaviour
     }
 
     /// <summary>
-    /// リスタートする時の処理
-    /// </summary>
-    public void ReStart()
-    {
-        m_startButton.interactable = true;
-        StartCoroutine(ButtonLock());
-        m_gameClearUi.SetActive(false);
-        m_gameOverUi.SetActive(false);
-        m_ball.SetActive(true);
-        if (!m_isDebug)
-        {
-            SetObj(m_stagePrefab, m_sprite);
-        }
-    }
-
-    /// <summary>
     /// クリアした時の処理
     /// </summary>
     void GameClear()
@@ -158,21 +130,17 @@ public class BlockGameManager : MonoBehaviour
     }
 
     /// <summary>
-    /// ゲームオーバーした時の処理
+    /// ボールを下に落としてリスタートする時の処理
     /// </summary>
-    void GameOver()
+    void Restart()
     {
         m_ball.gameObject.SetActive(false);
         m_ball.gameObject.transform.position = new Vector3(0, -3, 0);
+        m_ball.gameObject.SetActive(true);
         m_isGame = false;
-        m_startButton.interactable = false;
         m_isShake = true;
         StartCoroutine(ButtonLock());
-        m_gameOverUi.SetActive(true);
-        if (m_isDebug)
-        {
-            ReStart();
-        }
+        m_startButton.interactable = true;
     }
 
     /// <summary>
@@ -234,7 +202,7 @@ public class BlockGameManager : MonoBehaviour
     {
         if (collision.gameObject.tag == "Ball")
         {
-            GameOver();
+            Restart();
         }
     }
 }
