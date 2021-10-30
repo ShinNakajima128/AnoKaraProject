@@ -36,12 +36,7 @@ public class BallController : MonoBehaviour
 
     void Update()
     {
-        if (m_rb2d.velocity.magnitude < m_lowSpeed)
-        {
-            m_rb2d.velocity = m_rb2d.velocity.normalized * m_addSpeed;
-        }
-
-        if (m_rb2d.velocity.magnitude > m_maxSpeed)
+        if (m_rb2d.velocity.magnitude < m_lowSpeed || m_rb2d.velocity.magnitude > m_maxSpeed)
         {
             m_rb2d.velocity = m_rb2d.velocity.normalized * m_addSpeed;
         }
