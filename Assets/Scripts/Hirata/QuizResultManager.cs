@@ -12,7 +12,7 @@ public class QuizResultManager : MonoBehaviour
 
     /// <summary>正解数を表示するテキスト</summary>
     [SerializeField]
-    Text m_ansCount;
+    Text m_answerCountText;
 
     /// <summary>キャラクターのイメージ</summary>
     [SerializeField]
@@ -31,12 +31,19 @@ public class QuizResultManager : MonoBehaviour
     GameObject m_nextUi;
 
     /// <summary>
-    /// クイズマネージャーが正解数を持っています
+    /// 正解数
+    /// クイズマネージャーが正解数を持っているので参照する
     /// </summary>
+    [SerializeField]
+    int m_ansCount = 7;
+
+    /// <summary>リザルトのイラストデータ</summary>
+    [SerializeField]
+    Sprite[] m_resultSprite;
 
     void Start()
     {
-
+        QuizResult(m_ansCount);
     }
 
     void Update()
@@ -54,7 +61,7 @@ public class QuizResultManager : MonoBehaviour
         {
             QuizComplete();
         }
-        else if (count <= 7)
+        else if (count >= 7)
         {
             QuizSuccess();
         }
@@ -69,7 +76,11 @@ public class QuizResultManager : MonoBehaviour
     /// </summary>
     void QuizFailed()
     {
-
+        m_answerCountText.text = m_ansCount.ToString();
+        m_resultText.text = "失敗…";
+        m_resultComment.fontSize = 60;
+        m_resultComment.text = "もう一度挑戦してみよう";
+        m_charactorImage.sprite = m_resultSprite[0];
     }
 
     /// <summary>
@@ -77,7 +88,11 @@ public class QuizResultManager : MonoBehaviour
     /// </summary>
     void QuizSuccess()
     {
-
+        m_answerCountText.text = m_ansCount.ToString();
+        m_resultText.text = "成功!!";
+        m_resultComment.fontSize = 55;
+        m_resultComment.text = "間違えた問題を確認しよう!";
+        m_charactorImage.sprite = m_resultSprite[1];
     }
 
     /// <summary>
@@ -85,7 +100,10 @@ public class QuizResultManager : MonoBehaviour
     /// </summary>
     void QuizComplete()
     {
-
+        m_answerCountText.text = m_ansCount.ToString();
+        m_resultText.text = "大成功!!";
+        m_resultComment.text = "全問正解！すごい！";
+        m_charactorImage.sprite = m_resultSprite[2];
     }
 
     /// <summary>
