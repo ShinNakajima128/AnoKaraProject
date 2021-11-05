@@ -14,6 +14,7 @@ public class QuizDataManager : SingletonMonoBehaviour<QuizDataManager>
 
     delegate void LoadQuizDataCallback<T>(T data);
 
+    /// <summary> 4択クイズのデータ </summary>
     public FourChoicesQuizData[] FourChoicesQuizDatas => m_allQuizData.FourChoicesQuizDatas;
 
     void Awake()
@@ -27,18 +28,19 @@ public class QuizDataManager : SingletonMonoBehaviour<QuizDataManager>
     }
 
     /// <summary>
-    /// スプレッドシートからデータをロードする。※この関数はEditor上でのみ使用する関数なので、ゲーム中に実行されるクラスでは使わないでください。
+    /// スプレッドシートから4択クイズデータをロードする。※この関数はEditor上でのみ使用する関数なので、ゲーム中に実行されるクラスでは使わないでください。
     /// </summary>
+    /// <param name="url"> スプレッドシートのURL </param>
     /// <param name="sheetName"> シート名 </param>
-    public void LoadDataFromSpreadsheet(string sheetName)
+    public void LoadFourChoicesQuizDataFromSpreadsheet(string url, string sheetName)
     {
         for (int i = 0; i < m_allQuizData.FourChoicesQuizDatas.Length; i++)
         {
             if (m_allQuizData.FourChoicesQuizDatas[i].PeriodTypeName == sheetName)  //プロパティとシート名が一致したら
             {
-                LoadQuizMasterData(sheetName, (QuizMasterDataClass<FourChoicesQuiz> data) =>
+                LoadQuizMasterData(url, sheetName, (QuizMasterDataClass<FourChoicesQuiz> data) =>
                 {
-                    m_allQuizData.FourChoicesQuizDatas[i].FourChoicesQuiz = data.Data;  //データ更新
+                    m_allQuizData.FourChoicesQuizDatas[i].FourChoicesQuizzes = data.Data;  //データ更新
                 });
                 return;
             }
@@ -48,19 +50,45 @@ public class QuizDataManager : SingletonMonoBehaviour<QuizDataManager>
     }
 
     /// <summary>
+    /// スプレッドシートから穴埋めクイズデータをロードする。※この関数はEditor上でのみ使用する関数なので、ゲーム中に実行されるクラスでは使わないでください。
+    /// </summary>
+    /// <param name="url"> スプレッドシートのURL </param>
+    /// <param name="sheetName"> シート名 </param>
+    public void LoadFourAnaumeQuizDataFromSpreadsheet(string url, string sheetName)
+    {
+        //m_allQuizData.AnaumeQuizDatasと仮で書いてある「AnaumeQuizDatas」の部分を
+        //作成したScriptableObjectのクラス名に変更してください
+
+        //for (int i = 0; i < m_allQuizData.AnaumeQuizDatas.Length; i++)
+        //{
+        //    if (m_allQuizData.AnaumeQuizDatas[i].PeriodTypeName == sheetName)  //プロパティとシート名が一致したら
+        //    {
+        //        LoadQuizMasterData(url, sheetName, (QuizMasterDataClass<AnaumeQuizData> data) =>
+        //        {
+        //            m_allQuizData.AnaumeQuizDatas[i].AnaumeQuizzes = data.Data;  //データ更新
+        //        });
+        //        return;
+        //    }
+        //}
+        ////データがロードできなかった場合
+        //Debug.LogError("データをロードできませんでした");
+    }
+
+    /// <summary>
     /// クイズデータを読み込む
     /// </summary>
     /// <typeparam name="T"> クイズデータのクラス </typeparam>
+    /// /// <param name="url"> スプレッドシートのURL </param>
     /// <param name="file"> クイズの時代名 </param>
     /// <param name="callback"></param>
-    void LoadQuizMasterData<T>(string file, LoadQuizDataCallback<T> callback)
+    void LoadQuizMasterData<T>(string url, string file, LoadQuizDataCallback<T> callback)
     {
         if (file == "None")
         {
             Debug.LogError("クイズデータの時代を指定してください");
             return;
         }
-        Network.WebRequest.Request<Network.WebRequest.GetString>("https://script.google.com/macros/s/AKfycbwMDfg7S09aVHqyLve2ypq1jwgbYDgIZT25abH-Yp3oHIhtieA/exec?sheet=" + file, Network.WebRequest.ResultType.String, (string json) =>
+        Network.WebRequest.Request<Network.WebRequest.GetString>(url + "?sheet=" + file, Network.WebRequest.ResultType.String, (string json) =>
         {
             var dldata = JsonUtility.FromJson<T>(json);
             callback(dldata);

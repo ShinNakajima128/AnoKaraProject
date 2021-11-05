@@ -12,5 +12,10 @@ public class AllQuizData : ScriptableObject
     [SerializeField]
     FourChoicesQuizData[] m_fourChoicesQuizDatas = default;
 
+    [Header("穴埋めクイズのデータ")]
+    [SerializeField]
+    AnaumeQuizData[] m_anaumeQuizDatas = default;
+
     public FourChoicesQuizData[] FourChoicesQuizDatas { get => m_fourChoicesQuizDatas; set => m_fourChoicesQuizDatas = value; }
+    public AnaumeQuizData[] AnaumeQuizDatas { get => m_anaumeQuizDatas; set => m_anaumeQuizDatas = value; }
 }
