@@ -6,7 +6,7 @@ using MasterData;
 /// <summary>
 /// クイズデータを管理するクラス
 /// </summary>
-public class QuizDataManager : SingletonMonoBehaviour<QuizDataManager>
+public class QuizDataManager : MonoBehaviour
 {
     [Header("クイズデータ")]
     [SerializeField]
@@ -14,17 +14,13 @@ public class QuizDataManager : SingletonMonoBehaviour<QuizDataManager>
 
     delegate void LoadQuizDataCallback<T>(T data);
 
+    public static QuizDataManager Instance { get; private set; }
     /// <summary> 4択クイズのデータ </summary>
     public FourChoicesQuizData[] FourChoicesQuizDatas => m_allQuizData.FourChoicesQuizDatas;
 
     void Awake()
     {
-        if (this != Instance)
-        {
-            Destroy(gameObject);
-            return;
-        }
-        DontDestroyOnLoad(gameObject);
+        Instance = this;
     }
 
     /// <summary>
@@ -56,7 +52,7 @@ public class QuizDataManager : SingletonMonoBehaviour<QuizDataManager>
     /// <param name="sheetName"> シート名 </param>
     public void LoadFourAnaumeQuizDataFromSpreadsheet(string url, string sheetName)
     {
-        //m_allQuizData.AnaumeQuizDatasと仮で書いてある「AnaumeQuizDatas」の部分を
+        //もしクラス名に変更があれば、m_allQuizData.AnaumeQuizDatasと仮で書いてある「AnaumeQuizDatas」の部分を
         //作成したScriptableObjectのクラス名に変更してください
 
         //for (int i = 0; i < m_allQuizData.AnaumeQuizDatas.Length; i++)
