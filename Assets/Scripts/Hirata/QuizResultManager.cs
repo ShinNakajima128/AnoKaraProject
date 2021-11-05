@@ -39,71 +39,62 @@ public class QuizResultManager : MonoBehaviour
 
     /// <summary>リザルトのイラストデータ</summary>
     [SerializeField]
-    Sprite[] m_resultSprite;
+    Sprite[] m_resultSprite = new Sprite[3];
+
+    /// <summary>成功失敗のテキストデータ</summary>
+    [SerializeField]
+    string[] m_resultTextData = new string[3];
+
+    /// <summary>コメントデータ</summary>
+    [SerializeField]
+    string[] m_resultCommentData = new string[3];
+
+    /// <summary>
+    /// コメントデータのフォントサイズ
+    /// 変更がなければ　0　のままにしておく
+    /// </summary>
+    [SerializeField]
+    int[] m_resultCommentFontSize = new int[3];
 
     void Start()
     {
         QuizResult(m_ansCount);
     }
 
-    void Update()
-    {
-        
-    }
-
     /// <summary>
-    /// クイズのリザルト
+    /// 正解数に応じて、表示するUIを変える
     /// </summary>
     /// <param name="count">正解数</param>
     public void QuizResult(int count)
     {
         if (count == 10)
         {
-            QuizComplete();
+            QuizResultUiSet(0);
         }
         else if (count >= 7)
         {
-            QuizSuccess();
+            QuizResultUiSet(1);
         }
         else if (count < 7)
         {
-            QuizFailed();
+            QuizResultUiSet(2);
         }
     }
 
     /// <summary>
-    /// クイズに失敗した時の処理
+    /// 正解数に応じて結果をUIに表示する
     /// </summary>
-    void QuizFailed()
+    /// <param name="index">成功レベル</param>
+    void QuizResultUiSet(int index)
     {
         m_answerCountText.text = m_ansCount.ToString();
-        m_resultText.text = "失敗…";
-        m_resultComment.fontSize = 60;
-        m_resultComment.text = "もう一度挑戦してみよう";
-        m_charactorImage.sprite = m_resultSprite[0];
-    }
-
-    /// <summary>
-    /// クイズに成功した時の処理
-    /// </summary>
-    void QuizSuccess()
-    {
-        m_answerCountText.text = m_ansCount.ToString();
-        m_resultText.text = "成功!!";
-        m_resultComment.fontSize = 55;
-        m_resultComment.text = "間違えた問題を確認しよう!";
-        m_charactorImage.sprite = m_resultSprite[1];
-    }
-
-    /// <summary>
-    /// クイズに完全成功した時の処理
-    /// </summary>
-    void QuizComplete()
-    {
-        m_answerCountText.text = m_ansCount.ToString();
-        m_resultText.text = "大成功!!";
-        m_resultComment.text = "全問正解！すごい！";
-        m_charactorImage.sprite = m_resultSprite[2];
+        m_resultText.text = m_resultTextData[index];
+        m_resultComment.text = m_resultCommentData[index];
+        if (m_resultCommentFontSize[index] != 0)
+        {
+            m_resultComment.fontSize = m_resultCommentFontSize[index];
+        }
+        m_charactorImage.sprite = m_resultSprite[index];
     }
 
     /// <summary>
@@ -134,7 +125,7 @@ public class QuizResultManager : MonoBehaviour
     /// </summary>
     public void QuizRetry()
     {
-
+        Debug.Log("リトライ");
     }
 
     /// <summary>
@@ -143,6 +134,6 @@ public class QuizResultManager : MonoBehaviour
     /// </summary>
     public void QuizReview()
     {
-
+        Debug.Log("問題解説");
     }
 }
