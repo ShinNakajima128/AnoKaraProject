@@ -41,6 +41,24 @@ namespace MasterData
         public string Answer;
     }
 
+    /// <summary>
+    /// 穴埋めクイズのクラス
+    /// </summary>
+    [Serializable]
+    public class AnaumeQuiz
+    {
+        public int Id;
+        [TextArea(0, 10)]
+        public string Question;
+        public string Dragtext;
+        public string Answer;
+        public string[] m_dragTexts;
+
+        public void ConvartToArray()
+        {
+            m_dragTexts = Dragtext.Split(',');
+        }
+    }
+
     //別のパターンを用意する場合はこの下にクラスを追加する
-    
 }
