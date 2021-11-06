@@ -6,10 +6,6 @@ using UnityEngine.UI;
 /// <summary>クイズのリザルトマネージャー</summary>
 public class QuizResultManager : MonoBehaviour
 {
-    /// <summary>成功失敗を表示するテキスト</summary>
-    [SerializeField]
-    Text m_resultText;
-
     /// <summary>正解数を表示するテキスト</summary>
     [SerializeField]
     Text m_answerCountText;
@@ -17,10 +13,6 @@ public class QuizResultManager : MonoBehaviour
     /// <summary>キャラクターのイメージ</summary>
     [SerializeField]
     Image m_charactorImage;
-
-    /// <summary>コメントを表示するテキスト</summary>
-    [SerializeField]
-    Text m_resultComment;
 
     /// <summary>次へのUIを表示するボタン</summary>
     [SerializeField]
@@ -41,41 +33,26 @@ public class QuizResultManager : MonoBehaviour
     [SerializeField]
     Sprite[] m_resultSprite = new Sprite[3];
 
-    /// <summary>成功失敗のテキストデータ</summary>
-    [SerializeField]
-    string[] m_resultTextData = new string[3];
-
-    /// <summary>コメントデータ</summary>
-    [SerializeField]
-    string[] m_resultCommentData = new string[3];
-
-    /// <summary>
-    /// コメントデータのフォントサイズ
-    /// 変更がなければ　0　のままにしておく
-    /// </summary>
-    [SerializeField]
-    int[] m_resultCommentFontSize = new int[3];
-
     void Start()
     {
-        QuizResult(m_ansCount);
+        //m_ansCount = QuizManager.CorrectAnswersNum;
+        QuizResult();
     }
 
     /// <summary>
     /// 正解数に応じて、表示するUIを変える
     /// </summary>
-    /// <param name="count">正解数</param>
-    public void QuizResult(int count)
+    public void QuizResult()
     {
-        if (count == 10)
+        if (m_ansCount == 10)
         {
             QuizResultUiSet(0);
         }
-        else if (count >= 7)
+        else if (m_ansCount >= 7)
         {
             QuizResultUiSet(1);
         }
-        else if (count < 7)
+        else if (m_ansCount < 7)
         {
             QuizResultUiSet(2);
         }
@@ -87,13 +64,7 @@ public class QuizResultManager : MonoBehaviour
     /// <param name="index">成功レベル</param>
     void QuizResultUiSet(int index)
     {
-        m_answerCountText.text = m_ansCount.ToString();
-        m_resultText.text = m_resultTextData[index];
-        m_resultComment.text = m_resultCommentData[index];
-        if (m_resultCommentFontSize[index] != 0)
-        {
-            m_resultComment.fontSize = m_resultCommentFontSize[index];
-        }
+        m_answerCountText.text = m_ansCount.ToString() + " / 10 問";
         m_charactorImage.sprite = m_resultSprite[index];
     }
 
