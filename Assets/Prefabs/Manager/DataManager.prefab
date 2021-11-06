@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 1218958328587039710}
   - component: {fileID: 1218958328587039697}
   m_Layer: 0
-  m_Name: QuizDataManager
+  m_Name: DataManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -41,10 +41,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 1218958328587039708}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5b206c78c69b3504ea0646e84f3680d8, type: 3}
+  m_Script: {fileID: 11500000, guid: fadd3bfec9b7dfd47b4062c543ce9478, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   m_allQuizData: {fileID: 11400000, guid: a7f3b71f11fe9aa4e9d63dbebe94aa9a, type: 2}
+  m_allScenarioData: {fileID: 11400000, guid: 960b0b82e3a0f1f4fb8bcc672b8766d9, type: 2}
 --- !u!114 &1218958328587039697
 MonoBehaviour:
   m_ObjectHideFlags: 0

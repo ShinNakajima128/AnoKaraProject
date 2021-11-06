@@ -3,16 +3,16 @@ using System.Collections.Generic;
 using UnityEngine;
 using System;
 
-namespace DialogMasterData
+namespace ScenarioMasterData
 {
-    public class DialogMasterDataClass<T>
+    public class ScenarioMasterDataClass<T>
     {
         public int BGType;
         public T[] Data;
     }
 
     [Serializable]
-    public class CharacterData
+    public class DialogData
     {
         public int MessageId = default;
         public string Talker = default;
