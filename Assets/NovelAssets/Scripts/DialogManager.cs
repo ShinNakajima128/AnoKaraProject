@@ -34,6 +34,14 @@ public class DialogManager : MonoBehaviour
     [SerializeField]
     string m_playerName = default;
 
+    [Header("プレイヤーが男の子の場合の一人称")]
+    [SerializeField]
+    string m_malePronoun = default;
+
+    [Header("プレイヤーが女の子の場合の一人称")]
+    [SerializeField]
+    string m_famalePronoun = default;
+
     [Header("強調する文章を判定する用の文字")]
     [SerializeField]
     char m_triggerChar = '#';
@@ -92,6 +100,7 @@ public class DialogManager : MonoBehaviour
     #region field
     int m_nextMessageId = 0;
     int m_AfterReactionMessageId = 0;
+    int m_currentBackgroundType = default;
     string m_htmlStartCode = default;
     string m_htmlEndCode = default;
     string m_tempLog = "";
@@ -142,27 +151,6 @@ public class DialogManager : MonoBehaviour
     {
         for (int i = 0; i < m_data.Length; i++)
         {
-            BackGroundController.BackgroundAnim += FinishReceive;
-
-            if (i == 0)
-            {
-                m_bgCtrl.Setup(m_data[i].BackgroundType); //最初の背景をセットする
-                m_bgCtrl.FadeIn(m_data[i].BackgroundType); //フェードイン
-                isAnimPlaying = true;
-            }
-            else
-            {
-                m_bgCtrl.Crossfade(m_data[i].BackgroundType); //次のダイアログの背景にクロスフェードする
-                isAnimPlaying = true;
-            }
-
-            //Animationが終わるまで待つ
-            while (isAnimPlaying)
-            {
-                yield return null;
-            }
-            BackGroundController.BackgroundAnim -= FinishReceive;
-
             m_currentCoroutine = DisplayMessage(m_data[i]);
             yield return m_currentCoroutine;
         }
@@ -188,14 +176,56 @@ public class DialogManager : MonoBehaviour
             m_endMessage = false;
             isClicked = false;
 
+            if (currentDialogIndex == 0)
+            {
+                BackGroundController.BackgroundAnim += FinishReceive;
+
+                m_bgCtrl.Setup(data.DialogData[currentDialogIndex].BackgroundType); //最初の背景をセットする
+                m_bgCtrl.FadeIn(data.DialogData[currentDialogIndex].BackgroundType); //フェードイン
+
+                m_currentBackgroundType = data.DialogData[currentDialogIndex].BackgroundType;
+                isAnimPlaying = true;
+
+                //Animationが終わるまで待つ
+                while (isAnimPlaying)
+                {
+                    yield return null;
+                }
+                BackGroundController.BackgroundAnim -= FinishReceive;
+            }
+            else if (m_currentBackgroundType != data.DialogData[currentDialogIndex].BackgroundType)
+            {
+                m_display.SetActive(false);
+                BackGroundController.BackgroundAnim += FinishReceive;
+                m_bgCtrl.Crossfade(data.DialogData[currentDialogIndex].BackgroundType); //次の背景にクロスフェードする
+                m_currentBackgroundType = data.DialogData[currentDialogIndex].BackgroundType;
+                isAnimPlaying = true;
+
+                //Animationが終わるまで待つ
+                while (isAnimPlaying)
+                {
+                    yield return null;
+                }
+                BackGroundController.BackgroundAnim -= FinishReceive;
+            }
+
             //キャラクターのアニメーションが終わるまで待つ
             yield return WaitForCharaAnimation(data.DialogData[currentDialogIndex].Talker,
                                                data.DialogData[currentDialogIndex].Position,
                                                data.DialogData[currentDialogIndex].StartAnimationType);
-
             m_display.SetActive(true);
             OnContinueDialog();
             m_characterName.text = data.DialogData[currentDialogIndex].Talker.Replace("プレイヤー", m_playerName);
+
+            if (m_characterName.text == "ナレーター")
+            {
+                m_namePanel.SetActive(false);
+            }
+            else
+            {
+                m_namePanel.SetActive(true);
+            }
+
             if (!isReactioned)
             {
                 m_tempLog += m_characterName.text + "：";
@@ -205,16 +235,26 @@ public class DialogManager : MonoBehaviour
             //各キャラクターの全てのメッセージを順に表示する
             for (int i = 0; i < data.DialogData[currentDialogIndex].AllMessages.Length; i++)
             {
-                //キャラクターの表情の変更があればここで変更
-                if (m_characterImage[data.DialogData[currentDialogIndex].Position].enabled)
+                if (data.DialogData[currentDialogIndex].AllMessages[i] == "")
                 {
-                    m_characterImage[data.DialogData[currentDialogIndex].Position].sprite = SetCharaImage(data.DialogData[currentDialogIndex].Talker, data.DialogData[currentDialogIndex].FaceTypes[i]);
+                    m_display.SetActive(false);
+                    break;
                 }
+
+                //キャラクターの表情の変更があればここで変更
+                if (m_characterName.text != "ナレーター")
+                {
+                    if (m_characterImage[data.DialogData[currentDialogIndex].Position].enabled)
+                    {
+                        m_characterImage[data.DialogData[currentDialogIndex].Position].sprite = SetCharaImage(data.DialogData[currentDialogIndex].Talker, data.DialogData[currentDialogIndex].FaceTypes[i]);
+                    }
+                }              
 
                 //表示されたメッセージをリセット
                 m_clickIcon.SetActive(false);
                 m_messageText.text = "";
-                string message = data.DialogData[currentDialogIndex].AllMessages[i].Replace("プレイヤー", m_playerName);
+                string message = data.DialogData[currentDialogIndex].AllMessages[i].Replace("プレイヤー", m_playerName)
+                                                                                   .Replace("私（僕or俺)", GameManager.Instance.PlayerGender == GenderType.Male ? m_malePronoun: m_famalePronoun);
                 bool isHighlighted = false;
 
                 //各メッセージを一文字ずつ表示する
@@ -366,10 +406,6 @@ public class DialogManager : MonoBehaviour
         {
             m_namePanel.SetActive(false);
             yield break;
-        }
-        else
-        {
-            m_namePanel.SetActive(true);
         }
 
         if (!m_characterImage[positionIndex].enabled)
