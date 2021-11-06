@@ -45,9 +45,6 @@ public class QuizManager : MonoBehaviour
 
     [Header("デバッグ用")]
     [SerializeField]
-    PeriodTypes m_periodType = default;
-
-    [SerializeField]
     int questionLimit = 10;
     #endregion
 
@@ -67,7 +64,6 @@ public class QuizManager : MonoBehaviour
     public static QuizManager Instance { get; private set; }
     /// <summary> 正解した数 </summary>
     public static int CorrectAnswersNum { get;  private set; }
-    public static PeriodTypes PeriodType { get; set; }
     public int CurrentTurnNum { get; set; }
     public string QuestionResult { get; set; }
     public string PlayerAnswer { get => m_playerAnswer; set => m_playerAnswer = value; }

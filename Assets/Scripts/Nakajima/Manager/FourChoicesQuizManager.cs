@@ -20,7 +20,7 @@ public class FourChoicesQuizManager : MonoBehaviour
     void Start()
     {
         var currentPeriod = GameManager.Instance.CurrentPeriod; //現在の時代を取得
-        var quizDatas = QuizDataManager.Instance.FourChoicesQuizDatas; //4択問題のデータを取得
+        var quizDatas = DataManager.Instance.FourChoicesQuizDatas; //4択問題のデータを取得
 
         //取得した時代のクイズデータを取得する
         for (int i = 0; i < quizDatas.Length; i++)

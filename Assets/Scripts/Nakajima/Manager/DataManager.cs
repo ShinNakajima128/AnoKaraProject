@@ -2,25 +2,86 @@
 using System.Collections.Generic;
 using UnityEngine;
 using MasterData;
+using ScenarioMasterData;
 
 /// <summary>
 /// クイズデータを管理するクラス
 /// </summary>
-public class QuizDataManager : MonoBehaviour
+public class DataManager : MonoBehaviour
 {
     [Header("クイズデータ")]
     [SerializeField]
     AllQuizData m_allQuizData = default;
 
-    delegate void LoadQuizDataCallback<T>(T data);
+    [Header("シナリオデータ")]
+    [SerializeField]
+    AllScenarioData m_allScenarioData = default;
 
-    public static QuizDataManager Instance { get; private set; }
+    delegate void LoadDataCallback<T>(T data);
+
+    public static DataManager Instance { get; private set; }
     /// <summary> 4択クイズのデータ </summary>
     public FourChoicesQuizData[] FourChoicesQuizDatas => m_allQuizData.FourChoicesQuizDatas;
 
     void Awake()
     {
         Instance = this;
+    }
+
+    /// <summary>
+    /// スプレッドシートからデータを取得するためにManagerをセットする
+    /// </summary>
+    public static void GetDataManager()
+    {
+        Instance = GameObject.Find("DataManager").GetComponent<DataManager>();
+    }
+    /// <summary>
+    /// スプレッドシートからシナリオデータをロードする。※この関数はEditor上でのみ使用する関数なので、ゲーム中に実行されるクラスでは使わないでください。
+    /// </summary>
+    /// <param name="url"> スプレッドシートのURL </param>
+    /// <param name="sheetName"> シート名 </param>
+    public void LoadDialogDataFromSpreadsheet(string url, string sheetName)
+    {
+        for (int i = 0; i < m_allScenarioData.AllScenarioDatas.Length; i++)
+        {
+            if (m_allScenarioData.AllScenarioDatas[i].ScenarioSheetName == sheetName)  //プロパティとシート名が一致したら
+            {
+                LoadMasterData(url, sheetName, (ScenarioMasterDataClass<DialogData> data) =>
+                {
+                    m_allScenarioData.AllScenarioDatas[i].DialogData = data.Data;  //データ更新
+
+                    for (int n = 0; n < m_allScenarioData.AllScenarioDatas[i].DialogData.Length; n++)
+                    {
+                        m_allScenarioData.AllScenarioDatas[i].DialogData[n].MessagesAndFacetypeToArray();
+                    }
+                });
+                return;
+            }
+        }
+        //データがロードできなかった場合
+        Debug.LogError("データをロードできませんでした");
+    }
+
+    /// <summary>
+    /// スプレッドシートからシナリオの選択肢データをロードする。※この関数はEditor上でのみ使用する関数なので、ゲーム中に実行されるクラスでは使わないでください。
+    /// </summary>
+    /// <param name="url"> スプレッドシートのURL </param>
+    /// <param name="sheetName"> シート名 </param>
+    public void LoadDialogChoicesDataFromSpreadsheet(string url, string sheetName)
+    {
+        for (int i = 0; i < m_allScenarioData.AllScenarioDatas.Length; i++)
+        {
+            if (m_allScenarioData.AllScenarioDatas[i].ScenarioSheetName == sheetName)  //プロパティとシート名が一致したら
+            {
+                LoadMasterData(url, sheetName, (ScenarioMasterDataClass<ChoicesData> data) =>
+                {
+                    m_allScenarioData.AllScenarioDatas[i].ChoicesDatas = data.Data;  //データ更新
+                });
+                return;
+            }
+        }
+        //データがロードできなかった場合
+        Debug.LogError("データをロードできませんでした");
     }
 
     /// <summary>
@@ -34,7 +95,7 @@ public class QuizDataManager : MonoBehaviour
         {
             if (m_allQuizData.FourChoicesQuizDatas[i].PeriodTypeName == sheetName)  //プロパティとシート名が一致したら
             {
-                LoadQuizMasterData(url, sheetName, (QuizMasterDataClass<FourChoicesQuiz> data) =>
+                LoadMasterData(url, sheetName, (QuizMasterDataClass<FourChoicesQuiz> data) =>
                 {
                     m_allQuizData.FourChoicesQuizDatas[i].FourChoicesQuizzes = data.Data;  //データ更新
                 });
@@ -77,7 +138,7 @@ public class QuizDataManager : MonoBehaviour
     /// /// <param name="url"> スプレッドシートのURL </param>
     /// <param name="file"> クイズの時代名 </param>
     /// <param name="callback"></param>
-    void LoadQuizMasterData<T>(string url, string file, LoadQuizDataCallback<T> callback)
+    void LoadMasterData<T>(string url, string file, LoadDataCallback<T> callback)
     {
         if (file == "None")
         {
