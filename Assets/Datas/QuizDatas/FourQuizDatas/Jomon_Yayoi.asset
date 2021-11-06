@@ -12,7 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 880b9701897616147bbd840a54947f8e, type: 3}
   m_Name: Jomon_Yayoi
   m_EditorClassIdentifier: 
-  m_periodType: 0
+  m_spreadsheetURL: https://script.google.com/macros/s/AKfycbwMDfg7S09aVHqyLve2ypq1jwgbYDgIZT25abH-Yp3oHIhtieA/exec
+  m_periodType: 1
   m_fourChoicesQuiz:
   - Id: 1
     Question: "\u7E04\u6587\u6642\u4EE3\u306E\u4EBA\u3005\u304C\u5973\u6027\u3092\u304B\u305F\u3069\u3063\u3066\u4E94\u7A40\u8C4A\u7A63\u3092\u7948\u3063\u305F\u3068\u3055\u308C\u308B\u4EBA\u5F62\u3092\u4F55\u3068\u3044\u3046\u304B\uFF1F"

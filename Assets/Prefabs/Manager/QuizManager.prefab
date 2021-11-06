@@ -32,7 +32,7 @@ RectTransform:
   - {fileID: 434024879378630932}
   - {fileID: 434024879957564924}
   m_Father: {fileID: 434024879581997531}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -161,8 +161,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 434024879647280400}
-        m_TargetAssemblyTypeName: QuizView, Assembly-CSharp
-        m_MethodName: SelectAnswer
+        m_TargetAssemblyTypeName: QuizManager, Assembly-CSharp
+        m_MethodName: FourChoicesQuizSelectAnswer
         m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -452,8 +452,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 434024879647280400}
-        m_TargetAssemblyTypeName: QuizView, Assembly-CSharp
-        m_MethodName: SelectAnswer
+        m_TargetAssemblyTypeName: QuizManager, Assembly-CSharp
+        m_MethodName: FourChoicesQuizSelectAnswer
         m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -475,7 +475,7 @@ GameObject:
   - component: {fileID: 434024879581997093}
   - component: {fileID: 434024879581997530}
   m_Layer: 5
-  m_Name: QuizPanel
+  m_Name: FourChoicesQuizPanel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -492,12 +492,9 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 434024880841983924}
   - {fileID: 434024879306692209}
-  - {fileID: 434024880768296507}
-  - {fileID: 434024879928823045}
   m_Father: {fileID: 434024881391568609}
-  m_RootOrder: 0
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -588,20 +585,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_answerTime: 10
   m_nextQuestionTimer: 2
-  m_quizPanel: {fileID: 434024879581997528}
-  m_question: {fileID: 434024880841983926}
-  m_choices:
-  - {fileID: 434024880204794294}
-  - {fileID: 434024879318317975}
-  - {fileID: 434024880260643263}
-  - {fileID: 434024879371760354}
   m_timeLimit: {fileID: 434024880768296506}
+  m_question: {fileID: 434024880841983926}
   m_JudgePanel: {fileID: 434024879928823098}
   m_judgeImages:
   - {fileID: 434024880613231793}
   - {fileID: 434024881062368194}
   m_countDown: {fileID: 434024880949990762}
+  m_fourChoicesQuizPanel: {fileID: 434024879581997528}
+  m_choices:
+  - {fileID: 434024880204794294}
+  - {fileID: 434024879318317975}
+  - {fileID: 434024880260643263}
+  - {fileID: 434024879371760354}
   m_periodType: 1
+  questionLimit: 10
 --- !u!1 &434024879928823098
 GameObject:
   m_ObjectHideFlags: 0
@@ -633,8 +631,8 @@ RectTransform:
   m_Children:
   - {fileID: 434024880613231798}
   - {fileID: 434024881062368195}
-  m_Father: {fileID: 434024879581997531}
-  m_RootOrder: 3
+  m_Father: {fileID: 434024881391568609}
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -801,8 +799,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 434024879647280400}
-        m_TargetAssemblyTypeName: QuizView, Assembly-CSharp
-        m_MethodName: SelectAnswer
+        m_TargetAssemblyTypeName: QuizManager, Assembly-CSharp
+        m_MethodName: FourChoicesQuizSelectAnswer
         m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1071,16 +1069,16 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 434024880768296504}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 434024879581997531}
-  m_RootOrder: 2
+  m_Father: {fileID: 434024881391568609}
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 674, y: 494}
+  m_AnchoredPosition: {x: 804, y: 536}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &434024880768296453
@@ -1124,7 +1122,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: "\u56DE\u7B54\u6642\u9593"
+  m_Text: 
 --- !u!114 &434024880768296452
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1166,11 +1164,11 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 434024880841983925}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 434024879581997531}
+  m_Father: {fileID: 434024881391568609}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
@@ -1219,7 +1217,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: "\u554F\u984C"
+  m_Text: 
 --- !u!114 &434024880841983927
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1266,7 +1264,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 434024881391568609}
-  m_RootOrder: 1
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -1527,8 +1525,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 434024879647280400}
-        m_TargetAssemblyTypeName: QuizView, Assembly-CSharp
-        m_MethodName: SelectAnswer
+        m_TargetAssemblyTypeName: QuizManager, Assembly-CSharp
+        m_MethodName: FourChoicesQuizSelectAnswer
         m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1568,8 +1566,11 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_Children:
+  - {fileID: 434024880841983924}
+  - {fileID: 434024880768296507}
   - {fileID: 434024879581997531}
   - {fileID: 434024880949990760}
+  - {fileID: 434024879928823045}
   m_Father: {fileID: 434024879647280401}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
