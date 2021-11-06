@@ -7,7 +7,6 @@ namespace ScenarioMasterData
 {
     public class ScenarioMasterDataClass<T>
     {
-        public int BGType;
         public T[] Data;
     }
 
@@ -17,6 +16,7 @@ namespace ScenarioMasterData
         public int MessageId = default;
         public string Talker = default;
         public int Position = default;
+        public int BackgroundType = default;
         [HideInInspector]
         public string FaceType = default;
         [SerializeField]
@@ -42,7 +42,10 @@ namespace ScenarioMasterData
 
             for (int i = 0; i < f.Length; i++)
             {
-                m_faceTypes[i] = int.Parse(f[i]);
+                if (f[i] != "")
+                {
+                    m_faceTypes[i] = int.Parse(f[i]);
+                }               
             }
         }
     }
