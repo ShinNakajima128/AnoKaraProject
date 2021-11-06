@@ -9,12 +9,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ae764969ee966c04d872446e2b57e6db, type: 3}
-  m_Name: Dialog1
+  m_Script: {fileID: 11500000, guid: 2cfd1c762bfb0094ba2bb45123180fd8, type: 3}
+  m_Name: TestScenarioData
   m_EditorClassIdentifier: 
-  m_scenarioSheetName: Scenario1
-  m_choicesSheetName: Scenario1Choices
-  m_characterData:
+  m_spreadSheetURL: https://script.google.com/macros/s/AKfycbylVkrjxNIliuZ3BKHepU4m1is5teOIuKWqjnDIQUQT__ZDw3Ks/exec
+  m_scenarioSheetName: ScenarioTest
+  m_choicesSheetName: 
+  m_dialogData:
   - MessageId: 0
     Talker: "\u30D7\u30EC\u30A4\u30E4\u30FC"
     Position: 1
@@ -417,32 +418,5 @@ MonoBehaviour:
     NextId: 29
     m_allMessages:
     - "\u308C\u3063\u3064\u3054\u30FC\u3002"
-  m_choicesDatas:
-  - ChoicesId: 1
-    Choices: "\u3054\u308A\u3089\n\u3054\u306F\u3093"
-    NextMessageId: '7
-
-      8'
-    m_allChoices:
-    - "\u3054\u308A\u3089"
-    - "\u3054\u306F\u3093"
-    m_nextId: 0700000008000000
-  - ChoicesId: 2
-    Choices: "\u30D1\u30A4\u30F3\n\u30D1\u30BB\u30EA"
-    NextMessageId: '12
-
-      13'
-    m_allChoices:
-    - "\u30D1\u30A4\u30F3"
-    - "\u30D1\u30BB\u30EA"
-    m_nextId: 0c0000000d000000
-  - ChoicesId: 3
-    Choices: "\u884C\u304F\n\u884C\u304B\u306A\u3044"
-    NextMessageId: '24
-
-      25'
-    m_allChoices:
-    - "\u884C\u304F"
-    - "\u884C\u304B\u306A\u3044"
-    m_nextId: 1800000019000000
+  m_choicesDatas: []
   m_backgroundType: 0
