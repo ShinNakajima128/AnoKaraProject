@@ -43,6 +43,9 @@ public class QuizManager : MonoBehaviour
     Image m_historicalFiguresImage = default;
 
     [SerializeField]
+    GameObject m_blowings = default;
+
+    [SerializeField]
     Text m_playerChat = default;
 
     [SerializeField]
@@ -97,6 +100,7 @@ public class QuizManager : MonoBehaviour
     {
         m_playeData = DataManager.Instance.PlayerData;
         m_historicalFiguresData = DataManager.Instance.CurrentPeriodHistoricalFigures;
+        m_blowings.SetActive(false);
         //各人物の画像をセットする
         SetCharacterPanel(m_playeData, m_historicalFiguresData);
         m_questionResults = new bool[questionLimit];
@@ -111,6 +115,10 @@ public class QuizManager : MonoBehaviour
     {
         //カウントダウン開始
         yield return StartCoroutine(CountDown());
+
+        m_blowings.SetActive(true);
+        m_playerChat.text = m_playeData.ThinkingChat;
+        m_historicalFiguresChat.text = m_historicalFiguresData.ThinkingChat;
 
         //10問出し終えるまで続ける
         while (CurrentTurnNum < questionLimit)
@@ -208,6 +216,8 @@ public class QuizManager : MonoBehaviour
         }
         m_playerImage.sprite = m_playeData.PlayerImage[0];
         m_historicalFiguresImage.sprite = m_historicalFiguresData.CharacterImages[0];
+        m_playerChat.text = m_playeData.ThinkingChat;
+        m_historicalFiguresChat.text = m_historicalFiguresData.ThinkingChat;
         m_JudgePanel.SetActive(false);
     }
 
@@ -251,6 +261,8 @@ public class QuizManager : MonoBehaviour
             m_judgeImages[0].enabled = true;
             m_playerImage.sprite = m_playeData.PlayerImage[1];
             m_historicalFiguresImage.sprite = m_historicalFiguresData.CharacterImages[1];
+            m_playerChat.text = m_playeData.CorrectChat;
+            m_historicalFiguresChat.text = m_historicalFiguresData.CorrectChat;
         }
         //不正解
         else
@@ -259,6 +271,8 @@ public class QuizManager : MonoBehaviour
             m_judgeImages[1].enabled = true;
             m_playerImage.sprite = m_playeData.PlayerImage[2];
             m_historicalFiguresImage.sprite = m_historicalFiguresData.CharacterImages[2];
+            m_playerChat.text = m_playeData.IncorrectChat;
+            m_historicalFiguresChat.text = m_historicalFiguresData.IncorrectChat;
         }
         m_questionResults[CurrentTurnNum] = correct;
     }

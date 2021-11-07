@@ -15,6 +15,9 @@ MonoBehaviour:
   m_playerName: 
   m_playerGender: 0
   m_progress: 0
+  m_thinkingChat: "\u3046\uFF5E\u3093"
+  m_correctChat: "\u3084\u3063\u305F\u306D\uFF01"
+  m_incorrectChat: "\u305D\u3093\u306A\uFF5E\u2026"
   m_boyImages:
   - {fileID: 21300000, guid: 98d139646cb111942a0ea721e7b7b6d6, type: 3}
   - {fileID: 21300000, guid: 0b808aa83a994174b922e4a6e83e656a, type: 3}

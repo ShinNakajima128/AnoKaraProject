@@ -18,6 +18,15 @@ public class PlayerData : ScriptableObject
     [SerializeField]
     int m_progress = default;
 
+    [Header("プレイヤーのクイズパートの考え中・正解・不正解のセリフ")]
+    [SerializeField]
+    string m_thinkingChat = default;
+    [SerializeField]
+    string m_correctChat = default;
+
+    [SerializeField]
+    string m_incorrectChat = default;
+
     [Header("男の子の画像データ")]
     [SerializeField]
     Sprite[] m_boyImages = default;
@@ -44,4 +53,7 @@ public class PlayerData : ScriptableObject
     public Sprite[] BoyImages => m_boyImages;
     /// <summary> 女の子の画像データを取得する </summary>
     public Sprite[] GirlImages => m_girlImages;
+    public string ThinkingChat => m_thinkingChat;
+    public string CorrectChat => m_correctChat;
+    public string IncorrectChat => m_incorrectChat;
 }

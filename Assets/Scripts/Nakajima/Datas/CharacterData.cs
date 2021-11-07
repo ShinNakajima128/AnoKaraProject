@@ -16,7 +16,9 @@ public class CharacterData : ScriptableObject
     [SerializeField]
     Sprite[] m_characterImages = default;
 
-    [Header("各偉人のクイズパートの正解・不正解のセリフ")]
+    [Header("各偉人のクイズパートの考え中・正解・不正解のセリフ")]
+    [SerializeField]
+    string m_thinkingChat = default;
     [SerializeField]
     string m_correctChat = default;
 
@@ -26,6 +28,7 @@ public class CharacterData : ScriptableObject
     public string CharacterName => m_characterName;
     public PeriodTypes CharacterPeriod => m_characterPeriod;
     public Sprite[] CharacterImages => m_characterImages;
+    public string ThinkingChat => m_thinkingChat;
     public string CorrectChat => m_correctChat;
     public string IncorrectChat => m_incorrectChat;
 }
