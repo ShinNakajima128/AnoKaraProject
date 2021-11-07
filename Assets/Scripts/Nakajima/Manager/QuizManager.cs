@@ -25,6 +25,9 @@ public class QuizManager : MonoBehaviour
     Text m_timeLimit = default;
 
     [SerializeField]
+    Text m_currentQuestionUI = default;
+
+    [SerializeField]
     Text m_question = default;
 
     [SerializeField]
@@ -43,7 +46,7 @@ public class QuizManager : MonoBehaviour
     Image m_historicalFiguresImage = default;
 
     [SerializeField]
-    GameObject m_blowings = default;
+    GameObject m_quizPartObjects = default;
 
     [SerializeField]
     Text m_playerChat = default;
@@ -110,7 +113,7 @@ public class QuizManager : MonoBehaviour
         m_playeData = DataManager.Instance.PlayerData;
         m_historicalFiguresData = DataManager.Instance.CurrentPeriodHistoricalFigures;
         m_QuizResultUI.SetActive(false);
-        m_blowings.SetActive(false);
+        m_quizPartObjects.SetActive(false);
 
         foreach (var a in m_quizResultUIAnims)
         {
@@ -132,14 +135,14 @@ public class QuizManager : MonoBehaviour
         yield return StartCoroutine(CountDown());
 
         m_QuizResultUI.SetActive(true);
-        m_blowings.SetActive(true);
+        m_quizPartObjects.SetActive(true);
         m_playerChat.text = m_playeData.ThinkingChat;
         m_historicalFiguresChat.text = m_historicalFiguresData.ThinkingChat;
 
         //10問出し終えるまで続ける
         while (CurrentTurnNum < questionLimit)
         {
-            Debug.Log("現在の問題は" + (CurrentTurnNum + 1) + "番目");
+            m_currentQuestionUI.text = $"第{CurrentTurnNum + 1}問";
             QuizDataUpdated = false;
             m_currentQuestion = null;
             m_isAnswered = false;
@@ -179,6 +182,8 @@ public class QuizManager : MonoBehaviour
             }
             yield return null;
         }
+        ///ここから下にクイズが終了した時の処理を記述する///
+        
         //正解した数を保存
         CorrectAnswersNum = m_questionResults.Count(b => b);
         Debug.Log(CorrectAnswersNum);
