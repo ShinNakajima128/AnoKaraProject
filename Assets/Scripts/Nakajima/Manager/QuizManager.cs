@@ -51,6 +51,15 @@ public class QuizManager : MonoBehaviour
     [SerializeField]
     Text m_historicalFiguresChat = default;
 
+    [SerializeField]
+    GameObject m_QuizResultUI = default;
+
+    [SerializeField]
+    Slider m_quizResultUISlider = default;
+
+    [SerializeField]
+    Animator[] m_quizResultUIAnims = default;
+
     [Header("4択クイズのオブジェクト")]
     [SerializeField]
     GameObject m_fourChoicesQuizPanel = default;
@@ -100,7 +109,13 @@ public class QuizManager : MonoBehaviour
     {
         m_playeData = DataManager.Instance.PlayerData;
         m_historicalFiguresData = DataManager.Instance.CurrentPeriodHistoricalFigures;
+        m_QuizResultUI.SetActive(false);
         m_blowings.SetActive(false);
+
+        foreach (var a in m_quizResultUIAnims)
+        {
+            a.Play("Standby");
+        }
         //各人物の画像をセットする
         SetCharacterPanel(m_playeData, m_historicalFiguresData);
         m_questionResults = new bool[questionLimit];
@@ -116,6 +131,7 @@ public class QuizManager : MonoBehaviour
         //カウントダウン開始
         yield return StartCoroutine(CountDown());
 
+        m_QuizResultUI.SetActive(true);
         m_blowings.SetActive(true);
         m_playerChat.text = m_playeData.ThinkingChat;
         m_historicalFiguresChat.text = m_historicalFiguresData.ThinkingChat;
@@ -128,6 +144,8 @@ public class QuizManager : MonoBehaviour
             m_currentQuestion = null;
             m_isAnswered = false;
             ResetQuizPanel();
+            m_quizResultUISlider.value = CurrentTurnNum;
+            m_quizResultUIAnims[CurrentTurnNum].Play("Thinking");
 
             while (!QuizDataUpdated)
             {
@@ -263,6 +281,7 @@ public class QuizManager : MonoBehaviour
             m_historicalFiguresImage.sprite = m_historicalFiguresData.CharacterImages[1];
             m_playerChat.text = m_playeData.CorrectChat;
             m_historicalFiguresChat.text = m_historicalFiguresData.CorrectChat;
+            m_quizResultUIAnims[CurrentTurnNum].Play("Correct");
         }
         //不正解
         else
@@ -273,6 +292,7 @@ public class QuizManager : MonoBehaviour
             m_historicalFiguresImage.sprite = m_historicalFiguresData.CharacterImages[2];
             m_playerChat.text = m_playeData.IncorrectChat;
             m_historicalFiguresChat.text = m_historicalFiguresData.IncorrectChat;
+            m_quizResultUIAnims[CurrentTurnNum].Play("InCorrect");
         }
         m_questionResults[CurrentTurnNum] = correct;
     }

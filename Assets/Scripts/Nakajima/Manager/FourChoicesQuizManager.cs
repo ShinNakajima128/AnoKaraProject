@@ -1,4 +1,5 @@
 ﻿using System.Collections;
+using System.Linq;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -77,6 +78,7 @@ public class FourChoicesQuizManager : MonoBehaviour
         yield return new WaitUntil(() => QuizManager.Instance.IsAnswered);
 
         yield return QuizManager.Instance.Judge();
+        QuizManager.Instance.CurrentTurnNum++;
         m_currentNum++;
     }
 
