@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e72118d45febe24db6886a60ba26345, type: 3}
+  m_Name: Himiko
+  m_EditorClassIdentifier: 
+  m_characterName: "\u5351\u5F25\u547C"
+  m_characterPeriod: 1
+  m_characterImages:
+  - {fileID: 21300000, guid: 66df054fff57b9b418c50e4f2e3921d2, type: 3}
+  - {fileID: 21300000, guid: 08070f8e9b818eb4280f7b29e4c07ef9, type: 3}
+  - {fileID: 21300000, guid: bc6a4ff634f49634fa3dce00bb86d586, type: 3}
+  m_correctChat: "\u3042\u3063\u3071\u308C\uFF01"
+  m_incorrectChat: "\u3080\u3045\u2026"
