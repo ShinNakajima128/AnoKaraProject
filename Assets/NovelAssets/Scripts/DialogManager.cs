@@ -254,7 +254,7 @@ public class DialogManager : MonoBehaviour
                 m_clickIcon.SetActive(false);
                 m_messageText.text = "";
                 string message = data.DialogData[currentDialogIndex].AllMessages[i].Replace("プレイヤー", m_playerName)
-                                                                                   .Replace("私（僕or俺)", GameManager.Instance.PlayerGender == GenderType.Male ? m_malePronoun: m_famalePronoun);
+                                                                                   .Replace("私（僕or俺)", GameManager.Instance.PlayerGender == GenderType.Boy ? m_malePronoun: m_famalePronoun);
                 bool isHighlighted = false;
 
                 //各メッセージを一文字ずつ表示する

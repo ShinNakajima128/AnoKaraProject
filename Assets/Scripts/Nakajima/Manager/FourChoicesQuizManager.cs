@@ -54,6 +54,7 @@ public class FourChoicesQuizManager : MonoBehaviour
         }
         else
         {
+            QuizManager.Instance.QuizDataUpdated = true;
             //クイズ画面を表示する
             panel.SetActive(true);
             //各テキストを更新する

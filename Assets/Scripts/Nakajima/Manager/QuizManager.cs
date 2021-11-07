@@ -36,6 +36,18 @@ public class QuizManager : MonoBehaviour
     [SerializeField]
     Text m_countDown = default;
 
+    [SerializeField]
+    Image m_playerImage = default;
+
+    [SerializeField]
+    Image m_historicalFiguresImage = default;
+
+    [SerializeField]
+    Text m_playerChat = default;
+
+    [SerializeField]
+    Text m_historicalFiguresChat = default;
+
     [Header("4択クイズのオブジェクト")]
     [SerializeField]
     GameObject m_fourChoicesQuizPanel = default;
@@ -48,6 +60,10 @@ public class QuizManager : MonoBehaviour
     int questionLimit = 10;
     #endregion
 
+    /// <summary> プレイヤーのデータ </summary>
+    PlayerData m_playeData = default;
+    /// <summary> 現在プレイ中の時代の偉人データ </summary>
+    CharacterData m_historicalFiguresData = default;
     /// <summary> プレイヤーの解答 </summary>
     string m_playerAnswer = default;
     /// <summary> 現在のクイズの正しい答え </summary>
@@ -69,6 +85,8 @@ public class QuizManager : MonoBehaviour
     public string PlayerAnswer { get => m_playerAnswer; set => m_playerAnswer = value; }
     public string CorrectAnswer { get => m_correctAnswer; set => m_correctAnswer = value; }
     public bool IsAnswered { get => m_isAnswered; set => m_isAnswered = value; }
+
+    public bool QuizDataUpdated { get; set; } = false;
     #endregion
     private void Awake()
     {
@@ -77,6 +95,10 @@ public class QuizManager : MonoBehaviour
 
     private void Start()
     {
+        m_playeData = DataManager.Instance.PlayerData;
+        m_historicalFiguresData = DataManager.Instance.CurrentPeriodHistoricalFigures;
+        //各人物の画像をセットする
+        SetCharacterPanel(m_playeData, m_historicalFiguresData);
         m_questionResults = new bool[questionLimit];
         StartCoroutine(QuizStart());
     }
@@ -94,13 +116,14 @@ public class QuizManager : MonoBehaviour
         while (CurrentTurnNum < questionLimit)
         {
             Debug.Log("現在の問題は" + (CurrentTurnNum + 1) + "番目");
+            QuizDataUpdated = false;
             m_currentQuestion = null;
             m_isAnswered = false;
             ResetQuizPanel();
 
-            while (m_currentQuestion == null)
+            while (!QuizDataUpdated)
             {
-                int num = UnityEngine.Random.Range(0, 3); //各クイズからランダムで問題を抽選する
+                int num = UnityEngine.Random.Range(0, 1); //各クイズからランダムで問題を抽選する
 
                 switch (num)
                 {
@@ -126,10 +149,8 @@ public class QuizManager : MonoBehaviour
                         Debug.Log("線繋ぎクイズ");
                         break;
                 }
-                yield return null;
-            }           
-            yield return m_currentQuestion;
-            CurrentTurnNum++;
+                yield return m_currentQuestion;
+            }
             yield return null;
         }
         //正解した数を保存
@@ -185,6 +206,8 @@ public class QuizManager : MonoBehaviour
         {
             images.enabled = false;
         }
+        m_playerImage.sprite = m_playeData.PlayerImage[0];
+        m_historicalFiguresImage.sprite = m_historicalFiguresData.CharacterImages[0];
         m_JudgePanel.SetActive(false);
     }
 
@@ -226,14 +249,24 @@ public class QuizManager : MonoBehaviour
         {
             m_JudgePanel.SetActive(true);
             m_judgeImages[0].enabled = true;
+            m_playerImage.sprite = m_playeData.PlayerImage[1];
+            m_historicalFiguresImage.sprite = m_historicalFiguresData.CharacterImages[1];
         }
         //不正解
         else
         {
             m_JudgePanel.SetActive(true);
             m_judgeImages[1].enabled = true;
+            m_playerImage.sprite = m_playeData.PlayerImage[2];
+            m_historicalFiguresImage.sprite = m_historicalFiguresData.CharacterImages[2];
         }
         m_questionResults[CurrentTurnNum] = correct;
+    }
+
+    void SetCharacterPanel(PlayerData player, CharacterData historicalFigures)
+    {
+        m_playerImage.sprite = player.PlayerImage[0];
+        m_historicalFiguresImage.sprite = historicalFigures.CharacterImages[0];
     }
     #endregion
 

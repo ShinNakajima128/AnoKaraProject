@@ -5,8 +5,8 @@ using System;
 
 public enum GenderType
 {
-    Male,
-    Female
+    Boy,
+    Girl
 }
 
 [Serializable]

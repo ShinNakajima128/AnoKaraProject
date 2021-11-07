@@ -9,6 +9,14 @@ using ScenarioMasterData;
 /// </summary>
 public class DataManager : MonoBehaviour
 {
+    [Header("プレイヤーデータ")]
+    [SerializeField]
+    PlayerData m_playerData = default;
+
+    [Header("人物データ")]
+    [SerializeField]
+    AllCharacterData m_allCharacterData = default;
+
     [Header("クイズデータ")]
     [SerializeField]
     AllQuizData m_allQuizData = default;
@@ -20,6 +28,13 @@ public class DataManager : MonoBehaviour
     delegate void LoadDataCallback<T>(T data);
 
     public static DataManager Instance { get; private set; }
+
+    /// <summary> プレイヤーのデータを取得する </summary>
+    public PlayerData PlayerData => m_playerData;
+    /// <summary> 現在の時代の村人のデータを取得する </summary>
+    public CharacterData[] CurrentPeriodAllVillegersData => m_allCharacterData.GetCurrentPeriodVillagersData;
+    /// <summary> 現在の時代の偉人データを取得する </summary>
+    public CharacterData CurrentPeriodHistoricalFigures => m_allCharacterData.GetCurrentHistoricalFiguresData;
     /// <summary> 4択クイズのデータ </summary>
     public FourChoicesQuizData[] FourChoicesQuizDatas => m_allQuizData.FourChoicesQuizDatas;
 

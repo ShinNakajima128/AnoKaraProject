@@ -44,6 +44,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fadd3bfec9b7dfd47b4062c543ce9478, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_playerData: {fileID: 11400000, guid: 1a249d1d7eea9b64c93ea909f03d3448, type: 2}
+  m_allCharacterData: {fileID: 11400000, guid: 2904543d09073bc45978f47221172584, type: 2}
   m_allQuizData: {fileID: 11400000, guid: a7f3b71f11fe9aa4e9d63dbebe94aa9a, type: 2}
   m_allScenarioData: {fileID: 11400000, guid: 960b0b82e3a0f1f4fb8bcc672b8766d9, type: 2}
 --- !u!114 &1218958328587039697
