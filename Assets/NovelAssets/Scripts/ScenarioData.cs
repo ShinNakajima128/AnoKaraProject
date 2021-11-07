@@ -40,7 +40,6 @@ public class ScenarioData : ScriptableObject
     {
         LoadDialogMasterData(m_scenarioSheetName, (ScenarioMasterDataClass<DialogData> data) =>
         {
-            m_backgroundType = data.BGType;
             m_dialogData = data.Data;  //データ更新
 
             for (int n = 0; n < m_dialogData.Length; n++)

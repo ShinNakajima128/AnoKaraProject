@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4d9aa4b5244f4994db385df11d119ef7, type: 3}
   m_Name: UnityData
   m_EditorClassIdentifier: 
-  m_dataName: "\u3086\u306B\u3066\u3043"
+  m_dataName: "\u30B3\u30DE"
   m_characterImages:
   - {fileID: 21300000, guid: 66df054fff57b9b418c50e4f2e3921d2, type: 3}
   - {fileID: 21300000, guid: 21e55864b0c38f247b15e5e92a67c86e, type: 3}
