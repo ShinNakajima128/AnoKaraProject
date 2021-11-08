@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using ScenarioMasterData;
+using UnityEngine.Events;
 
 public enum HighlightTextType
 {
@@ -14,9 +15,9 @@ public enum HighlightTextType
 }
 
 /// <summary>
-/// ダイアログを管理するクラス
+/// シナリオを管理するクラス
 /// </summary>
-public class DialogManager : MonoBehaviour
+public class ScenarioManager : MonoBehaviour
 {
     #region serialize field
     [Header("ダイアログリスト")]
@@ -58,43 +59,58 @@ public class DialogManager : MonoBehaviour
     [SerializeField]
     GameObject m_display = default;
 
+    /// <summary> 背景の機能を持つクラス </summary>
     [SerializeField]
     BackGroundController m_bgCtrl = default;
 
+    /// <summary>  </summary>
     [SerializeField]
     GameObject[] m_character = default;
 
+    /// <summary>  </summary>
     [SerializeField]
     GameObject m_namePanel = default;
 
+    /// <summary>  </summary>
     [SerializeField]
     Text m_characterName = default;
 
+    /// <summary>  </summary>
     [SerializeField]
     Text m_messageText = default;
 
+    /// <summary>  </summary>
     [SerializeField]
     GameObject m_clickIcon = default;
 
+    /// <summary>  </summary>
     [SerializeField]
     GameObject m_choicesPanel = default;
 
+    /// <summary>  </summary>
     [SerializeField]
     GameObject m_choicesPrefab = default;
 
+    /// <summary>  </summary>
     [SerializeField]
     GameObject m_logPanel = default;
 
+    /// <summary>  </summary>
     [SerializeField]
     Text m_logText = default;
 
-    [SerializeField, Header("キャラクターリスト")]
+    [Header("キャラクターリスト")]
+    [SerializeField]
     CharacterImageData[] m_imageDatas = default;
     #endregion
 
     #region public field
-    public Action ContinueDialog = default;
-    public Action EndDialog = default;
+    [Header("Sceneが始まった時に呼び出されるイベント")]
+    public UnityEvent StartDialog = new UnityEvent();
+    [Header("シナリオデータを継続する際に呼び出されるイベント")]
+    public UnityEvent ContinueDialog = new UnityEvent();
+    [Header("シナリオデータが全て終了した時に呼び出されるイベント")]
+    public UnityEvent EndDialog = new UnityEvent();
     #endregion
 
     #region field
@@ -115,7 +131,7 @@ public class DialogManager : MonoBehaviour
     #endregion
 
     #region property
-    public static DialogManager Instance { get; private set; }
+    public static ScenarioManager Instance { get; private set; }
     public bool IsAutoflow { get; set; }
     public int AfterReactionMessageId { get => m_AfterReactionMessageId; set => m_AfterReactionMessageId = value; }
     #endregion
@@ -128,17 +144,8 @@ public class DialogManager : MonoBehaviour
 
     void Start()
     {
-        HighlightCodeSetup(m_textType, ColorToHex(m_HighlightTextColor));
-        m_characterImage = new Image[m_character.Length];
-        m_anim = new Animator[m_character.Length];
-
-        for (int i = 0; i < m_character.Length; i++)
-        {
-            m_characterImage[i] = m_character[i].GetComponent<Image>();
-            m_anim[i] = m_character[i].GetComponent<Animator>();
-        }
         m_display.SetActive(false);
-        StartCoroutine(StartMessage());
+        StartDialog?.Invoke(); 
     }
     #endregion
 
@@ -504,6 +511,25 @@ public class DialogManager : MonoBehaviour
     #endregion
 
     #region public function
+
+    /// <summary>
+    /// シナリオを開始する
+    /// </summary>
+    public void StartScenario()
+    {
+        HighlightCodeSetup(m_textType, ColorToHex(m_HighlightTextColor));
+        m_characterImage = new Image[m_character.Length];
+        m_anim = new Animator[m_character.Length];
+
+        for (int i = 0; i < m_character.Length; i++)
+        {
+            m_characterImage[i] = m_character[i].GetComponent<Image>();
+            m_anim[i] = m_character[i].GetComponent<Animator>();
+        }
+        m_display.SetActive(false);
+        StartCoroutine(StartMessage());
+    }
+
     /// <summary>
     /// 会話ログを表示する
     /// </summary>
