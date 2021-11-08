@@ -55,7 +55,7 @@ public class QuizResultManager : MonoBehaviour
     {
         if (m_ansCount == 10)
         {
-            QuizResultUiSet(0);
+            QuizResultUiSet(2);
             StartCoroutine(SetStar(2, m_starTimer));
         }
         else if (m_ansCount >= 7)
@@ -63,10 +63,14 @@ public class QuizResultManager : MonoBehaviour
             QuizResultUiSet(1);
             StartCoroutine(SetStar(1, m_starTimer));
         }
-        else if (m_ansCount < 7)
+        else if (m_ansCount >= 3)
         {
-            QuizResultUiSet(2);
+            QuizResultUiSet(0);
             StartCoroutine(SetStar(0, m_starTimer));
+        }
+        else if (m_ansCount < 3)
+        {
+            QuizResultUiSet(3);
         }
     }
 
