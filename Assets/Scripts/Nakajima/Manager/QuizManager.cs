@@ -142,6 +142,7 @@ public class QuizManager : MonoBehaviour
         m_quizPartObjects.SetActive(true);
         m_playerChat.text = m_playeData.ThinkingChat;
         m_historicalFiguresChat.text = m_historicalFiguresData.ThinkingChat;
+        m_correctRate.text = $"正答率：{0}%";
 
         //10問出し終えるまで続ける
         while (CurrentTurnNum < questionLimit)
@@ -186,9 +187,7 @@ public class QuizManager : MonoBehaviour
             }
             //正解した数を保存
             CorrectAnswersNum = m_questionResults.Count(b => b);
-            Debug.Log(CurrentTurnNum);
-            Debug.Log(CorrectAnswersNum);
-            Debug.Log($"正答率：{CalculateCorrectAnswerRate(CurrentTurnNum, CorrectAnswersNum)}%");
+            m_correctRate.text = $"正答率：{CalculateCorrectAnswerRate(CurrentTurnNum, CorrectAnswersNum).ToString("F0")}%";
             yield return null;
         }
         ///ここから下にクイズが終了した時の処理を記述する///
