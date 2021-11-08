@@ -55,6 +55,9 @@ public class QuizManager : MonoBehaviour
     Text m_historicalFiguresChat = default;
 
     [SerializeField]
+    Text m_correctRate = default;
+
+    [SerializeField]
     GameObject m_QuizResultUI = default;
 
     [SerializeField]
@@ -181,12 +184,14 @@ public class QuizManager : MonoBehaviour
                 }
                 yield return m_currentQuestion;
             }
+            //正解した数を保存
+            CorrectAnswersNum = m_questionResults.Count(b => b);
+            Debug.Log(CurrentTurnNum);
+            Debug.Log(CorrectAnswersNum);
+            Debug.Log($"正答率：{CalculateCorrectAnswerRate(CurrentTurnNum, CorrectAnswersNum)}%");
             yield return null;
         }
         ///ここから下にクイズが終了した時の処理を記述する///
-        
-        //正解した数を保存
-        CorrectAnswersNum = m_questionResults.Count(b => b);
         Debug.Log(CorrectAnswersNum);
         //仮にここでResult画面へ遷移の記述。できればGameManagerのOnGameEnd関数などを用意してここに書きたい
         LoadSceneManager.AnyLoadScene("Result");
@@ -307,6 +312,11 @@ public class QuizManager : MonoBehaviour
     {
         m_playerImage.sprite = player.PlayerImage[0];
         m_historicalFiguresImage.sprite = historicalFigures.CharacterImages[0];
+    }
+
+    float CalculateCorrectAnswerRate(float currentQuestionNum, float correctNum)
+    {
+        return (correctNum / currentQuestionNum) * 100;
     }
     #endregion
 
