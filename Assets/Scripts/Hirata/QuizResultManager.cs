@@ -6,6 +6,10 @@ using UnityEngine.UI;
 /// <summary>クイズのリザルトマネージャー</summary>
 public class QuizResultManager : MonoBehaviour
 {
+    /// <summary>デバッグモード</summary>
+    [SerializeField]
+    bool m_isDebug = false;
+
     /// <summary>正解数を表示するテキスト</summary>
     [SerializeField]
     Text m_answerCountText;
@@ -43,8 +47,10 @@ public class QuizResultManager : MonoBehaviour
 
     void Start()
     {
-        //ResetStar();
-        //m_ansCount = QuizManager.CorrectAnswersNum;
+        if (!m_isDebug)
+        {
+            m_ansCount = QuizManager.CorrectAnswersNum;
+        }
         QuizResult();
     }
 
@@ -98,17 +104,6 @@ public class QuizResultManager : MonoBehaviour
             yield return new WaitForSeconds(timer);
         }
         yield break;
-    }
-
-    /// <summary>
-    /// 星の表示をリセットする
-    /// </summary>
-    void ResetStar()
-    {
-        foreach (var item in m_stars)
-        {
-            item.SetActive(false);
-        }
     }
 
     /// <summary>
