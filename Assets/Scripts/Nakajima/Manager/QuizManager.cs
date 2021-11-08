@@ -24,45 +24,59 @@ public class QuizManager : MonoBehaviour
     [SerializeField]
     Text m_timeLimit = default;
 
+    /// <summary> 第何問目かを表示するUI </summary>
     [SerializeField]
     Text m_currentQuestionUI = default;
 
+    /// <summary> 問題文 </summary>
     [SerializeField]
     Text m_question = default;
 
+    /// <summary> 判定の結果を表示するOanel </summary>
     [SerializeField]
     GameObject m_JudgePanel = default;
 
+    /// <summary> 判定の画像 </summary>
     [SerializeField]
     Image[] m_judgeImages = default;
 
+    /// <summary> カウントダウン用のText </summary>
     [SerializeField]
     Text m_countDown = default;
 
+    /// <summary> プレイヤーの画像データ </summary>
     [SerializeField]
     Image m_playerImage = default;
 
+    /// <summary> 偉人の画像データ </summary>
     [SerializeField]
     Image m_historicalFiguresImage = default;
 
+    /// <summary> クイズパートの画面のUIをまとめたPanel </summary>
     [SerializeField]
     GameObject m_quizPartObjects = default;
 
+    /// <summary> プレイヤーの吹き出し </summary>
     [SerializeField]
     Text m_playerChat = default;
 
+    /// <summary> 偉人の吹き出し </summary>
     [SerializeField]
     Text m_historicalFiguresChat = default;
 
+    /// <summary> クイズの正答率 </summary>
     [SerializeField]
     Text m_correctRate = default;
 
+    /// <summary> クイズの結果の履歴のUI </summary>
     [SerializeField]
     GameObject m_QuizResultUI = default;
 
+    /// <summary> クイズの進行度を表すSlider </summary>
     [SerializeField]
     Slider m_quizResultUISlider = default;
 
+    /// <summary> クイズ結果 </summary>
     [SerializeField]
     Animator[] m_quizResultUIAnims = default;
 
@@ -70,9 +84,11 @@ public class QuizManager : MonoBehaviour
     [SerializeField]
     GameObject m_fourChoicesQuizPanel = default;
 
+    /// <summary> 各選択肢のText </summary>
     [SerializeField]
     Text[] m_choices = default;
 
+    /// <summary> クイズの最大出題数 </summary>
     [Header("デバッグ用")]
     [SerializeField]
     int questionLimit = 10;
