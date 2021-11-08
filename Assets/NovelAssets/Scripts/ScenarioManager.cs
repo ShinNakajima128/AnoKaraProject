@@ -63,39 +63,39 @@ public class ScenarioManager : MonoBehaviour
     [SerializeField]
     BackGroundController m_bgCtrl = default;
 
-    /// <summary>  </summary>
+    /// <summary> キャラクターを表示するオブジェクト </summary>
     [SerializeField]
     GameObject[] m_character = default;
 
-    /// <summary>  </summary>
+    /// <summary> 名前を表示するパネル </summary>
     [SerializeField]
     GameObject m_namePanel = default;
 
-    /// <summary>  </summary>
+    /// <summary> キャラクター名が入るテキスト </summary>
     [SerializeField]
     Text m_characterName = default;
 
-    /// <summary>  </summary>
+    /// <summary> セリフのテキスト </summary>
     [SerializeField]
     Text m_messageText = default;
 
-    /// <summary>  </summary>
+    /// <summary> クリック待機時に表示するアイコン </summary>
     [SerializeField]
     GameObject m_clickIcon = default;
 
-    /// <summary>  </summary>
+    /// <summary> 選択肢が表示されるパネル </summary>
     [SerializeField]
     GameObject m_choicesPanel = default;
 
-    /// <summary>  </summary>
+    /// <summary> 選択肢生成用オブジェクト </summary>
     [SerializeField]
     GameObject m_choicesPrefab = default;
 
-    /// <summary>  </summary>
+    /// <summary> 会話ログのパネル </summary>
     [SerializeField]
     GameObject m_logPanel = default;
 
-    /// <summary>  </summary>
+    /// <summary> 会話ログのテキスト </summary>
     [SerializeField]
     Text m_logText = default;
 
@@ -114,6 +114,8 @@ public class ScenarioManager : MonoBehaviour
     #endregion
 
     #region field
+    /// <summary>
+    /// </summary>
     int m_nextMessageId = 0;
     int m_AfterReactionMessageId = 0;
     int m_currentBackgroundType = default;
