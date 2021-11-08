@@ -1,4 +1,5 @@
 ﻿using System.Collections;
+using System.Linq;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -54,6 +55,7 @@ public class FourChoicesQuizManager : MonoBehaviour
         }
         else
         {
+            QuizManager.Instance.QuizDataUpdated = true;
             //クイズ画面を表示する
             panel.SetActive(true);
             //各テキストを更新する
@@ -76,6 +78,7 @@ public class FourChoicesQuizManager : MonoBehaviour
         yield return new WaitUntil(() => QuizManager.Instance.IsAnswered);
 
         yield return QuizManager.Instance.Judge();
+        QuizManager.Instance.CurrentTurnNum++;
         m_currentNum++;
     }
 
