@@ -144,6 +144,15 @@ public class ScenarioManager : MonoBehaviour
 
     void Start()
     {
+        HighlightCodeSetup(m_textType, ColorToHex(m_HighlightTextColor));
+        m_characterImage = new Image[m_character.Length];
+        m_anim = new Animator[m_character.Length];
+
+        for (int i = 0; i < m_character.Length; i++)
+        {
+            m_characterImage[i] = m_character[i].GetComponent<Image>();
+            m_anim[i] = m_character[i].GetComponent<Animator>();
+        }
         m_display.SetActive(false);
         StartDialog?.Invoke(); 
     }
@@ -154,7 +163,7 @@ public class ScenarioManager : MonoBehaviour
     /// メッセージを表示する
     /// </summary>
     /// <returns></returns>
-    IEnumerator StartMessage()
+    IEnumerator StartAllMessage()
     {
         for (int i = 0; i < m_data.Length; i++)
         {
@@ -164,6 +173,20 @@ public class ScenarioManager : MonoBehaviour
         //全てのダイアログが終了したらこの下の処理が行われる
         m_display.SetActive(false);
         OnEndDialog();
+    }
+
+    /// <summary>
+    /// 選択したメッセージを開始する
+    /// </summary>
+    /// <param name="index"> データの添え字番号 </param>
+    /// <returns></returns>
+    IEnumerator StartSelectMessage(int index)
+    {
+        m_currentCoroutine = DisplayMessage(m_data[index]);
+        yield return m_currentCoroutine;
+
+        //全てのダイアログが終了したらこの下の処理が行われる
+        m_display.SetActive(false);
     }
 
     /// <summary>
@@ -513,21 +536,20 @@ public class ScenarioManager : MonoBehaviour
     #region public function
 
     /// <summary>
-    /// シナリオを開始する
+    /// 全てシナリオを再生する
     /// </summary>
-    public void StartScenario()
+    public void StartAllScenario()
     {
-        HighlightCodeSetup(m_textType, ColorToHex(m_HighlightTextColor));
-        m_characterImage = new Image[m_character.Length];
-        m_anim = new Animator[m_character.Length];
+        StartCoroutine(StartAllMessage());
+    }
 
-        for (int i = 0; i < m_character.Length; i++)
-        {
-            m_characterImage[i] = m_character[i].GetComponent<Image>();
-            m_anim[i] = m_character[i].GetComponent<Animator>();
-        }
-        m_display.SetActive(false);
-        StartCoroutine(StartMessage());
+    /// <summary>
+    /// 選択したシナリオを再生する。会話パートや探索パートの会話に使用する
+    /// </summary>
+    /// <param name="index"> データの添え字番号 </param>
+    public void StartSelectScenario(int index)
+    {
+        StartCoroutine(StartSelectMessage(index));
     }
 
     /// <summary>
