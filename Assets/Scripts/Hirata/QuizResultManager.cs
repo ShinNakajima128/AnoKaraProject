@@ -98,6 +98,7 @@ public class QuizResultManager : MonoBehaviour
     /// <returns></returns>
     IEnumerator SetStar(int index, float timer)
     {
+        yield return new WaitForSeconds(timer);
         for (int i = 0; i <= index; i++)
         {
             m_stars[i].SetActive(true);
