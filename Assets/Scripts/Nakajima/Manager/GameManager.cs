@@ -5,6 +5,7 @@ using MasterData;
 
 public class GameManager : SingletonMonoBehaviour<GameManager>
 {
+    [Header("デバッグ用")]
     [SerializeField]
     int m_currentStageId = default;
 

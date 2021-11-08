@@ -437,6 +437,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_currentStageId: 0
   m_currentPeriod: 1
+  m_playerGender: 0
 --- !u!4 &1114889788
 Transform:
   m_ObjectHideFlags: 0
@@ -575,6 +576,26 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 948664300, guid: e1dacf4572dd80143b50cb7a73e36d93, type: 3}
+      propertyPath: m_Type
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 948664300, guid: e1dacf4572dd80143b50cb7a73e36d93, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 10917, guid: 0000000000000000f000000000000000, type: 0}
+    - target: {fileID: 1532544646, guid: e1dacf4572dd80143b50cb7a73e36d93, type: 3}
+      propertyPath: m_Type
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1532544646, guid: e1dacf4572dd80143b50cb7a73e36d93, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 10917, guid: 0000000000000000f000000000000000, type: 0}
+    - target: {fileID: 1609624203, guid: e1dacf4572dd80143b50cb7a73e36d93, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 434024879647280401, guid: e1dacf4572dd80143b50cb7a73e36d93, type: 3}
       propertyPath: m_RootOrder
       value: 7

@@ -114,11 +114,6 @@ public class QuizManager : MonoBehaviour
         m_historicalFiguresData = DataManager.Instance.CurrentPeriodHistoricalFigures;
         m_QuizResultUI.SetActive(false);
         m_quizPartObjects.SetActive(false);
-
-        foreach (var a in m_quizResultUIAnims)
-        {
-            a.Play("Standby");
-        }
         //各人物の画像をセットする
         SetCharacterPanel(m_playeData, m_historicalFiguresData);
         m_questionResults = new bool[questionLimit];
@@ -135,6 +130,12 @@ public class QuizManager : MonoBehaviour
         yield return StartCoroutine(CountDown());
 
         m_QuizResultUI.SetActive(true);
+        foreach (var a in m_quizResultUIAnims)
+        {
+            a.enabled = true;
+            a.Play("Standby");
+        }
+        yield return null;
         m_quizPartObjects.SetActive(true);
         m_playerChat.text = m_playeData.ThinkingChat;
         m_historicalFiguresChat.text = m_historicalFiguresData.ThinkingChat;
