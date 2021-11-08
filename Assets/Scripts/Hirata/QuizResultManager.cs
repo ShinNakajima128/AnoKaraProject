@@ -22,6 +22,14 @@ public class QuizResultManager : MonoBehaviour
     [SerializeField]
     GameObject m_nextUi;
 
+    /// <summary>リザルトの星</summary>
+    [SerializeField]
+    GameObject[] m_stars;
+
+    /// <summary>星を表示するタイマー</summary>
+    [SerializeField]
+    float m_starTimer = 2f;
+
     /// <summary>
     /// 正解数
     /// クイズマネージャーが正解数を持っているので参照する
@@ -35,6 +43,7 @@ public class QuizResultManager : MonoBehaviour
 
     void Start()
     {
+        //ResetStar();
         //m_ansCount = QuizManager.CorrectAnswersNum;
         QuizResult();
     }
@@ -47,14 +56,17 @@ public class QuizResultManager : MonoBehaviour
         if (m_ansCount == 10)
         {
             QuizResultUiSet(0);
+            StartCoroutine(SetStar(2, m_starTimer));
         }
         else if (m_ansCount >= 7)
         {
             QuizResultUiSet(1);
+            StartCoroutine(SetStar(1, m_starTimer));
         }
         else if (m_ansCount < 7)
         {
             QuizResultUiSet(2);
+            StartCoroutine(SetStar(0, m_starTimer));
         }
     }
 
@@ -66,6 +78,33 @@ public class QuizResultManager : MonoBehaviour
     {
         m_answerCountText.text = m_ansCount.ToString() + " / 10 問";
         m_charactorImage.sprite = m_resultSprite[index];
+    }
+
+    /// <summary>
+    /// 星を表示する
+    /// </summary>
+    /// <param name="index">表示する星の数</param>
+    /// <param name="timer">表示するスピード</param>
+    /// <returns></returns>
+    IEnumerator SetStar(int index, float timer)
+    {
+        for (int i = 0; i <= index; i++)
+        {
+            m_stars[i].SetActive(true);
+            yield return new WaitForSeconds(timer);
+        }
+        yield break;
+    }
+
+    /// <summary>
+    /// 星の表示をリセットする
+    /// </summary>
+    void ResetStar()
+    {
+        foreach (var item in m_stars)
+        {
+            item.SetActive(false);
+        }
     }
 
     /// <summary>
