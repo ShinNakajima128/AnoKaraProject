@@ -19,7 +19,7 @@ public class ChoicesButton : MonoBehaviour
     }
     public void Choice(int nextId)
     {
-        DialogManager.Instance.SwitchIndex(nextId);
-        DialogManager.Instance.AfterReactionMessageId = AfterReactionMessageId;
+        ScenarioManager.Instance.SwitchIndex(nextId);
+        ScenarioManager.Instance.AfterReactionMessageId = AfterReactionMessageId;
     }
 }

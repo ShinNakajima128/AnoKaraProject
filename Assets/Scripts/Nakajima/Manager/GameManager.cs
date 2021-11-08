@@ -32,7 +32,7 @@ public class GameManager : SingletonMonoBehaviour<GameManager>
 
     void Start()
     {
-        
+        DataManager.Instance.PlayerData.PlayerGender = m_playerGender;
     }
 
     // Update is called once per frame

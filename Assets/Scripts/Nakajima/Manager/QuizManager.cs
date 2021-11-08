@@ -207,7 +207,7 @@ public class QuizManager : MonoBehaviour
             yield return null;
         }
         ///ここから下にクイズが終了した時の処理を記述する///
-        Debug.Log(CorrectAnswersNum);
+        
         //仮にここでResult画面へ遷移の記述。できればGameManagerのOnGameEnd関数などを用意してここに書きたい
         LoadSceneManager.AnyLoadScene("Result");
     }
@@ -323,12 +323,24 @@ public class QuizManager : MonoBehaviour
         m_questionResults[CurrentTurnNum] = correct;
     }
 
+    /// <summary>
+    /// Scene開始時にプレイヤーと偉人の画像データをセットする
+    /// </summary>
+    /// <param name="player"> プレイヤーデータ </param>
+    /// <param name="historicalFigures"> 偉人データ </param>
     void SetCharacterPanel(PlayerData player, CharacterData historicalFigures)
     {
+        //デフォルトポーズの画像をセットする
         m_playerImage.sprite = player.PlayerImage[0];
         m_historicalFiguresImage.sprite = historicalFigures.CharacterImages[0];
     }
 
+    /// <summary>
+    /// 現在のクイズの正答率を計算する
+    /// </summary>
+    /// <param name="currentQuestionNum"> 現在のクイズ数 </param>
+    /// <param name="correctNum"> 正解した数 </param>
+    /// <returns></returns>
     float CalculateCorrectAnswerRate(float currentQuestionNum, float correctNum)
     {
         return (correctNum / currentQuestionNum) * 100;
