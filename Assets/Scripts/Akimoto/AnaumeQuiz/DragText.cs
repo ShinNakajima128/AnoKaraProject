@@ -7,8 +7,10 @@ using UnityEngine.UI;
 public class DragText : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler, IDropHandler
 {
     private Vector2 m_defPos;
-    [System.NonSerialized]
-    public string m_text;
+    /// <summary>このオブジェクトが持ってるテキスト</summary>
+    private string m_text;
+
+    public string Text { get => m_text; set => m_text = value; }
 
     void Start()
     {
@@ -23,7 +25,7 @@ public class DragText : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDrag
         {
             DropText item = hit.gameObject.GetComponent<DropText>();
             if (!item) continue;
-            Debug.Log("当たった");
+            item.GetDrop(m_text);
         }
     }
 
