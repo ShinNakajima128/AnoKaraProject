@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using ScenarioMasterData;
+using UnityEngine.Events;
 
 public enum HighlightTextType
 {
@@ -14,9 +15,9 @@ public enum HighlightTextType
 }
 
 /// <summary>
-/// ダイアログを管理するクラス
+/// シナリオを管理するクラス
 /// </summary>
-public class DialogManager : MonoBehaviour
+public class ScenarioManager : MonoBehaviour
 {
     #region serialize field
     [Header("ダイアログリスト")]
@@ -58,43 +59,58 @@ public class DialogManager : MonoBehaviour
     [SerializeField]
     GameObject m_display = default;
 
+    /// <summary> 背景の機能を持つクラス </summary>
     [SerializeField]
     BackGroundController m_bgCtrl = default;
 
+    /// <summary> キャラクターを表示するオブジェクト </summary>
     [SerializeField]
     GameObject[] m_character = default;
 
+    /// <summary> 名前を表示するパネル </summary>
     [SerializeField]
     GameObject m_namePanel = default;
 
+    /// <summary> キャラクター名が入るテキスト </summary>
     [SerializeField]
     Text m_characterName = default;
 
+    /// <summary> セリフのテキスト </summary>
     [SerializeField]
     Text m_messageText = default;
 
+    /// <summary> クリック待機時に表示するアイコン </summary>
     [SerializeField]
     GameObject m_clickIcon = default;
 
+    /// <summary> 選択肢が表示されるパネル </summary>
     [SerializeField]
     GameObject m_choicesPanel = default;
 
+    /// <summary> 選択肢生成用オブジェクト </summary>
     [SerializeField]
     GameObject m_choicesPrefab = default;
 
+    /// <summary> 会話ログのパネル </summary>
     [SerializeField]
     GameObject m_logPanel = default;
 
+    /// <summary> 会話ログのテキスト </summary>
     [SerializeField]
     Text m_logText = default;
 
-    [SerializeField, Header("キャラクターリスト")]
+    [Header("キャラクターリスト")]
+    [SerializeField]
     CharacterImageData[] m_imageDatas = default;
     #endregion
 
     #region public field
-    public Action ContinueDialog = default;
-    public Action EndDialog = default;
+    [Header("Sceneが始まった時に呼び出されるイベント")]
+    public UnityEvent StartDialog = new UnityEvent();
+    [Header("シナリオデータを継続する際に呼び出されるイベント")]
+    public UnityEvent ContinueDialog = new UnityEvent();
+    [Header("シナリオデータが全て終了した時に呼び出されるイベント")]
+    public UnityEvent EndDialog = new UnityEvent();
     #endregion
 
     #region field
@@ -115,7 +131,7 @@ public class DialogManager : MonoBehaviour
     #endregion
 
     #region property
-    public static DialogManager Instance { get; private set; }
+    public static ScenarioManager Instance { get; private set; }
     public bool IsAutoflow { get; set; }
     public int AfterReactionMessageId { get => m_AfterReactionMessageId; set => m_AfterReactionMessageId = value; }
     #endregion
@@ -138,7 +154,7 @@ public class DialogManager : MonoBehaviour
             m_anim[i] = m_character[i].GetComponent<Animator>();
         }
         m_display.SetActive(false);
-        StartCoroutine(StartMessage());
+        StartDialog?.Invoke(); 
     }
     #endregion
 
@@ -147,7 +163,7 @@ public class DialogManager : MonoBehaviour
     /// メッセージを表示する
     /// </summary>
     /// <returns></returns>
-    IEnumerator StartMessage()
+    IEnumerator StartAllMessage()
     {
         for (int i = 0; i < m_data.Length; i++)
         {
@@ -157,6 +173,20 @@ public class DialogManager : MonoBehaviour
         //全てのダイアログが終了したらこの下の処理が行われる
         m_display.SetActive(false);
         OnEndDialog();
+    }
+
+    /// <summary>
+    /// 選択したメッセージを開始する
+    /// </summary>
+    /// <param name="index"> データの添え字番号 </param>
+    /// <returns></returns>
+    IEnumerator StartSelectMessage(int index)
+    {
+        m_currentCoroutine = DisplayMessage(m_data[index]);
+        yield return m_currentCoroutine;
+
+        //全てのダイアログが終了したらこの下の処理が行われる
+        m_display.SetActive(false);
     }
 
     /// <summary>
@@ -504,6 +534,24 @@ public class DialogManager : MonoBehaviour
     #endregion
 
     #region public function
+
+    /// <summary>
+    /// 全てシナリオを再生する
+    /// </summary>
+    public void StartAllScenario()
+    {
+        StartCoroutine(StartAllMessage());
+    }
+
+    /// <summary>
+    /// 選択したシナリオを再生する。会話パートや探索パートの会話に使用する
+    /// </summary>
+    /// <param name="index"> データの添え字番号 </param>
+    public void StartSelectScenario(int index)
+    {
+        StartCoroutine(StartSelectMessage(index));
+    }
+
     /// <summary>
     /// 会話ログを表示する
     /// </summary>
