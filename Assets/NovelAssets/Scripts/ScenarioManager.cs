@@ -110,7 +110,7 @@ public class ScenarioManager : MonoBehaviour
     [Header("シナリオデータを継続する際に呼び出されるイベント")]
     public UnityEvent ContinueEvent = new UnityEvent();
     [Header("シナリオデータが全て終了した時に呼び出されるイベント")]
-    public UnityEvent EndDialog = new UnityEvent();
+    public UnityEvent EndEvent = new UnityEvent();
     #endregion
 
     #region field
@@ -728,7 +728,7 @@ public class ScenarioManager : MonoBehaviour
     /// </summary>
     void OnEndDialog()
     {
-        EndDialog?.Invoke();
+        EndEvent?.Invoke();
     }
 
     /// <summary>
