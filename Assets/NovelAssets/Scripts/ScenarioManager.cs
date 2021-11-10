@@ -106,9 +106,9 @@ public class ScenarioManager : MonoBehaviour
 
     #region public field
     [Header("Sceneが始まった時に呼び出されるイベント")]
-    public UnityEvent StartDialog = new UnityEvent();
+    public UnityEvent StartEvent = new UnityEvent();
     [Header("シナリオデータを継続する際に呼び出されるイベント")]
-    public UnityEvent ContinueDialog = new UnityEvent();
+    public UnityEvent ContinueEvent = new UnityEvent();
     [Header("シナリオデータが全て終了した時に呼び出されるイベント")]
     public UnityEvent EndDialog = new UnityEvent();
     #endregion
@@ -154,7 +154,7 @@ public class ScenarioManager : MonoBehaviour
             m_anim[i] = m_character[i].GetComponent<Animator>();
         }
         m_display.SetActive(false);
-        StartDialog?.Invoke(); 
+        StartEvent?.Invoke(); 
     }
     #endregion
 
@@ -720,7 +720,7 @@ public class ScenarioManager : MonoBehaviour
     /// </summary>
     void OnContinueDialog()
     {
-        ContinueDialog?.Invoke();
+        ContinueEvent?.Invoke();
     }
 
     /// <summary>
