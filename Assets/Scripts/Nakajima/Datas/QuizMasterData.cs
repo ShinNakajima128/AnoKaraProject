@@ -60,5 +60,33 @@ namespace MasterData
         }
     }
 
+    [Serializable]
+    public class AnaumeQuizDatabase
+    {
+        public int Id;
+        [Tooltip("問題文")]
+        public string Question;
+
+        [Tooltip("穴埋め本文")]
+        public string Answer;
+
+        [HideInInspector]
+        [SerializeField]
+        public string Dragtext;
+
+        [SerializeField, Tooltip("不正解文字")]
+        string[] m_dragTexts;
+
+        //public string Question { get { return m_question; } set => m_question = value; }
+        //public string Answer { get { return m_anaume; } set => m_anaume = value; }
+        //public char Dragtext (int index) { return m_dummy[index]; }
+
+        public void ConvartToArray()
+        {
+            m_dragTexts = Dragtext.Split(',');
+        }
+
+    }
+
     //別のパターンを用意する場合はこの下にクラスを追加する
 }

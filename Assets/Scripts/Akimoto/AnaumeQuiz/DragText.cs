@@ -4,14 +4,29 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
-public class DragText : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler
+public class DragText : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler, IDropHandler
 {
     private Vector2 m_defPos;
-    public string m_text;
+    /// <summary>このオブジェクトが持ってるテキスト</summary>
+    private string m_text;
+
+    public string Text { get => m_text; set => m_text = value; }
 
     void Start()
     {
-        transform.GetChild(0).gameObject.GetComponent<Text>().text = m_text;     ;
+        transform.GetChild(0).gameObject.GetComponent<Text>().text = m_text;
+    }
+
+    public void OnDrop(PointerEventData eventData)
+    {
+        var result = new List<RaycastResult>();
+        EventSystem.current.RaycastAll(eventData, result);
+        foreach (var hit in result)
+        {
+            DropText item = hit.gameObject.GetComponent<DropText>();
+            if (!item) continue;
+            item.GetDrop(m_text);
+        }
     }
 
     public void OnBeginDrag(PointerEventData eventData)

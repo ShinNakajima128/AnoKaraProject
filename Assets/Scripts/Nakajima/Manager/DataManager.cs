@@ -37,6 +37,7 @@ public class DataManager : MonoBehaviour
     public CharacterData CurrentPeriodHistoricalFigures => m_allCharacterData.GetCurrentHistoricalFiguresData;
     /// <summary> 4択クイズのデータ </summary>
     public FourChoicesQuizData[] FourChoicesQuizDatas => m_allQuizData.FourChoicesQuizDatas;
+    public AnaumeQuizData[] AnaumeQuizDatabases => m_allQuizData.AnaumeQuizDatas;
 
     void Awake()
     {
@@ -131,19 +132,24 @@ public class DataManager : MonoBehaviour
         //もしクラス名に変更があれば、m_allQuizData.AnaumeQuizDatasと仮で書いてある「AnaumeQuizDatas」の部分を
         //作成したScriptableObjectのクラス名に変更してください
 
-        //for (int i = 0; i < m_allQuizData.AnaumeQuizDatas.Length; i++)
-        //{
-        //    if (m_allQuizData.AnaumeQuizDatas[i].PeriodTypeName == sheetName)  //プロパティとシート名が一致したら
-        //    {
-        //        LoadQuizMasterData(url, sheetName, (QuizMasterDataClass<AnaumeQuizData> data) =>
-        //        {
-        //            m_allQuizData.AnaumeQuizDatas[i].AnaumeQuizzes = data.Data;  //データ更新
-        //        });
-        //        return;
-        //    }
-        //}
-        ////データがロードできなかった場合
-        //Debug.LogError("データをロードできませんでした");
+        for (int i = 0; i < m_allQuizData.AnaumeQuizDatas.Length; i++)
+        {
+            if (m_allQuizData.AnaumeQuizDatas[i].PeriodTypeName == sheetName)  //プロパティとシート名が一致したら
+            {
+                LoadMasterData(url, sheetName, (QuizMasterDataClass<AnaumeQuizDatabase> data) =>
+                {
+                    m_allQuizData.AnaumeQuizDatas[i].AnaumeQuizDatabases = data.Data;  //データ更新
+
+                    for (int n = 0; n < m_allQuizData.AnaumeQuizDatas[i].AnaumeQuizDatabases.Length; n++)
+                    {
+                        m_allQuizData.AnaumeQuizDatas[i].AnaumeQuizDatabases[n].ConvartToArray();
+                    }
+                });
+                return;
+            }
+        }
+        //データがロードできなかった場合
+        Debug.LogError("データをロードできませんでした");
     }
 
     /// <summary>
