@@ -5,13 +5,16 @@ using MasterData;
 
 public class GameManager : SingletonMonoBehaviour<GameManager>
 {
+    /// <summary> 現在いる時代 </summary>
     [Header("デバッグ用")]
-    [SerializeField]
-    int m_currentStageId = default;
-
     [SerializeField]
     PeriodTypes m_currentPeriod = default;
 
+    /// <summary> 現在のステージのID </summary>
+    [SerializeField]
+    int m_currentStageId = default;
+
+    /// <summary> プレイヤーの性別 </summary>
     [SerializeField]
     GenderType m_playerGender = default;
 
@@ -28,15 +31,10 @@ public class GameManager : SingletonMonoBehaviour<GameManager>
             return;
         }
         DontDestroyOnLoad(gameObject);
-    }
-
-    void Start()
-    {
         DataManager.Instance.PlayerData.PlayerGender = m_playerGender;
     }
 
-    // Update is called once per frame
-    void Update()
+    void Start()
     {
         
     }
