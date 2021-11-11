@@ -4,9 +4,10 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
-public class DropText : MonoBehaviour, IDropHandler
+public class DropText : MonoBehaviour
 {
     /// <summary>所持テキスト</summary>
+    [SerializeField]
     private string m_text;
     /// <summary>表示テキスト</summary>
     private Text m_viewText;
@@ -16,15 +17,16 @@ public class DropText : MonoBehaviour, IDropHandler
     void Start()
     {
         m_viewText = transform.GetChild(0).gameObject.GetComponent<Text>();
-        SetText();
+        m_viewText.text = "";
+        //SetText();
     }
 
-    public void OnDrop(PointerEventData eventData)
-    {
-        m_text = eventData.pointerDrag.GetComponent<DragText>().Text;
-        SetText();
-        //m_gameManager.CrearCheck();
-    }
+    //public void OnDrop(PointerEventData eventData)
+    //{
+    //    m_text = eventData.pointerDrag.GetComponent<DragText>().Text;
+    //    SetText();
+    //    //m_gameManager.CrearCheck();
+    //}
 
     /// <summary>
     /// テキスト更新

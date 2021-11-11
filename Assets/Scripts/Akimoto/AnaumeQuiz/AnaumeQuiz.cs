@@ -6,10 +6,6 @@ using MasterData;
 
 public class AnaumeQuiz : MonoBehaviour
 {
-    /// <summary>データベース</summary>
-    [SerializeField]
-    AnaumeQuizData m_database;
-
     /// <summary>問題文テキスト</summary>
     [SerializeField]
     Text m_questionViewText;
@@ -30,11 +26,15 @@ public class AnaumeQuiz : MonoBehaviour
     [SerializeField]
     GameObject m_dragPrefab;
 
+    /// <summary>現在何問目か</summary>
     private int m_currentNum = default;
 
+    /// <summary>ドロップされるオブジェクト保存用
+    /// 正解判定に使う</summary>
     private List<DropText> m_dropLists = new List<DropText>();
 
-    private AnaumeQuizDatabase m_data;
+    //private AnaumeQuizDatabase m_data;//消す
+    private AnaumeQuizDatabase[] m_anaumeQuizdatas = default;
 
     public static AnaumeQuiz Instance { get; private set; }
 
@@ -44,21 +44,39 @@ public class AnaumeQuiz : MonoBehaviour
     }
     void Start()
     {
-        //var currentPeriod = GameManager.Instance.CurrentPeriod;
+        var currentPeriod = GameManager.Instance.CurrentPeriod;
+        Debug.Log(currentPeriod);
+        var quizDatas = DataManager.Instance.AnaumeQuizDatabases; //穴埋めデータ取得
 
-        //DataManagerに穴埋め問題のデータ取れるようになったらアンコメントする
-        //var quizDatas = DataManager.Instance.AnaumeQuizDatas; //穴埋めデータ取得
-
-        m_data = m_database.AnaumeQuizDatabases[0];
-        m_questionViewText.text = m_data.Question;
+        //とりあえず
+        for (int i = 0; i < quizDatas.Length; i++)
+        {
+            if (quizDatas[i].PeriodType == currentPeriod)
+            {
+                m_anaumeQuizdatas = quizDatas[i].AnaumeQuizDatabases;
+                break;
+            }
+        }
+        RandomlySorted(m_anaumeQuizdatas);
         Create();
     }
 
     public IEnumerator OnAnaumeQuizQuestion(GameObject panel, Text question)
     {
-        if (m_currentNum >= m_database.AnaumeQuizDatabases.Length)
+        if (m_currentNum >= m_anaumeQuizdatas.Length)
         {
             yield break;
+        }
+    }
+
+    private void RandomlySorted(AnaumeQuizDatabase[] quizzes)
+    {
+        for (int i = 0; i < quizzes.Length; i++)
+        {
+            int random = Random.Range(0, quizzes.Length);
+            var temp = m_anaumeQuizdatas[i];
+            m_anaumeQuizdatas[i] = m_anaumeQuizdatas[random];
+            m_anaumeQuizdatas[random] = temp;
         }
     }
 
@@ -67,21 +85,33 @@ public class AnaumeQuiz : MonoBehaviour
     /// </summary>
     private void Create()
     {
-        for (int i = 0; i < m_data.Answer.Length; i++) //ドロップされる文字の配置
+        m_questionViewText.text = m_anaumeQuizdatas[m_currentNum].Question;
+        for (int i = 0; i < m_anaumeQuizdatas[m_currentNum].Answer.Length; i++) //ドロップされる文字の配置
         {
             GameObject obj = Instantiate(m_dropPrefab);
             obj.transform.SetParent(m_dropPos);
             DropText dropText = obj.GetComponent<DropText>();
-            dropText.Text = m_data.Answer[i].ToString();
             m_dropLists.Add(dropText);
-            //dropText.GameManager = this;
         }
-        for (int i = 0; i < m_data.Dragtext.Length; i++) //移動できる文字の配置
+        //並び替え
+        List<string> list = new List<string>();
+        for (int i = 0; i < m_anaumeQuizdatas[m_currentNum].DragTexts.Length; i++)
+        {
+            list.Add(m_anaumeQuizdatas[m_currentNum].DragTexts[i]);
+        }
+        for (int i = 0; i < list.Count; i++)
+        {
+            int random = Random.Range(0, list.Count);
+            string temp = list[i];
+            list[i] = list[random];
+            list[random] = temp;
+        }
+        for (int i = 0; i < list.Count; i++) //移動できる文字の配置
         {
             GameObject obj = Instantiate(m_dragPrefab, m_dragPos);
             obj.transform.SetParent(m_dragPos);
             DragText dragText = obj.GetComponent<DragText>();
-            dragText.Text = m_data.Dragtext[i].ToString();
+            dragText.Text = list[i].ToString();
         }
     }
 
@@ -95,8 +125,8 @@ public class AnaumeQuiz : MonoBehaviour
         {
             t += item.Text;
         }
-        Debug.Log("回答" + t);
-        if (m_data.Answer == t) Debug.Log("正解");
-        else Debug.Log("ばーか");
+        Debug.Log("回答:" + t);
+        if (m_anaumeQuizdatas[m_currentNum].Answer == t) Debug.Log("正解");
+        else Debug.Log("不正解");
     }
 }
