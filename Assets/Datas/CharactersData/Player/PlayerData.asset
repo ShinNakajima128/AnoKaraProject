@@ -13,16 +13,16 @@ MonoBehaviour:
   m_Name: PlayerData
   m_EditorClassIdentifier: 
   m_playerName: 
-  m_playerGender: 0
+  m_playerGender: 1
   m_progress: 0
   m_thinkingChat: "\u3046\uFF5E\u3093"
   m_correctChat: "\u3084\u3063\u305F\u306D\uFF01"
   m_incorrectChat: "\u305D\u3093\u306A\uFF5E\u2026"
   m_boyImages:
-  - {fileID: 21300000, guid: 98d139646cb111942a0ea721e7b7b6d6, type: 3}
-  - {fileID: 21300000, guid: 0b808aa83a994174b922e4a6e83e656a, type: 3}
-  - {fileID: 21300000, guid: f0bf57501c71f51499465cddb74f74d3, type: 3}
+  - {fileID: 21300000, guid: 13cae4ddb039b6a43a3f193a026cd8d4, type: 3}
+  - {fileID: 21300000, guid: 10e5e939c9e1a184d8ec4050a0316654, type: 3}
+  - {fileID: 21300000, guid: 68e031afac314d04c8c4ba62b6d48596, type: 3}
   m_girlImages:
-  - {fileID: 21300000, guid: 0b57ea07ea9085f408b7e362cba4c98c, type: 3}
-  - {fileID: 21300000, guid: f3619d529cc945d498c2e553e610c31a, type: 3}
-  - {fileID: 21300000, guid: 1879c21ed84060b4e81a9438e915be7e, type: 3}
+  - {fileID: 21300000, guid: 1611d9138d89ba84ca333a30c1b6047f, type: 3}
+  - {fileID: 21300000, guid: 5fdbf707a41deb141a9b642f2c951e6e, type: 3}
+  - {fileID: 21300000, guid: 36dfef4ed038731469b2d43c7ed7826f, type: 3}

@@ -435,8 +435,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 048ab937aa15cd7468bdc5e1b5d0fa26, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_currentStageId: 0
   m_currentPeriod: 1
+  m_currentStageId: 0
   m_playerGender: 1
 --- !u!4 &1114889788
 Transform:
@@ -576,10 +576,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1609624203, guid: e1dacf4572dd80143b50cb7a73e36d93, type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 434024879647280401, guid: e1dacf4572dd80143b50cb7a73e36d93, type: 3}
       propertyPath: m_RootOrder
       value: 7
