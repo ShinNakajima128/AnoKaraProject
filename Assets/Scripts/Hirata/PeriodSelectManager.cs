@@ -1,23 +1,45 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.EventSystems;
 using MasterData;
 
-/// <summary>時代選択画面マネージャー</summary>
+/// <summary>時代・ステージ選択画面マネージャー</summary>
 public class PeriodSelectManager : MonoBehaviour
 {
+    /// <summary>ステージ選択画面のパネル</summary>
+    [SerializeField]
+    GameObject m_stageSelectPanel;
+
+    /// <summary>ステージ選択画面のキャラクターを表示するイメージ</summary>
+    [SerializeField]
+    Image m_stageCharaImage;
+
     /// <summary>
-    /// 選択された時代に移動する
+    /// ステージ選択のPanelをアクティブにする
     /// </summary>
-    /// <param name="period">時代のシーン名</param>
-    public void PeriodButton(int period)
+    public void SelectStage(int period)
     {
-        Debug.Log("押された");
+        SetPeriod(period);
+        m_stageSelectPanel.SetActive(true);
+    }
+
+    /// <summary>
+    /// 時代をゲームマネージャーに設定する
+    /// </summary>
+    /// <param name="period">時代の列挙番号</param>
+    void SetPeriod(int period)
+    {
         GameManager.Instance.CurrentPeriod = (MasterData.PeriodTypes)period;
-        LoadSceneManager.AnyLoadScene("StageSelect", () =>
-        {
-            LoadSceneManager.FadeOutPanel();
-        });
+    }
+
+    /// <summary>
+    /// 時代選択に戻る
+    /// </summary>
+    public void BackSelectPeriod()
+    {
+        GameManager.Instance.CurrentPeriod = (MasterData.PeriodTypes)0;
+        m_stageSelectPanel.SetActive(false);
     }
 }
