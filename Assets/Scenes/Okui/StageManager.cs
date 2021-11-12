@@ -18,6 +18,8 @@ public class StageManager : MonoBehaviour
     private void Start()
     {
         //animator = GetComponent<Animator>();
+        SoundManager.sound.PlayBGM(SoundManager.BGM_Type.BGM);
+
     }
     /// <summary>
     /// 戻るボタン
@@ -40,6 +42,7 @@ public class StageManager : MonoBehaviour
     /// </summary>
     public void PopupClose()
     {
+        SoundManager.sound.PlayBGM(SoundManager.BGM_Type.BGM2);
         m_animator.SetFloat("Speed", -1);
     }
 

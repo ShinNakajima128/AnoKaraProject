@@ -1303,7 +1303,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 23d2399f6e149ba478e18642bbcdc9d0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  BGM_Clips: []
+  BGM_Clips:
+  - {fileID: 8300000, guid: 511d3f945eb62654aa1b835043e05bed, type: 3}
+  - {fileID: 8300000, guid: e273fe94a1f6f944ba825465cb01965c, type: 3}
+  - {fileID: 8300000, guid: 511d3f945eb62654aa1b835043e05bed, type: 3}
+  SE_cliip: []
+  m_mixer: {fileID: 3449361672652030924, guid: e7e9f012df5377a4aa45ad4d2b73f077, type: 2}
 --- !u!4 &1845328255
 Transform:
   m_ObjectHideFlags: 0
