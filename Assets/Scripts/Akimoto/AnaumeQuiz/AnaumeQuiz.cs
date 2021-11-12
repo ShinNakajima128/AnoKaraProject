@@ -167,6 +167,7 @@ public class AnaumeQuiz : MonoBehaviour
         }
         Debug.Log("回答:" + t);
         QuizManager.Instance.PlayerAnswer = t;
+        QuizManager.Instance.IsAnswered = true;
         //if (m_anaumeQuizdatas[m_currentNum].Answer == t) Debug.Log("正解");
         //else Debug.Log("不正解");
         //Delete();
