@@ -281,41 +281,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 111515975}
   m_CullTransparentMesh: 1
---- !u!1 &117975005
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 117975006}
-  m_Layer: 5
-  m_Name: StopLeft
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!224 &117975006
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 117975005}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 1905312586}
-  m_RootOrder: 6
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 781, y: 0}
-  m_SizeDelta: {x: 100, y: 100}
-  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &154868312
 GameObject:
   m_ObjectHideFlags: 0
@@ -441,7 +406,7 @@ GameObject:
   - component: {fileID: 318398622}
   - component: {fileID: 318398621}
   m_Layer: 5
-  m_Name: Button
+  m_Name: HeianButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -513,8 +478,8 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1905312587}
         m_TargetAssemblyTypeName: PeriodSelectManager, Assembly-CSharp
-        m_MethodName: Button
-        m_Mode: 1
+        m_MethodName: PeriodButton
+        m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -640,7 +605,7 @@ GameObject:
   - component: {fileID: 468647789}
   - component: {fileID: 468647788}
   m_Layer: 5
-  m_Name: Button
+  m_Name: EdoButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -712,8 +677,8 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1905312587}
         m_TargetAssemblyTypeName: PeriodSelectManager, Assembly-CSharp
-        m_MethodName: Button
-        m_Mode: 1
+        m_MethodName: PeriodButton
+        m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -760,41 +725,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 468647786}
   m_CullTransparentMesh: 1
---- !u!1 &536613303
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 536613304}
-  m_Layer: 5
-  m_Name: StopRight
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!224 &536613304
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 536613303}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 1905312586}
-  m_RootOrder: 7
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 4390.6, y: 0}
-  m_SizeDelta: {x: 100, y: 100}
-  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &585405931
 GameObject:
   m_ObjectHideFlags: 0
@@ -842,8 +772,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ca940ab9e2bae434381326c5b9a97c5b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_stopLeft: {fileID: 0}
-  m_stopRight: {fileID: 0}
 --- !u!1 &703073324
 GameObject:
   m_ObjectHideFlags: 0
@@ -856,7 +784,7 @@ GameObject:
   - component: {fileID: 703073327}
   - component: {fileID: 703073326}
   m_Layer: 5
-  m_Name: Image (5)
+  m_Name: EdoImage
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -879,7 +807,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 4088, y: 0}
+  m_AnchoredPosition: {x: 2350, y: 0}
   m_SizeDelta: {x: 600, y: 1200}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &703073326
@@ -933,7 +861,7 @@ GameObject:
   - component: {fileID: 715978342}
   - component: {fileID: 715978341}
   m_Layer: 5
-  m_Name: Button
+  m_Name: JomonYayoiButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1005,8 +933,8 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1905312587}
         m_TargetAssemblyTypeName: PeriodSelectManager, Assembly-CSharp
-        m_MethodName: Button
-        m_Mode: 1
+        m_MethodName: PeriodButton
+        m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -1066,7 +994,7 @@ GameObject:
   - component: {fileID: 804008078}
   - component: {fileID: 804008077}
   m_Layer: 5
-  m_Name: Button
+  m_Name: AsukaButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1138,8 +1066,8 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1905312587}
         m_TargetAssemblyTypeName: PeriodSelectManager, Assembly-CSharp
-        m_MethodName: Button
-        m_Mode: 1
+        m_MethodName: PeriodButton
+        m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -1198,7 +1126,7 @@ GameObject:
   - component: {fileID: 829885175}
   - component: {fileID: 829885174}
   m_Layer: 5
-  m_Name: Image
+  m_Name: JomonYayoiImage
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1221,7 +1149,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 1087, y: 0}
+  m_AnchoredPosition: {x: -651, y: 0}
   m_SizeDelta: {x: 600, y: 1200}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &829885174
@@ -1566,7 +1494,7 @@ GameObject:
   - component: {fileID: 1120216111}
   - component: {fileID: 1120216110}
   m_Layer: 5
-  m_Name: Button
+  m_Name: KamakuraButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1638,8 +1566,8 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1905312587}
         m_TargetAssemblyTypeName: PeriodSelectManager, Assembly-CSharp
-        m_MethodName: Button
-        m_Mode: 1
+        m_MethodName: PeriodButton
+        m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -1777,7 +1705,7 @@ GameObject:
   - component: {fileID: 1208231429}
   - component: {fileID: 1208231428}
   m_Layer: 5
-  m_Name: Image (1)
+  m_Name: AsukaImage
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1800,7 +1728,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 1687, y: 0}
+  m_AnchoredPosition: {x: -51, y: 0}
   m_SizeDelta: {x: 600, y: 1200}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1208231428
@@ -1933,7 +1861,7 @@ GameObject:
   - component: {fileID: 1275491397}
   - component: {fileID: 1275491396}
   m_Layer: 5
-  m_Name: Button
+  m_Name: SengokuButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2005,8 +1933,8 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1905312587}
         m_TargetAssemblyTypeName: PeriodSelectManager, Assembly-CSharp
-        m_MethodName: Button
-        m_Mode: 1
+        m_MethodName: PeriodButton
+        m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -2065,7 +1993,7 @@ GameObject:
   - component: {fileID: 1405799794}
   - component: {fileID: 1405799793}
   m_Layer: 5
-  m_Name: Image (2)
+  m_Name: HeianImage
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2088,7 +2016,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 2291, y: 0}
+  m_AnchoredPosition: {x: 553, y: 0}
   m_SizeDelta: {x: 600, y: 1200}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1405799793
@@ -2336,7 +2264,7 @@ GameObject:
   - component: {fileID: 1665274883}
   - component: {fileID: 1665274882}
   m_Layer: 5
-  m_Name: Image (3)
+  m_Name: KamakuraImage
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2359,7 +2287,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 2892, y: 0}
+  m_AnchoredPosition: {x: 1154, y: 0}
   m_SizeDelta: {x: 600, y: 1200}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1665274882
@@ -2524,7 +2452,7 @@ GameObject:
   - component: {fileID: 1840001002}
   - component: {fileID: 1840001001}
   m_Layer: 5
-  m_Name: Image (4)
+  m_Name: SengokuImage
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2547,7 +2475,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 3493, y: 0}
+  m_AnchoredPosition: {x: 1755, y: 0}
   m_SizeDelta: {x: 600, y: 1200}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1840001001
@@ -2601,7 +2529,7 @@ GameObject:
   - component: {fileID: 1905312588}
   - component: {fileID: 1905312587}
   m_Layer: 5
-  m_Name: Panel
+  m_Name: SelectPeriodPanel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2624,14 +2552,12 @@ RectTransform:
   - {fileID: 1665274881}
   - {fileID: 1840001000}
   - {fileID: 703073325}
-  - {fileID: 117975006}
-  - {fileID: 536613304}
   m_Father: {fileID: 941685741}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -1745, y: 0}
+  m_AnchoredPosition: {x: -15, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1905312587
@@ -2646,8 +2572,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ca940ab9e2bae434381326c5b9a97c5b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_stopLeft: {fileID: 0}
-  m_stopRight: {fileID: 0}
 --- !u!114 &1905312588
 MonoBehaviour:
   m_ObjectHideFlags: 0
