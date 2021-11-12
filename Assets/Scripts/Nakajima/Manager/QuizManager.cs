@@ -76,6 +76,10 @@ public class QuizManager : MonoBehaviour
     [SerializeField]
     Slider m_quizResultUISlider = default;
 
+    /// <summary> クイズの進行度を表すImage </summary>
+    [SerializeField]
+    Image m_quizResultUIImage = default;
+
     /// <summary> クイズ結果 </summary>
     [SerializeField]
     Animator[] m_quizResultUIAnims = default;
@@ -168,7 +172,8 @@ public class QuizManager : MonoBehaviour
             m_currentQuestion = null;
             m_isAnswered = false;
             ResetQuizPanel();
-            m_quizResultUISlider.value = CurrentTurnNum;
+            //m_quizResultUISlider.value = CurrentTurnNum;
+            m_quizResultUIImage.fillAmount = CurrentTurnNum * 0.1f;
             m_quizResultUIAnims[CurrentTurnNum].Play("Thinking");
 
             while (!QuizDataUpdated)
