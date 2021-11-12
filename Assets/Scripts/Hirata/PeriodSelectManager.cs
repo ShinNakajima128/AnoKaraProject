@@ -29,7 +29,8 @@ public class PeriodSelectManager : MonoBehaviour, IBeginDragHandler, IDragHandle
     Vector2 m_panelBottomLeft;
 
 
-    Vector3[] m_fourCorners = new Vector3[4];
+    Vector3[] m_panelFourCorners = new Vector3[4];
+    Vector3[] m_canvasFourCorners = new Vector3[4];
     float depth = -1f;
     Vector3 rightTop;
     Vector3 leftBottom;
@@ -39,8 +40,14 @@ public class PeriodSelectManager : MonoBehaviour, IBeginDragHandler, IDragHandle
         m_panelRectTransform = GetComponent<RectTransform>();
         //GetFourConers();
 
-        m_panelRectTransform.GetLocalCorners(m_fourCorners);
-        foreach (var item in m_fourCorners)
+        m_panelRectTransform.GetWorldCorners(m_panelFourCorners);
+        foreach (var item in m_panelFourCorners)
+        {
+            Debug.Log(item);
+        }
+
+        m_canvasRectTransform.GetWorldCorners(m_canvasFourCorners);
+        foreach (var item in m_canvasFourCorners)
         {
             Debug.Log(item);
         }
@@ -52,7 +59,7 @@ public class PeriodSelectManager : MonoBehaviour, IBeginDragHandler, IDragHandle
 
     void GetFourConers()
     {
-        m_panelRectTransform.GetWorldCorners(m_fourCorners);
+        m_panelRectTransform.GetWorldCorners(m_panelFourCorners);
         //foreach (var item in m_fourCorners)
         //{
         //    Debug.Log(item);
@@ -79,14 +86,14 @@ public class PeriodSelectManager : MonoBehaviour, IBeginDragHandler, IDragHandle
         //vector.y = 0;
         //transform.position = m_startPosition + vector;
         //Debug.Log("ドラッグ中");
-
+        m_panelRectTransform.GetWorldCorners(m_panelFourCorners);
         //左にドラッグ
         if (m_pointerPosition.magnitude > eventData.position.magnitude)
         {
             Debug.Log("左にドラッグ");
-            Debug.Log(m_canvasRectTransform.anchorMax.magnitude);
-            Debug.Log(m_panelRightTop.magnitude);
-            if (m_canvasRectTransform.anchorMax.magnitude < m_panelRightTop.magnitude)
+            Debug.Log(m_canvasFourCorners[2].magnitude);
+            Debug.Log(m_panelFourCorners[2].magnitude);
+            if (m_canvasFourCorners[2].magnitude > m_panelFourCorners[2].magnitude)
             {
                 Vector2 vector = eventData.position - m_pointerPosition;
                 vector.y = 0;
