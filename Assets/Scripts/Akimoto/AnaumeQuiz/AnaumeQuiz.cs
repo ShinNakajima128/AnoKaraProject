@@ -10,6 +10,9 @@ public class AnaumeQuiz : MonoBehaviour
     [SerializeField]
     Text m_questionViewText;
 
+    [SerializeField]
+    GameObject m_gamePanel;
+
     /// <summary>ドロップされるオブジェクトの場所</summary>
     [SerializeField]
     Transform m_dropPos;
@@ -33,7 +36,9 @@ public class AnaumeQuiz : MonoBehaviour
     /// 正解判定に使う</summary>
     private List<DropText> m_dropLists = new List<DropText>();
 
-    //private AnaumeQuizDatabase m_data;//消す
+    /// <summary>生成したオブジェクトのリスト<br/>消す時に使う</summary>
+    private List<GameObject> m_objList = new List<GameObject>();
+
     private AnaumeQuizDatabase[] m_anaumeQuizdatas = default;
 
     public static AnaumeQuiz Instance { get; private set; }
@@ -48,7 +53,6 @@ public class AnaumeQuiz : MonoBehaviour
         Debug.Log(currentPeriod);
         var quizDatas = DataManager.Instance.AnaumeQuizDatabases; //穴埋めデータ取得
 
-        //とりあえず
         for (int i = 0; i < quizDatas.Length; i++)
         {
             if (quizDatas[i].PeriodType == currentPeriod)
@@ -58,7 +62,8 @@ public class AnaumeQuiz : MonoBehaviour
             }
         }
         RandomlySorted(m_anaumeQuizdatas);
-        Create();
+        //StartCoroutine(OnAnaumeQuizQuestion(m_gamePanel, m_questionViewText)); //とりあえず
+        //Create(); //とりあえず
     }
 
     public IEnumerator OnAnaumeQuizQuestion(GameObject panel, Text question)
@@ -67,6 +72,28 @@ public class AnaumeQuiz : MonoBehaviour
         {
             yield break;
         }
+        else
+        {
+            QuizManager.Instance.QuizDataUpdated = true;
+            panel.SetActive(true);
+            //問題画面の表示
+            question.text = m_anaumeQuizdatas[m_currentNum].Question;
+            Create();
+            QuizManager.Instance.CorrectAnswer = m_anaumeQuizdatas[m_currentNum].Answer;
+        }
+        yield return QuizManager.Instance.TimeLimit();
+
+        if (!QuizManager.Instance.IsAnswered)
+        {
+            QuizManager.Instance.IsAnswered = true;
+            QuizManager.Instance.PlayerAnswer = "";
+        }
+        yield return new WaitUntil(() => QuizManager.Instance.IsAnswered);
+
+        yield return QuizManager.Instance.Judge();
+        QuizManager.Instance.CurrentTurnNum++;
+        m_currentNum++;
+        Delete();
     }
 
     private void RandomlySorted(AnaumeQuizDatabase[] quizzes)
@@ -90,6 +117,7 @@ public class AnaumeQuiz : MonoBehaviour
         {
             GameObject obj = Instantiate(m_dropPrefab);
             obj.transform.SetParent(m_dropPos);
+            m_objList.Add(obj);
             DropText dropText = obj.GetComponent<DropText>();
             m_dropLists.Add(dropText);
         }
@@ -110,8 +138,20 @@ public class AnaumeQuiz : MonoBehaviour
         {
             GameObject obj = Instantiate(m_dragPrefab, m_dragPos);
             obj.transform.SetParent(m_dragPos);
+            m_objList.Add(obj);
             DragText dragText = obj.GetComponent<DragText>();
             dragText.Text = list[i].ToString();
+        }
+    }
+
+    /// <summary>
+    /// 生成したオブジェクトの破棄
+    /// </summary>
+    private void Delete()
+    {
+        foreach (var item in m_objList)
+        {
+            Destroy(item);
         }
     }
 
@@ -126,7 +166,9 @@ public class AnaumeQuiz : MonoBehaviour
             t += item.Text;
         }
         Debug.Log("回答:" + t);
-        if (m_anaumeQuizdatas[m_currentNum].Answer == t) Debug.Log("正解");
-        else Debug.Log("不正解");
+        QuizManager.Instance.PlayerAnswer = t;
+        //if (m_anaumeQuizdatas[m_currentNum].Answer == t) Debug.Log("正解");
+        //else Debug.Log("不正解");
+        //Delete();
     }
 }
