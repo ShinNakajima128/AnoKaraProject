@@ -15,27 +15,44 @@ public class PeriodSelectManager : MonoBehaviour, IBeginDragHandler, IDragHandle
     /// <summary>ドラッグ開始時のUIのポジション</summary>
     Vector2 m_startPosition;
 
-    RectTransform m_rectTransform;
+    /// <summary>CanvasのRectTransform</summary>
+    [SerializeField]
+    RectTransform m_canvasRectTransform;
+
+    /// <summary>PanelのRectTransform</summary>
+    RectTransform m_panelRectTransform;
+
+    /// <summary>Panel右上のポジション</summary>
+    Vector2 m_panelRightTop;
+
+    /// <summary>Panel左上のポジション</summary>
+    Vector2 m_panelBottomLeft;
+
 
     Vector3[] m_fourCorners = new Vector3[4];
-
     float depth = -1f;
-
     Vector3 rightTop;
-
     Vector3 leftBottom;
 
     private void Start()
     {
-        m_rectTransform = GetComponent<RectTransform>();
-        GetFourConers();
-        rightTop = Camera.main.ScreenToWorldPoint(new Vector3(Screen.width, Screen.height, depth));
-        leftBottom = Camera.main.ScreenToWorldPoint(new Vector3(0, 0, depth));
+        m_panelRectTransform = GetComponent<RectTransform>();
+        //GetFourConers();
+
+        m_panelRectTransform.GetLocalCorners(m_fourCorners);
+        foreach (var item in m_fourCorners)
+        {
+            Debug.Log(item);
+        }
+
+        //////////////////////////////////////////
+        m_panelRightTop = m_panelRectTransform.anchorMax;
+        m_panelBottomLeft = m_panelRectTransform.anchorMin;
     }
 
     void GetFourConers()
     {
-        m_rectTransform.GetWorldCorners(m_fourCorners);
+        m_panelRectTransform.GetWorldCorners(m_fourCorners);
         //foreach (var item in m_fourCorners)
         //{
         //    Debug.Log(item);
@@ -58,16 +75,26 @@ public class PeriodSelectManager : MonoBehaviour, IBeginDragHandler, IDragHandle
     /// </summary>
     public void OnDrag(PointerEventData eventData)
     {
-        GetFourConers();
-        Debug.Log(m_fourCorners[0].x);
-        Debug.Log(leftBottom.x);
-        if (m_fourCorners[0].x < leftBottom.x)
+        //Vector2 vector = eventData.position - m_pointerPosition;
+        //vector.y = 0;
+        //transform.position = m_startPosition + vector;
+        //Debug.Log("ドラッグ中");
+
+        //左にドラッグ
+        if (m_pointerPosition.magnitude > eventData.position.magnitude)
         {
-            Vector2 vector = eventData.position - m_pointerPosition;
-            vector.y = 0;
-            transform.position = m_startPosition + vector;
+            Debug.Log("左にドラッグ");
+            Debug.Log(m_canvasRectTransform.anchorMax.magnitude);
+            Debug.Log(m_panelRightTop.magnitude);
+            if (m_canvasRectTransform.anchorMax.magnitude < m_panelRightTop.magnitude)
+            {
+                Vector2 vector = eventData.position - m_pointerPosition;
+                vector.y = 0;
+                transform.position = m_startPosition + vector;
+            }
         }
-        Debug.Log("ドラッグ中");
+
+        //右にドラッグ
     }
 
     /// <summary>
