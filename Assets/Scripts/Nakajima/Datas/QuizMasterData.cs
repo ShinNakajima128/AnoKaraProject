@@ -74,12 +74,9 @@ namespace MasterData
         [SerializeField]
         public string Dragtext;
 
-        [SerializeField, Tooltip("不正解文字")]
+        [SerializeField, Tooltip("動かせる文字達")]
         string[] m_dragTexts;
-
-        //public string Question { get { return m_question; } set => m_question = value; }
-        //public string Answer { get { return m_anaume; } set => m_anaume = value; }
-        //public char Dragtext (int index) { return m_dummy[index]; }
+        public string[] DragTexts { get => m_dragTexts; }
 
         public void ConvartToArray()
         {
