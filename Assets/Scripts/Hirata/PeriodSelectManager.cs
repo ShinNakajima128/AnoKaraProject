@@ -144,9 +144,17 @@ public class PeriodSelectManager : MonoBehaviour
     public void BackSelectPeriod()
     {
         GameManager.Instance.CurrentPeriod = (MasterData.PeriodTypes)0;
+        ResetSelectStage();
+        m_stageSelectPanel.SetActive(false);
+    }
+
+    /// <summary>
+    /// ステージ選択をリセットする
+    /// </summary>
+    void ResetSelectStage()
+    {
         m_decisionButton.interactable = false;
         m_stageSelectImage[m_selectedStageNum].gameObject.SetActive(false);
-        m_stageSelectPanel.SetActive(false);
     }
 
     /// <summary>
