@@ -88,6 +88,15 @@ public class PeriodSelectManager : MonoBehaviour
     public void SelectStage(int stage)
     {
         m_decisionButton.interactable = true;
+        SetStageNum(stage);
+    }
+
+    /// <summary>
+    /// 選ばれたステージを保存し、強調表示するようにする
+    /// </summary>
+    /// <param name="stage">ステージ番号</param>
+    void SetStageNum(int stage)
+    {
         m_stageSelectImage[m_selectedStageNum].gameObject.SetActive(false);
         m_selectedStageNum = stage - 1;
         m_stageSelectImage[stage - 1].gameObject.SetActive(true);
@@ -110,26 +119,8 @@ public class PeriodSelectManager : MonoBehaviour
     /// <param name="scene">シーン名</param>
     public void Decision(string scene)
     {
-        SetPeriod(m_periodNum);
-        SetStage(m_selectedStageNum);
+        GameManager.Instance.CurrentPeriod = (MasterData.PeriodTypes)m_periodNum;
+        GameManager.Instance.CurrentStageId = m_selectedStageNum;
         LoadSceneManager.AnyLoadScene(scene);
-    }
-
-    /// <summary>
-    /// 時代をゲームマネージャーに設定する
-    /// </summary>
-    /// <param name="period">時代の列挙番号</param>
-    void SetPeriod(int period)
-    {
-        GameManager.Instance.CurrentPeriod = (MasterData.PeriodTypes)period;
-    }
-
-    /// <summary>
-    /// ステージ番号をゲームマネージャーに設定する
-    /// </summary>
-    /// <param name="stageNum">ステージ番号</param>
-    void SetStage(int stageNum)
-    {
-        GameManager.Instance.CurrentStageId = stageNum;
     }
 }
