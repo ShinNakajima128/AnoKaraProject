@@ -20,6 +20,10 @@ public class PeriodSelectManager : MonoBehaviour
     [SerializeField]
     Image m_stageCharactorImage;
 
+    /// <summary>時代選択ボタン</summary>
+    [SerializeField]
+    Button[] m_periodButton;
+
     /// <summary>ステージ選択のボタン</summary>
     [SerializeField]
     Button[] m_stageButtons;
@@ -140,6 +144,8 @@ public class PeriodSelectManager : MonoBehaviour
     public void BackSelectPeriod()
     {
         GameManager.Instance.CurrentPeriod = (MasterData.PeriodTypes)0;
+        m_decisionButton.interactable = false;
+        m_stageSelectImage[m_selectedStageNum].gameObject.SetActive(false);
         m_stageSelectPanel.SetActive(false);
     }
 
