@@ -8,6 +8,10 @@ using MasterData;
 /// <summary>時代・ステージ選択画面マネージャー</summary>
 public class PeriodSelectManager : MonoBehaviour
 {
+    /// <summary>時代のステージデータ</summary>
+    [SerializeField]
+    PeriodStageData m_periodStageData;
+
     /// <summary>ステージ選択画面のパネル</summary>
     [SerializeField]
     GameObject m_stageSelectPanel;
@@ -49,6 +53,7 @@ public class PeriodSelectManager : MonoBehaviour
         m_periodNum = period;
         GetPeriodFlag(period);
         SetButtonFlag(m_stageButtons, m_clearFlag);
+        SetStageButton(m_stageText, m_periodStageData, period);
         m_stageSelectPanel.SetActive(true);
     }
 
@@ -82,6 +87,20 @@ public class PeriodSelectManager : MonoBehaviour
     }
 
     /// <summary>
+    /// ボタンのテキストに、データをセットする
+    /// </summary>
+    /// <param name="texts">ボタンのテキスト</param>
+    /// <param name="data">時代データ</param>
+    /// <param name="period">時代番号</param>
+    void SetStageButton(Text[] texts,PeriodStageData data, int period)
+    {
+        for (int i = 0; i < 4; i++)
+        {
+            texts[i].text = data.m_dataBases[period - 1].StageText[i];
+        }
+    }
+
+    /// <summary>
     /// ステージボタンが選択された処理
     /// ボタンに設定する
     /// </summary>
@@ -89,6 +108,7 @@ public class PeriodSelectManager : MonoBehaviour
     {
         m_decisionButton.interactable = true;
         SetStageNum(stage);
+        SetStageSprite(m_periodStageData, m_periodNum, m_selectedStageNum);
     }
 
     /// <summary>
@@ -100,6 +120,17 @@ public class PeriodSelectManager : MonoBehaviour
         m_stageSelectImage[m_selectedStageNum].gameObject.SetActive(false);
         m_selectedStageNum = stage - 1;
         m_stageSelectImage[stage - 1].gameObject.SetActive(true);
+    }
+
+    /// <summary>
+    /// ステージのイメージをセットする
+    /// </summary>
+    /// <param name="data">ステージデータ</param>
+    /// <param name="period">時代番号</param>
+    /// <param name="stage">ステージ番号</param>
+    void SetStageSprite(PeriodStageData data, int period, int stage)
+    {
+        m_stageCharactorImage.sprite = data.m_dataBases[period - 1].StageSprite[stage];
     }
 
     /// <summary>

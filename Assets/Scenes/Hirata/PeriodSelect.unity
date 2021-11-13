@@ -3525,6 +3525,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ca940ab9e2bae434381326c5b9a97c5b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_periodStageData: {fileID: 11400000, guid: b10f21ad71d673d43a77782a12f5518b, type: 2}
   m_stageSelectPanel: {fileID: 1250986433}
   m_stageCharactorImage: {fileID: 515352735}
   m_stageButtons:
@@ -4303,7 +4304,79 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 447483709531774641, guid: a877d34447378504984e2afe6efcb7e0, type: 3}
+      propertyPath: img.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 447483709531774641, guid: a877d34447378504984e2afe6efcb7e0, type: 3}
       propertyPath: m_currentPeriod
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 447483709531774641, guid: a877d34447378504984e2afe6efcb7e0, type: 3}
+      propertyPath: m_periodClearFlag.Array.size
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 447483709531774641, guid: a877d34447378504984e2afe6efcb7e0, type: 3}
+      propertyPath: img.Array.data[0].array.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 447483709531774641, guid: a877d34447378504984e2afe6efcb7e0, type: 3}
+      propertyPath: img.Array.data[1].array.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 447483709531774641, guid: a877d34447378504984e2afe6efcb7e0, type: 3}
+      propertyPath: img.Array.data[2].array.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 447483709531774641, guid: a877d34447378504984e2afe6efcb7e0, type: 3}
+      propertyPath: img.Array.data[3].array.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 447483709531774641, guid: a877d34447378504984e2afe6efcb7e0, type: 3}
+      propertyPath: m_periodClearFlag.Array.data[0].m_stageClearFlag.Array.size
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 447483709531774641, guid: a877d34447378504984e2afe6efcb7e0, type: 3}
+      propertyPath: m_periodClearFlag.Array.data[1].m_stageClearFlag.Array.size
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 447483709531774641, guid: a877d34447378504984e2afe6efcb7e0, type: 3}
+      propertyPath: m_periodClearFlag.Array.data[2].m_stageClearFlag.Array.size
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 447483709531774641, guid: a877d34447378504984e2afe6efcb7e0, type: 3}
+      propertyPath: m_periodClearFlag.Array.data[3].m_stageClearFlag.Array.size
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 447483709531774641, guid: a877d34447378504984e2afe6efcb7e0, type: 3}
+      propertyPath: m_periodClearFlag.Array.data[4].m_stageClearFlag.Array.size
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 447483709531774641, guid: a877d34447378504984e2afe6efcb7e0, type: 3}
+      propertyPath: m_periodClearFlag.Array.data[5].m_stageClearFlag.Array.size
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 447483709531774641, guid: a877d34447378504984e2afe6efcb7e0, type: 3}
+      propertyPath: m_periodClearFlag.Array.data[0].m_stageClearFlag.Array.data[0]
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 447483709531774641, guid: a877d34447378504984e2afe6efcb7e0, type: 3}
+      propertyPath: m_periodClearFlag.Array.data[0].m_stageClearFlag.Array.data[1]
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 447483709531774641, guid: a877d34447378504984e2afe6efcb7e0, type: 3}
+      propertyPath: m_periodClearFlag.Array.data[0].m_stageClearFlag.Array.data[2]
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 447483709531774641, guid: a877d34447378504984e2afe6efcb7e0, type: 3}
+      propertyPath: m_periodClearFlag.Array.data[0].m_stageClearFlag.Array.data[3]
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 447483709531774641, guid: a877d34447378504984e2afe6efcb7e0, type: 3}
+      propertyPath: m_periodClearFlag.Array.data[0].m_stageClearFlag.Array.data[4]
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 447483709531774641, guid: a877d34447378504984e2afe6efcb7e0, type: 3}
+      propertyPath: m_periodClearFlag.Array.data[1].m_stageClearFlag.Array.data[0]
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 447483709531774654, guid: a877d34447378504984e2afe6efcb7e0, type: 3}
