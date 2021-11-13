@@ -14,6 +14,8 @@ public class GameManager : SingletonMonoBehaviour<GameManager>
     [SerializeField]
     int m_currentStageId = default;
 
+    bool[,] m_clearFlag = new bool[6, 4];
+
     /// <summary> プレイヤーの性別 </summary>
     [SerializeField]
     GenderType m_playerGender = default;
@@ -37,5 +39,30 @@ public class GameManager : SingletonMonoBehaviour<GameManager>
     void Start()
     {
         
+    }
+
+    /// <summary>
+    /// クリアフラグを有効化する
+    /// </summary>
+    /// <param name="periodNum">時代番号</param>
+    /// <param name="stageNum">ステージ番号</param>
+    public void FlagOpen(int periodNum, int stageNum)
+    {
+        m_clearFlag[periodNum - 1, stageNum - 1] = true;
+    }
+
+    /// <summary>
+    /// 指定された時代の各ステージのフラグ状況を返す
+    /// </summary>
+    /// <param name="periodNum">時代番号</param>
+    /// <returns>各ステージフラグ</returns>
+    public bool[] CheckFlag(int periodNum)
+    {
+        bool[] flag = new bool[4];
+        for (int i = 0; i < 4; i++)
+        {
+            flag[i] = m_clearFlag[periodNum - 1, i];
+        }
+        return flag;
     }
 }
