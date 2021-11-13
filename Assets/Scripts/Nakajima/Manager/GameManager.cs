@@ -30,12 +30,6 @@ public class GameManager : SingletonMonoBehaviour<GameManager>
     [SerializeField]
     GenderType m_playerGender = default;
 
-    /// <summary>
-    /// 各クリアフラグ
-    /// 行:時代開放フラグ,ステージ1～4    列:時代
-    /// </summary>
-    bool[,] m_clearFlag = new bool[6, 5];
-
     public int CurrentStageId { get => m_currentStageId; set => m_currentStageId = value; }
     public PeriodTypes CurrentPeriod { get => m_currentPeriod; set => m_currentPeriod = value; }
     public GenderType PlayerGender => m_playerGender;
@@ -53,10 +47,7 @@ public class GameManager : SingletonMonoBehaviour<GameManager>
 
     void Start()
     {
-        m_clearFlag[0, 0] = true;
-        m_clearFlag[0, 1] = true;
 
-        m_periodClearFlag[0].m_stageClearFlag[0] = true;
     }
 
     /// <summary>
@@ -66,7 +57,7 @@ public class GameManager : SingletonMonoBehaviour<GameManager>
     /// <param name="stageNum">ステージ番号</param>
     public void FlagOpen(int periodNum, int stageNum)
     {
-        m_clearFlag[periodNum - 1, stageNum] = true;
+        m_periodClearFlag[periodNum - 1].m_stageClearFlag[stageNum] = true;
     }
 
     /// <summary>
@@ -79,7 +70,7 @@ public class GameManager : SingletonMonoBehaviour<GameManager>
         bool[] flag = new bool[4];
         for (int i = 0; i < 4; i++)
         {
-            flag[i] = m_clearFlag[periodNum - 1, i + 1];
+            flag[i] = m_periodClearFlag[periodNum - 1].m_stageClearFlag[i + 1];
         }
         return flag;
     }

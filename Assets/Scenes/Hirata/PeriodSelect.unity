@@ -4357,11 +4357,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 447483709531774641, guid: a877d34447378504984e2afe6efcb7e0, type: 3}
       propertyPath: m_periodClearFlag.Array.data[0].m_stageClearFlag.Array.data[0]
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 447483709531774641, guid: a877d34447378504984e2afe6efcb7e0, type: 3}
       propertyPath: m_periodClearFlag.Array.data[0].m_stageClearFlag.Array.data[1]
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 447483709531774641, guid: a877d34447378504984e2afe6efcb7e0, type: 3}
       propertyPath: m_periodClearFlag.Array.data[0].m_stageClearFlag.Array.data[2]
@@ -4377,6 +4377,42 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 447483709531774641, guid: a877d34447378504984e2afe6efcb7e0, type: 3}
       propertyPath: m_periodClearFlag.Array.data[1].m_stageClearFlag.Array.data[0]
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 447483709531774641, guid: a877d34447378504984e2afe6efcb7e0, type: 3}
+      propertyPath: m_periodClearFlag.Array.data[1].m_stageClearFlag.Array.data[1]
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 447483709531774641, guid: a877d34447378504984e2afe6efcb7e0, type: 3}
+      propertyPath: m_periodClearFlag.Array.data[1].m_stageClearFlag.Array.data[2]
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 447483709531774641, guid: a877d34447378504984e2afe6efcb7e0, type: 3}
+      propertyPath: m_periodClearFlag.Array.data[1].m_stageClearFlag.Array.data[3]
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 447483709531774641, guid: a877d34447378504984e2afe6efcb7e0, type: 3}
+      propertyPath: m_periodClearFlag.Array.data[1].m_stageClearFlag.Array.data[4]
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 447483709531774641, guid: a877d34447378504984e2afe6efcb7e0, type: 3}
+      propertyPath: m_periodClearFlag.Array.data[2].m_stageClearFlag.Array.data[0]
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 447483709531774641, guid: a877d34447378504984e2afe6efcb7e0, type: 3}
+      propertyPath: m_periodClearFlag.Array.data[2].m_stageClearFlag.Array.data[1]
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 447483709531774641, guid: a877d34447378504984e2afe6efcb7e0, type: 3}
+      propertyPath: m_periodClearFlag.Array.data[2].m_stageClearFlag.Array.data[2]
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 447483709531774641, guid: a877d34447378504984e2afe6efcb7e0, type: 3}
+      propertyPath: m_periodClearFlag.Array.data[2].m_stageClearFlag.Array.data[3]
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 447483709531774641, guid: a877d34447378504984e2afe6efcb7e0, type: 3}
+      propertyPath: m_periodClearFlag.Array.data[2].m_stageClearFlag.Array.data[4]
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 447483709531774654, guid: a877d34447378504984e2afe6efcb7e0, type: 3}
