@@ -76,6 +76,10 @@ public class QuizManager : MonoBehaviour
     [SerializeField]
     Slider m_quizResultUISlider = default;
 
+    /// <summary> クイズの進行度を表すImage </summary>
+    [SerializeField]
+    Image m_quizResultUIImage = default;
+
     /// <summary> クイズ結果 </summary>
     [SerializeField]
     Animator[] m_quizResultUIAnims = default;
@@ -87,6 +91,10 @@ public class QuizManager : MonoBehaviour
     /// <summary> 各選択肢のText </summary>
     [SerializeField]
     Text[] m_choices = default;
+
+    [Header("穴埋めクイズのオブジェクト")]
+    [SerializeField]
+    GameObject m_AnaumeQuizPanel = default;
 
     /// <summary> クイズの最大出題数 </summary>
     [Header("デバッグ用")]
@@ -168,18 +176,19 @@ public class QuizManager : MonoBehaviour
             m_currentQuestion = null;
             m_isAnswered = false;
             ResetQuizPanel();
-            m_quizResultUISlider.value = CurrentTurnNum;
+            //m_quizResultUISlider.value = CurrentTurnNum;
+            m_quizResultUIImage.fillAmount = CurrentTurnNum * 0.1f;
             m_quizResultUIAnims[CurrentTurnNum].Play("Thinking");
 
             while (!QuizDataUpdated)
             {
-                int num = UnityEngine.Random.Range(0, 1); //各クイズからランダムで問題を抽選する
+                int num = UnityEngine.Random.Range(0, 2); //各クイズからランダムで問題を抽選する
 
                 switch (num)
                 {
                     //4択クイズが抽選された場合
                     case 0:
-
+                        Debug.Log("4択クイズ");
                         m_currentQuestion = FourChoicesQuizManager.Instance.OnFourQuizQuestion(m_fourChoicesQuizPanel,
                                                                                                m_question,
                                                                                                m_choices[0],
@@ -192,7 +201,7 @@ public class QuizManager : MonoBehaviour
                     case 1:
                         Debug.Log("穴埋めクイズ");
                         //記述例
-                        //m_currentQuestion = AnaumeQuizManager.Instance.OnAnaumeQuizQuestion(各オブジェクトの引数);
+                        m_currentQuestion = AnaumeQuiz.Instance.OnAnaumeQuizQuestion(m_AnaumeQuizPanel, m_question);
                         break;
                     //線繋ぎクイズが抽選された場合
                     case 2:
@@ -290,6 +299,7 @@ public class QuizManager : MonoBehaviour
     {
         m_fourChoicesQuizPanel.SetActive(false); //4択のクイズ画面が出ていたら非表示にする
         //ここに追加で他のクイズのパネルを非表示にするコードを書いてください
+        m_AnaumeQuizPanel.SetActive(false);
     }
 
     /// <summary>

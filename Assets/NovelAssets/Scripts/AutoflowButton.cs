@@ -14,7 +14,7 @@ public class AutoflowButton : MonoBehaviour
         m_autoButton = GetComponent<Button>();
         m_autoflowText = transform.GetComponentInChildren<Text>();
         m_anim = GetComponent<Animator>();
-        ScenarioManager.Instance.ContinueDialog.AddListener(ContinueAnimation);
+        ScenarioManager.Instance.ContinueEvent.AddListener(ContinueAnimation);
         m_autoButton.onClick.AddListener(SwitchAutoflow);
     }
 

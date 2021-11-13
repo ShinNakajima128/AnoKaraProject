@@ -12,13 +12,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 266fe31ccbd336544b795e03ac6c6b11, type: 3}
   m_Name: Anaume Quiz Data
   m_EditorClassIdentifier: 
+  m_spreadsheetURL: https://script.google.com/macros/s/AKfycbw6vpPYJ-aWAUK75W6zlWgfcbVV_KdRySjaRUtslTSL_uWEHIQ/exec
+  m_periodType: 1
   m_database:
-  - m_question: "\u3042\u3042\u3042\u3042\u3042\u3042\u3042\uFF1F"
-    m_text: 
-    m_correctText:
-    - 1
-    - 2
-    - 3
-    m_dummyText:
+  - Id: 1
+    Question: "\u3066\u3059\u3068"
+    Answer: "\u7E54\u7530\u4FE1\u9577"
+    Dragtext: "\u7E54,\u7530,\u4FE1,\u9577,a,b,c,d"
+    m_dragTexts:
+    - "\u7E54"
+    - "\u7530"
+    - "\u4FE1"
+    - "\u9577"
     - a
     - b
+    - c
+    - d

@@ -19,3 +19,5 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 89686293058c6444696849450fb32771, type: 2}
   - {fileID: 11400000, guid: a99c724c6c617fa41a96b6b3fb8a97d2, type: 2}
   - {fileID: 11400000, guid: 32d35825b2af27741a75f772cfa38f8f, type: 2}
+  m_anaumeQuizDatas:
+  - {fileID: 11400000, guid: 60e88861438c948499d2adfd9630d81f, type: 2}

@@ -1,34 +1,26 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using MasterData;
 
 [CreateAssetMenu]
 public class AnaumeQuizData : ScriptableObject
 {
-    public List<AnaumeQuizDatabase> m_database = new List<AnaumeQuizDatabase>();
-}
-
-[System.Serializable]
-public class AnaumeQuizDatabase
-{
-    /// <summary>問題文</summary>
+    //https://script.google.com/macros/s/AKfycbw6vpPYJ-aWAUK75W6zlWgfcbVV_KdRySjaRUtslTSL_uWEHIQ/exec
+    [Header("穴埋めクイズデータのスプレッドシートのURL")]
     [SerializeField]
-    string m_question;
+    string m_spreadsheetURL = default;
 
-    /// <summary>穴埋め本文</summary>
+    [Header("このオブジェクトに保管するデータの時代")]
     [SerializeField]
-    string m_anaume;
+    PeriodTypes m_periodType = default;
 
-    /// <summary>正解の文字</summary>
+    [Header("穴埋めクイズのデータ")]
     [SerializeField]
-    string[] m_correctText;
+    AnaumeQuizDatabase[] m_database = default;
 
-    /// <summary>不正解文字</summary>
-    [SerializeField]
-    string[] m_dummyText;
-
-    public string Question { get { return m_question; } }
-    public string Anaume { get { return m_anaume; } }
-    public string CorrectText(int index) { return m_correctText [index]; }
-    public string DummyText(int index) { return m_dummyText[index]; }
+    public string URL => m_spreadsheetURL;
+    public string PeriodTypeName => m_periodType.ToString();
+    public PeriodTypes PeriodType => m_periodType;
+    public AnaumeQuizDatabase[] AnaumeQuizDatabases { get => m_database; set => m_database = value; }
 }
