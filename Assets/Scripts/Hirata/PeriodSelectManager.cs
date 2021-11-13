@@ -28,25 +28,57 @@ public class PeriodSelectManager : MonoBehaviour
     [SerializeField]
     GameObject[] m_stageSelectImage;
 
+    /// <summary>選択された時代番号の保存</summary>
+    int m_periodNum;
+
     /// <summary>選択されたステージ番号の保存</summary>
     int m_selectedStageNum;
+
+    /// <summary>ステージのクリアフラグの保存</summary>
+    bool[] m_clearFlag = new bool[4];
+
+    /// <summary>決定ボタン</summary>
+    [SerializeField]
+    Button m_decisionButton;
 
     /// <summary>
     /// ステージ選択のPanelをアクティブにする
     /// </summary>
     public void SelectPeriod(int period)
     {
-        SetPeriod(period);
+        m_periodNum = period;
+        GetPeriodFlag(period);
+        SetButtonFlag(m_stageButtons, m_clearFlag);
         m_stageSelectPanel.SetActive(true);
     }
 
     /// <summary>
-    /// 時代をゲームマネージャーに設定する
+    /// ゲームマネージャーから、その時代のステージフラグを受け取る
     /// </summary>
-    /// <param name="period">時代の列挙番号</param>
-    void SetPeriod(int period)
+    void GetPeriodFlag(int period)
     {
-        GameManager.Instance.CurrentPeriod = (MasterData.PeriodTypes)period;
+        m_clearFlag = GameManager.Instance.CheckFlag(period);
+    }
+
+    /// <summary>
+    /// フラグに応じて、ボタンのinteractableを有効化する
+    /// </summary>
+    /// <param name="buttons">ステージボタンの配列</param>
+    /// <param name="flags">ステージのクリアフラグ</param>
+    Button[] SetButtonFlag(Button[] buttons, bool[] flags)
+    {
+        for (int i = 0; i < 4; i++)
+        {
+            if (flags[i])
+            {
+                buttons[i].interactable = true;
+            }
+            else
+            {
+                buttons[i].interactable = false;
+            }
+        }
+        return buttons;
     }
 
     /// <summary>
@@ -55,19 +87,10 @@ public class PeriodSelectManager : MonoBehaviour
     /// </summary>
     public void SelectStage(int stage)
     {
+        m_decisionButton.interactable = true;
         m_stageSelectImage[m_selectedStageNum].gameObject.SetActive(false);
         m_selectedStageNum = stage - 1;
         m_stageSelectImage[stage - 1].gameObject.SetActive(true);
-        SetStage(stage);
-    }
-
-    /// <summary>
-    /// ステージ番号をゲームマネージャーに設定する
-    /// </summary>
-    /// <param name="stageNum">ステージ番号</param>
-    void SetStage(int stageNum)
-    {
-        GameManager.Instance.CurrentStageId = stageNum;
     }
 
     /// <summary>
@@ -81,12 +104,32 @@ public class PeriodSelectManager : MonoBehaviour
     }
 
     /// <summary>
-    /// シーン移動
+    /// ゲームマネージャーに時代とステージを設定して、シーン移動する
     /// 決定ボタンに設定する
     /// </summary>
-    /// <param name="scene"></param>
+    /// <param name="scene">シーン名</param>
     public void Decision(string scene)
     {
+        SetPeriod(m_periodNum);
+        SetStage(m_selectedStageNum);
         LoadSceneManager.AnyLoadScene(scene);
+    }
+
+    /// <summary>
+    /// 時代をゲームマネージャーに設定する
+    /// </summary>
+    /// <param name="period">時代の列挙番号</param>
+    void SetPeriod(int period)
+    {
+        GameManager.Instance.CurrentPeriod = (MasterData.PeriodTypes)period;
+    }
+
+    /// <summary>
+    /// ステージ番号をゲームマネージャーに設定する
+    /// </summary>
+    /// <param name="stageNum">ステージ番号</param>
+    void SetStage(int stageNum)
+    {
+        GameManager.Instance.CurrentStageId = stageNum;
     }
 }
