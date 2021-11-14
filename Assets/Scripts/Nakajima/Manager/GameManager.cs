@@ -44,11 +44,6 @@ public class GameManager : SingletonMonoBehaviour<GameManager>
         DontDestroyOnLoad(gameObject);
     }
 
-    void Start()
-    {
-
-    }
-
     /// <summary>
     /// クリアフラグを有効化する
     /// </summary>

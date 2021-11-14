@@ -13,7 +13,16 @@ public enum TitleStates
 
 public class TitleManager : MonoBehaviour
 {
+    [SerializeField]
+    string m_openingSceneName = default;
+
+    [SerializeField]
+    string m_periodSelectSceneName = default;
+
     [Header("デバッグ用")]
+    [SerializeField]
+    bool m_resetGameData = false;
+
     [SerializeField]
     TitleStates m_titleState = TitleStates.Start;
 
@@ -39,15 +48,14 @@ public class TitleManager : MonoBehaviour
     [SerializeField]
     Text m_tempPlayerName = default;
 
-    [SerializeField]
-    GameDataObject gameDataObject = default;
+    GameDataObject m_gameDataObject = default;
 
     PlayerData m_playerData = default;
 
     public static TitleManager Instance { get; private set; }
 
     public string TempPlayerName { get => m_tempName; set => m_tempName = value; }
-    public GenderType TempGender { get=> m_tempGender; set => m_tempGender = value; }
+    public GenderType TempGender { get => m_tempGender; set => m_tempGender = value; }
 
     private void Awake()
     {
@@ -56,6 +64,12 @@ public class TitleManager : MonoBehaviour
 
     void Start()
     {
+        m_gameDataObject = FindObjectOfType<GameDataObject>();
+        if (m_resetGameData)
+        {
+            ResetGameData();
+        }
+        m_gameDataObject.SetUp();
         ChangePanel(TitleStates.Start);
     }
 
@@ -72,7 +86,7 @@ public class TitleManager : MonoBehaviour
         {
             Debug.Log($"プレイヤー名：{m_playerData.PlayerName}、性別：{m_playerData.PlayerGender}");
 
-            LoadSceneManager.AnyLoadScene("時代選択画面", () =>
+            LoadSceneManager.AnyLoadScene(m_periodSelectSceneName, () =>
             {
                 Debug.Log("時代選択画面に遷移します");
             });
@@ -158,5 +172,28 @@ public class TitleManager : MonoBehaviour
         ChangePanel((TitleStates)type);
     }
 
-    
+    /// <summary>
+    /// オープニングSceneに遷移する
+    /// </summary>
+    public void LoadOpeningScene()
+    {
+        m_gameDataObject.PlayerName = m_tempName;
+        m_gameDataObject.PlayerGender = m_tempGender;
+        DataManager.SaveData();
+        LoadSceneManager.AnyLoadScene(m_openingSceneName);
+    }
+
+    public void ResetGameData()
+    {
+        m_gameDataObject.PlayerName = "";
+        m_gameDataObject.PlayerGender = default;
+        for (int i = 0; i < m_gameDataObject.ClearFlag.Length; i++)
+        {
+            for (int n = 0; n < m_gameDataObject.ClearFlag[i].m_stageClearFlag.Length; n++)
+            {
+                m_gameDataObject.ClearFlag[i].m_stageClearFlag[n] = false;
+            }
+        }
+        DataManager.SaveData();
+    }
 }

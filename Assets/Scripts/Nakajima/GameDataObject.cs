@@ -36,7 +36,7 @@ public class GameDataObject : MonoBehaviour, ISave
         gameData.ClearFlags = data.ClearFlags;
     }
 
-    void SetUp()
+    public void SetUp()
     {
         gameData = SaveManager.GetData().CurrentGameData;
         Debug.Log(gameData.PlayerName);
