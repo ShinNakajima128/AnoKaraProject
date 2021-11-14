@@ -92,6 +92,10 @@ public class QuizManager : MonoBehaviour
     [SerializeField]
     Text[] m_choices = default;
 
+    [Header("穴埋めクイズのオブジェクト")]
+    [SerializeField]
+    GameObject m_AnaumeQuizPanel = default;
+
     /// <summary> クイズの最大出題数 </summary>
     [Header("デバッグ用")]
     [SerializeField]
@@ -178,13 +182,13 @@ public class QuizManager : MonoBehaviour
 
             while (!QuizDataUpdated)
             {
-                int num = UnityEngine.Random.Range(0, 1); //各クイズからランダムで問題を抽選する
+                int num = UnityEngine.Random.Range(0, 2); //各クイズからランダムで問題を抽選する
 
                 switch (num)
                 {
                     //4択クイズが抽選された場合
                     case 0:
-
+                        Debug.Log("4択クイズ");
                         m_currentQuestion = FourChoicesQuizManager.Instance.OnFourQuizQuestion(m_fourChoicesQuizPanel,
                                                                                                m_question,
                                                                                                m_choices[0],
@@ -197,7 +201,7 @@ public class QuizManager : MonoBehaviour
                     case 1:
                         Debug.Log("穴埋めクイズ");
                         //記述例
-                        //m_currentQuestion = AnaumeQuizManager.Instance.OnAnaumeQuizQuestion(各オブジェクトの引数);
+                        m_currentQuestion = AnaumeQuiz.Instance.OnAnaumeQuizQuestion(m_AnaumeQuizPanel, m_question);
                         break;
                     //線繋ぎクイズが抽選された場合
                     case 2:
@@ -295,6 +299,7 @@ public class QuizManager : MonoBehaviour
     {
         m_fourChoicesQuizPanel.SetActive(false); //4択のクイズ画面が出ていたら非表示にする
         //ここに追加で他のクイズのパネルを非表示にするコードを書いてください
+        m_AnaumeQuizPanel.SetActive(false);
     }
 
     /// <summary>
