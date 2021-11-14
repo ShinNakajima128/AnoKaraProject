@@ -5,12 +5,15 @@ using UnityEngine.UI;
 
 public class GenderSelect : MonoBehaviour
 {
+    [Header("性別選択のボタンのImage")]
     [SerializeField]
     Image[] m_genderImages = default;
 
+    [Header("確認画面のPanel")]
     [SerializeField]
     GameObject m_confirmPanel = default;
 
+    /// <summary> 選択した性別 </summary>
     GenderType m_selectGender = default;
 
     private void Start()
@@ -40,6 +43,9 @@ public class GenderSelect : MonoBehaviour
         m_confirmPanel.SetActive(true);
     }
 
+    /// <summary>
+    /// 選択した性別で決定し、次の項目を表示する
+    /// </summary>
     public void Submit()
     {
         m_confirmPanel.SetActive(false);
@@ -51,6 +57,9 @@ public class GenderSelect : MonoBehaviour
         TitleManager.Instance.ChangePanel(TitleStates.InputName);
     }
 
+    /// <summary>
+    /// 選択をやり直す
+    /// </summary>
     public void Cancel()
     {
         m_confirmPanel.SetActive(false);

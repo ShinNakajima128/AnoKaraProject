@@ -4,24 +4,27 @@ using UnityEngine;
 
 public class GameDataObject : MonoBehaviour, ISave
 {
+    /// <summary> ゲームデータ </summary>
     [SerializeField]
     SaveData.GameData gameData;
 
+    /// <summary> プレイヤーのデータを保管するScriptableObject </summary>
     [SerializeField]
     PlayerData m_playerData = default;
 
+    /// <summary> ゲームデータを取得する </summary>
     public SaveData.GameData GameData => gameData;
+    /// <summary> プレイヤー名を取得する </summary>
     public string PlayerName { get => gameData.PlayerName; set => gameData.PlayerName = value; }
-
+    /// <summary> 性別を取得する </summary>
     public GenderType PlayerGender { get => gameData.Gender; set => gameData.Gender = value; }
-
+    /// <summary> クリアフラグを取得する </summary>
     public GameManager.ClearFlagArray[] ClearFlag { get => gameData.ClearFlags; set => gameData.ClearFlags = value; }
 
-    void Start()
-    {
-        SetUp();
-    }
-
+    /// <summary>
+    /// セーブする
+    /// </summary>
+    /// <param name="data"> セーブ先のデータ </param>
     public void Save(SaveData.GameData data)
     {
         data.PlayerName = gameData.PlayerName;
@@ -29,6 +32,10 @@ public class GameDataObject : MonoBehaviour, ISave
         data.ClearFlags = gameData.ClearFlags;
     }
 
+    /// <summary>
+    /// ロードする
+    /// </summary>
+    /// <param name="data"> ロード先のデータ </param>
     public void Load(SaveData.GameData data)
     {
         gameData.PlayerName = data.PlayerName;
@@ -36,6 +43,9 @@ public class GameDataObject : MonoBehaviour, ISave
         gameData.ClearFlags = data.ClearFlags;
     }
 
+    /// <summary>
+    /// 現在のゲームデータをプレイヤーのデータを持つScriptableObjectにセットする
+    /// </summary>
     public void SetUp()
     {
         gameData = SaveManager.GetData().CurrentGameData;

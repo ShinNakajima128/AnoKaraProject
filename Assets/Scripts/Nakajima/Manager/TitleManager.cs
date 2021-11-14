@@ -13,41 +13,53 @@ public enum TitleStates
 
 public class TitleManager : MonoBehaviour
 {
+    [Header("オープニングのScene名")]
     [SerializeField]
     string m_openingSceneName = default;
 
+    [Header("時代選択画面のScene名")]
     [SerializeField]
     string m_periodSelectSceneName = default;
 
+    [Header("データのリセットフラグ")]
     [Header("デバッグ用")]
     [SerializeField]
     bool m_resetGameData = false;
 
+    [Header("タイトル画面の状態")]
     [SerializeField]
     TitleStates m_titleState = TitleStates.Start;
 
+    [Header("設定中の性別")]
     [SerializeField]
     GenderType m_tempGender = default;
 
+    [Header("設定中の名前")]
     [SerializeField]
     string m_tempName = default;
 
+    /// <summary> スタート画面のPanel </summary>
     [Header("タイトル画面の各Panel")]
     [SerializeField]
     GameObject m_startPanel = default;
 
+    /// <summary> 初期設定画面 </summary>
     [SerializeField]
     GameObject m_initialSettingPanel = default;
 
+    /// <summary> 初期設定中の各設定画面 </summary>
     [SerializeField]
     GameObject[] m_settingPanels = default;
 
+    /// <summary> 設定中の性別のImage </summary>
     [SerializeField]
     Image m_tempGenderImage = default;
 
+    /// <summary> 設定中のプレイヤー名 </summary>
     [SerializeField]
     Text m_tempPlayerName = default;
 
+    /// <summary>  </summary>
     GameDataObject m_gameDataObject = default;
 
     PlayerData m_playerData = default;
@@ -184,6 +196,9 @@ public class TitleManager : MonoBehaviour
         LoadSceneManager.AnyLoadScene(m_openingSceneName);
     }
 
+    /// <summary>
+    /// ゲームデータをリセットする
+    /// </summary>
     public void ResetGameData()
     {
         m_gameDataObject.PlayerName = "";
