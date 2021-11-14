@@ -995,13 +995,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 006f735e3080a444397a4d200d6809b4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_data:
-  - {fileID: 11400000, guid: f4550262d05686b4f8596b7ab55cbd9b, type: 2}
-  - {fileID: 11400000, guid: f4550262d05686b4f8596b7ab55cbd9b, type: 2}
+  m_data: []
   m_textSpeed: 0.01
   m_autoflowTime: 0.1
-  m_playerName: "\u307F\u3055\u304D"
-  m_malePronoun: "\u50D5"
+  m_playerName: 
+  m_malePronoun: "\u4FFA"
   m_famalePronoun: "\u79C1"
   m_triggerChar: 35
   m_textType: 3
@@ -1021,16 +1019,28 @@ MonoBehaviour:
   m_logPanel: {fileID: 3556439220581475623}
   m_logText: {fileID: 3556439220305853371}
   m_imageDatas:
-  - {fileID: 11400000, guid: aeb5d1ab246c99747a8c979ba7bbd427, type: 2}
-  - {fileID: 11400000, guid: 4326db079aeec6942af8ec9436c72c9b, type: 2}
-  - {fileID: 11400000, guid: b93598e3bff8a784085543566c6f8aac, type: 2}
-  StartDialog:
+  - {fileID: 11400000, guid: 3579995891528d04690580b2eed6743c, type: 2}
+  - {fileID: 11400000, guid: f61fa88bd9dcc744eabdf5deace60937, type: 2}
+  - {fileID: 11400000, guid: 913d645a2268e404f9f8f23238abb835, type: 2}
+  m_boySprites:
+  - {fileID: 21300000, guid: c316ec01f62d6ef40bf15b8de215f5d2, type: 3}
+  - {fileID: 21300000, guid: 30f339aca3ab45a4588f83bc32e3de32, type: 3}
+  - {fileID: 21300000, guid: 2a1d01a3008864648b805950af4f9015, type: 3}
+  - {fileID: 21300000, guid: 13cae4ddb039b6a43a3f193a026cd8d4, type: 3}
+  - {fileID: 21300000, guid: 4344139f95f8b544eacf5643fd534279, type: 3}
+  m_girlSprites:
+  - {fileID: 21300000, guid: 13bee12cc15b05c41ab1adb58c3701df, type: 3}
+  - {fileID: 21300000, guid: e69a4d7b85f029f4fa9d16d66b708a85, type: 3}
+  - {fileID: 21300000, guid: a9959001b29ab494eaa97e592941c508, type: 3}
+  - {fileID: 21300000, guid: 1611d9138d89ba84ca333a30c1b6047f, type: 3}
+  - {fileID: 21300000, guid: b060356e7cb47604c97e3e2919660cc3, type: 3}
+  StartEvent:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 3556439220019624003}
         m_TargetAssemblyTypeName: ScenarioManager, Assembly-CSharp
-        m_MethodName: StartSelectScenario
-        m_Mode: 3
+        m_MethodName: StartAllScenario
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -1039,24 +1049,12 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  ContinueDialog:
+  ContinueEvent:
     m_PersistentCalls:
       m_Calls: []
-  EndDialog:
+  EndEvent:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: 
-        m_MethodName: 
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: 
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!114 &3556439220019624000
 MonoBehaviour:
   m_ObjectHideFlags: 0
