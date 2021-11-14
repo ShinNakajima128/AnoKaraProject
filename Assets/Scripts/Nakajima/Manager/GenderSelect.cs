@@ -43,6 +43,10 @@ public class GenderSelect : MonoBehaviour
     public void Submit()
     {
         m_confirmPanel.SetActive(false);
+        foreach (var i in m_genderImages)
+        {
+            i.color = new Color(1f, 1f, 1f);
+        }
         TitleManager.Instance.TempGender = m_selectGender;
         TitleManager.Instance.ChangePanel(TitleStates.InputName);
     }

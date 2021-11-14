@@ -12,26 +12,7 @@ public class SaveAndLoadTest : MonoBehaviour
         Instance = this;
     }
 
-    public void SaveData()
-    {
-        SaveData data = SaveManager.GetData();
-        GameDataObject gameData = FindObjectOfType<GameDataObject>();
+    
 
-        ISave saveIf = gameData.GetComponent<ISave>();
-        saveIf.Save(data.CurrentGameData);
-        Debug.Log(data.CurrentGameData);
-        SaveManager.Save();
-    }
-
-    public void LoadData()
-    {
-        SaveManager.Load();
-        SaveData data = SaveManager.GetData();
-
-        var gameData = FindObjectOfType<GameDataObject>();
-
-        ISave saveIf = gameData.GetComponent<ISave>();
-        saveIf.Load(data.CurrentGameData);
-        Debug.Log(data);
-    }
+    
 }
