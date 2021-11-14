@@ -102,6 +102,13 @@ public class ScenarioManager : MonoBehaviour
     [Header("キャラクターリスト")]
     [SerializeField]
     CharacterImageData[] m_imageDatas = default;
+
+    [Header("プレイヤーの性別毎の各表情Sprite")]
+    [SerializeField]
+    Sprite[] m_boySprites = default;
+
+    [SerializeField]
+    Sprite[] m_girlSprites = default;
     #endregion
 
     #region public field
@@ -144,6 +151,8 @@ public class ScenarioManager : MonoBehaviour
 
     void Start()
     {
+        m_playerName = DataManager.Instance.PlayerData.PlayerName;
+        m_imageDatas[0].CharacterImages = DataManager.Instance.PlayerData.PlayerGender == GenderType.Boy ? m_boySprites : m_girlSprites;
         HighlightCodeSetup(m_textType, ColorToHex(m_HighlightTextColor));
         m_characterImage = new Image[m_character.Length];
         m_anim = new Animator[m_character.Length];
@@ -284,7 +293,7 @@ public class ScenarioManager : MonoBehaviour
                 m_clickIcon.SetActive(false);
                 m_messageText.text = "";
                 string message = data.DialogData[currentDialogIndex].AllMessages[i].Replace("プレイヤー", m_playerName)
-                                                                                   .Replace("私（僕or俺)", GameManager.Instance.PlayerGender == GenderType.Boy ? m_malePronoun: m_famalePronoun);
+                                                                                   .Replace("私（僕or俺)", DataManager.Instance.PlayerData.PlayerGender == GenderType.Boy ? m_malePronoun: m_famalePronoun);
                 bool isHighlighted = false;
 
                 //各メッセージを一文字ずつ表示する
