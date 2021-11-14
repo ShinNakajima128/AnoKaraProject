@@ -42,7 +42,6 @@ public class GameManager : SingletonMonoBehaviour<GameManager>
             return;
         }
         DontDestroyOnLoad(gameObject);
-        DataManager.Instance.PlayerData.PlayerGender = m_playerGender;
     }
 
     void Start()
