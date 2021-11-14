@@ -180,6 +180,7 @@ public class TitleManager : MonoBehaviour
         m_gameDataObject.PlayerName = m_tempName;
         m_gameDataObject.PlayerGender = m_tempGender;
         DataManager.SaveData();
+        m_gameDataObject.SetUp();
         LoadSceneManager.AnyLoadScene(m_openingSceneName);
     }
 
