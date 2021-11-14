@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: PlayerData
   m_EditorClassIdentifier: 
   m_playerName: 
-  m_playerGender: 1
+  m_playerGender: 0
   m_clearFlag:
   - m_stageClearFlag: 00000000
   - m_stageClearFlag: 00000000
@@ -28,7 +28,7 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 13cae4ddb039b6a43a3f193a026cd8d4, type: 3}
   - {fileID: 21300000, guid: 86525304c2c1ae349af8233eeb5c859a, type: 3}
   - {fileID: 21300000, guid: 10e5e939c9e1a184d8ec4050a0316654, type: 3}
-  - {fileID: 21300000, guid: 10e5e939c9e1a184d8ec4050a0316654, type: 3}
+  - {fileID: 21300000, guid: 68e031afac314d04c8c4ba62b6d48596, type: 3}
   m_girlImages:
   - {fileID: 21300000, guid: 1611d9138d89ba84ca333a30c1b6047f, type: 3}
   - {fileID: 21300000, guid: 9072dabeb06ae4541a6889aa1a1d5ab2, type: 3}
