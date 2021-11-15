@@ -23,3 +23,53 @@ MonoBehaviour:
     - "\u30B9\u30C6\u30FC\u30B82"
     - "\u30B9\u30C6\u30FC\u30B83"
     - "\u30B9\u30C6\u30FC\u30B84"
+  - m_sprites:
+    - {fileID: 21300000, guid: 13cae4ddb039b6a43a3f193a026cd8d4, type: 3}
+    - {fileID: 21300000, guid: 1611d9138d89ba84ca333a30c1b6047f, type: 3}
+    - {fileID: 21300000, guid: 5ea8c033144a62948abfc81b39b1328a, type: 3}
+    - {fileID: 21300000, guid: b8166e6cff0ccc34394dceb65b9fe242, type: 3}
+    m_stageText:
+    - "\u30B9\u30C6\u30FC\u30B81"
+    - "\u30B9\u30C6\u30FC\u30B82"
+    - "\u30B9\u30C6\u30FC\u30B83"
+    - "\u30B9\u30C6\u30FC\u30B84"
+  - m_sprites:
+    - {fileID: 21300000, guid: 13cae4ddb039b6a43a3f193a026cd8d4, type: 3}
+    - {fileID: 21300000, guid: 1611d9138d89ba84ca333a30c1b6047f, type: 3}
+    - {fileID: 21300000, guid: 5ea8c033144a62948abfc81b39b1328a, type: 3}
+    - {fileID: 21300000, guid: b8166e6cff0ccc34394dceb65b9fe242, type: 3}
+    m_stageText:
+    - "\u30B9\u30C6\u30FC\u30B81"
+    - "\u30B9\u30C6\u30FC\u30B82"
+    - "\u30B9\u30C6\u30FC\u30B83"
+    - "\u30B9\u30C6\u30FC\u30B84"
+  - m_sprites:
+    - {fileID: 21300000, guid: 13cae4ddb039b6a43a3f193a026cd8d4, type: 3}
+    - {fileID: 21300000, guid: 1611d9138d89ba84ca333a30c1b6047f, type: 3}
+    - {fileID: 21300000, guid: 5ea8c033144a62948abfc81b39b1328a, type: 3}
+    - {fileID: 21300000, guid: b8166e6cff0ccc34394dceb65b9fe242, type: 3}
+    m_stageText:
+    - "\u30B9\u30C6\u30FC\u30B81"
+    - "\u30B9\u30C6\u30FC\u30B82"
+    - "\u30B9\u30C6\u30FC\u30B83"
+    - "\u30B9\u30C6\u30FC\u30B84"
+  - m_sprites:
+    - {fileID: 21300000, guid: 13cae4ddb039b6a43a3f193a026cd8d4, type: 3}
+    - {fileID: 21300000, guid: 1611d9138d89ba84ca333a30c1b6047f, type: 3}
+    - {fileID: 21300000, guid: 5ea8c033144a62948abfc81b39b1328a, type: 3}
+    - {fileID: 21300000, guid: b8166e6cff0ccc34394dceb65b9fe242, type: 3}
+    m_stageText:
+    - "\u30B9\u30C6\u30FC\u30B81"
+    - "\u30B9\u30C6\u30FC\u30B82"
+    - "\u30B9\u30C6\u30FC\u30B83"
+    - "\u30B9\u30C6\u30FC\u30B84"
+  - m_sprites:
+    - {fileID: 21300000, guid: 13cae4ddb039b6a43a3f193a026cd8d4, type: 3}
+    - {fileID: 21300000, guid: 1611d9138d89ba84ca333a30c1b6047f, type: 3}
+    - {fileID: 21300000, guid: 5ea8c033144a62948abfc81b39b1328a, type: 3}
+    - {fileID: 21300000, guid: b8166e6cff0ccc34394dceb65b9fe242, type: 3}
+    m_stageText:
+    - "\u30B9\u30C6\u30FC\u30B81"
+    - "\u30B9\u30C6\u30FC\u30B82"
+    - "\u30B9\u30C6\u30FC\u30B83"
+    - "\u30B9\u30C6\u30FC\u30B84"

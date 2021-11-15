@@ -3528,17 +3528,24 @@ MonoBehaviour:
   m_periodStageData: {fileID: 11400000, guid: b10f21ad71d673d43a77782a12f5518b, type: 2}
   m_stageSelectPanel: {fileID: 1250986433}
   m_stageCharactorImage: {fileID: 515352735}
+  m_periodButtons:
+  - {fileID: 1176139701}
+  - {fileID: 804008077}
+  - {fileID: 986416929}
+  - {fileID: 2080105738}
+  - {fileID: 433011148}
+  - {fileID: 919020290}
   m_stageButtons:
   - {fileID: 1366300953}
   - {fileID: 613851958}
   - {fileID: 625190205}
   - {fileID: 2053256846}
-  m_stageText:
+  m_stageTexts:
   - {fileID: 670983841}
   - {fileID: 602202230}
   - {fileID: 170655525}
   - {fileID: 479500143}
-  m_stageSelectImage:
+  m_stageSelectImages:
   - {fileID: 115184684}
   - {fileID: 991378845}
   - {fileID: 2036084258}
