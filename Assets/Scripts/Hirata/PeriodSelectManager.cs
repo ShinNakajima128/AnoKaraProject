@@ -54,7 +54,7 @@ public class PeriodSelectManager : MonoBehaviour
 
     private void Awake()
     {
-        m_periodClearFlags = GameManager.Instance.CheckFlag();
+        GetPeriodClearFlag();
         SetButtonFlag(m_periodButtons, m_periodClearFlags);
     }
 
@@ -65,10 +65,35 @@ public class PeriodSelectManager : MonoBehaviour
     public void SelectPeriod(int period)
     {
         m_periodNum = period;
-        m_stageClearFlag = GameManager.Instance.CheckFlag(period);
+        GetStageClearFlag(period);
         SetButtonFlag(m_stageButtons, m_stageClearFlag);
         SetStageButton(m_stageTexts, m_periodStageData, period);
         m_stageSelectPanel.SetActive(true);
+    }
+
+    /// <summary>
+    /// PlayerDataから、時代のクリアフラグを受け取る
+    /// </summary>
+    void GetPeriodClearFlag()
+    {
+        for (int i = 0; i < 6; i++)
+        {
+            m_periodClearFlags[i] = DataManager.Instance.
+                PlayerData.ClearFlags[i].m_stageClearFlag[0];
+        }
+    }
+
+    /// <summary>
+    /// PlayerDataから、指定した時代のステージのクリアフラグを受け取る
+    /// </summary>
+    /// <param name="period">時代番号</param>
+    void GetStageClearFlag(int period)
+    {
+        for (int i = 0; i < 4; i++)
+        {
+            m_stageClearFlag[i] = DataManager.Instance.
+                PlayerData.ClearFlags[period - 1].m_stageClearFlag[i];
+        }
     }
 
     /// <summary>

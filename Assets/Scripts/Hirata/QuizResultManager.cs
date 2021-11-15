@@ -97,7 +97,7 @@ public class QuizResultManager : MonoBehaviour
     /// </summary>
     void FlagOpen()
     {
-        GameManager.Instance.FlagOpen((int)GameManager.Instance.CurrentPeriod, GameManager.Instance.CurrentStageId);
+        DataManager.Instance.FlagOpen((int)GameManager.Instance.CurrentPeriod,(int)GameManager.Instance.CurrentStageId);
     }
 
     /// <summary>
