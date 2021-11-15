@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4d9aa4b5244f4994db385df11d119ef7, type: 3}
+  m_Name: VillagerE_ImageData
+  m_EditorClassIdentifier: 
+  m_dataName: "\u6751\u4EBAE"
+  m_characterImages:
+  - {fileID: 21300000, guid: 3c46254ce1c64134c939b84d2bea2d46, type: 3}
+  - {fileID: 21300000, guid: fbf2322fa72853f44ac6349d5ec20565, type: 3}
+  - {fileID: 21300000, guid: d703686f61ffb0241a9afe3dac0ff1c3, type: 3}
+  - {fileID: 21300000, guid: d703686f61ffb0241a9afe3dac0ff1c3, type: 3}

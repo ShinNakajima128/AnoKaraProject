@@ -32,7 +32,6 @@ namespace ScenarioMasterData
 
         public int[] FaceTypes => m_faceTypes; 
         public string[] AllMessages { get => m_allMessages; set => m_allMessages = value; }
-
         public void MessagesAndFacetypeToArray()
         {
             string[] del = { "\n" };

@@ -56,6 +56,10 @@ public class QuizManager : MonoBehaviour
     [SerializeField]
     GameObject m_quizPartObjects = default;
 
+    /// <summary> 吹き出し画面のオブジェクトをまとめているPanel </summary>
+    [SerializeField]
+    GameObject m_blowingPanel = default;
+
     /// <summary> プレイヤーの吹き出し </summary>
     [SerializeField]
     Text m_playerChat = default;
@@ -141,6 +145,7 @@ public class QuizManager : MonoBehaviour
         m_historicalFiguresData = DataManager.Instance.CurrentPeriodHistoricalFigures;
         m_QuizResultUI.SetActive(false);
         m_quizPartObjects.SetActive(false);
+        m_blowingPanel.SetActive(false);
         //各人物の画像をセットする
         SetCharacterPanel(m_playeData, m_historicalFiguresData);
         m_questionResults = new bool[questionLimit];
@@ -164,8 +169,10 @@ public class QuizManager : MonoBehaviour
         }
         yield return null;
         m_quizPartObjects.SetActive(true);
-        m_playerChat.text = m_playeData.ThinkingChat;
-        m_historicalFiguresChat.text = m_historicalFiguresData.ThinkingChat;
+        m_blowingPanel.SetActive(true);
+        m_playerImage.sprite = m_playeData.PlayerImage[1]; //考え中の画像を表示
+        m_playerChat.text = m_playeData.ThinkingChat; //考え中のプレイヤー吹き出し文を表示
+        m_historicalFiguresChat.text = m_historicalFiguresData.ThinkingChat; //考え中の偉人吹き出し文を表示
         m_correctRate.text = $"正答率：{0}%";
 
         //10問出し終えるまで続ける
@@ -218,7 +225,7 @@ public class QuizManager : MonoBehaviour
         ///ここから下にクイズが終了した時の処理を記述する///
         
         //仮にここでResult画面へ遷移の記述。できればGameManagerのOnGameEnd関数などを用意してここに書きたい
-        LoadSceneManager.AnyLoadScene("Result");
+        LoadSceneManager.AnyLoadScene("QuizResult");
     }
 
     #region common
@@ -267,7 +274,7 @@ public class QuizManager : MonoBehaviour
         {
             images.enabled = false;
         }
-        m_playerImage.sprite = m_playeData.PlayerImage[0];
+        m_playerImage.sprite = m_playeData.PlayerImage[1]; //考え中の画像を表示
         m_historicalFiguresImage.sprite = m_historicalFiguresData.CharacterImages[0];
         m_playerChat.text = m_playeData.ThinkingChat;
         m_historicalFiguresChat.text = m_historicalFiguresData.ThinkingChat;
@@ -313,7 +320,7 @@ public class QuizManager : MonoBehaviour
         {
             m_JudgePanel.SetActive(true);
             m_judgeImages[0].enabled = true;
-            m_playerImage.sprite = m_playeData.PlayerImage[1];
+            m_playerImage.sprite = m_playeData.PlayerImage[2];
             m_historicalFiguresImage.sprite = m_historicalFiguresData.CharacterImages[1];
             m_playerChat.text = m_playeData.CorrectChat;
             m_historicalFiguresChat.text = m_historicalFiguresData.CorrectChat;
@@ -324,7 +331,7 @@ public class QuizManager : MonoBehaviour
         {
             m_JudgePanel.SetActive(true);
             m_judgeImages[1].enabled = true;
-            m_playerImage.sprite = m_playeData.PlayerImage[2];
+            m_playerImage.sprite = m_playeData.PlayerImage[3];
             m_historicalFiguresImage.sprite = m_historicalFiguresData.CharacterImages[2];
             m_playerChat.text = m_playeData.IncorrectChat;
             m_historicalFiguresChat.text = m_historicalFiguresData.IncorrectChat;

@@ -4,5 +4,23 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Scenes/PlannerTest/Title.unity
+    guid: 55cc619248a4c744ab43ea4594958e58
+  - enabled: 1
+    path: Assets/Scenes/PlannerTest/Opening.unity
+    guid: ded03f755d6eba549ba29a98aa799999
+  - enabled: 1
+    path: Assets/Scenes/Hirata/PeriodSelect.unity
+    guid: 83767b8fa6f536b4ead1af5e395150df
+  - enabled: 1
+    path: Assets/Scenes/PlannerTest/QuizPart.unity
+    guid: a6eefde71334dbc4787e476bbcce1338
+  - enabled: 1
+    path: Assets/Scenes/Machida/SearchScenes.unity
+    guid: 4c7054f0435c6fe43920135c244e65f0
+  - enabled: 1
+    path: Assets/Scenes/Hirata/QuizResult.unity
+    guid: 3e59b5f26ecbdfd449bba99c3e778534
   m_configObjects: {}

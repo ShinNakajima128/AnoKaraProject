@@ -7,7 +7,7 @@ using ScenarioMasterData;
 /// <summary>
 /// クイズデータを管理するクラス
 /// </summary>
-public class DataManager : MonoBehaviour
+public class DataManager : SingletonMonoBehaviour<DataManager>
 {
     [Header("プレイヤーデータ")]
     [SerializeField]
@@ -27,8 +27,6 @@ public class DataManager : MonoBehaviour
 
     delegate void LoadDataCallback<T>(T data);
 
-    public static DataManager Instance { get; private set; }
-
     /// <summary> プレイヤーのデータを取得する </summary>
     public PlayerData PlayerData => m_playerData;
     /// <summary> 現在の時代の村人のデータを取得する </summary>
@@ -41,15 +39,50 @@ public class DataManager : MonoBehaviour
 
     void Awake()
     {
-        Instance = this;
+        if (Instance != this)
+        {
+            Destroy(gameObject);
+            return;
+        }
+        DontDestroyOnLoad(gameObject);
     }
 
+    /// <summary>
+    /// ゲームデータをセーブする
+    /// </summary>
+    public static void SaveData()
+    {
+        SaveData data = SaveManager.GetData();
+        GameDataObject gameData = FindObjectOfType<GameDataObject>();
+
+        ISave saveIf = gameData.GetComponent<ISave>();
+        saveIf.Save(data.CurrentGameData);
+        Debug.Log(data.CurrentGameData);
+        SaveManager.Save();
+    }
+
+    /// <summary>
+    /// ゲームデータをロードする
+    /// </summary>
+    public static void LoadData()
+    {
+        SaveManager.Load();
+        SaveData data = SaveManager.GetData();
+
+        var gameData = FindObjectOfType<GameDataObject>();
+
+        ISave saveIf = gameData.GetComponent<ISave>();
+        saveIf.Load(data.CurrentGameData);
+        Debug.Log(data);
+    }
+
+    #region SpreadsheetMethod
     /// <summary>
     /// スプレッドシートからデータを取得するためにManagerをセットする
     /// </summary>
     public static void GetDataManager()
     {
-        Instance = GameObject.Find("DataManager").GetComponent<DataManager>();
+        //Instance = GameObject.Find("DataManager").GetComponent<DataManager>();
     }
     /// <summary>
     /// スプレッドシートからシナリオデータをロードする。※この関数はEditor上でのみ使用する関数なので、ゲーム中に実行されるクラスでは使わないでください。
@@ -172,5 +205,28 @@ public class DataManager : MonoBehaviour
             callback(dldata);
             Debug.Log("Network download. : " + file + " / " + json + "/" + dldata);
         });
+    }
+    #endregion
+
+    /// <summary>
+    /// クリアフラグを有効化する
+    /// 1～5ステージかつ4ステージをクリアした時に、次の時代のフラグを開く
+    /// </summary>
+    /// <param name="periodNum">時代番号</param>
+    /// <param name="stageNum">ステージ番号</param>
+    public void FlagOpen(int periodNum, int stageNum)
+    {
+        m_playerData.ClearFlags[periodNum - 1].m_stageClearFlag[stageNum] = true;
+
+        if (periodNum < 7)
+        {
+            if (stageNum == 4)
+            {
+                for (int i = 0; i < 2; i++)
+                {
+                    m_playerData.ClearFlags[periodNum].m_stageClearFlag[i] = true;
+                }
+            }
+        }
     }
 }
