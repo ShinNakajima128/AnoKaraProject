@@ -26,21 +26,25 @@ public class NameInput : MonoBehaviour
     /// </summary>
     public void ChackName()
     {
+        var s = m_input.text.Trim();
+
         //文字数が不正だった場合
-        if (m_input.text.Length < 1 || m_input.text.Length > 7)
+        if (s.Length < 1 || s.Length > 7)
         {
             m_caution.enabled = true;
+            m_input.text = "";
             m_caution.text = "１文字以上7文字以内で入力してください";
             return;
         }
         else
         {
-            var result = CheckBannedWord(m_input.text); //禁止ワードが含まれているか確認する
+            var result = CheckBannedWord(s); //禁止ワードが含まれているか確認する
             
             //禁止ワードがあった場合
             if (result)
             {
                 m_caution.enabled = true;
+                m_input.text = "";
                 m_caution.text = "その名前は使用できません";
                 return;
             }
