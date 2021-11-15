@@ -415,6 +415,38 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1024915993, guid: 2507efedb408f5940b98a5383d8fb730, type: 3}
+      propertyPath: gameData.ClearFlags.Array.data[0].m_stageClearFlag.Array.size
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1024915993, guid: 2507efedb408f5940b98a5383d8fb730, type: 3}
+      propertyPath: gameData.ClearFlags.Array.data[1].m_stageClearFlag.Array.size
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1024915993, guid: 2507efedb408f5940b98a5383d8fb730, type: 3}
+      propertyPath: gameData.ClearFlags.Array.data[2].m_stageClearFlag.Array.size
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1024915993, guid: 2507efedb408f5940b98a5383d8fb730, type: 3}
+      propertyPath: gameData.ClearFlags.Array.data[3].m_stageClearFlag.Array.size
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1024915993, guid: 2507efedb408f5940b98a5383d8fb730, type: 3}
+      propertyPath: gameData.ClearFlags.Array.data[4].m_stageClearFlag.Array.size
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1024915993, guid: 2507efedb408f5940b98a5383d8fb730, type: 3}
+      propertyPath: gameData.ClearFlags.Array.data[5].m_stageClearFlag.Array.size
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1024915993, guid: 2507efedb408f5940b98a5383d8fb730, type: 3}
+      propertyPath: gameData.ClearFlags.Array.data[0].m_stageClearFlag.Array.data[0]
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1024915993, guid: 2507efedb408f5940b98a5383d8fb730, type: 3}
+      propertyPath: gameData.ClearFlags.Array.data[0].m_stageClearFlag.Array.data[1]
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1218958328587039708, guid: 2507efedb408f5940b98a5383d8fb730, type: 3}
       propertyPath: m_Name
       value: DataManager

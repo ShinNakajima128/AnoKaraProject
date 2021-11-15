@@ -92,7 +92,7 @@ public class PeriodSelectManager : MonoBehaviour
         for (int i = 0; i < 4; i++)
         {
             m_stageClearFlag[i] = DataManager.Instance.
-                PlayerData.ClearFlags[period - 1].m_stageClearFlag[i];
+                PlayerData.ClearFlags[period - 1].m_stageClearFlag[i + 1];
         }
     }
 

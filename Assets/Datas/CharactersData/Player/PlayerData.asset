@@ -15,12 +15,12 @@ MonoBehaviour:
   m_playerName: 
   m_playerGender: 0
   m_clearFlag:
-  - m_stageClearFlag: 00000000
-  - m_stageClearFlag: 00000000
-  - m_stageClearFlag: 00000000
-  - m_stageClearFlag: 00000000
-  - m_stageClearFlag: 00000000
-  - m_stageClearFlag: 00000000
+  - m_stageClearFlag: 0101010101
+  - m_stageClearFlag: 0000000000
+  - m_stageClearFlag: 0000000000
+  - m_stageClearFlag: 0000000000
+  - m_stageClearFlag: 0000000000
+  - m_stageClearFlag: 0000000000
   m_thinkingChat: "\u3046\uFF5E\u3093"
   m_correctChat: "\u3084\u3063\u305F\u306D\uFF01"
   m_incorrectChat: "\u305D\u3093\u306A\uFF5E\u2026"
