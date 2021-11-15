@@ -5,6 +5,12 @@ namespace AnoKara
 {
     class LocalData
     { 
+        /// <summary>
+        /// ローカルファイルにデータを保存する
+        /// </summary>
+        /// <typeparam name="T"> データの型 </typeparam>
+        /// <param name="file"> 保存先のファイル名 </param>
+        /// <param name="data"> 現在のデータ </param>
         public static void Save<T>(string file, T data)
         {
             StreamWriter writer;
