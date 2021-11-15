@@ -145,7 +145,7 @@ public class QuizResultManager : MonoBehaviour
     /// </summary>
     public void QuizRetry()
     {
-        Debug.Log("リトライ");
+        LoadSceneManager.LoadBeforeScene();
     }
 
     /// <summary>
