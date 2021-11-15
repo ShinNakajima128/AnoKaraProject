@@ -207,5 +207,26 @@ public class DataManager : SingletonMonoBehaviour<DataManager>
         });
     }
     #endregion
-        
+
+    /// <summary>
+    /// クリアフラグを有効化する
+    /// 1～5ステージかつ4ステージをクリアした時に、次の時代のフラグを開く
+    /// </summary>
+    /// <param name="periodNum">時代番号</param>
+    /// <param name="stageNum">ステージ番号</param>
+    public void FlagOpen(int periodNum, int stageNum)
+    {
+        m_playerData.ClearFlags[periodNum - 1].m_stageClearFlag[stageNum] = true;
+
+        if (periodNum < 6)
+        {
+            if (stageNum == 4)
+            {
+                for (int i = 0; i < 2; i++)
+                {
+                    m_playerData.ClearFlags[periodNum].m_stageClearFlag[i] = true;
+                }
+            }
+        }
+    }
 }
