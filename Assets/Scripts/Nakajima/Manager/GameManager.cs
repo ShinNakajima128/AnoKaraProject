@@ -41,17 +41,22 @@ public class GameManager : SingletonMonoBehaviour<GameManager>
 
     /// <summary>
     /// クリアフラグを有効化する
+    /// 1～5ステージかつ4ステージをクリアした時に、次の時代のフラグを開く
     /// </summary>
     /// <param name="periodNum">時代番号</param>
     /// <param name="stageNum">ステージ番号</param>
     public void FlagOpen(int periodNum, int stageNum)
     {
         m_periodClearFlag[periodNum - 1].m_stageClearFlag[stageNum] = true;
-                if (stageNum == 4)
+
+        if (periodNum < 6)
         {
-            for (int i = 0; i < 2; i++)
+            if (stageNum == 4)
             {
-                m_periodClearFlag[periodNum].m_stageClearFlag[i] = true;
+                for (int i = 0; i < 2; i++)
+                {
+                    m_periodClearFlag[periodNum].m_stageClearFlag[i] = true;
+                }
             }
         }
     }
