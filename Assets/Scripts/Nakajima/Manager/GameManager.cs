@@ -13,10 +13,6 @@ public class GameManager : SingletonMonoBehaviour<GameManager>
         public bool[] m_stageClearFlag;
     }
 
-    /// <summary>各クリアフラグ</summary>
-    [SerializeField]
-    ClearFlagArray[] m_periodClearFlag;
-
     /// <summary> 現在いる時代 </summary>
     [Header("デバッグ用")]
     [SerializeField]
@@ -37,56 +33,5 @@ public class GameManager : SingletonMonoBehaviour<GameManager>
             return;
         }
         DontDestroyOnLoad(gameObject);
-    }
-
-    /// <summary>
-    /// クリアフラグを有効化する
-    /// 1～5ステージかつ4ステージをクリアした時に、次の時代のフラグを開く
-    /// </summary>
-    /// <param name="periodNum">時代番号</param>
-    /// <param name="stageNum">ステージ番号</param>
-    public void FlagOpen(int periodNum, int stageNum)
-    {
-        m_periodClearFlag[periodNum - 1].m_stageClearFlag[stageNum] = true;
-
-        if (periodNum < 6)
-        {
-            if (stageNum == 4)
-            {
-                for (int i = 0; i < 2; i++)
-                {
-                    m_periodClearFlag[periodNum].m_stageClearFlag[i] = true;
-                }
-            }
-        }
-    }
-
-    /// <summary>
-    /// 指定された時代の各ステージのフラグ状況を返す
-    /// </summary>
-    /// <param name="periodNum">時代番号</param>
-    /// <returns>各ステージフラグ</returns>
-    public bool[] CheckFlag(int periodNum)
-    {
-        bool[] flag = new bool[4];
-        for (int i = 0; i < 4; i++)
-        {
-            flag[i] = m_periodClearFlag[periodNum - 1].m_stageClearFlag[i + 1];
-        }
-        return flag;
-    }
-
-    /// <summary>
-    /// 時代のフラグ状況を返す
-    /// </summary>
-    /// <returns>各時代のフラグ</returns>
-    public bool[] CheckFlag()
-    {
-        bool[] flag = new bool[6];
-        for (int i = 0; i < 6; i++)
-        {
-            flag[i] = m_periodClearFlag[i].m_stageClearFlag[0];
-        }
-        return flag;
     }
 }
