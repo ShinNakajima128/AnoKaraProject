@@ -61,17 +61,19 @@ public class QuizResultManager : MonoBehaviour
     {
         if (m_ansCount == 10)
         {
-            QuizResultUiSet(2);
+            QuizResultUiSet(0);
             StartCoroutine(SetStar(2, m_starTimer));
+            FlagOpen();
         }
         else if (m_ansCount >= 7)
         {
             QuizResultUiSet(1);
             StartCoroutine(SetStar(1, m_starTimer));
+            FlagOpen();
         }
         else if (m_ansCount >= 3)
         {
-            QuizResultUiSet(0);
+            QuizResultUiSet(2);
             StartCoroutine(SetStar(0, m_starTimer));
         }
         else if (m_ansCount < 3)
@@ -88,6 +90,14 @@ public class QuizResultManager : MonoBehaviour
     {
         m_answerCountText.text = m_ansCount.ToString() + " / 10 問";
         m_charactorImage.sprite = m_resultSprite[index];
+    }
+
+    /// <summary>
+    /// クリアフラグを開ける
+    /// </summary>
+    void FlagOpen()
+    {
+        GameManager.Instance.FlagOpen((int)GameManager.Instance.CurrentPeriod, GameManager.Instance.CurrentStageId);
     }
 
     /// <summary>
