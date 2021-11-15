@@ -24,5 +24,5 @@ public class CharacterImageData : ScriptableObject
     Sprite[] m_characterImages = default;
 
     public string CharacterName => m_dataName;
-    public Sprite[] CharacterImages => m_characterImages;
+    public Sprite[] CharacterImages { get => m_characterImages; set => m_characterImages = value; }
 }

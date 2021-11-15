@@ -14,9 +14,9 @@ public class PlayerData : ScriptableObject
     [SerializeField]
     GenderType m_playerGender = default;
 
-    [Header("ゲームの進行度")]
+    [Header("ステージの開放フラグ")]
     [SerializeField]
-    int m_progress = default;
+    GameManager.ClearFlagArray[] m_clearFlag = default;
 
     [Header("プレイヤーのクイズパートの考え中・正解・不正解のセリフ")]
     [SerializeField]
@@ -37,7 +37,7 @@ public class PlayerData : ScriptableObject
 
     public string PlayerName { get => m_playerName; set => m_playerName = value; }
     public GenderType PlayerGender { get => m_playerGender; set => m_playerGender = value; }
-    public int Progress { get => m_progress; set => m_progress = value; }
+    public GameManager.ClearFlagArray[] ClearFlags { get => m_clearFlag; set => m_clearFlag = value; }
 
     /// <summary> 現在のプレイヤーの性別に合わせた画像データを取得する </summary>
     public Sprite[] PlayerImage 
