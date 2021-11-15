@@ -80,7 +80,6 @@ public class NameInput : MonoBehaviour
     bool CheckBannedWord(string name)
     {
         var r = m_bannedWords.Select(w => w).Any(w => w == name);
-        Debug.Log(r);
         return r;
     }
 }

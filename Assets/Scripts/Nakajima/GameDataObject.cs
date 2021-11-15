@@ -49,7 +49,6 @@ public class GameDataObject : MonoBehaviour, ISave
     public void SetUp()
     {
         gameData = SaveManager.GetData().CurrentGameData;
-        Debug.Log(gameData.PlayerName);
         m_playerData.PlayerName = gameData.PlayerName;
         m_playerData.PlayerGender = gameData.Gender;
         m_playerData.ClearFlags = gameData.ClearFlags;

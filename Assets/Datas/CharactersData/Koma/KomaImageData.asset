@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4d9aa4b5244f4994db385df11d119ef7, type: 3}
+  m_Name: KomaImageData
+  m_EditorClassIdentifier: 
+  m_dataName: "\u30B3\u30DE"
+  m_characterImages:
+  - {fileID: 21300000, guid: f6cdfeae3f205ae40a5642441c77f77d, type: 3}
+  - {fileID: 21300000, guid: ac49c2e7fcd83b94d9821d530a6d1b89, type: 3}
+  - {fileID: 21300000, guid: c32a34db0bace0844a3686991ee9052a, type: 3}
+  - {fileID: 21300000, guid: bb7244c06de94e544b11e713c34abb67, type: 3}
+  - {fileID: 21300000, guid: 86203d6e6a1ebca46985a82f7cc65130, type: 3}
