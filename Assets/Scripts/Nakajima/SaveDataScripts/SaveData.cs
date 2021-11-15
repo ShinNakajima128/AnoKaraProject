@@ -17,7 +17,7 @@ public class SaveData
     {
         public string PlayerName;
         public GenderType Gender;
-        public int Progress;
+        public GameManager.ClearFlagArray[] ClearFlags;
     }
 
     public GameData CurrentGameData = new GameData();
