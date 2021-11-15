@@ -17,12 +17,12 @@ public class LineConnectionQuizData : ScriptableObject
 
     [Header("選つなぎクイズのデータ")]
     [SerializeField]
-    AnaumeQuizDatabase[] m_database = default;
+    LineConnectionQuizDatabase[] m_database = default;
 
     public string URL => m_spreadsheetURL;
     public string PeriodTypeName => m_periodType.ToString();
     public PeriodTypes PeriodType => m_periodType;
-    public AnaumeQuizDatabase[] AnaumeQuizDatabases { get => m_database; set => m_database = value; }
+    public LineConnectionQuizDatabase[] LineConnectQuizDatabases { get => m_database; set => m_database = value; }
 }
 
 [System.Serializable]

@@ -1,17 +1,26 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class LineConnectButton : MonoBehaviour
 {
-    private RectTransform m_transform;
+    /// <summary>テキスト</summary>
+    public string m_text;
+    private Text m_viewText;
 
-    /// <summary>自分が左右どちらに属しているか</summary>
-    private LCQSide m_side;
+    /// <summary>自分が左右どちらに属しているか<br/>左が０、右が１</summary>
+    public int Side { get; set; }
 
     void Start()
     {
-        m_transform = (RectTransform)transform.GetChild(0);
+        //SetText();
+    }
+
+    public void SetText()
+    {
+        m_viewText = transform.GetChild(1).GetComponent<Text>();
+        m_viewText.text = m_text;
     }
 
     /// <summary>
@@ -21,17 +30,14 @@ public class LineConnectButton : MonoBehaviour
     {
         if (LineConnectionQuizManager.Instance.IsConnected)
         {
-            //LineConnectionQuizManager.Instance.SetTransform(1, m_transform);
             LineConnectionQuizManager.Instance.IsConnected = false;
-            //LineConnectionQuizManager.Instance.LineCast();
-            LineConnectionQuizManager.Instance.EndLine(transform.GetChild(0).position);
+            LineConnectionQuizManager.Instance.EndLine(transform.GetChild(0).position, Side);
             LineConnectionQuizManager.Instance.LineCast();
         }
         else
         {
-            //LineConnectionQuizManager.Instance.SetTransform(0, m_transform);
             LineConnectionQuizManager.Instance.IsConnected = true;
-            LineConnectionQuizManager.Instance.StartLine(transform.GetChild(0).position);
+            LineConnectionQuizManager.Instance.StartLine(transform.GetChild(0).position, Side);
         }
     }
 }

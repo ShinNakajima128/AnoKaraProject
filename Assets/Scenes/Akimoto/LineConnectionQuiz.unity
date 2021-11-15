@@ -834,6 +834,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 66201f9f7a10639429999136db2a4945, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_text: 
 --- !u!114 &492569277
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1078,6 +1079,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e09deae7f2af167428e36e1adef48fb5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_question: "\u3082\u3093\u3060\u3044"
+  m_viewQuestion: {fileID: 104349148}
+  m_choices: 
+  m_periods:
+  - 1000
+  - 2222
+  - 3333
+  - 44
+  m_dekigoto:
+  - "\u3042\u3042\u3042\u3042"
+  - "\u3044\u3044\u3044\u3044"
+  - "\u3046\u3046\u3046\u3046"
+  - "\u3048\u3048\u3048\u3048"
   m_gamePanel: {fileID: 1106115923}
   m_LButtonParent: {fileID: 1401052588}
   m_RButtonParent: {fileID: 1761259719}
@@ -1252,6 +1266,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 66201f9f7a10639429999136db2a4945, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_text: 
 --- !u!114 &898500304
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1474,6 +1489,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 66201f9f7a10639429999136db2a4945, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_text: 
 --- !u!114 &975407782
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1955,6 +1971,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 66201f9f7a10639429999136db2a4945, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_text: 
 --- !u!114 &1118243647
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2093,7 +2110,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1257279525}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 681539224}
+        m_TargetAssemblyTypeName: LineConnectionQuizManager, Assembly-CSharp
+        m_MethodName: CrearCheck
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1257279525
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2302,6 +2331,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 66201f9f7a10639429999136db2a4945, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_text: 
 --- !u!114 &1260569222
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2449,6 +2479,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 66201f9f7a10639429999136db2a4945, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_text: 
 --- !u!114 &1292657956
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2596,6 +2627,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 66201f9f7a10639429999136db2a4945, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_text: 
 --- !u!114 &1340908637
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3188,6 +3220,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 66201f9f7a10639429999136db2a4945, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_text: 
 --- !u!114 &2025024645
 MonoBehaviour:
   m_ObjectHideFlags: 0
