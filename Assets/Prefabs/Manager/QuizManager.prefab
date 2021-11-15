@@ -3792,7 +3792,7 @@ MonoBehaviour:
   - {fileID: 434024880260643263}
   - {fileID: 434024879371760354}
   m_AnaumeQuizPanel: {fileID: 344059944}
-  questionLimit: 5
+  questionLimit: 10
 --- !u!1 &434024879928823098
 GameObject:
   m_ObjectHideFlags: 0
