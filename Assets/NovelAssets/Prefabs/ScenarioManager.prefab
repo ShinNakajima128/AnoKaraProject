@@ -997,7 +997,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_data: []
   m_textSpeed: 0.01
-  m_autoflowTime: 0.1
+  m_autoflowTime: 1.5
   m_playerName: 
   m_malePronoun: "\u4FFA"
   m_famalePronoun: "\u79C1"
