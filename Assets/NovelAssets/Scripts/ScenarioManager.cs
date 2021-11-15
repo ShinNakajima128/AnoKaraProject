@@ -412,7 +412,7 @@ public class ScenarioManager : MonoBehaviour
             //キャラクターのアニメーションが終わるまで待つ
             yield return WaitForCharaAnimation(data.DialogData[currentDialogIndex].Talker,
                                                data.DialogData[currentDialogIndex].Position,
-                                               data.DialogData[currentDialogIndex].EndAnimationType);
+                                               data.DialogData[currentDialogIndex].EndAnimationType, data.DialogData[currentDialogIndex].FaceTypes[data.DialogData[currentDialogIndex].FaceTypes.Length - 1]);
 
             //選択肢に対応したメッセージが表示済みだったら
             if (isReactioned)
@@ -439,7 +439,7 @@ public class ScenarioManager : MonoBehaviour
     /// <param name="positionIndex"></param>
     /// <param name="animation"></param>
     /// <returns></returns>
-    IEnumerator WaitForCharaAnimation(string charaName, int positionIndex, string animation)
+    IEnumerator WaitForCharaAnimation(string charaName, int positionIndex, string animation, int faceType = 3)
     {
         if (charaName == "ナレーター")
         {
@@ -452,7 +452,7 @@ public class ScenarioManager : MonoBehaviour
             m_characterImage[positionIndex].enabled = true;
         }
 
-        m_characterImage[positionIndex].sprite = SetCharaImage(charaName);
+        m_characterImage[positionIndex].sprite = SetCharaImage(charaName, faceType);
 
         if (animation != null && animation != "なし") //アニメーションの指定があれば
         {
