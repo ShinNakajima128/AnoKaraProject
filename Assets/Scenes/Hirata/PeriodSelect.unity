@@ -2883,7 +2883,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: 
+          m_StringArgument: QuizPart
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &1177229736
@@ -4303,6 +4303,63 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2100894177}
   m_CullTransparentMesh: 1
+--- !u!1001 &2102579249
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 6156273757353489312, guid: c5f5a52ad93cd6946a9a44dda50b0550, type: 3}
+      propertyPath: m_RootOrder
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 6156273757353489312, guid: c5f5a52ad93cd6946a9a44dda50b0550, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6156273757353489312, guid: c5f5a52ad93cd6946a9a44dda50b0550, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6156273757353489312, guid: c5f5a52ad93cd6946a9a44dda50b0550, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6156273757353489312, guid: c5f5a52ad93cd6946a9a44dda50b0550, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6156273757353489312, guid: c5f5a52ad93cd6946a9a44dda50b0550, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6156273757353489312, guid: c5f5a52ad93cd6946a9a44dda50b0550, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6156273757353489312, guid: c5f5a52ad93cd6946a9a44dda50b0550, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6156273757353489312, guid: c5f5a52ad93cd6946a9a44dda50b0550, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6156273757353489312, guid: c5f5a52ad93cd6946a9a44dda50b0550, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6156273757353489312, guid: c5f5a52ad93cd6946a9a44dda50b0550, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6156273757353489313, guid: c5f5a52ad93cd6946a9a44dda50b0550, type: 3}
+      propertyPath: m_Name
+      value: LoadSceneManager
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: c5f5a52ad93cd6946a9a44dda50b0550, type: 3}
 --- !u!1001 &2111102896
 PrefabInstance:
   m_ObjectHideFlags: 0

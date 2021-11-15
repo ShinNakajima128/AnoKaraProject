@@ -218,7 +218,7 @@ public class DataManager : SingletonMonoBehaviour<DataManager>
     {
         m_playerData.ClearFlags[periodNum - 1].m_stageClearFlag[stageNum] = true;
 
-        if (periodNum < 6)
+        if (periodNum < 7)
         {
             if (stageNum == 4)
             {

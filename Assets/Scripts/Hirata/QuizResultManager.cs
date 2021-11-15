@@ -97,6 +97,8 @@ public class QuizResultManager : MonoBehaviour
     /// </summary>
     void FlagOpen()
     {
+        Debug.Log((int)GameManager.Instance.CurrentPeriod);
+        Debug.Log((int)GameManager.Instance.CurrentStageId);
         DataManager.Instance.FlagOpen((int)GameManager.Instance.CurrentPeriod,(int)GameManager.Instance.CurrentStageId);
     }
 
@@ -145,7 +147,7 @@ public class QuizResultManager : MonoBehaviour
     /// </summary>
     public void QuizRetry()
     {
-        Debug.Log("リトライ");
+        LoadSceneManager.LoadBeforeScene();
     }
 
     /// <summary>

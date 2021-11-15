@@ -614,6 +614,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: ScenarioManager
       objectReference: {fileID: 0}
+    - target: {fileID: 3556439220118242558, guid: 0850286fda9bd6145914c63f2fa6698b, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 325.14
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0850286fda9bd6145914c63f2fa6698b, type: 3}
 --- !u!1 &1636249905

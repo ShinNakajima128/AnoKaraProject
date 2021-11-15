@@ -207,7 +207,20 @@ public class TitleManager : MonoBehaviour
         {
             for (int n = 0; n < m_gameDataObject.ClearFlag[i].m_stageClearFlag.Length; n++)
             {
-                m_gameDataObject.ClearFlag[i].m_stageClearFlag[n] = false;
+                if (i == 0)
+                {
+                    if (n == 0 || n == 1)
+                    {
+                        m_gameDataObject.ClearFlag[i].m_stageClearFlag[n] = true;
+                        continue;
+                    }
+                }
+                else
+                {
+                    m_gameDataObject.ClearFlag[i].m_stageClearFlag[n] = false;
+
+                }
+                
             }
         }
         DataManager.SaveData();

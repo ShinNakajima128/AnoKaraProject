@@ -225,7 +225,7 @@ public class QuizManager : MonoBehaviour
         ///ここから下にクイズが終了した時の処理を記述する///
         
         //仮にここでResult画面へ遷移の記述。できればGameManagerのOnGameEnd関数などを用意してここに書きたい
-        LoadSceneManager.AnyLoadScene("Result");
+        LoadSceneManager.AnyLoadScene("QuizResult");
     }
 
     #region common

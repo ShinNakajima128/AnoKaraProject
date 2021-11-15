@@ -92,7 +92,7 @@ public class PeriodSelectManager : MonoBehaviour
         for (int i = 0; i < 4; i++)
         {
             m_stageClearFlag[i] = DataManager.Instance.
-                PlayerData.ClearFlags[period - 1].m_stageClearFlag[i];
+                PlayerData.ClearFlags[period - 1].m_stageClearFlag[i + 1];
         }
     }
 
@@ -149,7 +149,7 @@ public class PeriodSelectManager : MonoBehaviour
     void SetStageNum(int stage)
     {
         m_stageSelectImages[m_selectedStageNum].gameObject.SetActive(false);
-        m_selectedStageNum = stage - 1;
+        m_selectedStageNum = stage;
         m_stageSelectImages[stage - 1].gameObject.SetActive(true);
     }
 
@@ -161,7 +161,7 @@ public class PeriodSelectManager : MonoBehaviour
     /// <param name="stage">ステージ番号</param>
     void SetStageSprite(PeriodStageData data, int period, int stage)
     {
-        m_stageCharactorImage.sprite = data.m_dataBases[period - 1].StageSprite[stage];
+        m_stageCharactorImage.sprite = data.m_dataBases[period - 1].StageSprite[stage - 1];
     }
 
     /// <summary>
