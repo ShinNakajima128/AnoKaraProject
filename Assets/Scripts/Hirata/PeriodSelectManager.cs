@@ -40,7 +40,7 @@ public class PeriodSelectManager : MonoBehaviour
     int m_periodNum;
 
     /// <summary>選択されたステージ番号の保存</summary>
-    int m_selectedStageNum;
+    int m_selectedStageNum = 1;
 
     /// <summary>時代のクリアフラグの保存</summary>
     bool[] m_periodClearFlags = new bool[6];
@@ -148,9 +148,9 @@ public class PeriodSelectManager : MonoBehaviour
     /// <param name="stage">ステージ番号</param>
     void SetStageNum(int stage)
     {
-        m_stageSelectImages[m_selectedStageNum].gameObject.SetActive(false);
+        m_stageSelectImages[m_selectedStageNum - 1].gameObject.SetActive(false);
         m_selectedStageNum = stage;
-        m_stageSelectImages[stage - 1].gameObject.SetActive(true);
+        m_stageSelectImages[m_selectedStageNum - 1].gameObject.SetActive(true);
     }
 
     /// <summary>
