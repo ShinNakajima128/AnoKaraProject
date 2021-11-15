@@ -76,23 +76,7 @@ public class PeriodSelectManager : MonoBehaviour
     /// </summary>
     void GetPeriodFlag()
     {
-        //m_periodClearFlags = GameManager.Instance.CheckFlag();
-
-        //GameManagerに追記する
-        /////////////////////////////
-        /// <summary>
-        /// 時代のフラグ状況を返す
-        /// </summary>
-        /// <returns>各時代のフラグ</returns>
-        //public bool[] CheckFlag()
-        //{
-        //    bool[] flag = new bool[6];
-        //    for (int i = 0; i < 6; i++)
-        //    {
-        //        flag[i] = m_periodClearFlag[i].m_stageClearFlag[0];
-        //    }
-        //    return flag;
-        //}
+        m_periodClearFlags = GameManager.Instance.CheckFlag();
     }
 
     /// <summary>

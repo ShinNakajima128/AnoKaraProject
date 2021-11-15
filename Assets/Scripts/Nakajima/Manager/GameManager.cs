@@ -47,6 +47,13 @@ public class GameManager : SingletonMonoBehaviour<GameManager>
     public void FlagOpen(int periodNum, int stageNum)
     {
         m_periodClearFlag[periodNum - 1].m_stageClearFlag[stageNum] = true;
+                if (stageNum == 4)
+        {
+            for (int i = 0; i < 2; i++)
+            {
+                m_periodClearFlag[periodNum].m_stageClearFlag[i] = true;
+            }
+        }
     }
 
     /// <summary>
@@ -60,6 +67,20 @@ public class GameManager : SingletonMonoBehaviour<GameManager>
         for (int i = 0; i < 4; i++)
         {
             flag[i] = m_periodClearFlag[periodNum - 1].m_stageClearFlag[i + 1];
+        }
+        return flag;
+    }
+
+    /// <summary>
+    /// 時代のフラグ状況を返す
+    /// </summary>
+    /// <returns>各時代のフラグ</returns>
+    public bool[] CheckFlag()
+    {
+        bool[] flag = new bool[6];
+        for (int i = 0; i < 6; i++)
+        {
+            flag[i] = m_periodClearFlag[i].m_stageClearFlag[0];
         }
         return flag;
     }
