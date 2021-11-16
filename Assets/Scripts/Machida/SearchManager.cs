@@ -135,6 +135,7 @@ public class SearchManager : MonoBehaviour
         var s = p.FirstOrDefault(b => b.StageId == stage);
         s.StagePanel.SetActive(true);
         m_maxTaskNum = p[stage].Task;
+        Debug.Log($"このステージのタスク数：{m_maxTaskNum}");
     }
 
     /// <summary>
@@ -142,11 +143,13 @@ public class SearchManager : MonoBehaviour
     /// </summary>
     public void TaskCount()
     {
-        m_maxTaskNum++;
+        CurrentTaskNum++;
 
-        if (m_maxTaskNum >= CurrentTaskNum)
+        if (CurrentTaskNum >= m_maxTaskNum)
         {
             Debug.Log("全てのタスクが終了しました");
+            DataManager.Instance.FlagOpen((int)GameManager.Instance.CurrentPeriod, (int)GameManager.Instance.CurrentStageId);
+            LoadSceneManager.AnyLoadScene("PeriodSelect");
         }
     }
 }

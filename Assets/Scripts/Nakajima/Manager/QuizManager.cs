@@ -40,6 +40,10 @@ public class QuizManager : MonoBehaviour
     [SerializeField]
     Image[] m_judgeImages = default;
 
+    /// <summary> 判定画面の各Text </summary>
+    [SerializeField]
+    Text[] m_judgePanelTexts = default;
+
     /// <summary> カウントダウン用のText </summary>
     [SerializeField]
     Text m_countDown = default;
@@ -179,6 +183,7 @@ public class QuizManager : MonoBehaviour
         while (CurrentTurnNum < questionLimit)
         {
             m_currentQuestionUI.text = $"第{CurrentTurnNum + 1}問";
+            m_playerAnswer = "";
             QuizDataUpdated = false;
             m_currentQuestion = null;
             m_isAnswered = false;
@@ -237,14 +242,14 @@ public class QuizManager : MonoBehaviour
     /// <returns></returns>
     public IEnumerator TimeLimit()
     {
-        float timer = m_answerTime;
+        float timer = m_answerTime + 0.5f;
 
         while (!m_isAnswered)
         {
             timer -= Time.deltaTime;
-            m_timeLimit.text = timer.ToString("F1");
+            m_timeLimit.text = timer.ToString("F0");
 
-            if (timer < 0) //時間切れになった場合
+            if (timer < 0.5) //時間切れになった場合
             {
                 yield break; //コルーチン終了
             }
@@ -319,7 +324,10 @@ public class QuizManager : MonoBehaviour
         if (correct)
         {
             m_JudgePanel.SetActive(true);
-            m_judgeImages[0].enabled = true;
+            //m_judgeImages[0].enabled = true;
+            m_judgePanelTexts[0].text = "<color=#FB3535>正解！</color>";
+            m_judgePanelTexts[1].text = $"正しい答え\n【{m_correctAnswer}】";
+            m_judgePanelTexts[2].text = $"プレイヤーの解答\n【{m_playerAnswer}】";
             m_playerImage.sprite = m_playeData.PlayerImage[2];
             m_historicalFiguresImage.sprite = m_historicalFiguresData.CharacterImages[1];
             m_playerChat.text = m_playeData.CorrectChat;
@@ -330,7 +338,10 @@ public class QuizManager : MonoBehaviour
         else
         {
             m_JudgePanel.SetActive(true);
-            m_judgeImages[1].enabled = true;
+            //m_judgeImages[1].enabled = true;
+            m_judgePanelTexts[0].text = "<color=#588AFF>不正解…</color>";
+            m_judgePanelTexts[1].text = $"正しい答え\n【{m_correctAnswer}】";
+            m_judgePanelTexts[2].text = $"プレイヤーの解答\n【{m_playerAnswer}】";
             m_playerImage.sprite = m_playeData.PlayerImage[3];
             m_historicalFiguresImage.sprite = m_historicalFiguresData.CharacterImages[2];
             m_playerChat.text = m_playeData.IncorrectChat;

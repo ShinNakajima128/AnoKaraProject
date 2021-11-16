@@ -76,6 +76,7 @@ public class AnaumeQuiz : MonoBehaviour
         {
             QuizManager.Instance.QuizDataUpdated = true;
             panel.SetActive(true);
+            m_dropLists.Clear();
             //問題画面の表示
             question.text = m_anaumeQuizdatas[m_currentNum].Question;
             Create();
