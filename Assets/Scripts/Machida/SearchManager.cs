@@ -148,6 +148,8 @@ public class SearchManager : MonoBehaviour
         if (CurrentTaskNum >= m_maxTaskNum)
         {
             Debug.Log("全てのタスクが終了しました");
+            DataManager.Instance.FlagOpen((int)GameManager.Instance.CurrentPeriod, (int)GameManager.Instance.CurrentStageId);
+            LoadSceneManager.AnyLoadScene("PeriodSelect");
         }
     }
 }
