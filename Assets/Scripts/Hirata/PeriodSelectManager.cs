@@ -194,13 +194,13 @@ public class PeriodSelectManager : MonoBehaviour
         GameManager.Instance.CurrentPeriod = (MasterData.PeriodTypes)m_periodNum;
         GameManager.Instance.CurrentStageId = m_selectedStageNum;
 
-        if (m_selectedStageNum == 4)
+        if (m_selectedStageNum < 4)
         {
-            LoadSceneManager.AnyLoadScene("QuizPart");
+            LoadSceneManager.AnyLoadScene("SearchScenes");
         }
         else
         {
-            LoadSceneManager.AnyLoadScene("SearchScenes");
+            LoadSceneManager.AnyLoadScene("QuizPart");
         }
     }
 }
