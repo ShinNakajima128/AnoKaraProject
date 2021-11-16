@@ -32,6 +32,7 @@ public class ScenarioManager : MonoBehaviour
     [SerializeField]
     float m_autoflowTime = 1.5f;
 
+    [Header("プレイヤー名確認用")]
     [SerializeField]
     string m_playerName = default;
 
@@ -54,6 +55,10 @@ public class ScenarioManager : MonoBehaviour
     [Header("強調文字の色")]
     [SerializeField]
     Color m_HighlightTextColor = default;
+
+    [Header("探索パート用の仕様に変更するフラグ")]
+    [SerializeField]
+    bool m_isSearchPart = false;
 
     [Header("パネルの各オブジェクト")]
     [SerializeField]
@@ -195,6 +200,7 @@ public class ScenarioManager : MonoBehaviour
         yield return m_currentCoroutine;
 
         //全てのダイアログが終了したらこの下の処理が行われる
+        Debug.Log("会話終了");
         m_display.SetActive(false);
     }
 
@@ -208,20 +214,19 @@ public class ScenarioManager : MonoBehaviour
         m_choicesPanel.SetActive(false);
         m_display.SetActive(false);
         int currentDialogIndex = 0;
+        m_nextMessageId = 0;
 
         while (currentDialogIndex < data.DialogData.Length)
         {
             //ダイアログをリセット
             m_endMessage = false;
             isClicked = false;
-
-            if (currentDialogIndex == 0)
+            if (currentDialogIndex == 0 && !m_isSearchPart)
             {
                 BackGroundController.BackgroundAnim += FinishReceive;
 
                 m_bgCtrl.Setup(data.DialogData[currentDialogIndex].BackgroundType); //最初の背景をセットする
                 m_bgCtrl.FadeIn(data.DialogData[currentDialogIndex].BackgroundType); //フェードイン
-
                 m_currentBackgroundType = data.DialogData[currentDialogIndex].BackgroundType;
                 isAnimPlaying = true;
 
@@ -246,12 +251,13 @@ public class ScenarioManager : MonoBehaviour
                     yield return null;
                 }
                 BackGroundController.BackgroundAnim -= FinishReceive;
-            }
+            }            
 
             //キャラクターのアニメーションが終わるまで待つ
             yield return WaitForCharaAnimation(data.DialogData[currentDialogIndex].Talker,
                                                data.DialogData[currentDialogIndex].Position,
                                                data.DialogData[currentDialogIndex].StartAnimationType);
+
             m_display.SetActive(true);
             OnContinueDialog();
             m_characterName.text = data.DialogData[currentDialogIndex].Talker.Replace("プレイヤー", m_playerName);
@@ -334,7 +340,6 @@ public class ScenarioManager : MonoBehaviour
                     }
                     yield return null;
                 }
-
                 m_endMessage = true;
 
                 //自動再生モードがOFFならクリックアイコンを表示
@@ -460,8 +465,9 @@ public class ScenarioManager : MonoBehaviour
             isAnimPlaying = true;
             CharacterPanel.CharacterAnim += FinishReceive;
         }
-        else
+        else if (animation == "なし")
         {
+            AnimationAccordingType(animation, positionIndex);
             yield break;
         }
 
@@ -558,6 +564,11 @@ public class ScenarioManager : MonoBehaviour
     /// <param name="index"> データの添え字番号 </param>
     public void StartSelectScenario(int index)
     {
+        if (m_currentCoroutine != null)
+        {
+            m_currentCoroutine = null;
+        }
+
         StartCoroutine(StartSelectMessage(index));
     }
 
@@ -645,7 +656,19 @@ public class ScenarioManager : MonoBehaviour
                 }
                 break;
             default:
+                m_anim[index].Play("Idle");
                 break;
+        }
+    }
+
+    /// <summary>
+    /// キャラクターのImageの状態をリセットする
+    /// </summary>
+    void ResetCharacterImages()
+    {
+        for (int i = 0; i < m_anim.Length; i++)
+        {
+            m_anim[i].Play("Idle");
         }
     }
 
