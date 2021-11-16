@@ -189,10 +189,18 @@ public class PeriodSelectManager : MonoBehaviour
     /// 決定ボタンに設定する
     /// </summary>
     /// <param name="scene">シーン名</param>
-    public void Decision(string scene)
+    public void Decision()
     {
         GameManager.Instance.CurrentPeriod = (MasterData.PeriodTypes)m_periodNum;
         GameManager.Instance.CurrentStageId = m_selectedStageNum;
-        LoadSceneManager.AnyLoadScene(scene);
+
+        if (m_selectedStageNum == 4)
+        {
+            LoadSceneManager.AnyLoadScene("QuizPart");
+        }
+        else
+        {
+            LoadSceneManager.AnyLoadScene("SearchScenes");
+        }
     }
 }
