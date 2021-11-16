@@ -179,6 +179,7 @@ public class QuizManager : MonoBehaviour
         while (CurrentTurnNum < questionLimit)
         {
             m_currentQuestionUI.text = $"第{CurrentTurnNum + 1}問";
+            m_playerAnswer = "";
             QuizDataUpdated = false;
             m_currentQuestion = null;
             m_isAnswered = false;

@@ -19,7 +19,7 @@ public class AnaumeQuizDataCustomInspector : Editor
         {
             if (DataManager.Instance == null)
             {
-                DataManager.GetDataManager();
+                //DataManager.GetDataManager();
             }
             //作業が完了したらコメントアウトしてテストしてください
             //DataManager.Instance.LoadFourChoicesQuizDataFromSpreadsheet(m_anaumeQuizData.URL, m_anaumeQuizData.PeriodTypeName);
