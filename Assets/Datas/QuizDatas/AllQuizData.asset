@@ -21,3 +21,5 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 32d35825b2af27741a75f772cfa38f8f, type: 2}
   m_anaumeQuizDatas:
   - {fileID: 11400000, guid: 60e88861438c948499d2adfd9630d81f, type: 2}
+  m_lineConnectionsQuizDatas:
+  - {fileID: 11400000, guid: 6fd66f28876e6d14d87261b3cda5e1b6, type: 2}

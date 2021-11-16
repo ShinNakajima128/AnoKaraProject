@@ -85,5 +85,37 @@ namespace MasterData
 
     }
 
+    [Serializable]
+    public class LineConnectionQuizDatabase
+    {
+        //QuizMastarDataに移す予定
+        public int Id;
+        [Tooltip("問題文")]
+        public string Question;
+
+        [HideInInspector]
+        public string Years;
+
+        [HideInInspector]
+        public string Events;
+
+        [Tooltip("年")]
+        [SerializeField]
+        private string[] m_years;
+
+        [Tooltip("出来事")]
+        [SerializeField]
+        private string[] m_events;
+
+        public string[] YearsArray => m_years;
+        public string[] EventsArray => m_events;
+
+        public void ConvartToArray()
+        {
+            m_years = Years.Split('/');
+            m_events = Events.Split('/');
+        }
+    }
+
     //別のパターンを用意する場合はこの下にクラスを追加する
 }

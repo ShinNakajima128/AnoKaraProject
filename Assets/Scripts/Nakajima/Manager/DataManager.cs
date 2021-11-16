@@ -36,6 +36,7 @@ public class DataManager : SingletonMonoBehaviour<DataManager>
     /// <summary> 4択クイズのデータ </summary>
     public FourChoicesQuizData[] FourChoicesQuizDatas => m_allQuizData.FourChoicesQuizDatas;
     public AnaumeQuizData[] AnaumeQuizDatabases => m_allQuizData.AnaumeQuizDatas;
+    public LineConnectionQuizData[] LineConnectionQuizDatas => m_allQuizData.LineConnectionQuizDatas;
 
     void Awake()
     {
@@ -176,6 +177,36 @@ public class DataManager : SingletonMonoBehaviour<DataManager>
                     for (int n = 0; n < m_allQuizData.AnaumeQuizDatas[i].AnaumeQuizDatabases.Length; n++)
                     {
                         m_allQuizData.AnaumeQuizDatas[i].AnaumeQuizDatabases[n].ConvartToArray();
+                    }
+                });
+                return;
+            }
+        }
+        //データがロードできなかった場合
+        Debug.LogError("データをロードできませんでした");
+    }
+
+    /// <summary>
+    /// スプレッドシートから穴埋めクイズデータをロードする。※この関数はEditor上でのみ使用する関数なので、ゲーム中に実行されるクラスでは使わないでください。
+    /// </summary>
+    /// <param name="url"> スプレッドシートのURL </param>
+    /// <param name="sheetName"> シート名 </param>
+    public void LoadFourLineConnectionQuizDataFromSpreadsheet(string url, string sheetName)
+    {
+        //もしクラス名に変更があれば、m_allQuizData.AnaumeQuizDatasと仮で書いてある「AnaumeQuizDatas」の部分を
+        //作成したScriptableObjectのクラス名に変更してください
+
+        for (int i = 0; i < m_allQuizData.LineConnectionQuizDatas.Length; i++)
+        {
+            if (m_allQuizData.LineConnectionQuizDatas[i].PeriodTypeName == sheetName)  //プロパティとシート名が一致したら
+            {
+                LoadMasterData(url, sheetName, (QuizMasterDataClass<LineConnectionQuizDatabase> data) =>
+                {
+                    m_allQuizData.LineConnectionQuizDatas[i].LineConnectQuizDatabases = data.Data;  //データ更新
+
+                    for (int n = 0; n < m_allQuizData.LineConnectionQuizDatas[i].LineConnectQuizDatabases.Length; n++)
+                    {
+                        m_allQuizData.LineConnectionQuizDatas[i].LineConnectQuizDatabases[n].ConvartToArray();
                     }
                 });
                 return;

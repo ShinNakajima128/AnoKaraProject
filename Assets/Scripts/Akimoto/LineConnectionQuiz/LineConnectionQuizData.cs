@@ -6,7 +6,7 @@ using MasterData;
 [CreateAssetMenu]
 public class LineConnectionQuizData : ScriptableObject
 {
-    //
+    //https://script.google.com/macros/s/AKfycbw3ecejz5h5Zeyl2oBjVngC53B-CsfFes0l5dWerDK4CHVlfN8U/exec
     [Header("選つなぎクイズデータのスプレッドシートのURL")]
     [SerializeField]
     string m_spreadsheetURL = default;
@@ -23,29 +23,4 @@ public class LineConnectionQuizData : ScriptableObject
     public string PeriodTypeName => m_periodType.ToString();
     public PeriodTypes PeriodType => m_periodType;
     public LineConnectionQuizDatabase[] LineConnectQuizDatabases { get => m_database; set => m_database = value; }
-}
-
-[System.Serializable]
-public class LineConnectionQuizDatabase
-{
-    //QuizMastarDataに移す予定
-    public int Id;
-    [Tooltip("問題文")]
-    public string Question;
-
-    [Tooltip("正しい答え")]
-    public string Answer;
-
-    [HideInInspector]
-    [SerializeField]
-    public string Dragtext;
-
-    [SerializeField, Tooltip("動かせる文字達")]
-    string[] m_dragTexts;
-    public string[] DragTexts { get => m_dragTexts; }
-
-    public void ConvartToArray()
-    {
-        m_dragTexts = Dragtext.Split(',');
-    }
 }
