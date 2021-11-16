@@ -10,10 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2cfd1c762bfb0094ba2bb45123180fd8, type: 3}
-  m_Name: ScenarioData2
+  m_Name: Villager7
   m_EditorClassIdentifier: 
   m_spreadSheetURL: https://script.google.com/macros/s/AKfycbylVkrjxNIliuZ3BKHepU4m1is5teOIuKWqjnDIQUQT__ZDw3Ks/exec
-  m_scenarioSheetName: Jomon_Yayoi_Villager2
+  m_scenarioSheetName: Jomon_Yayoi_Villager7
   m_choicesSheetName: 
   m_dialogData:
   - MessageId: 0
