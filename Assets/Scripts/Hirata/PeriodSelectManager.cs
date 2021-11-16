@@ -181,7 +181,7 @@ public class PeriodSelectManager : MonoBehaviour
     void ResetSelectStage()
     {
         m_decisionButton.interactable = false;
-        m_stageSelectImages[m_selectedStageNum].gameObject.SetActive(false);
+        m_stageSelectImages[m_selectedStageNum - 1].gameObject.SetActive(false);
     }
 
     /// <summary>
