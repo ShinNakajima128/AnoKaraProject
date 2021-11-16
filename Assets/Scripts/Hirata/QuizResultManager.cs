@@ -41,10 +41,6 @@ public class QuizResultManager : MonoBehaviour
     [SerializeField]
     int m_ansCount = 7;
 
-    /// <summary>リザルトのイラストデータ</summary>
-    [SerializeField]
-    Sprite[] m_resultSprite = new Sprite[3];
-
     void Start()
     {
         if (!m_isDebug)
@@ -67,13 +63,13 @@ public class QuizResultManager : MonoBehaviour
         }
         else if (m_ansCount >= 7)
         {
-            QuizResultUiSet(1);
+            QuizResultUiSet(2);
             StartCoroutine(SetStar(1, m_starTimer));
             FlagOpen();
         }
         else if (m_ansCount >= 3)
         {
-            QuizResultUiSet(2);
+            QuizResultUiSet(3);
             StartCoroutine(SetStar(0, m_starTimer));
         }
         else if (m_ansCount < 3)
@@ -89,7 +85,7 @@ public class QuizResultManager : MonoBehaviour
     void QuizResultUiSet(int index)
     {
         m_answerCountText.text = m_ansCount.ToString() + " / 10 問";
-        m_charactorImage.sprite = m_resultSprite[index];
+        m_charactorImage.sprite = DataManager.Instance.PlayerData.PlayerImage[index];
     }
 
     /// <summary>
