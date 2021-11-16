@@ -8,6 +8,11 @@ public class OpeningManager : MonoBehaviour
     [SerializeField]
     string m_periodSelectSceneName = default;
 
+    void Awake()
+    {
+        EventManager.ListenEvents(Events.Debug, LoadPeriodSelectScene);
+    }
+
     /// <summary>
     /// 時代選択画面に遷移する
     /// </summary>

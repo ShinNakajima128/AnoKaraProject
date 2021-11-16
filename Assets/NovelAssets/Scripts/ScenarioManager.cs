@@ -20,6 +20,10 @@ public enum HighlightTextType
 public class ScenarioManager : MonoBehaviour
 {
     #region serialize field
+    [Header("デバッグ作業用")]
+    [SerializeField]
+    bool isDebug = default;
+
     [Header("ダイアログリスト")]
     [SerializeField]
     ScenarioData[] m_data = default;
@@ -252,7 +256,11 @@ public class ScenarioManager : MonoBehaviour
                 }
                 BackGroundController.BackgroundAnim -= FinishReceive;
             }            
-
+            //デバッグの場合はデバッグ用のイベントを実行する
+            if (isDebug)
+            {
+                EventManager.OnEvent(Events.Debug);
+            }
             //キャラクターのアニメーションが終わるまで待つ
             yield return WaitForCharaAnimation(data.DialogData[currentDialogIndex].Talker,
                                                data.DialogData[currentDialogIndex].Position,
@@ -608,7 +616,7 @@ public class ScenarioManager : MonoBehaviour
             Time.timeScale = 1f; //コルーチン再開
         }
     }
-
+    
     /// <summary>
     /// 次に表示するメッセージを切り替える
     /// </summary>
