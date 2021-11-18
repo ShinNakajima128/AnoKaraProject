@@ -105,14 +105,7 @@ public class PeriodSelectManager : MonoBehaviour
     {
         for (int i = 0; i < buttons.Length; i++)
         {
-            if (flags[i])
-            {
-                buttons[i].interactable = true;
-            }
-            else
-            {
-                buttons[i].interactable = false;
-            }
+            buttons[i].interactable = flags[i] ? true : false;
         }
         return buttons;
     }
