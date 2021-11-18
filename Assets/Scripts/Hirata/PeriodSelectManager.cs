@@ -20,6 +20,10 @@ public class PeriodSelectManager : MonoBehaviour
     [SerializeField]
     Image m_stageCharactorImage;
 
+    /// <summary>ステージ選択のデフォルト画像</summary>
+    [SerializeField]
+    Sprite m_stageDefaultSprite;
+
     /// <summary>時代選択ボタン</summary>
     [SerializeField]
     Button[] m_periodButtons;
@@ -164,6 +168,7 @@ public class PeriodSelectManager : MonoBehaviour
     public void BackSelectPeriod()
     {
         GameManager.Instance.CurrentPeriod = (MasterData.PeriodTypes)0;
+        m_stageCharactorImage.sprite = m_stageDefaultSprite;
         ResetSelectStage();
         m_stageSelectPanel.SetActive(false);
     }
@@ -187,13 +192,13 @@ public class PeriodSelectManager : MonoBehaviour
         GameManager.Instance.CurrentPeriod = (MasterData.PeriodTypes)m_periodNum;
         GameManager.Instance.CurrentStageId = m_selectedStageNum;
 
-        if (m_selectedStageNum < 4)
+        if (m_selectedStageNum == 3)
         {
-            LoadSceneManager.AnyLoadScene("SearchScenes");
+            LoadSceneManager.AnyLoadScene("QuizPart");
         }
         else
         {
-            LoadSceneManager.AnyLoadScene("QuizPart");
+            LoadSceneManager.AnyLoadScene("SearchScenes");
         }
     }
 }
