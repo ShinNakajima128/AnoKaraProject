@@ -141,9 +141,9 @@ public class PeriodSelectManager : MonoBehaviour
     /// <param name="stage">ステージ番号</param>
     void SetStageNum(int stage)
     {
-        m_stageSelectImages[m_selectedStageNum - 1].gameObject.SetActive(false);
+        m_stageSelectImages[m_selectedStageNum].gameObject.SetActive(false);
         m_selectedStageNum = stage;
-        m_stageSelectImages[m_selectedStageNum - 1].gameObject.SetActive(true);
+        m_stageSelectImages[m_selectedStageNum].gameObject.SetActive(true);
     }
 
     /// <summary>
@@ -154,7 +154,7 @@ public class PeriodSelectManager : MonoBehaviour
     /// <param name="stage">ステージ番号</param>
     void SetStageSprite(PeriodStageData data, int period, int stage)
     {
-        m_stageCharactorImage.sprite = data.m_dataBases[period - 1].StageSprite[stage - 1];
+        m_stageCharactorImage.sprite = data.m_dataBases[period - 1].StageSprite[stage];
     }
 
     /// <summary>
@@ -174,7 +174,7 @@ public class PeriodSelectManager : MonoBehaviour
     void ResetSelectStage()
     {
         m_decisionButton.interactable = false;
-        m_stageSelectImages[m_selectedStageNum - 1].gameObject.SetActive(false);
+        m_stageSelectImages[m_selectedStageNum].gameObject.SetActive(false);
     }
 
     /// <summary>
