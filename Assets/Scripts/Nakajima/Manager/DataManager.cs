@@ -216,11 +216,11 @@ public class DataManager : SingletonMonoBehaviour<DataManager>
     /// <param name="stageNum">ステージ番号</param>
     public void FlagOpen(int periodNum, int stageNum)
     {
-        m_playerData.ClearFlags[periodNum - 1].m_stageClearFlag[stageNum] = true;
+        m_playerData.ClearFlags[periodNum - 1].m_stageClearFlag[stageNum + 2] = true;
 
-        if (periodNum < 7)
+        if (periodNum < 6)
         {
-            if (stageNum == 4)
+            if (stageNum == 3)
             {
                 for (int i = 0; i < 2; i++)
                 {

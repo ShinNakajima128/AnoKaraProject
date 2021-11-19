@@ -20,6 +20,10 @@ public class PeriodSelectManager : MonoBehaviour
     [SerializeField]
     Image m_stageCharactorImage;
 
+    /// <summary>ステージ選択のデフォルト画像</summary>
+    [SerializeField]
+    Sprite m_stageDefaultSprite;
+
     /// <summary>時代選択ボタン</summary>
     [SerializeField]
     Button[] m_periodButtons;
@@ -105,14 +109,7 @@ public class PeriodSelectManager : MonoBehaviour
     {
         for (int i = 0; i < buttons.Length; i++)
         {
-            if (flags[i])
-            {
-                buttons[i].interactable = true;
-            }
-            else
-            {
-                buttons[i].interactable = false;
-            }
+            buttons[i].interactable = flags[i] ? true : false;
         }
         return buttons;
     }
@@ -148,9 +145,9 @@ public class PeriodSelectManager : MonoBehaviour
     /// <param name="stage">ステージ番号</param>
     void SetStageNum(int stage)
     {
-        m_stageSelectImages[m_selectedStageNum - 1].gameObject.SetActive(false);
+        m_stageSelectImages[m_selectedStageNum].gameObject.SetActive(false);
         m_selectedStageNum = stage;
-        m_stageSelectImages[m_selectedStageNum - 1].gameObject.SetActive(true);
+        m_stageSelectImages[m_selectedStageNum].gameObject.SetActive(true);
     }
 
     /// <summary>
@@ -161,7 +158,7 @@ public class PeriodSelectManager : MonoBehaviour
     /// <param name="stage">ステージ番号</param>
     void SetStageSprite(PeriodStageData data, int period, int stage)
     {
-        m_stageCharactorImage.sprite = data.m_dataBases[period - 1].StageSprite[stage - 1];
+        m_stageCharactorImage.sprite = data.m_dataBases[period - 1].StageSprite[stage];
     }
 
     /// <summary>
@@ -171,6 +168,7 @@ public class PeriodSelectManager : MonoBehaviour
     public void BackSelectPeriod()
     {
         GameManager.Instance.CurrentPeriod = (MasterData.PeriodTypes)0;
+        m_stageCharactorImage.sprite = m_stageDefaultSprite;
         ResetSelectStage();
         m_stageSelectPanel.SetActive(false);
     }
@@ -181,7 +179,7 @@ public class PeriodSelectManager : MonoBehaviour
     void ResetSelectStage()
     {
         m_decisionButton.interactable = false;
-        m_stageSelectImages[m_selectedStageNum - 1].gameObject.SetActive(false);
+        m_stageSelectImages[m_selectedStageNum].gameObject.SetActive(false);
     }
 
     /// <summary>
@@ -194,13 +192,13 @@ public class PeriodSelectManager : MonoBehaviour
         GameManager.Instance.CurrentPeriod = (MasterData.PeriodTypes)m_periodNum;
         GameManager.Instance.CurrentStageId = m_selectedStageNum;
 
-        if (m_selectedStageNum < 4)
+        if (m_selectedStageNum == 3)
         {
-            LoadSceneManager.AnyLoadScene("SearchScenes");
+            LoadSceneManager.AnyLoadScene("QuizPart");
         }
         else
         {
-            LoadSceneManager.AnyLoadScene("QuizPart");
+            LoadSceneManager.AnyLoadScene("SearchScenes");
         }
     }
 }
