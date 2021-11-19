@@ -108,6 +108,10 @@ public class ScenarioManager : MonoBehaviour
     [SerializeField]
     Text m_logText = default;
 
+    /// <summary> 設定ボタンのクラス </summary>
+    [SerializeField]
+    SettingButton m_settingButton = default;
+
     [Header("キャラクターリスト")]
     [SerializeField]
     CharacterImageData[] m_imageDatas = default;
@@ -141,6 +145,7 @@ public class ScenarioManager : MonoBehaviour
     bool isAnimPlaying = false;
     bool isChoiced = false;
     bool isReactioned = false;
+    bool m_clickReception = false;
     IEnumerator m_currentCoroutine = default;
     Image[] m_characterImage;
     Animator[] m_anim;
@@ -243,6 +248,7 @@ public class ScenarioManager : MonoBehaviour
             }
             else if (m_currentBackgroundType != data.DialogData[currentDialogIndex].BackgroundType)
             {
+                m_settingButton.IsActived = false;
                 m_display.SetActive(false);
                 BackGroundController.BackgroundAnim += FinishReceive;
                 m_bgCtrl.Crossfade(data.DialogData[currentDialogIndex].BackgroundType); //次の背景にクロスフェードする
@@ -309,6 +315,7 @@ public class ScenarioManager : MonoBehaviour
                 string message = data.DialogData[currentDialogIndex].AllMessages[i].Replace("プレイヤー", m_playerName)
                                                                                    .Replace("私（僕or俺)", DataManager.Instance.PlayerData.PlayerGender == GenderType.Boy ? m_malePronoun: m_famalePronoun);
                 bool isHighlighted = false;
+                m_clickReception = false;
 
                 //各メッセージを一文字ずつ表示する
                 foreach (var m in message)
@@ -442,6 +449,11 @@ public class ScenarioManager : MonoBehaviour
         #region FinishDialog
         //ダイアログの内容が全て終了したら表示中のキャラクターをフェードアウトさせ、フェードが終了するまで待つ。
         yield return WaitForFinishDialogFadeOut();
+        m_settingButton.IsActived = false;
+        if (m_isSearchPart)
+        {
+            SearchManager.Instance.IsTaskComplited = true;
+        }
         #endregion
     }
 
@@ -624,6 +636,11 @@ public class ScenarioManager : MonoBehaviour
     public void SwitchIndex(int nextId)
     {
         m_nextMessageId = nextId;
+    }
+
+    public void Reception()
+    {
+        m_clickReception = true;
     }
     #endregion
 
@@ -816,7 +833,7 @@ public class ScenarioManager : MonoBehaviour
         }
 
         //左クリック、Spaceキー、Enterキーのいずれかが押されたらtrueを返す
-        if (Input.GetMouseButtonDown(0) || Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.Return))
+        if (m_clickReception || Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.Return))
         {
             return true;
         }

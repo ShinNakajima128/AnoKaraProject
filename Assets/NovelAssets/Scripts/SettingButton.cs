@@ -12,6 +12,8 @@ public class SettingButton : MonoBehaviour
     /// <summary> 設定ボタンがONかOFFか </summary>
     bool m_isActived = false;
 
+    public bool IsActived { get => m_isActived; set => m_isActived = value; }
+
     void Start()
     {
         m_anim = GetComponent<Animator>();
