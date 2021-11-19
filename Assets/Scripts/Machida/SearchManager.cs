@@ -21,6 +21,15 @@ public class SearchManager : MonoBehaviour
     /// <summary>ステージごとのタスク数<summary>
     public int CurrentTaskNum { get; set; } = 0;
 
+    public bool IsTaskComplited { get; set; } = false;
+
+    public static SearchManager Instance { get; private set; }
+
+    private void Awake()
+    {
+        Instance = this;
+    }
+
     void Start()
     {
         m_villegersData = new CharacterData[DataManager.Instance.CurrentPeriodAllVillegersData.Length];
@@ -143,13 +152,26 @@ public class SearchManager : MonoBehaviour
     /// </summary>
     public void TaskCount()
     {
+        StartCoroutine(WaitTask());
+    }
+
+    IEnumerator WaitTask()
+    {
+        while (!IsTaskComplited)
+        {
+            yield return null;
+        }
+
         CurrentTaskNum++;
+        IsTaskComplited = false;
 
         if (CurrentTaskNum >= m_maxTaskNum)
         {
             Debug.Log("全てのタスクが終了しました");
-            DataManager.Instance.FlagOpen((int)GameManager.Instance.CurrentPeriod, (int)GameManager.Instance.CurrentStageId);
-            LoadSceneManager.AnyLoadScene("PeriodSelect");
+            LoadSceneManager.AnyLoadScene("PeriodSelect", () =>
+            {
+                DataManager.Instance.FlagOpen((int)GameManager.Instance.CurrentPeriod, GameManager.Instance.CurrentStageId);
+            });
         }
     }
 }
