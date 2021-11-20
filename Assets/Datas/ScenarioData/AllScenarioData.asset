@@ -14,3 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_allScenarioDatas:
   - {fileID: 11400000, guid: f4550262d05686b4f8596b7ab55cbd9b, type: 2}
+  - {fileID: 11400000, guid: 562388a6444c26c48885dc8f9fe42cc5, type: 2}
+  - {fileID: 11400000, guid: c3c442318d5367e42932b2b4fadba438, type: 2}

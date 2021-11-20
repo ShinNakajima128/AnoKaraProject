@@ -1351,7 +1351,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 5ea8c033144a62948abfc81b39b1328a, type: 3}
+  m_Sprite: {fileID: 21300000, guid: bb7244c06de94e544b11e713c34abb67, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -1672,7 +1672,7 @@ MonoBehaviour:
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 2
+          m_IntArgument: 1
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -1882,7 +1882,7 @@ MonoBehaviour:
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 3
+          m_IntArgument: 2
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -2877,7 +2877,7 @@ MonoBehaviour:
       - m_Target: {fileID: 1456176693}
         m_TargetAssemblyTypeName: PeriodSelectManager, Assembly-CSharp
         m_MethodName: Decision
-        m_Mode: 5
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -3291,7 +3291,7 @@ MonoBehaviour:
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 1
+          m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -3528,6 +3528,7 @@ MonoBehaviour:
   m_periodStageData: {fileID: 11400000, guid: b10f21ad71d673d43a77782a12f5518b, type: 2}
   m_stageSelectPanel: {fileID: 1250986433}
   m_stageCharactorImage: {fileID: 515352735}
+  m_stageDefaultSprite: {fileID: 21300000, guid: bb7244c06de94e544b11e713c34abb67, type: 3}
   m_periodButtons:
   - {fileID: 1176139701}
   - {fileID: 804008077}
@@ -4048,7 +4049,7 @@ MonoBehaviour:
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 4
+          m_IntArgument: 3
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
