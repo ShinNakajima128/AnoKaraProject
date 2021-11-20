@@ -146,6 +146,7 @@ public class ScenarioManager : MonoBehaviour
     bool isChoiced = false;
     bool isReactioned = false;
     bool m_clickReception = false;
+    bool isFirst = true;
     IEnumerator m_currentCoroutine = default;
     Image[] m_characterImage;
     Animator[] m_anim;
@@ -452,7 +453,14 @@ public class ScenarioManager : MonoBehaviour
         m_settingButton.IsActived = false;
         if (m_isSearchPart)
         {
-            SearchManager.Instance.IsTaskComplited = true;
+            if (isFirst)
+            {
+                isFirst = false;
+            }
+            else
+            {
+                SearchManager.Instance.IsTaskComplited = true;
+            }
         }
         #endregion
     }
@@ -590,6 +598,34 @@ public class ScenarioManager : MonoBehaviour
         }
 
         StartCoroutine(StartSelectMessage(index));
+    }
+
+    /// <summary>
+    /// 探索パートに入ったら最初に時代毎のシナリオを再生する
+    /// </summary>
+    public void StartBeginScenario()
+    {
+        switch (GameManager.Instance.CurrentPeriod)
+        {
+            case MasterData.PeriodTypes.None:
+                Debug.LogError("時代が設定されていません");
+                break;
+            case MasterData.PeriodTypes.Jomon_Yayoi:
+                StartCoroutine(StartSelectMessage(12));
+                break;
+            case MasterData.PeriodTypes.Asuka:
+                break;
+            case MasterData.PeriodTypes.Heian:
+                break;
+            case MasterData.PeriodTypes.Kamakura:
+                break;
+            case MasterData.PeriodTypes.Sengoku:
+                break;
+            case MasterData.PeriodTypes.Edo:
+                break;
+            default:
+                break;
+        }
     }
 
     /// <summary>
