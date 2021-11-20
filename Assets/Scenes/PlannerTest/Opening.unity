@@ -586,6 +586,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: ScenarioManager
       objectReference: {fileID: 0}
+    - target: {fileID: 3556439220829766392, guid: 0850286fda9bd6145914c63f2fa6698b, type: 3}
+      propertyPath: m_backgroundTypes.Array.data[0]
+      value: 
+      objectReference: {fileID: 21300000, guid: 0eac5041df5cfde448e2ec9ba0322077, type: 3}
+    - target: {fileID: 3556439220829766392, guid: 0850286fda9bd6145914c63f2fa6698b, type: 3}
+      propertyPath: m_backgroundTypes.Array.data[1]
+      value: 
+      objectReference: {fileID: 21300000, guid: 92d1bc8fed67dc3408b1c8a3b863d5e6, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0850286fda9bd6145914c63f2fa6698b, type: 3}
 --- !u!1 &1636249905
