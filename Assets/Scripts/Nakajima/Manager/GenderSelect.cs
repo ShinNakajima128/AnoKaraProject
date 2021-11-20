@@ -13,12 +13,21 @@ public class GenderSelect : MonoBehaviour
     [SerializeField]
     GameObject m_confirmPanel = default;
 
+    [Header("ガイドテキスト")]
+    [SerializeField]
+    Text m_genderSelectGuide = default;
+
     /// <summary> 選択した性別 </summary>
     GenderType m_selectGender = default;
 
     private void Start()
     {
         m_confirmPanel.SetActive(false);
+    }
+
+    private void OnEnable()
+    {
+        m_genderSelectGuide.text = "性別を選ぼう！";
     }
 
     /// <summary>
@@ -32,12 +41,14 @@ public class GenderSelect : MonoBehaviour
         {
             m_genderImages[1].color = new Color(0.2f, 0.2f, 0.2f);
             m_selectGender = GenderType.Boy;
+            m_genderSelectGuide.text = "男の子でよろしいですか？";
         }
         //Girlを選択した場合、Boyを暗転して仮でGirlを変数にセットする
         else
         {
             m_genderImages[0].color = new Color(0.3f, 0.3f, 0.3f);
             m_selectGender = GenderType.Girl;
+            m_genderSelectGuide.text = "女の子でよろしいですか？";
         }
         //確認画面を表示する
         m_confirmPanel.SetActive(true);
@@ -67,5 +78,6 @@ public class GenderSelect : MonoBehaviour
         {
             i.color = new Color(1f, 1f, 1f);
         }
+        m_genderSelectGuide.text = "性別を選ぼう！";
     }
 }

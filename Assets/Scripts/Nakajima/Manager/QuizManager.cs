@@ -92,6 +92,10 @@ public class QuizManager : MonoBehaviour
     [SerializeField]
     Animator[] m_quizResultUIAnims = default;
 
+    /// <summary> クイズ終了時に表示するPanel </summary>
+    [SerializeField]
+    GameObject m_finishPanel = default;
+
     [Header("4択クイズのオブジェクト")]
     [SerializeField]
     GameObject m_fourChoicesQuizPanel = default;
@@ -150,6 +154,7 @@ public class QuizManager : MonoBehaviour
         m_QuizResultUI.SetActive(false);
         m_quizPartObjects.SetActive(false);
         m_blowingPanel.SetActive(false);
+        m_finishPanel.SetActive(false);
         //各人物の画像をセットする
         SetCharacterPanel(m_playeData, m_historicalFiguresData);
         m_questionResults = new bool[questionLimit];
@@ -228,8 +233,12 @@ public class QuizManager : MonoBehaviour
             yield return null;
         }
         ///ここから下にクイズが終了した時の処理を記述する///
-        
-        //仮にここでResult画面へ遷移の記述。できればGameManagerのOnGameEnd関数などを用意してここに書きたい
+        m_quizResultUIImage.fillAmount = CurrentTurnNum * 0.1f;
+        m_playerChat.text = "難しかった…";
+        m_historicalFiguresChat.text = "よく頑張った！";
+        m_finishPanel.SetActive(true);
+        //仮にここでResult画面へ遷移の記述。できればEventManagerのOnGameEnd関数等を用意してここに書きたい
+        yield return new WaitForSeconds(2.0f);
         LoadSceneManager.AnyLoadScene("QuizResult");
     }
 
