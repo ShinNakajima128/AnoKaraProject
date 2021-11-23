@@ -14,8 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_dataName: "\u5351\u5F25\u547C"
   m_characterImages:
-  - {fileID: 21300000, guid: 1a422f85b1b4d9a4a856ae300c69c22a, type: 3}
-  - {fileID: 21300000, guid: 22355e2ad992931419f6c63158d80dcf, type: 3}
-  - {fileID: 21300000, guid: 017e04ad96e845940986631e9fd076b2, type: 3}
-  - {fileID: 21300000, guid: 5ea8c033144a62948abfc81b39b1328a, type: 3}
-  - {fileID: 21300000, guid: 1f4be9322e0425c499a62375f0922756, type: 3}
+  - {fileID: 21300000, guid: 7816fd35d37959a40b0a427c7b2814f5, type: 3}
+  - {fileID: 21300000, guid: 90ee541b52995ca41918ffcde5e799a9, type: 3}
+  - {fileID: 21300000, guid: 310cc3d73a167fe4894ca0c7488cafc6, type: 3}
+  - {fileID: 21300000, guid: ce8c35893bbabe0479e97e155f6b046e, type: 3}
+  - {fileID: 21300000, guid: f5e274f4717ce174da6bfecf11a92689, type: 3}
