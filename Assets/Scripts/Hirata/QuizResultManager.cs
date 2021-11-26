@@ -30,9 +30,9 @@ public class QuizResultManager : MonoBehaviour
     [SerializeField]
     ResultIconMove[] m_moveIconMove;
 
-    /// <summary>星を表示するタイマー</summary>
+    /// <summary>クリアアイコンを表示するタイマー</summary>
     [SerializeField]
-    float m_starTimer = 2f;
+    float m_iconTimer = 2f;
 
     /// <summary>
     /// 正解数
@@ -58,19 +58,19 @@ public class QuizResultManager : MonoBehaviour
         if (m_ansCount == 10)
         {
             QuizResultUiSet(0);
-            StartCoroutine(SetStar(2, m_starTimer));
+            StartCoroutine(SetStar(2, m_iconTimer));
             FlagOpen();
         }
         else if (m_ansCount >= 7)
         {
             QuizResultUiSet(2);
-            StartCoroutine(SetStar(1, m_starTimer));
+            StartCoroutine(SetStar(1, m_iconTimer));
             FlagOpen();
         }
         else if (m_ansCount >= 3)
         {
             QuizResultUiSet(3);
-            StartCoroutine(SetStar(0, m_starTimer));
+            StartCoroutine(SetStar(0, m_iconTimer));
         }
         else if (m_ansCount < 3)
         {
@@ -93,9 +93,7 @@ public class QuizResultManager : MonoBehaviour
     /// </summary>
     void FlagOpen()
     {
-        Debug.Log((int)GameManager.Instance.CurrentPeriod);
-        Debug.Log((int)GameManager.Instance.CurrentStageId);
-        DataManager.Instance.FlagOpen((int)GameManager.Instance.CurrentPeriod,(int)GameManager.Instance.CurrentStageId);
+        DataManager.Instance.FlagOpen((int)GameManager.Instance.CurrentPeriod, GameManager.Instance.CurrentStageId);
     }
 
     /// <summary>

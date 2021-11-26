@@ -21,7 +21,7 @@ public class ResultIconMove : MonoBehaviour
     {
         var m_sequence = DOTween.Sequence();
         m_sequence.Append(transform.DOMove(m_setPosition.position, m_moveTime).SetEase(Ease.Linear));
-        m_sequence.Join(transform.DORotate(new Vector3(0, 0, 1440), m_moveTime, RotateMode.FastBeyond360).SetEase(Ease.Linear));
+        m_sequence.Join(transform.DORotate(new Vector3(0, 0, 720), m_moveTime, RotateMode.FastBeyond360).SetEase(Ease.Linear));
         m_sequence.Play();
     }
 }
