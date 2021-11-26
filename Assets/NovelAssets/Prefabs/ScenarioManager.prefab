@@ -1034,50 +1034,26 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 4f8740b5af7149d4594b73bfd3359a2a, type: 2}
   - {fileID: 11400000, guid: f8145f3c6b3df3542aeca67bb82b81b1, type: 2}
   m_boySprites:
-  - {fileID: 21300000, guid: c316ec01f62d6ef40bf15b8de215f5d2, type: 3}
-  - {fileID: 21300000, guid: 30f339aca3ab45a4588f83bc32e3de32, type: 3}
-  - {fileID: 21300000, guid: 2a1d01a3008864648b805950af4f9015, type: 3}
-  - {fileID: 21300000, guid: 13cae4ddb039b6a43a3f193a026cd8d4, type: 3}
-  - {fileID: 21300000, guid: 4344139f95f8b544eacf5643fd534279, type: 3}
+  - {fileID: 21300000, guid: 5a9aef0872b9398459ae5750ba4d2e55, type: 3}
+  - {fileID: 21300000, guid: 73b567b7c68a1d14aa345c47565f4d5f, type: 3}
+  - {fileID: 21300000, guid: 559b12040d9486a44a74254770b132da, type: 3}
+  - {fileID: 21300000, guid: 572922d82f249fd4eba53b9c2d145eb5, type: 3}
+  - {fileID: 21300000, guid: 7d5442fd4d1d774409098893f087aa95, type: 3}
   m_girlSprites:
-  - {fileID: 21300000, guid: 13bee12cc15b05c41ab1adb58c3701df, type: 3}
-  - {fileID: 21300000, guid: e69a4d7b85f029f4fa9d16d66b708a85, type: 3}
-  - {fileID: 21300000, guid: a9959001b29ab494eaa97e592941c508, type: 3}
-  - {fileID: 21300000, guid: 1611d9138d89ba84ca333a30c1b6047f, type: 3}
-  - {fileID: 21300000, guid: b060356e7cb47604c97e3e2919660cc3, type: 3}
+  - {fileID: 21300000, guid: 5e9f53b162f386d4b94d2b67607d389f, type: 3}
+  - {fileID: 21300000, guid: 38fd934f0810e8a4fa6bd9f59fda1e18, type: 3}
+  - {fileID: 21300000, guid: f877ff2e6a7fe78488120d1eeb11321a, type: 3}
+  - {fileID: 21300000, guid: 94aa3e8bf8c2e3d4aba673576d593887, type: 3}
+  - {fileID: 21300000, guid: 323d5bdf93d582348a0fdadf85259974, type: 3}
   StartEvent:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 3556439220019624003}
-        m_TargetAssemblyTypeName: ScenarioManager, Assembly-CSharp
-        m_MethodName: StartAllScenario
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
   ContinueEvent:
     m_PersistentCalls:
       m_Calls: []
   EndEvent:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: OpeningManager, Assembly-CSharp
-        m_MethodName: LoadPeriodSelectScene
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!114 &3556439220019624000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1308,6 +1284,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3556439220148350266}
+  - component: {fileID: 8592028287021534657}
   m_Layer: 5
   m_Name: Characters
   m_TagString: Untagged
@@ -1337,6 +1314,32 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &8592028287021534657
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3556439220148350269}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 30649d3a9faa99c48a7b1166b86bf2a0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Padding:
+    m_Left: -1154
+    m_Right: 0
+    m_Top: 105
+    m_Bottom: 0
+  m_ChildAlignment: 4
+  m_Spacing: -603.08
+  m_ChildForceExpandWidth: 1
+  m_ChildForceExpandHeight: 1
+  m_ChildControlWidth: 0
+  m_ChildControlHeight: 0
+  m_ChildScaleWidth: 0
+  m_ChildScaleHeight: 0
+  m_ReverseArrangement: 0
 --- !u!1 &3556439220156290266
 GameObject:
   m_ObjectHideFlags: 0
@@ -1664,9 +1667,9 @@ RectTransform:
   m_Father: {fileID: 3556439220148350266}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -586, y: -33}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 1228, y: 1228}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &3556439220492353435
@@ -1697,7 +1700,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 1611d9138d89ba84ca333a30c1b6047f, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 572922d82f249fd4eba53b9c2d145eb5, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -1772,9 +1775,9 @@ RectTransform:
   m_Father: {fileID: 3556439220148350266}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 589, y: -33}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 1228, y: 1228}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &3556439220537986125
@@ -1805,7 +1808,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 5ea8c033144a62948abfc81b39b1328a, type: 3}
+  m_Sprite: {fileID: 21300000, guid: ce8c35893bbabe0479e97e155f6b046e, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -2393,9 +2396,9 @@ MonoBehaviour:
   - {fileID: 3556439220869383691}
   - {fileID: 3556439220813174165}
   m_backgroundTypes:
-  - {fileID: 21300000, guid: fec63bfd8b0922642b23f00bb0bac653, type: 3}
-  - {fileID: 21300000, guid: 713d9a3cbc2ef514e8d940ba1de2c6c9, type: 3}
-  - {fileID: 21300000, guid: f07e39e199b91ee4787bcc3aaa075bf2, type: 3}
+  - {fileID: 21300000, guid: 0eac5041df5cfde448e2ec9ba0322077, type: 3}
+  - {fileID: 21300000, guid: 92d1bc8fed67dc3408b1c8a3b863d5e6, type: 3}
+  - {fileID: 21300000, guid: 8034d6f6e7d17654d9cb9e8c8c137d68, type: 3}
   - {fileID: 21300000, guid: 80d692d491bee744b81b7a28af6bb286, type: 3}
 --- !u!95 &3556439220829766393
 Animator:
@@ -2481,7 +2484,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: fec63bfd8b0922642b23f00bb0bac653, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 0eac5041df5cfde448e2ec9ba0322077, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -2640,9 +2643,9 @@ RectTransform:
   m_Father: {fileID: 3556439220148350266}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -72, y: -33}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 1228, y: 1228}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &3556439220941203694
@@ -2673,7 +2676,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: c0eb58824b568554fa5b3b2b9b281ea7, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 5bea41cb6c824364e83e49981c48e893, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -3155,7 +3158,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 2e924c8ad9894eb4b8e6f9b9c21e353d, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 66099020a218be34a97e65a2ca8db539, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
