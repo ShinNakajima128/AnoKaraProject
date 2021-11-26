@@ -26,9 +26,9 @@ public class QuizResultManager : MonoBehaviour
     [SerializeField]
     GameObject m_nextUi;
 
-    /// <summary>リザルトの星</summary>
+    /// <summary>リザルトアイコン</summary>
     [SerializeField]
-    GameObject[] m_stars;
+    ResultIconMove[] m_moveIconMove;
 
     /// <summary>星を表示するタイマー</summary>
     [SerializeField]
@@ -109,7 +109,7 @@ public class QuizResultManager : MonoBehaviour
         yield return new WaitForSeconds(timer);
         for (int i = 0; i <= index; i++)
         {
-            m_stars[i].SetActive(true);
+            m_moveIconMove[i].IconSet();
             yield return new WaitForSeconds(timer);
         }
         yield break;
