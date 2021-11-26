@@ -58,19 +58,19 @@ public class QuizResultManager : MonoBehaviour
         if (m_ansCount == 10)
         {
             QuizResultUiSet(0);
-            StartCoroutine(SetStar(2, m_iconTimer));
+            StartCoroutine(SetIcon(2, m_iconTimer));
             FlagOpen();
         }
         else if (m_ansCount >= 7)
         {
             QuizResultUiSet(2);
-            StartCoroutine(SetStar(1, m_iconTimer));
+            StartCoroutine(SetIcon(1, m_iconTimer));
             FlagOpen();
         }
         else if (m_ansCount >= 3)
         {
             QuizResultUiSet(3);
-            StartCoroutine(SetStar(0, m_iconTimer));
+            StartCoroutine(SetIcon(0, m_iconTimer));
         }
         else if (m_ansCount < 3)
         {
@@ -102,7 +102,7 @@ public class QuizResultManager : MonoBehaviour
     /// <param name="index">表示する星の数</param>
     /// <param name="timer">表示するスピード</param>
     /// <returns></returns>
-    IEnumerator SetStar(int index, float timer)
+    IEnumerator SetIcon(int index, float timer)
     {
         yield return new WaitForSeconds(timer);
         for (int i = 0; i <= index; i++)
