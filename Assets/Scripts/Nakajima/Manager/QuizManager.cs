@@ -229,6 +229,7 @@ public class QuizManager : MonoBehaviour
                         break;
                 }
                 Debug.Log(m_currentQuizTips);
+                EventManager.OnEvent(Events.QuizStart);
                 yield return m_currentQuestion;
             }
             //正解した数を保存
