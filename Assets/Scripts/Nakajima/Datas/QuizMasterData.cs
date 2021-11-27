@@ -13,10 +13,10 @@ namespace MasterData
     {
         None,
         Jomon_Yayoi,
-        Asuka,
+        Asuka_Nara,
         Heian,
         Kamakura,
-        Sengoku,
+        Momoyama,
         Edo
     }
 
@@ -39,6 +39,7 @@ namespace MasterData
         public string Choices3;
         public string Choices4;
         public string Answer;
+        public string Tips;
     }
 
     /// <summary>
@@ -77,6 +78,8 @@ namespace MasterData
         [SerializeField, Tooltip("動かせる文字達")]
         string[] m_dragTexts;
         public string[] DragTexts { get => m_dragTexts; }
+        [Tooltip("問題のヒント")]
+        public string Tips;
 
         public void ConvartToArray()
         {

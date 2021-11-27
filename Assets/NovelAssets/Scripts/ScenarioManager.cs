@@ -613,13 +613,13 @@ public class ScenarioManager : MonoBehaviour
             case MasterData.PeriodTypes.Jomon_Yayoi:
                 StartCoroutine(StartSelectMessage(12));
                 break;
-            case MasterData.PeriodTypes.Asuka:
+            case MasterData.PeriodTypes.Asuka_Nara:
                 break;
             case MasterData.PeriodTypes.Heian:
                 break;
             case MasterData.PeriodTypes.Kamakura:
                 break;
-            case MasterData.PeriodTypes.Sengoku:
+            case MasterData.PeriodTypes.Momoyama:
                 break;
             case MasterData.PeriodTypes.Edo:
                 break;
