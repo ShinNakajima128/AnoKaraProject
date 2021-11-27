@@ -122,6 +122,8 @@ public class QuizManager : MonoBehaviour
     string m_playerAnswer = default;
     /// <summary> 現在のクイズの正しい答え </summary>
     string m_correctAnswer = default;
+    /// <summary> 現在のクイズのヒント </summary>
+    string m_currentQuizTips = default;
     /// <summary> 各問題の判定 </summary>
     bool[] m_questionResults = default;
     /// <summary> プレイヤーの回答フラグ </summary>
@@ -139,7 +141,7 @@ public class QuizManager : MonoBehaviour
     public string PlayerAnswer { get => m_playerAnswer; set => m_playerAnswer = value; }
     public string CorrectAnswer { get => m_correctAnswer; set => m_correctAnswer = value; }
     public bool IsAnswered { get => m_isAnswered; set => m_isAnswered = value; }
-
+    public string CurrentQuizTips => m_currentQuizTips;
     public bool QuizDataUpdated { get; set; } = false;
     #endregion
     private void Awake()
@@ -212,19 +214,22 @@ public class QuizManager : MonoBehaviour
                                                                                                m_choices[1],
                                                                                                m_choices[2],
                                                                                                m_choices[3]);
-
+                        m_currentQuizTips = FourChoicesQuizManager.Instance.CurrentQuizTips;
                         break;
                     //穴埋めクイズが抽選された場合
                     case 1:
                         Debug.Log("穴埋めクイズ");
                         //記述例
                         m_currentQuestion = AnaumeQuiz.Instance.OnAnaumeQuizQuestion(m_AnaumeQuizPanel, m_question);
+                        m_currentQuizTips = AnaumeQuiz.Instance.CurrentQuizTips;
                         break;
                     //線繋ぎクイズが抽選された場合
                     case 2:
                         Debug.Log("線繋ぎクイズ");
                         break;
                 }
+                Debug.Log(m_currentQuizTips);
+                EventManager.OnEvent(Events.QuizStart);
                 yield return m_currentQuestion;
             }
             //正解した数を保存

@@ -62,7 +62,7 @@ public class SearchManager : MonoBehaviour
                     }
                 }
                 break;
-            case MasterData.PeriodTypes.Asuka:
+            case MasterData.PeriodTypes.Asuka_Nara:
                 for (int i = 0; i < m_jidaiCanvas.Length; i++)
                 {
                     if (i == 1)
@@ -101,7 +101,7 @@ public class SearchManager : MonoBehaviour
                     }
                 }
                 break;
-            case MasterData.PeriodTypes.Sengoku:
+            case MasterData.PeriodTypes.Momoyama:
                 for (int i = 0; i < m_jidaiCanvas.Length; i++)
                 {
                     if (i == 4)

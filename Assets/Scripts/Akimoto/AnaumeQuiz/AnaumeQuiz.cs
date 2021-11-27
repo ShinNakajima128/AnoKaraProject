@@ -43,6 +43,9 @@ public class AnaumeQuiz : MonoBehaviour
 
     public static AnaumeQuiz Instance { get; private set; }
 
+    /// <summary> 現在のクイズのヒントデータ </summary>
+    public string CurrentQuizTips => m_anaumeQuizdatas[m_currentNum].Tips;
+
     private void Awake()
     {
         Instance = this;

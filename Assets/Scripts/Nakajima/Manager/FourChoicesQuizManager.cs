@@ -14,6 +14,9 @@ public class FourChoicesQuizManager : MonoBehaviour
 
     public static FourChoicesQuizManager Instance { get; private set; }
 
+    /// <summary> 現在のクイズのヒントデータ </summary>
+    public string CurrentQuizTips => m_fourChoicesDatas[m_currentNum].Tips; 
+
     void Awake()
     {
         Instance = this;
