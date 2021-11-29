@@ -39,7 +39,7 @@ public class QuizTips : MonoBehaviour
     /// </summary>
     public void Tips()
     {
-        if (m_isTips)
+        if (!m_isTips)
         {
             if (!m_isMash)
             {
