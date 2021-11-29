@@ -31,17 +31,23 @@ public class QuizTips : MonoBehaviour
     /// <summary>連打中か否か</summary>
     bool m_isMash = false;
 
+    /// <summary>クイズ中にヒントを表示したか否か</summary>
+    bool m_isTips = false;
+
     /// <summary>
     /// ヒントボタン
     /// </summary>
     public void Tips()
     {
-        if (!m_isMash)
+        if (m_isTips)
         {
-            m_isMash = true;
-            StartCoroutine(MashTips());
+            if (!m_isMash)
+            {
+                m_isMash = true;
+                StartCoroutine(MashTips());
+            }
+            m_mashCount++;
         }
-        m_mashCount++;
     }
 
     /// <summary>
@@ -82,6 +88,7 @@ public class QuizTips : MonoBehaviour
     void ActiveTips()
     {
         GetTips();
+        m_isTips = true;
         m_tipsObject.SetActive(true);
     }
 
