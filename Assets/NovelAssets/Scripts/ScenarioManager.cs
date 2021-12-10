@@ -154,8 +154,6 @@ public class ScenarioManager : MonoBehaviour
 
     #region property
     public static ScenarioManager Instance { get; private set; }
-
-    public ScenarioData[] Data => m_data;
     public bool IsAutoflow { get; set; }
     public int AfterReactionMessageId { get => m_AfterReactionMessageId; set => m_AfterReactionMessageId = value; }
     #endregion
@@ -464,7 +462,6 @@ public class ScenarioManager : MonoBehaviour
                 SearchManager.Instance.IsTaskComplited = true;
             }
         }
-        OnEndDialog();
         #endregion
     }
 
