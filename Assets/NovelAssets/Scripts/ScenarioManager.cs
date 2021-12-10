@@ -20,6 +20,10 @@ public enum HighlightTextType
 public class ScenarioManager : MonoBehaviour
 {
     #region serialize field
+    [Header("デバッグ作業用")]
+    [SerializeField]
+    bool isDebug = default;
+
     [Header("ダイアログリスト")]
     [SerializeField]
     ScenarioData[] m_data = default;
@@ -32,6 +36,7 @@ public class ScenarioManager : MonoBehaviour
     [SerializeField]
     float m_autoflowTime = 1.5f;
 
+    [Header("プレイヤー名確認用")]
     [SerializeField]
     string m_playerName = default;
 
@@ -54,6 +59,10 @@ public class ScenarioManager : MonoBehaviour
     [Header("強調文字の色")]
     [SerializeField]
     Color m_HighlightTextColor = default;
+
+    [Header("探索パート用の仕様に変更するフラグ")]
+    [SerializeField]
+    bool m_isSearchPart = false;
 
     [Header("パネルの各オブジェクト")]
     [SerializeField]
@@ -99,9 +108,20 @@ public class ScenarioManager : MonoBehaviour
     [SerializeField]
     Text m_logText = default;
 
+    /// <summary> 設定ボタンのクラス </summary>
+    [SerializeField]
+    SettingButton m_settingButton = default;
+
     [Header("キャラクターリスト")]
     [SerializeField]
     CharacterImageData[] m_imageDatas = default;
+
+    [Header("プレイヤーの性別毎の各表情Sprite")]
+    [SerializeField]
+    Sprite[] m_boySprites = default;
+
+    [SerializeField]
+    Sprite[] m_girlSprites = default;
     #endregion
 
     #region public field
@@ -125,6 +145,8 @@ public class ScenarioManager : MonoBehaviour
     bool isAnimPlaying = false;
     bool isChoiced = false;
     bool isReactioned = false;
+    bool m_clickReception = false;
+    bool isFirst = true;
     IEnumerator m_currentCoroutine = default;
     Image[] m_characterImage;
     Animator[] m_anim;
@@ -144,6 +166,8 @@ public class ScenarioManager : MonoBehaviour
 
     void Start()
     {
+        m_playerName = DataManager.Instance.PlayerData.PlayerName;
+        m_imageDatas[0].CharacterImages = DataManager.Instance.PlayerData.PlayerGender == GenderType.Boy ? m_boySprites : m_girlSprites;
         HighlightCodeSetup(m_textType, ColorToHex(m_HighlightTextColor));
         m_characterImage = new Image[m_character.Length];
         m_anim = new Animator[m_character.Length];
@@ -186,6 +210,7 @@ public class ScenarioManager : MonoBehaviour
         yield return m_currentCoroutine;
 
         //全てのダイアログが終了したらこの下の処理が行われる
+        Debug.Log("会話終了");
         m_display.SetActive(false);
     }
 
@@ -199,20 +224,19 @@ public class ScenarioManager : MonoBehaviour
         m_choicesPanel.SetActive(false);
         m_display.SetActive(false);
         int currentDialogIndex = 0;
+        m_nextMessageId = 0;
 
         while (currentDialogIndex < data.DialogData.Length)
         {
             //ダイアログをリセット
             m_endMessage = false;
             isClicked = false;
-
-            if (currentDialogIndex == 0)
+            if (currentDialogIndex == 0 && !m_isSearchPart)
             {
                 BackGroundController.BackgroundAnim += FinishReceive;
 
                 m_bgCtrl.Setup(data.DialogData[currentDialogIndex].BackgroundType); //最初の背景をセットする
                 m_bgCtrl.FadeIn(data.DialogData[currentDialogIndex].BackgroundType); //フェードイン
-
                 m_currentBackgroundType = data.DialogData[currentDialogIndex].BackgroundType;
                 isAnimPlaying = true;
 
@@ -225,6 +249,7 @@ public class ScenarioManager : MonoBehaviour
             }
             else if (m_currentBackgroundType != data.DialogData[currentDialogIndex].BackgroundType)
             {
+                m_settingButton.IsActived = false;
                 m_display.SetActive(false);
                 BackGroundController.BackgroundAnim += FinishReceive;
                 m_bgCtrl.Crossfade(data.DialogData[currentDialogIndex].BackgroundType); //次の背景にクロスフェードする
@@ -237,12 +262,17 @@ public class ScenarioManager : MonoBehaviour
                     yield return null;
                 }
                 BackGroundController.BackgroundAnim -= FinishReceive;
+            }            
+            //デバッグの場合はデバッグ用のイベントを実行する
+            if (isDebug)
+            {
+                EventManager.OnEvent(Events.Debug);
             }
-
             //キャラクターのアニメーションが終わるまで待つ
             yield return WaitForCharaAnimation(data.DialogData[currentDialogIndex].Talker,
                                                data.DialogData[currentDialogIndex].Position,
                                                data.DialogData[currentDialogIndex].StartAnimationType);
+
             m_display.SetActive(true);
             OnContinueDialog();
             m_characterName.text = data.DialogData[currentDialogIndex].Talker.Replace("プレイヤー", m_playerName);
@@ -284,8 +314,9 @@ public class ScenarioManager : MonoBehaviour
                 m_clickIcon.SetActive(false);
                 m_messageText.text = "";
                 string message = data.DialogData[currentDialogIndex].AllMessages[i].Replace("プレイヤー", m_playerName)
-                                                                                   .Replace("私（僕or俺)", GameManager.Instance.PlayerGender == GenderType.Boy ? m_malePronoun: m_famalePronoun);
+                                                                                   .Replace("私（僕or俺)", DataManager.Instance.PlayerData.PlayerGender == GenderType.Boy ? m_malePronoun: m_famalePronoun);
                 bool isHighlighted = false;
+                m_clickReception = false;
 
                 //各メッセージを一文字ずつ表示する
                 foreach (var m in message)
@@ -325,7 +356,6 @@ public class ScenarioManager : MonoBehaviour
                     }
                     yield return null;
                 }
-
                 m_endMessage = true;
 
                 //自動再生モードがOFFならクリックアイコンを表示
@@ -403,7 +433,7 @@ public class ScenarioManager : MonoBehaviour
             //キャラクターのアニメーションが終わるまで待つ
             yield return WaitForCharaAnimation(data.DialogData[currentDialogIndex].Talker,
                                                data.DialogData[currentDialogIndex].Position,
-                                               data.DialogData[currentDialogIndex].EndAnimationType);
+                                               data.DialogData[currentDialogIndex].EndAnimationType, data.DialogData[currentDialogIndex].FaceTypes[data.DialogData[currentDialogIndex].FaceTypes.Length - 1]);
 
             //選択肢に対応したメッセージが表示済みだったら
             if (isReactioned)
@@ -420,6 +450,18 @@ public class ScenarioManager : MonoBehaviour
         #region FinishDialog
         //ダイアログの内容が全て終了したら表示中のキャラクターをフェードアウトさせ、フェードが終了するまで待つ。
         yield return WaitForFinishDialogFadeOut();
+        m_settingButton.IsActived = false;
+        if (m_isSearchPart)
+        {
+            if (isFirst)
+            {
+                isFirst = false;
+            }
+            else
+            {
+                SearchManager.Instance.IsTaskComplited = true;
+            }
+        }
         #endregion
     }
 
@@ -430,7 +472,7 @@ public class ScenarioManager : MonoBehaviour
     /// <param name="positionIndex"></param>
     /// <param name="animation"></param>
     /// <returns></returns>
-    IEnumerator WaitForCharaAnimation(string charaName, int positionIndex, string animation)
+    IEnumerator WaitForCharaAnimation(string charaName, int positionIndex, string animation, int faceType = 3)
     {
         if (charaName == "ナレーター")
         {
@@ -443,7 +485,7 @@ public class ScenarioManager : MonoBehaviour
             m_characterImage[positionIndex].enabled = true;
         }
 
-        m_characterImage[positionIndex].sprite = SetCharaImage(charaName);
+        m_characterImage[positionIndex].sprite = SetCharaImage(charaName, faceType);
 
         if (animation != null && animation != "なし") //アニメーションの指定があれば
         {
@@ -451,8 +493,9 @@ public class ScenarioManager : MonoBehaviour
             isAnimPlaying = true;
             CharacterPanel.CharacterAnim += FinishReceive;
         }
-        else
+        else if (animation == "なし")
         {
+            AnimationAccordingType(animation, positionIndex);
             yield break;
         }
 
@@ -549,7 +592,40 @@ public class ScenarioManager : MonoBehaviour
     /// <param name="index"> データの添え字番号 </param>
     public void StartSelectScenario(int index)
     {
+        if (m_currentCoroutine != null)
+        {
+            m_currentCoroutine = null;
+        }
+
         StartCoroutine(StartSelectMessage(index));
+    }
+
+    /// <summary>
+    /// 探索パートに入ったら最初に時代毎のシナリオを再生する
+    /// </summary>
+    public void StartBeginScenario()
+    {
+        switch (GameManager.Instance.CurrentPeriod)
+        {
+            case MasterData.PeriodTypes.None:
+                Debug.LogError("時代が設定されていません");
+                break;
+            case MasterData.PeriodTypes.Jomon_Yayoi:
+                StartCoroutine(StartSelectMessage(12));
+                break;
+            case MasterData.PeriodTypes.Asuka_Nara:
+                break;
+            case MasterData.PeriodTypes.Heian:
+                break;
+            case MasterData.PeriodTypes.Kamakura:
+                break;
+            case MasterData.PeriodTypes.Momoyama:
+                break;
+            case MasterData.PeriodTypes.Edo:
+                break;
+            default:
+                break;
+        }
     }
 
     /// <summary>
@@ -588,7 +664,7 @@ public class ScenarioManager : MonoBehaviour
             Time.timeScale = 1f; //コルーチン再開
         }
     }
-
+    
     /// <summary>
     /// 次に表示するメッセージを切り替える
     /// </summary>
@@ -596,6 +672,11 @@ public class ScenarioManager : MonoBehaviour
     public void SwitchIndex(int nextId)
     {
         m_nextMessageId = nextId;
+    }
+
+    public void Reception()
+    {
+        m_clickReception = true;
     }
     #endregion
 
@@ -636,7 +717,19 @@ public class ScenarioManager : MonoBehaviour
                 }
                 break;
             default:
+                m_anim[index].Play("Idle");
                 break;
+        }
+    }
+
+    /// <summary>
+    /// キャラクターのImageの状態をリセットする
+    /// </summary>
+    void ResetCharacterImages()
+    {
+        for (int i = 0; i < m_anim.Length; i++)
+        {
+            m_anim[i].Play("Idle");
         }
     }
 
@@ -776,7 +869,7 @@ public class ScenarioManager : MonoBehaviour
         }
 
         //左クリック、Spaceキー、Enterキーのいずれかが押されたらtrueを返す
-        if (Input.GetMouseButtonDown(0) || Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.Return))
+        if (m_clickReception || Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.Return))
         {
             return true;
         }

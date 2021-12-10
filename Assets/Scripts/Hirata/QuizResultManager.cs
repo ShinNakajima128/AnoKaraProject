@@ -26,13 +26,13 @@ public class QuizResultManager : MonoBehaviour
     [SerializeField]
     GameObject m_nextUi;
 
-    /// <summary>リザルトの星</summary>
+    /// <summary>リザルトアイコン</summary>
     [SerializeField]
-    GameObject[] m_stars;
+    ResultIconMove[] m_moveIconMove;
 
-    /// <summary>星を表示するタイマー</summary>
+    /// <summary>クリアアイコンを表示するタイマー</summary>
     [SerializeField]
-    float m_starTimer = 2f;
+    float m_iconTimer = 2f;
 
     /// <summary>
     /// 正解数
@@ -40,10 +40,6 @@ public class QuizResultManager : MonoBehaviour
     /// </summary>
     [SerializeField]
     int m_ansCount = 7;
-
-    /// <summary>リザルトのイラストデータ</summary>
-    [SerializeField]
-    Sprite[] m_resultSprite = new Sprite[3];
 
     void Start()
     {
@@ -61,18 +57,20 @@ public class QuizResultManager : MonoBehaviour
     {
         if (m_ansCount == 10)
         {
-            QuizResultUiSet(2);
-            StartCoroutine(SetStar(2, m_starTimer));
+            QuizResultUiSet(0);
+            StartCoroutine(SetIcon(2, m_iconTimer));
+            FlagOpen();
         }
         else if (m_ansCount >= 7)
         {
-            QuizResultUiSet(1);
-            StartCoroutine(SetStar(1, m_starTimer));
+            QuizResultUiSet(2);
+            StartCoroutine(SetIcon(1, m_iconTimer));
+            FlagOpen();
         }
         else if (m_ansCount >= 3)
         {
-            QuizResultUiSet(0);
-            StartCoroutine(SetStar(0, m_starTimer));
+            QuizResultUiSet(3);
+            StartCoroutine(SetIcon(0, m_iconTimer));
         }
         else if (m_ansCount < 3)
         {
@@ -87,7 +85,15 @@ public class QuizResultManager : MonoBehaviour
     void QuizResultUiSet(int index)
     {
         m_answerCountText.text = m_ansCount.ToString() + " / 10 問";
-        m_charactorImage.sprite = m_resultSprite[index];
+        m_charactorImage.sprite = DataManager.Instance.PlayerData.PlayerImage[index];
+    }
+
+    /// <summary>
+    /// クリアフラグを開ける
+    /// </summary>
+    void FlagOpen()
+    {
+        DataManager.Instance.FlagOpen((int)GameManager.Instance.CurrentPeriod, GameManager.Instance.CurrentStageId);
     }
 
     /// <summary>
@@ -96,12 +102,12 @@ public class QuizResultManager : MonoBehaviour
     /// <param name="index">表示する星の数</param>
     /// <param name="timer">表示するスピード</param>
     /// <returns></returns>
-    IEnumerator SetStar(int index, float timer)
+    IEnumerator SetIcon(int index, float timer)
     {
         yield return new WaitForSeconds(timer);
         for (int i = 0; i <= index; i++)
         {
-            m_stars[i].SetActive(true);
+            m_moveIconMove[i].IconSet();
             yield return new WaitForSeconds(timer);
         }
         yield break;
@@ -135,7 +141,7 @@ public class QuizResultManager : MonoBehaviour
     /// </summary>
     public void QuizRetry()
     {
-        Debug.Log("リトライ");
+        LoadSceneManager.LoadBeforeScene();
     }
 
     /// <summary>

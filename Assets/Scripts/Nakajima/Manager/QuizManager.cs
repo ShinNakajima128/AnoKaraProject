@@ -40,6 +40,10 @@ public class QuizManager : MonoBehaviour
     [SerializeField]
     Image[] m_judgeImages = default;
 
+    /// <summary> 判定画面の各Text </summary>
+    [SerializeField]
+    Text[] m_judgePanelTexts = default;
+
     /// <summary> カウントダウン用のText </summary>
     [SerializeField]
     Text m_countDown = default;
@@ -55,6 +59,10 @@ public class QuizManager : MonoBehaviour
     /// <summary> クイズパートの画面のUIをまとめたPanel </summary>
     [SerializeField]
     GameObject m_quizPartObjects = default;
+
+    /// <summary> 吹き出し画面のオブジェクトをまとめているPanel </summary>
+    [SerializeField]
+    GameObject m_blowingPanel = default;
 
     /// <summary> プレイヤーの吹き出し </summary>
     [SerializeField]
@@ -84,6 +92,10 @@ public class QuizManager : MonoBehaviour
     [SerializeField]
     Animator[] m_quizResultUIAnims = default;
 
+    /// <summary> クイズ終了時に表示するPanel </summary>
+    [SerializeField]
+    GameObject m_finishPanel = default;
+
     [Header("4択クイズのオブジェクト")]
     [SerializeField]
     GameObject m_fourChoicesQuizPanel = default;
@@ -110,6 +122,8 @@ public class QuizManager : MonoBehaviour
     string m_playerAnswer = default;
     /// <summary> 現在のクイズの正しい答え </summary>
     string m_correctAnswer = default;
+    /// <summary> 現在のクイズのヒント </summary>
+    string m_currentQuizTips = default;
     /// <summary> 各問題の判定 </summary>
     bool[] m_questionResults = default;
     /// <summary> プレイヤーの回答フラグ </summary>
@@ -127,7 +141,7 @@ public class QuizManager : MonoBehaviour
     public string PlayerAnswer { get => m_playerAnswer; set => m_playerAnswer = value; }
     public string CorrectAnswer { get => m_correctAnswer; set => m_correctAnswer = value; }
     public bool IsAnswered { get => m_isAnswered; set => m_isAnswered = value; }
-
+    public string CurrentQuizTips => m_currentQuizTips;
     public bool QuizDataUpdated { get; set; } = false;
     #endregion
     private void Awake()
@@ -141,6 +155,8 @@ public class QuizManager : MonoBehaviour
         m_historicalFiguresData = DataManager.Instance.CurrentPeriodHistoricalFigures;
         m_QuizResultUI.SetActive(false);
         m_quizPartObjects.SetActive(false);
+        m_blowingPanel.SetActive(false);
+        m_finishPanel.SetActive(false);
         //各人物の画像をセットする
         SetCharacterPanel(m_playeData, m_historicalFiguresData);
         m_questionResults = new bool[questionLimit];
@@ -164,14 +180,17 @@ public class QuizManager : MonoBehaviour
         }
         yield return null;
         m_quizPartObjects.SetActive(true);
-        m_playerChat.text = m_playeData.ThinkingChat;
-        m_historicalFiguresChat.text = m_historicalFiguresData.ThinkingChat;
+        m_blowingPanel.SetActive(true);
+        m_playerImage.sprite = m_playeData.PlayerImage[1]; //考え中の画像を表示
+        m_playerChat.text = m_playeData.ThinkingChat; //考え中のプレイヤー吹き出し文を表示
+        m_historicalFiguresChat.text = m_historicalFiguresData.ThinkingChat; //考え中の偉人吹き出し文を表示
         m_correctRate.text = $"正答率：{0}%";
 
         //10問出し終えるまで続ける
         while (CurrentTurnNum < questionLimit)
         {
             m_currentQuestionUI.text = $"第{CurrentTurnNum + 1}問";
+            m_playerAnswer = "";
             QuizDataUpdated = false;
             m_currentQuestion = null;
             m_isAnswered = false;
@@ -195,19 +214,22 @@ public class QuizManager : MonoBehaviour
                                                                                                m_choices[1],
                                                                                                m_choices[2],
                                                                                                m_choices[3]);
-
+                        m_currentQuizTips = FourChoicesQuizManager.Instance.CurrentQuizTips;
                         break;
                     //穴埋めクイズが抽選された場合
                     case 1:
                         Debug.Log("穴埋めクイズ");
                         //記述例
                         m_currentQuestion = AnaumeQuiz.Instance.OnAnaumeQuizQuestion(m_AnaumeQuizPanel, m_question);
+                        m_currentQuizTips = AnaumeQuiz.Instance.CurrentQuizTips;
                         break;
                     //線繋ぎクイズが抽選された場合
                     case 2:
                         Debug.Log("線繋ぎクイズ");
                         break;
                 }
+                Debug.Log(m_currentQuizTips);
+                EventManager.OnEvent(Events.QuizStart);
                 yield return m_currentQuestion;
             }
             //正解した数を保存
@@ -216,9 +238,13 @@ public class QuizManager : MonoBehaviour
             yield return null;
         }
         ///ここから下にクイズが終了した時の処理を記述する///
-        
-        //仮にここでResult画面へ遷移の記述。できればGameManagerのOnGameEnd関数などを用意してここに書きたい
-        LoadSceneManager.AnyLoadScene("Result");
+        m_quizResultUIImage.fillAmount = CurrentTurnNum * 0.1f;
+        m_playerChat.text = "難しかった…";
+        m_historicalFiguresChat.text = "よく頑張った！";
+        m_finishPanel.SetActive(true);
+        //仮にここでResult画面へ遷移の記述。できればEventManagerのOnGameEnd関数等を用意してここに書きたい
+        yield return new WaitForSeconds(2.0f);
+        LoadSceneManager.AnyLoadScene("QuizResult");
     }
 
     #region common
@@ -230,14 +256,14 @@ public class QuizManager : MonoBehaviour
     /// <returns></returns>
     public IEnumerator TimeLimit()
     {
-        float timer = m_answerTime;
+        float timer = m_answerTime + 0.5f;
 
         while (!m_isAnswered)
         {
             timer -= Time.deltaTime;
-            m_timeLimit.text = timer.ToString("F1");
+            m_timeLimit.text = timer.ToString("F0");
 
-            if (timer < 0) //時間切れになった場合
+            if (timer < 0.5) //時間切れになった場合
             {
                 yield break; //コルーチン終了
             }
@@ -267,7 +293,7 @@ public class QuizManager : MonoBehaviour
         {
             images.enabled = false;
         }
-        m_playerImage.sprite = m_playeData.PlayerImage[0];
+        m_playerImage.sprite = m_playeData.PlayerImage[1]; //考え中の画像を表示
         m_historicalFiguresImage.sprite = m_historicalFiguresData.CharacterImages[0];
         m_playerChat.text = m_playeData.ThinkingChat;
         m_historicalFiguresChat.text = m_historicalFiguresData.ThinkingChat;
@@ -312,8 +338,11 @@ public class QuizManager : MonoBehaviour
         if (correct)
         {
             m_JudgePanel.SetActive(true);
-            m_judgeImages[0].enabled = true;
-            m_playerImage.sprite = m_playeData.PlayerImage[1];
+            //m_judgeImages[0].enabled = true;
+            m_judgePanelTexts[0].text = "<color=#FB3535>正解！</color>";
+            m_judgePanelTexts[1].text = $"正しい答え\n【{m_correctAnswer}】";
+            m_judgePanelTexts[2].text = $"プレイヤーの解答\n【{m_playerAnswer}】";
+            m_playerImage.sprite = m_playeData.PlayerImage[2];
             m_historicalFiguresImage.sprite = m_historicalFiguresData.CharacterImages[1];
             m_playerChat.text = m_playeData.CorrectChat;
             m_historicalFiguresChat.text = m_historicalFiguresData.CorrectChat;
@@ -323,8 +352,11 @@ public class QuizManager : MonoBehaviour
         else
         {
             m_JudgePanel.SetActive(true);
-            m_judgeImages[1].enabled = true;
-            m_playerImage.sprite = m_playeData.PlayerImage[2];
+            //m_judgeImages[1].enabled = true;
+            m_judgePanelTexts[0].text = "<color=#588AFF>不正解…</color>";
+            m_judgePanelTexts[1].text = $"正しい答え\n【{m_correctAnswer}】";
+            m_judgePanelTexts[2].text = $"プレイヤーの解答\n【{m_playerAnswer}】";
+            m_playerImage.sprite = m_playeData.PlayerImage[3];
             m_historicalFiguresImage.sprite = m_historicalFiguresData.CharacterImages[2];
             m_playerChat.text = m_playeData.IncorrectChat;
             m_historicalFiguresChat.text = m_historicalFiguresData.IncorrectChat;

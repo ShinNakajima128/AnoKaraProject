@@ -1,0 +1,88 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2cfd1c762bfb0094ba2bb45123180fd8, type: 3}
+  m_Name: Villager11
+  m_EditorClassIdentifier: 
+  m_spreadSheetURL: https://script.google.com/macros/s/AKfycbylVkrjxNIliuZ3BKHepU4m1is5teOIuKWqjnDIQUQT__ZDw3Ks/exec
+  m_scenarioSheetName: Jomon_Yayoi_Villager11
+  m_choicesSheetName: 
+  m_dialogData:
+  - MessageId: 0
+    Talker: "\u30CA\u30EC\u30FC\u30BF\u30FC"
+    Position: 0
+    BackgroundType: 0
+    FaceType: 
+    m_faceTypes: 00000000
+    StartAnimationType: "\u306A\u3057"
+    EndAnimationType: "\u306A\u3057"
+    Messages: "\uFF08\u3068\u3066\u3082\u30B0\u30ED\u30C6\u30B9\u30AF\u306A\u3082\u306E\u3092\u898B\u3066\u308B\u305F\u3081\u898F\u5236\uFF09"
+    ChoicesId: 0
+    NextId: 1
+    m_allMessages:
+    - "\uFF08\u3068\u3066\u3082\u30B0\u30ED\u30C6\u30B9\u30AF\u306A\u3082\u306E\u3092\u898B\u3066\u308B\u305F\u3081\u898F\u5236\uFF09"
+  - MessageId: 1
+    Talker: "\u30D7\u30EC\u30A4\u30E4\u30FC"
+    Position: 0
+    BackgroundType: 0
+    FaceType: 2
+    m_faceTypes: 02000000
+    StartAnimationType: "\u306A\u3057"
+    EndAnimationType: "\u306A\u3057"
+    Messages: "\u300C\u3094\u3041\u3063\u30FB\u30FB\u30FB\u30AF\u30C3\u30B5\u2026\u300D"
+    ChoicesId: 0
+    NextId: 2
+    m_allMessages:
+    - "\u300C\u3094\u3041\u3063\u30FB\u30FB\u30FB\u30AF\u30C3\u30B5\u2026\u300D"
+  - MessageId: 2
+    Talker: "\u30B3\u30DE"
+    Position: 0
+    BackgroundType: 0
+    FaceType: '2
+
+      2'
+    m_faceTypes: 0200000002000000
+    StartAnimationType: "\u306A\u3057"
+    EndAnimationType: "\u306A\u3057"
+    Messages: "\u300C#\u8C9D\u585A#\u3060\u306D\u3002\u7E04\u6587\u6642\u4EE3\u306E\u4EBA\u305F\u3061\u306F\u6C34\u8FBA\u306B\u3001\u98DF\u3079\u7269\u306E\u6B8B\u308A\u304B\u3059\u306A\u3069\u3092\u6368\u3066\u3066\u3044\u305F\u3093\u3060\u3051\u3069\u2026\u3002\u300D\n\u300C\u8981\u306F\u30B4\u30DF\u7BB1\u3060\u306D\u30FB\u30FB\u300D"
+    ChoicesId: 0
+    NextId: 3
+    m_allMessages:
+    - "\u300C#\u8C9D\u585A#\u3060\u306D\u3002\u7E04\u6587\u6642\u4EE3\u306E\u4EBA\u305F\u3061\u306F\u6C34\u8FBA\u306B\u3001\u98DF\u3079\u7269\u306E\u6B8B\u308A\u304B\u3059\u306A\u3069\u3092\u6368\u3066\u3066\u3044\u305F\u3093\u3060\u3051\u3069\u2026\u3002\u300D"
+    - "\u300C\u8981\u306F\u30B4\u30DF\u7BB1\u3060\u306D\u30FB\u30FB\u300D"
+  - MessageId: 3
+    Talker: "\u30D7\u30EC\u30A4\u30E4\u30FC"
+    Position: 0
+    BackgroundType: 0
+    FaceType: 2
+    m_faceTypes: 02000000
+    StartAnimationType: "\u306A\u3057"
+    EndAnimationType: "\u306A\u3057"
+    Messages: "\u300C\u307E\u3042\u30B4\u30DF\u7BB1\u304C\u306A\u3044\u6642\u4EE3\u8003\u3048\u305F\u3089\u3053\u308C\u304C\u666E\u901A\u306A\u3093\u3060\u306D\u30FB\u30FB\u30FB\u300D"
+    ChoicesId: 0
+    NextId: 4
+    m_allMessages:
+    - "\u300C\u307E\u3042\u30B4\u30DF\u7BB1\u304C\u306A\u3044\u6642\u4EE3\u8003\u3048\u305F\u3089\u3053\u308C\u304C\u666E\u901A\u306A\u3093\u3060\u306D\u30FB\u30FB\u30FB\u300D"
+  - MessageId: 4
+    Talker: "\u5351\u5F25\u547C"
+    Position: 1
+    BackgroundType: 0
+    FaceType: 2
+    m_faceTypes: 02000000
+    StartAnimationType: "\u306A\u3057"
+    EndAnimationType: "\u306A\u3057"
+    Messages: "\u300C\u3069\u3046\u3067\u3082\u3044\u3044\u3093\u3058\u3083\u304C\u3002\u3044\u3064\u307E\u3067\u3053\u3053\u306B\u3044\u308B\u3093\u3058\u3083\u304A\u4E3B\u3089\u3002\u300D\uFF08\u6B63\u8AD6\uFF09"
+    ChoicesId: 0
+    NextId: 5
+    m_allMessages:
+    - "\u300C\u3069\u3046\u3067\u3082\u3044\u3044\u3093\u3058\u3083\u304C\u3002\u3044\u3064\u307E\u3067\u3053\u3053\u306B\u3044\u308B\u3093\u3058\u3083\u304A\u4E3B\u3089\u3002\u300D\uFF08\u6B63\u8AD6\uFF09"
+  m_choicesDatas: []
+  m_backgroundType: 0

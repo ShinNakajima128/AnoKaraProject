@@ -15,9 +15,9 @@ MonoBehaviour:
   m_characterName: "\u5351\u5F25\u547C"
   m_characterPeriod: 1
   m_characterImages:
-  - {fileID: 21300000, guid: 5ea8c033144a62948abfc81b39b1328a, type: 3}
-  - {fileID: 21300000, guid: b8166e6cff0ccc34394dceb65b9fe242, type: 3}
-  - {fileID: 21300000, guid: 449c27b768a91134b8c7da13cdc6d421, type: 3}
+  - {fileID: 21300000, guid: ce8c35893bbabe0479e97e155f6b046e, type: 3}
+  - {fileID: 21300000, guid: ab8425c318d3b4744994a81040b8473a, type: 3}
+  - {fileID: 21300000, guid: 2d09f22774463784e9ee15d1d220aef7, type: 3}
   m_thinkingChat: "\u9811\u5F35\u308C\uFF01"
   m_correctChat: "\u3042\u3063\u3071\u308C\uFF01"
   m_incorrectChat: "\u3080\u3045\u2026"
