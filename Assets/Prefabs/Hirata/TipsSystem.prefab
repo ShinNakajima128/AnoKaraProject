@@ -203,7 +203,6 @@ GameObject:
   - component: {fileID: 506153910591917462}
   - component: {fileID: 506153910591917463}
   - component: {fileID: 506153910591917460}
-  - component: {fileID: 506153910591917465}
   m_Layer: 5
   m_Name: TipsButton
   m_TagString: Untagged
@@ -313,7 +312,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 506153910591917465}
+      - m_Target: {fileID: 8552956570173775199}
         m_TargetAssemblyTypeName: QuizTips, Assembly-CSharp
         m_MethodName: Tips
         m_Mode: 1
@@ -325,23 +324,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
---- !u!114 &506153910591917465
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 506153910591917458}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6f17134d245eba04191bee621f0a2706, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_tipsUi: {fileID: 506153909815598078}
-  m_tipsText: {fileID: 506153911072217253}
-  m_tipsActiveCount: 5
-  m_mashUi: {fileID: 506153911225062234}
-  m_mashCancelTime: 2
 --- !u!1 &506153911072217251
 GameObject:
   m_ObjectHideFlags: 0
@@ -545,6 +527,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 506153911339510601}
+  - component: {fileID: 8552956570173775199}
   m_Layer: 5
   m_Name: TipsSystem
   m_TagString: Untagged
@@ -574,3 +557,20 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &8552956570173775199
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 506153911339510598}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6f17134d245eba04191bee621f0a2706, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_tipsUi: {fileID: 506153909815598078}
+  m_tipsText: {fileID: 506153911072217253}
+  m_tipsActiveCount: 5
+  m_mashUi: {fileID: 506153911225062234}
+  m_mashCancelTime: 1.5
