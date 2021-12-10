@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using DG.Tweening;
 
 public enum TitleStates
 {
@@ -64,8 +65,13 @@ public class TitleManager : MonoBehaviour
 
     PlayerData m_playerData = default;
 
+    /// <summary>出てくるまでの時間</summary>
+    [SerializeField]
+    float m_fadeTime = 0.5f;
+
     public static TitleManager Instance { get; private set; }
 
+    public bool IsAnim { get; set; } = false;
     public string TempPlayerName { get => m_tempName; set => m_tempName = value; }
     public GenderType TempGender { get => m_tempGender; set => m_tempGender = value; }
 
@@ -92,12 +98,24 @@ public class TitleManager : MonoBehaviour
     {
         DataManager.LoadData();
         m_playerData = DataManager.Instance.PlayerData;
+        StartCoroutine(DataCheck());
+    }
 
+    private IEnumerator TapScreenTextAnim()
+    {
+        while (!IsAnim)
+        {
+            yield return null;
+        }
+    }
+
+    private IEnumerator DataCheck()
+    {
         //プレイヤーデータがあれば時代選択画面に遷移する
         if (m_playerData.PlayerName != "")
         {
             Debug.Log($"プレイヤー名：{m_playerData.PlayerName}、性別：{m_playerData.PlayerGender}");
-
+            yield return StartCoroutine(TapScreenTextAnim());
             LoadSceneManager.AnyLoadScene(m_periodSelectSceneName, () =>
             {
                 Debug.Log("時代選択画面に遷移します");
@@ -106,6 +124,7 @@ public class TitleManager : MonoBehaviour
         //プレイヤーデータが無ければ初期設定画面を表示
         else
         {
+            yield return StartCoroutine(TapScreenTextAnim());
             ChangePanel(TitleStates.SelectGender);
         }
     }
@@ -129,6 +148,9 @@ public class TitleManager : MonoBehaviour
             case TitleStates.SelectGender:
                 m_startPanel.SetActive(false);
                 m_initialSettingPanel.SetActive(true);
+                RectTransform rect = m_initialSettingPanel.GetComponent<RectTransform>();
+                rect.localScale = Vector3.zero;
+                rect.DOScale(Vector3.one, m_fadeTime);
                 for (int i = 0; i < m_settingPanels.Length; i++)
                 {
                     if (i == 0)
