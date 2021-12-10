@@ -37,6 +37,8 @@ public class DataManager : SingletonMonoBehaviour<DataManager>
     public FourChoicesQuizData[] FourChoicesQuizDatas => m_allQuizData.FourChoicesQuizDatas;
     public AnaumeQuizData[] AnaumeQuizDatabases => m_allQuizData.AnaumeQuizDatas;
 
+    public AllScenarioData AllScenarioData => m_allScenarioData;
+
     void Awake()
     {
         if (Instance != this)
