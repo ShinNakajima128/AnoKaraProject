@@ -8,7 +8,7 @@ public class QuizTips : MonoBehaviour
 {
     /// <summary>UI</summary>
     [SerializeField]
-    GameObject m_tipsObject;
+    GameObject m_tipsUi;
 
     /// <summary>表示テキスト</summary>
     [SerializeField]
@@ -20,6 +20,10 @@ public class QuizTips : MonoBehaviour
     /// <summary>表示するのに必要な回数</summary>
     [SerializeField]
     int m_tipsActiveCount = 5;
+
+    /// <summary>連打UI</summary>
+    [SerializeField]
+    GameObject m_mashUi;
 
     /// <summary>連打キャンセル時間</summary>
     [SerializeField]
@@ -33,6 +37,9 @@ public class QuizTips : MonoBehaviour
 
     /// <summary>クイズ中にヒントを表示したか否か</summary>
     bool m_isTips = false;
+
+    /// <summary>ヒントを表示中か否か</summary>
+    bool m_isTipsActive = true;
 
     /// <summary>
     /// ヒントボタン
@@ -56,10 +63,11 @@ public class QuizTips : MonoBehaviour
     IEnumerator MashTips()
     {
         float time = 0;
+        m_mashUi.SetActive(true);
         while (m_isMash)
         {
             time += Time.deltaTime;
-            
+
             if (time > m_mashCancelTime)
             {
                 Reset();
@@ -78,6 +86,7 @@ public class QuizTips : MonoBehaviour
         void Reset()
         {
             m_isMash = false;
+            m_mashUi.SetActive(false);
             m_mashCount = 0;
         }
     }
@@ -89,7 +98,21 @@ public class QuizTips : MonoBehaviour
     {
         GetTips();
         m_isTips = true;
-        m_tipsObject.SetActive(true);
+        m_tipsUi.SetActive(true);
+        StartCoroutine(CloseTips());
+    }
+
+    /// <summary>
+    /// UIを閉じるまで待機する
+    /// </summary>
+    IEnumerator CloseTips()
+    {
+        while (m_isTipsActive)
+        {
+            yield return new WaitForEndOfFrame();
+        }
+        m_tipsUi.SetActive(false);
+        yield break;
     }
 
     /// <summary>
@@ -107,8 +130,8 @@ public class QuizTips : MonoBehaviour
     /// <summary>
     /// ヒントを閉じる
     /// </summary>
-    public void CloseTips()
+    public void Close()
     {
-        m_tipsObject.SetActive(false);
+        m_isTipsActive = false;
     }
 }
