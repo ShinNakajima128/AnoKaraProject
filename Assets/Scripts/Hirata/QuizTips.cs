@@ -52,7 +52,7 @@ public class QuizTips : MonoBehaviour
     {
         if (GameManager.Instance.CurrentPeriod == MasterData.PeriodTypes.Jomon_Yayoi)
         {
-            EventManager.ListenEvents(Events.QuizStart, TutorialTipsActive);
+            EventManager.ListenEvents(Events.QuizStart, GetTips);
         }
     }
 
@@ -170,10 +170,7 @@ public class QuizTips : MonoBehaviour
     /// </summary>
     void GetTips()
     {
-        EventManager.ListenEvents(Events.QuizStart, () =>
-        {
-            m_tips = QuizManager.Instance.CurrentQuizTips;
-        });
+        m_tips = QuizManager.Instance.CurrentQuizTips;
         m_tipsText.text = m_tips;
     }
 
