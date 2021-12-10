@@ -41,6 +41,48 @@ public class QuizTips : MonoBehaviour
     /// <summary>ヒントを表示中か否か</summary>
     bool m_isTipsActive = true;
 
+    /// <summary>ヒントチュートリアルが表示されているかどうか</summary>
+    bool m_isTutorialActive = false;
+
+    /// <summary>ヒントのチュートリアルの表示時間</summary>
+    [SerializeField]
+    float m_tutorialTipsTimer = 5f;
+
+    private void Start()
+    {
+        if (GameManager.Instance.CurrentPeriod == MasterData.PeriodTypes.Jomon_Yayoi)
+        {
+            StartCoroutine(TutorialTips());
+        }
+    }
+
+    /// <summary>
+    /// ヒントのチュートリアルを表示する
+    /// </summary>
+    /// <returns></returns>
+    IEnumerator TutorialTips()
+    {
+        float timer = 0;
+        while (true)
+        {
+            timer += Time.deltaTime;
+
+            if (!m_isTutorialActive)
+            {
+                m_isTutorialActive = true;
+                m_tipsUi.SetActive(true);
+                m_tipsText.text = "僕を連打すると1度だけヒントがもらえるよ";
+            }
+
+            if (timer > m_tutorialTipsTimer || m_isMash)
+            {
+                m_tipsUi.SetActive(false);
+                yield break;
+            }
+            yield return new WaitForEndOfFrame();
+        }
+    }
+
     /// <summary>
     /// ヒントボタン
     /// </summary>
