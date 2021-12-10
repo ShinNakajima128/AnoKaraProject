@@ -52,8 +52,16 @@ public class QuizTips : MonoBehaviour
     {
         if (GameManager.Instance.CurrentPeriod == MasterData.PeriodTypes.Jomon_Yayoi)
         {
-            StartCoroutine(TutorialTips());
+            EventManager.ListenEvents(Events.QuizStart, TutorialTipsActive);
         }
+    }
+
+    /// <summary>
+    /// チュートリアルのヒントをアクティブ化する
+    /// </summary>
+    public void TutorialTipsActive()
+    {
+        StartCoroutine(TutorialTips());
     }
 
     /// <summary>
