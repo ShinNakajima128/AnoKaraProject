@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
-using UnityEditor.Animations;
+//using UnityEditor.Animations;
 
 public class StageManager : MonoBehaviour
 {
