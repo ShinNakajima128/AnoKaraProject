@@ -361,8 +361,12 @@ public class QuizManager : MonoBehaviour
             m_playerChat.text = m_playeData.IncorrectChat;
             m_historicalFiguresChat.text = m_historicalFiguresData.IncorrectChat;
             m_quizResultUIAnims[CurrentTurnNum].Play("InCorrect");
+
+            HPController.Instance.CurrentHP--;
         }
         m_questionResults[CurrentTurnNum] = correct;
+        EventManager.OnEvent(Events.QuizEnd);
+        HPCheck();
     }
 
     /// <summary>
@@ -377,6 +381,13 @@ public class QuizManager : MonoBehaviour
         m_historicalFiguresImage.sprite = historicalFigures.CharacterImages[0];
     }
 
+    void HPCheck()
+    {
+        if(HPController.Instance.CurrentHP <= 0)
+        {
+            Debug.Log("ゲームオーバー");
+        }
+    }
     /// <summary>
     /// 現在のクイズの正答率を計算する
     /// </summary>
