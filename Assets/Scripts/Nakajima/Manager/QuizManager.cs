@@ -318,6 +318,15 @@ public class QuizManager : MonoBehaviour
     }
     #endregion
 
+    IEnumerator Gameover()
+    {
+        yield return new WaitForSeconds(2.0f);
+
+        m_JudgePanel.SetActive(false);
+
+        LoadSceneManager.AnyLoadScene("PeriodSelect");
+    }
+
     /// <summary>
     /// 各クイズの画面を非表示にする
     /// </summary>
@@ -386,6 +395,8 @@ public class QuizManager : MonoBehaviour
         if(HPController.Instance.CurrentHP <= 0)
         {
             Debug.Log("ゲームオーバー");
+            StopAllCoroutines();
+            StartCoroutine(Gameover());
         }
     }
     /// <summary>
