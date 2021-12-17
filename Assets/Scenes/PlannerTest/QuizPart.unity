@@ -724,7 +724,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 21300000, guid: 5668637361a366443b407d7058c67249, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -867,6 +867,10 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 2118772312}
+    - target: {fileID: 434024879647280400, guid: e1dacf4572dd80143b50cb7a73e36d93, type: 3}
+      propertyPath: m_panel
+      value: 
+      objectReference: {fileID: 1412438760}
     - target: {fileID: 434024879647280401, guid: e1dacf4572dd80143b50cb7a73e36d93, type: 3}
       propertyPath: m_RootOrder
       value: 7
@@ -914,6 +918,10 @@ PrefabInstance:
     - target: {fileID: 434024879647280406, guid: e1dacf4572dd80143b50cb7a73e36d93, type: 3}
       propertyPath: m_Name
       value: QuizManager
+      objectReference: {fileID: 0}
+    - target: {fileID: 434024879928823098, guid: e1dacf4572dd80143b50cb7a73e36d93, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e1dacf4572dd80143b50cb7a73e36d93, type: 3}
