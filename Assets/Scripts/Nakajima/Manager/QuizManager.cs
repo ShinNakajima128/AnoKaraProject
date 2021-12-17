@@ -112,6 +112,9 @@ public class QuizManager : MonoBehaviour
     [Header("デバッグ用")]
     [SerializeField]
     int questionLimit = 10;
+    /// <summary>GameOverパネル /summary>
+    [SerializeField]
+    GameObject m_panel;
     #endregion
 
     /// <summary> プレイヤーのデータ </summary>
@@ -323,7 +326,8 @@ public class QuizManager : MonoBehaviour
         yield return new WaitForSeconds(2.0f);
 
         m_JudgePanel.SetActive(false);
-
+        m_panel.SetActive(true);
+        yield return new WaitForSeconds(2.0f);
         LoadSceneManager.AnyLoadScene("PeriodSelect");
     }
 
