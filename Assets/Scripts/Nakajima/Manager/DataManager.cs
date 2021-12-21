@@ -122,11 +122,15 @@ public class DataManager : SingletonMonoBehaviour<DataManager>
     {
         for (int i = 0; i < m_allScenarioData.AllScenarioDatas.Length; i++)
         {
-            if (m_allScenarioData.AllScenarioDatas[i].ScenarioSheetName == sheetName)  //プロパティとシート名が一致したら
+            if (m_allScenarioData.AllScenarioDatas[i].ChoicesSheetName == sheetName)  //プロパティとシート名が一致したら
             {
                 LoadMasterData(url, sheetName, (ScenarioMasterDataClass<ChoicesData> data) =>
                 {
                     m_allScenarioData.AllScenarioDatas[i].ChoicesDatas = data.Data;  //データ更新
+                    for (int n = 0; n < m_allScenarioData.AllScenarioDatas[i].ChoicesDatas.Length; n++)
+                    {
+                        m_allScenarioData.AllScenarioDatas[i].ChoicesDatas[n].MessagesAndNextIdToArray();
+                    }
                 });
                 return;
             }
