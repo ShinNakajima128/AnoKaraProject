@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_spreadSheetURL: https://script.google.com/macros/s/AKfycbylVkrjxNIliuZ3BKHepU4m1is5teOIuKWqjnDIQUQT__ZDw3Ks/exec
   m_scenarioSheetName: edo_01
-  m_choicesSheetName: 
+  m_choicesSheetName: edo_choice
   m_dialogData:
   - MessageId: 0
     Talker: "\u6E90\u983C\u671D"
@@ -342,5 +342,30 @@ MonoBehaviour:
     NextId: 0
     m_allMessages:
     - 
-  m_choicesDatas: []
+  m_choicesDatas:
+  - ChoicesId: 0
+    Choices: 
+    NextMessageId: 
+    m_allChoices: []
+    m_nextId: 
+  - ChoicesId: 0
+    Choices: 
+    NextMessageId: 
+    m_allChoices: []
+    m_nextId: 
+  - ChoicesId: 0
+    Choices: 
+    NextMessageId: 
+    m_allChoices: []
+    m_nextId: 
+  - ChoicesId: 0
+    Choices: 
+    NextMessageId: 
+    m_allChoices: []
+    m_nextId: 
+  - ChoicesId: 0
+    Choices: 
+    NextMessageId: 
+    m_allChoices: []
+    m_nextId: 
   m_backgroundType: 0

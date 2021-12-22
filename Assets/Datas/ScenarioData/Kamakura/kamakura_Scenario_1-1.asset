@@ -343,5 +343,14 @@ MonoBehaviour:
     NextId: 0
     m_allMessages:
     - 
-  m_choicesDatas: []
+  m_choicesDatas:
+  - ChoicesId: 1
+    Choices: "\u306A\u305C\uFF1F\nWhy\uFF1F"
+    NextMessageId: '1
+
+      2'
+    m_allChoices:
+    - "\u306A\u305C\uFF1F"
+    - "Why\uFF1F"
+    m_nextId: 0100000002000000
   m_backgroundType: 0
