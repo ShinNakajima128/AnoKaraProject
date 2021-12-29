@@ -6,7 +6,7 @@ public class SaveManager
 {
     static SaveManager Instance = new SaveManager();
 
-    const string FILEPATH = "Datas/SaveData/gamedata.json";
+    const string FILEPATH = "GameData";
 
     SaveData Data = default;
 

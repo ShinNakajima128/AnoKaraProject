@@ -14,6 +14,7 @@ public enum Events
     MinigameEnd,
     AutoSave,
     Debug,
+    Transition
 }
 /// <summary>
 /// イベントを管理するクラス
@@ -79,6 +80,10 @@ public class EventManager : MonoBehaviour
         if (Instance.m_eventDic.TryGetValue(events, out thisEvent))
         {
             thisEvent?.Invoke();
+        }
+        else
+        {
+            return;
         }
     }
 }
