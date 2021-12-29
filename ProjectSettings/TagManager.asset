@@ -5,6 +5,11 @@ TagManager:
   serializedVersion: 2
   tags:
   - Ball
+  - BGM
+  - SE
+  - VOICE_Boy
+  - VOICE_Girl
+  - VOICE_Koma
   layers:
   - Default
   - TransparentFX
