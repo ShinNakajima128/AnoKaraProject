@@ -10,13 +10,13 @@ public class OpeningManager : MonoBehaviour
 
     void Awake()
     {
-        EventManager.ListenEvents(Events.Debug, LoadPeriodSelectScene);
+        EventManager.ListenEvents(Events.FinishDialog, LoadPeriodSelectScene);
     }
 
     /// <summary>
     /// 時代選択画面に遷移する
     /// </summary>
-    public void LoadPeriodSelectScene()
+    void LoadPeriodSelectScene()
     {
         LoadSceneManager.AnyLoadScene(m_periodSelectSceneName);
     }

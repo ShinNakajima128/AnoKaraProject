@@ -271,8 +271,8 @@ public class ScenarioManager : MonoBehaviour
                 EventManager.OnEvent(Events.Debug);
             }
             //キャラクターのアニメーションが終わるまで待つ
-            yield return WaitForCharaAnimation(data.DialogData[currentDialogIndex].Talker,
-                                               data.DialogData[currentDialogIndex].Position,
+            yield return WaitForCharaAnimation(data.DialogData[currentDialogIndex].AllTalker,
+                                               data.DialogData[currentDialogIndex].AllPosition,
                                                data.DialogData[currentDialogIndex].StartAnimationType);
 
             m_display.SetActive(true);
@@ -292,7 +292,7 @@ public class ScenarioManager : MonoBehaviour
             {
                 m_tempLog += m_characterName.text + "：";
             }
-            EmphasisCharacter(data.DialogData[currentDialogIndex].Position); //アクティブなキャラ以外を暗転する
+            EmphasisCharacter(data.DialogData[currentDialogIndex].AllPosition); //アクティブなキャラ以外を暗転する
 
             //各キャラクターの全てのメッセージを順に表示する
             for (int i = 0; i < data.DialogData[currentDialogIndex].AllMessages.Length; i++)
@@ -306,10 +306,14 @@ public class ScenarioManager : MonoBehaviour
                 //キャラクターの表情の変更があればここで変更
                 if (m_characterName.text != "ナレーター")
                 {
-                    if (m_characterImage[data.DialogData[currentDialogIndex].Position].enabled)
+                    for (int n = 0; n < data.DialogData[currentDialogIndex].AllPosition.Length; n++)
                     {
-                        m_characterImage[data.DialogData[currentDialogIndex].Position].sprite = SetCharaImage(data.DialogData[currentDialogIndex].Talker, data.DialogData[currentDialogIndex].FaceTypes[i]);
-                    }
+                        Debug.Log(data.DialogData[currentDialogIndex].AllPosition[n]);
+                        if (m_characterImage[data.DialogData[currentDialogIndex].AllPosition[n]].enabled)
+                        {
+                            m_characterImage[data.DialogData[currentDialogIndex].AllPosition[n]].sprite = SetCharaImage(data.DialogData[currentDialogIndex].Talker, data.DialogData[currentDialogIndex].FaceTypes[i]);
+                        }
+                    }   
                 }              
 
                 //表示されたメッセージをリセット
@@ -433,8 +437,8 @@ public class ScenarioManager : MonoBehaviour
                 yield return null;
             }
             //キャラクターのアニメーションが終わるまで待つ
-            yield return WaitForCharaAnimation(data.DialogData[currentDialogIndex].Talker,
-                                               data.DialogData[currentDialogIndex].Position,
+            yield return WaitForCharaAnimation(data.DialogData[currentDialogIndex].AllTalker,
+                                               data.DialogData[currentDialogIndex].AllPosition,
                                                data.DialogData[currentDialogIndex].EndAnimationType, data.DialogData[currentDialogIndex].FaceTypes[data.DialogData[currentDialogIndex].FaceTypes.Length - 1]);
 
             //選択肢に対応したメッセージが表示済みだったら
@@ -464,7 +468,8 @@ public class ScenarioManager : MonoBehaviour
                 SearchManager.Instance.IsTaskComplited = true;
             }
         }
-        OnEndDialog();
+        //OnEndDialog();
+        EventManager.OnEvent(Events.FinishDialog);
         #endregion
     }
 
@@ -475,43 +480,48 @@ public class ScenarioManager : MonoBehaviour
     /// <param name="positionIndex"></param>
     /// <param name="animation"></param>
     /// <returns></returns>
-    IEnumerator WaitForCharaAnimation(string charaName, int positionIndex, string animation, int faceType = 3)
+    IEnumerator WaitForCharaAnimation(string[] charaName, int[] positionIndex, string animation, int faceType = 3)
     {
-        if (charaName == "ナレーター")
+        if (charaName[0] == "ナレーター")
         {
             m_namePanel.SetActive(false);
             yield break;
         }
 
-        if (!m_characterImage[positionIndex].enabled)
-        {
-            m_characterImage[positionIndex].enabled = true;
-        }
+        
 
-        m_characterImage[positionIndex].sprite = SetCharaImage(charaName, faceType);
-
-        if (animation != null && animation != "なし") //アニメーションの指定があれば
+        for (int i = 0; i < charaName.Length; i++)
         {
-            AnimationAccordingType(animation, positionIndex);
-            isAnimPlaying = true;
-            CharacterPanel.CharacterAnim += FinishReceive;
-        }
-        else if (animation == "なし")
-        {
-            AnimationAccordingType(animation, positionIndex);
-            yield break;
-        }
-
-        while (isAnimPlaying) //アニメーションが終わるまで待つ
-        {
-            if (IsInputed())
+            if (!m_characterImage[positionIndex[i]].enabled)
             {
-                m_anim[positionIndex].Play("Idle");
-                isAnimPlaying = false;
+                m_characterImage[positionIndex[i]].enabled = true;
             }
-            yield return null;
-        }
-        CharacterPanel.CharacterAnim -= FinishReceive;
+
+            m_characterImage[positionIndex[i]].sprite = SetCharaImage(charaName[i], faceType);
+
+            if (animation != null && animation != "なし") //アニメーションの指定があれば
+            {
+                AnimationAccordingType(animation, positionIndex[i]);
+                isAnimPlaying = true;
+                CharacterPanel.CharacterAnim += FinishReceive;
+            }
+            else if (animation == "なし")
+            {
+                AnimationAccordingType(animation, positionIndex[i]);
+                yield break;
+            }
+
+            while (isAnimPlaying) //アニメーションが終わるまで待つ
+            {
+                if (IsInputed())
+                {
+                    m_anim[positionIndex[i]].Play("Idle");
+                    isAnimPlaying = false;
+                }
+                yield return null;
+            }
+            CharacterPanel.CharacterAnim -= FinishReceive;
+        }        
     }
 
     /// <summary>
@@ -536,6 +546,7 @@ public class ScenarioManager : MonoBehaviour
         {
             yield return null;
         }
+        Debug.Log("終了");
         CharacterPanel.CharacterAnim -= FinishReceive;
     }
 
@@ -740,19 +751,22 @@ public class ScenarioManager : MonoBehaviour
     /// アクティブなキャラクター以外を暗転させる
     /// </summary>
     /// <param name="currentIndex"></param>
-    void EmphasisCharacter(int currentIndex)
+    void EmphasisCharacter(int[] currentIndex)
     {
         for (int i = 0; i < m_characterImage.Length; i++)
         {
             if (m_characterImage[i].enabled)
             {
-                if (i == currentIndex)
+                for(int n = 0; n < currentIndex.Length; n++)
                 {
-                    m_characterImage[i].color = new Color(1, 1, 1); //アクティブにする
-                }
-                else
-                {
-                    m_characterImage[i].color = new Color(0.5f, 0.5f, 0.5f); //非アクティブにする
+                    if (i == currentIndex[n])
+                    {
+                        m_characterImage[i].color = new Color(1, 1, 1); //アクティブにする
+                    }
+                    else
+                    {
+                        m_characterImage[i].color = new Color(0.5f, 0.5f, 0.5f); //非アクティブにする
+                    }
                 }
             }
         }

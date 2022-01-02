@@ -13,6 +13,7 @@ public enum Events
     MinigameStart,
     MinigameEnd,
     AutoSave,
+    FinishDialog,
     Debug,
     Transition
 }
