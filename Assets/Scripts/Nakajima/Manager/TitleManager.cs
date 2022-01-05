@@ -89,6 +89,7 @@ public class TitleManager : MonoBehaviour
         }
         m_gameDataObject.SetUp();
         ChangePanel(TitleStates.Start);
+        SoundManager.Instance.PlayBgm(SoundManager.Instance.BgmName);
     }
 
     /// <summary>

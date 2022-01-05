@@ -13,6 +13,10 @@ public class OpeningManager : MonoBehaviour
         EventManager.ListenEvents(Events.FinishDialog, LoadPeriodSelectScene);
     }
 
+    private void Start()
+    {
+        SoundManager.Instance.PlayBgm(SoundManager.Instance.BgmName);
+    }
     /// <summary>
     /// 時代選択画面に遷移する
     /// </summary>
