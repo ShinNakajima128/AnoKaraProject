@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 62607851}
   m_Layer: 0
   m_Name: Boy_CriAtomSource
-  m_TagString: Untagged
+  m_TagString: VOICE_Boy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -76,7 +76,7 @@ GameObject:
   - component: {fileID: 103144857}
   m_Layer: 0
   m_Name: Girl_CriAtomSource
-  m_TagString: Untagged
+  m_TagString: VOICE_Girl
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -140,7 +140,7 @@ GameObject:
   - component: {fileID: 671073608}
   m_Layer: 0
   m_Name: BGM_CriAtomSource
-  m_TagString: Untagged
+  m_TagString: BGM
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -204,7 +204,7 @@ GameObject:
   - component: {fileID: 1388243304}
   m_Layer: 0
   m_Name: Koma_CriAtomSource
-  m_TagString: Untagged
+  m_TagString: VOICE_Koma
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -268,7 +268,7 @@ GameObject:
   - component: {fileID: 1886962401}
   m_Layer: 0
   m_Name: SE_CriAtomSource
-  m_TagString: Untagged
+  m_TagString: SE
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
