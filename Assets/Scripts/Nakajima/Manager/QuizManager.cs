@@ -164,6 +164,7 @@ public class QuizManager : MonoBehaviour
         SetCharacterPanel(m_playeData, m_historicalFiguresData);
         m_questionResults = new bool[questionLimit];
         StartCoroutine(QuizStart());
+        SoundManager.Instance.PlayBgm(SoundManager.Instance.BgmName);
     }
 
     /// <summary>
@@ -360,6 +361,7 @@ public class QuizManager : MonoBehaviour
             m_playerChat.text = m_playeData.CorrectChat;
             m_historicalFiguresChat.text = m_historicalFiguresData.CorrectChat;
             m_quizResultUIAnims[CurrentTurnNum].Play("Correct");
+            FixPlayVoice(VoiceType.Player, "voice004");
         }
         //不正解
         else
@@ -374,7 +376,7 @@ public class QuizManager : MonoBehaviour
             m_playerChat.text = m_playeData.IncorrectChat;
             m_historicalFiguresChat.text = m_historicalFiguresData.IncorrectChat;
             m_quizResultUIAnims[CurrentTurnNum].Play("InCorrect");
-
+            FixPlayVoice(VoiceType.Player, "voice005");
             HPController.Instance.CurrentHP--;
         }
         m_questionResults[CurrentTurnNum] = correct;
@@ -403,6 +405,13 @@ public class QuizManager : MonoBehaviour
             StartCoroutine(Gameover());
         }
     }
+
+    void FixPlayVoice(VoiceType type, string id)
+    {
+        var s = id.Replace("player_", "voice").Replace("Koma_", "voice");
+        SoundManager.Instance.PlayVoice(type, s);
+    }
+
     /// <summary>
     /// 現在のクイズの正答率を計算する
     /// </summary>
