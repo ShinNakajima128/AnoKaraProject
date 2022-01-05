@@ -234,6 +234,7 @@ public class QuizManager : MonoBehaviour
                 }
                 Debug.Log(m_currentQuizTips);
                 EventManager.OnEvent(Events.QuizStart);
+                SoundManager.Instance.PlaySe("SE_quiz");
                 yield return m_currentQuestion;
             }
             //正解した数を保存
@@ -361,6 +362,7 @@ public class QuizManager : MonoBehaviour
             m_playerChat.text = m_playeData.CorrectChat;
             m_historicalFiguresChat.text = m_historicalFiguresData.CorrectChat;
             m_quizResultUIAnims[CurrentTurnNum].Play("Correct");
+            SoundManager.Instance.PlaySe("SE_correct");
             FixPlayVoice(VoiceType.Player, "voice004");
         }
         //不正解
@@ -376,6 +378,7 @@ public class QuizManager : MonoBehaviour
             m_playerChat.text = m_playeData.IncorrectChat;
             m_historicalFiguresChat.text = m_historicalFiguresData.IncorrectChat;
             m_quizResultUIAnims[CurrentTurnNum].Play("InCorrect");
+            SoundManager.Instance.PlaySe("SE_incorrect");
             FixPlayVoice(VoiceType.Player, "voice005");
             HPController.Instance.CurrentHP--;
         }
