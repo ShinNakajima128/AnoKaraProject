@@ -100,6 +100,7 @@ public class TitleManager : MonoBehaviour
         DataManager.LoadData();
         m_playerData = DataManager.Instance.PlayerData;
         StartCoroutine(DataCheck());
+        SoundManager.Instance.PlaySe("SE_title");
     }
 
     private IEnumerator TapScreenTextAnim()
@@ -149,6 +150,7 @@ public class TitleManager : MonoBehaviour
             case TitleStates.SelectGender:
                 m_startPanel.SetActive(false);
                 m_initialSettingPanel.SetActive(true);
+                //SoundManager.Instance.PlaySe("SE_popup");
                 RectTransform rect = m_initialSettingPanel.GetComponent<RectTransform>();
                 rect.localScale = Vector3.zero;
                 rect.DOScale(Vector3.one, m_fadeTime);
@@ -168,6 +170,7 @@ public class TitleManager : MonoBehaviour
             case TitleStates.InputName:
                 m_startPanel.SetActive(false);
                 m_initialSettingPanel.SetActive(true);
+                //SoundManager.Instance.PlaySe("SE_popup");
                 for (int i = 0; i < m_settingPanels.Length; i++)
                 {
                     if (i == 1)
@@ -183,6 +186,7 @@ public class TitleManager : MonoBehaviour
             case TitleStates.FinalConfirm:
                 m_startPanel.SetActive(false);
                 m_initialSettingPanel.SetActive(true);
+                //SoundManager.Instance.PlaySe("SE_popup");
                 for (int i = 0; i < m_settingPanels.Length; i++)
                 {
                     if (i == 2)
@@ -217,6 +221,7 @@ public class TitleManager : MonoBehaviour
         DataManager.SaveData();
         m_gameDataObject.SetUp();
         LoadSceneManager.AnyLoadScene(m_openingSceneName);
+        SoundManager.Instance.PlaySe("SE_touch");
     }
 
     /// <summary>

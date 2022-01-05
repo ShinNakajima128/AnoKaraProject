@@ -46,6 +46,7 @@ public class NameInput : MonoBehaviour
                 m_caution.enabled = true;
                 m_input.text = "";
                 m_caution.text = "その名前は使用できません";
+                SoundManager.Instance.PlaySe("SE_incorrect");
                 return;
             }
             else
@@ -55,6 +56,7 @@ public class NameInput : MonoBehaviour
                 m_input.text = "";
                 TitleManager.Instance.TempPlayerName = m_tempName;
                 TitleManager.Instance.ChangePanel(TitleStates.FinalConfirm);
+                SoundManager.Instance.PlaySe("SE_touch");
             }
         }
     }
@@ -66,6 +68,7 @@ public class NameInput : MonoBehaviour
     {
         m_input.text = "";
         TitleManager.Instance.ChangePanel(TitleStates.SelectGender);
+        SoundManager.Instance.PlaySe("SE_select");
     }
 
     /// <summary>

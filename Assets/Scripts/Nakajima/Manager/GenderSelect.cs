@@ -52,6 +52,7 @@ public class GenderSelect : MonoBehaviour
         }
         //確認画面を表示する
         m_confirmPanel.SetActive(true);
+        SoundManager.Instance.PlaySe("SE_touch");
     }
 
     /// <summary>
@@ -66,6 +67,7 @@ public class GenderSelect : MonoBehaviour
         }
         TitleManager.Instance.TempGender = m_selectGender;
         TitleManager.Instance.ChangePanel(TitleStates.InputName);
+        SoundManager.Instance.PlaySe("SE_select");
     }
 
     /// <summary>
