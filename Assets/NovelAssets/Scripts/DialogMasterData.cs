@@ -14,8 +14,14 @@ namespace ScenarioMasterData
     public class DialogData
     {
         public int MessageId = default;
+        [HideInInspector]
         public string Talker = default;
-        public int Position = default;
+        [SerializeField]
+        string[] m_talker = default;
+        [HideInInspector]
+        public string Position = default;
+        [SerializeField]
+        int[] m_position = default;
         public int BackgroundType = default;
         [HideInInspector]
         public string FaceType = default;
@@ -27,15 +33,35 @@ namespace ScenarioMasterData
         public string Messages = default;
         public int ChoicesId = default;
         public int NextId = default;
+        [HideInInspector]
+        public string VoiceId = default;
+        [SerializeField]
+        string[] m_allVoiceId = default;
         [SerializeField,TextArea(0, 10)]
         string[] m_allMessages = default;
 
+        public string[] AllTalker { get => m_talker; } 
+        public int[] AllPosition { get => m_position; }
         public int[] FaceTypes => m_faceTypes; 
         public string[] AllMessages { get => m_allMessages; set => m_allMessages = value; }
+        public string[] AllVoiceId { get => m_allVoiceId; }
         public void MessagesAndFacetypeToArray()
         {
             string[] del = { "\n" };
+            m_talker = Talker.Split(del, StringSplitOptions.None);
+            m_allVoiceId = VoiceId.Split(del, StringSplitOptions.None);
             m_allMessages = Messages.Split(del, StringSplitOptions.None);
+            var p = Position.Split(del, StringSplitOptions.None);
+            m_position = new int[p.Length];
+
+            for (int i = 0; i < p.Length; i++)
+            {
+                if (p[i] != "")
+                {
+                    m_position[i] = int.Parse(p[i]);
+                }
+            }
+
             var f = FaceType.Split(del, StringSplitOptions.None);
             m_faceTypes = new int[f.Length];
 
