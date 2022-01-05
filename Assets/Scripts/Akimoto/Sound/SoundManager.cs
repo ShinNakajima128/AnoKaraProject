@@ -4,8 +4,7 @@ using UnityEngine;
 
 public enum VoiceType
 {
-    Boy,
-    Giri,
+    Player,
     Koma
 }
 
@@ -24,16 +23,12 @@ public class SoundManager : MonoBehaviour
     CriAtomSource m_voiceKomaSource = default;
 
     public static SoundManager Instance;
-    public string Name { set => m_bgmName = value; }
+    public string BgmName { get => m_bgmName; set => m_bgmName = value; }
     public float SwitchSpeed { set => m_switchSpeed = value; }
 
     private void Awake()
     {
         Instance = this;
-    }
-
-    private void Start()
-    {
         Setup();
     }
 
@@ -62,13 +57,17 @@ public class SoundManager : MonoBehaviour
         m_bgmSource.loop = false;
         switch (voiceType)
         {
-            case VoiceType.Boy:
-                m_voiceBoySource.cueName = name;
-                m_voiceBoySource.Play();
-                break;
-            case VoiceType.Giri:
-                m_voiceGirlSource.cueName = name;
-                m_voiceGirlSource.Play();
+            case VoiceType.Player:
+                if(DataManager.Instance.PlayerData.PlayerGender == GenderType.Boy)
+                {
+                    m_voiceBoySource.cueName = name;
+                    m_voiceBoySource.Play();
+                }
+                else
+                {
+                    m_voiceGirlSource.cueName = name;
+                    m_voiceGirlSource.Play();
+                }
                 break;
             case VoiceType.Koma:
                 m_voiceKomaSource.cueName = name;
