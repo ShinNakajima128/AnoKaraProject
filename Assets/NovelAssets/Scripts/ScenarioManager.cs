@@ -147,6 +147,9 @@ public class ScenarioManager : MonoBehaviour
     bool isReactioned = false;
     bool m_clickReception = false;
     bool isFirst = true;
+    bool set1 = false;
+    bool set2 = false;
+    bool set3 = false;
     IEnumerator m_currentCoroutine = default;
     Image[] m_characterImage;
     Animator[] m_anim;
@@ -227,6 +230,34 @@ public class ScenarioManager : MonoBehaviour
         m_display.SetActive(false);
         int currentDialogIndex = 0;
         m_nextMessageId = 0;
+        int setCount = 0;
+
+        for (int i = 0; i < data.DialogData.Length; i++)
+        {
+            if (data.DialogData[i].AllPosition[0] == 0 && !set1)
+            {
+                m_characterImage[data.DialogData[i].AllPosition[0]].sprite = SetCharaImage(data.DialogData[i].AllTalker[0]);
+                set1 = true;
+                setCount++;
+            }
+            else if (data.DialogData[i].AllPosition[0] == 1 && !set2)
+            {
+                m_characterImage[data.DialogData[i].AllPosition[0]].sprite = SetCharaImage(data.DialogData[i].AllTalker[0]);
+                set2 = true;
+                setCount++;
+            }
+            else if (data.DialogData[i].AllPosition[0] == 2 && !set3)
+            {
+                m_characterImage[data.DialogData[i].AllPosition[0]].sprite = SetCharaImage(data.DialogData[i].AllTalker[0]);
+                set3 = true;
+                setCount++;
+            }
+
+            if (setCount >= 3)
+            {
+                break;
+            }
+        }
 
         while (currentDialogIndex < data.DialogData.Length)
         {
@@ -713,7 +744,19 @@ public class ScenarioManager : MonoBehaviour
             case "AllFadeIn":
                 for (int i = 0; i < m_characterImage.Length; i++)
                 {
-                    if (!m_characterImage[i].enabled)
+                    //if (!m_characterImage[i].enabled)
+                    //{
+                    //    m_characterImage[i].enabled = true;
+                    //}
+                    if (i == 0 && set1)
+                    {
+                        m_characterImage[i].enabled = true;
+                    }
+                    else if (i == 1 && set2)
+                    {
+                        m_characterImage[i].enabled = true;
+                    }
+                    else if (i == 2 && set3)
                     {
                         m_characterImage[i].enabled = true;
                     }
