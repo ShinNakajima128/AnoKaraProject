@@ -355,6 +355,18 @@ public class ScenarioManager : MonoBehaviour
                 bool isHighlighted = false;
                 m_clickReception = false;
 
+                if (data.DialogData[currentDialogIndex].AllVoiceId[i] != "なし")
+                {
+                    if (m_characterName.text == "コマ")
+                    {
+                        FixPlayVoice(VoiceType.Koma, data.DialogData[currentDialogIndex].AllVoiceId[i]);
+                    }
+                    else
+                    {
+                        FixPlayVoice(VoiceType.Player, data.DialogData[currentDialogIndex].AllVoiceId[i]);
+                    }
+                }
+                
                 //各メッセージを一文字ずつ表示する
                 foreach (var m in message)
                 {
@@ -874,6 +886,12 @@ public class ScenarioManager : MonoBehaviour
     void OnContinueDialog()
     {
         ContinueEvent?.Invoke();
+    }
+
+    void FixPlayVoice(VoiceType type, string id)
+    {
+        var s = id.Replace("player_", "voice").Replace("koma_", "voice");
+        SoundManager.Instance.PlayVoice(type, s);
     }
 
     /// <summary>
