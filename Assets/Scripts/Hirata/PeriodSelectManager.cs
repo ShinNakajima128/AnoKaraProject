@@ -56,10 +56,19 @@ public class PeriodSelectManager : MonoBehaviour
     [SerializeField]
     Button m_decisionButton;
 
+    [SerializeField]
+    Text m_headerText = default;
+
     private void Awake()
     {
         GetPeriodClearFlag();
         SetButtonFlag(m_periodButtons, m_periodClearFlags);
+        //DataManager.SaveData();
+    }
+
+    private void Start()
+    {
+        SoundManager.Instance.PlayBgm(SoundManager.Instance.BgmName);
     }
 
     /// <summary>
@@ -73,6 +82,7 @@ public class PeriodSelectManager : MonoBehaviour
         SetButtonFlag(m_stageButtons, m_stageClearFlag);
         SetStageButton(m_stageTexts, m_periodStageData, period);
         m_stageSelectPanel.SetActive(true);
+        m_headerText.text = "ステージ選択";
     }
 
     /// <summary>
@@ -171,6 +181,7 @@ public class PeriodSelectManager : MonoBehaviour
         m_stageCharactorImage.sprite = m_stageDefaultSprite;
         ResetSelectStage();
         m_stageSelectPanel.SetActive(false);
+        m_headerText.text = "時代選択";
     }
 
     /// <summary>
