@@ -70,7 +70,7 @@ public class ScenarioData : ScriptableObject
     /// <param name="callback"></param>
     void LoadDialogMasterData<T>(string file, ScenarioDataCallback<T> callback)
     {
-        Network.WebRequest.Request<Network.WebRequest.GetString>("https://script.google.com/macros/s/AKfycbxkXM9so9l2drzNtbaSPIcMBJTV0_fScdRw-bVXREQdkJ8Vn1Tv/exec?sheet=" + file, Network.WebRequest.ResultType.String, (string json) =>
+        Network.WebRequest.Request<Network.WebRequest.GetString>("https://script.google.com/macros/s/AKfycbylVkrjxNIliuZ3BKHepU4m1is5teOIuKWqjnDIQUQT__ZDw3Ks/exec?sheet=" + file, Network.WebRequest.ResultType.String, (string json) =>
         {
             var dldata = JsonUtility.FromJson<T>(json);
             callback(dldata);
