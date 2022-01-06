@@ -8,13 +8,11 @@ public class OpeningManager : MonoBehaviour
     [SerializeField]
     string m_periodSelectSceneName = default;
 
-    void Awake()
-    {
-        EventManager.ListenEvents(Events.FinishDialog, LoadPeriodSelectScene);
-    }
+
 
     private void Start()
     {
+        EventManager.ListenEvents(Events.FinishDialog, LoadPeriodSelectScene);
         SoundManager.Instance.PlayBgm(SoundManager.Instance.BgmName);
     }
     /// <summary>
