@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using System.Linq;
+using UnityEngine.SceneManagement;
 
 public class NameInput : MonoBehaviour
 {
@@ -54,8 +55,15 @@ public class NameInput : MonoBehaviour
                 m_caution.text = "";
                 m_caution.enabled = false;
                 m_input.text = "";
-                TitleManager.Instance.TempPlayerName = m_tempName;
-                TitleManager.Instance.ChangePanel(TitleStates.FinalConfirm);
+                if (SceneManager.GetActiveScene().name == "Title")
+                {
+                    TitleManager.Instance.TempPlayerName = m_tempName;
+                    TitleManager.Instance.ChangePanel(TitleStates.FinalConfirm);
+                }
+                else
+                {
+                    DataManager.Instance.PlayerData.PlayerName = m_tempName;
+                }
                 SoundManager.Instance.PlaySe("SE_touch");
             }
         }
@@ -77,6 +85,11 @@ public class NameInput : MonoBehaviour
     public void SetName()
     {
         m_tempName = m_input.text;
+    }
+
+    public void ReName()
+    {
+
     }
 
     /// <summary>
