@@ -13,384 +13,72 @@ MonoBehaviour:
   m_Name: kamakura_Scenario_2-5
   m_EditorClassIdentifier: 
   m_spreadSheetURL: https://script.google.com/macros/s/AKfycbylVkrjxNIliuZ3BKHepU4m1is5teOIuKWqjnDIQUQT__ZDw3Ks/exec
-  m_scenarioSheetName: kamakura_Scenario_1-4
-  m_choicesSheetName: 
+  m_scenarioSheetName: kamakura_Scenario_2-5
+  m_choicesSheetName: "\u9078\u629E\u80A2\u30B7\u30FC\u30C8kamakura"
   m_dialogData:
   - MessageId: 0
-    Talker: "\u6E90\u983C\u671D"
-    m_talker: []
+    Talker: "\u5317\u6761\u653F\u5B50"
+    m_talker:
+    - "\u5317\u6761\u653F\u5B50"
     Position: 2
-    m_position: 
+    m_position: 02000000
     BackgroundType: 0
-    FaceType: 
+    FaceType: 0
     m_faceTypes: 00000000
     StartAnimationType: "\u306A\u3057"
-    EndAnimationType: FadeIn
-    Messages: "\u300C\u3069\u3046\u3058\u3083\u3063\u305F\uFF1F\u300D"
+    EndAnimationType: "\u306A\u3057"
+    Messages: "\u300C\u3069\u3046\u3058\u3083\uFF1F\u3069\u3046\u3058\u3083\uFF1F\u5C11\u3057\u3067\u3082\u308F\u304B\u3063\u305F\u3058\u3083\u308D\uFF1F\u300D"
     ChoicesId: 0
     NextId: 1
     m_allMessages:
-    - "\u300C\u3069\u3046\u3058\u3083\u3063\u305F\uFF1F\u300D"
+    - "\u300C\u3069\u3046\u3058\u3083\uFF1F\u3069\u3046\u3058\u3083\uFF1F\u5C11\u3057\u3067\u3082\u308F\u304B\u3063\u305F\u3058\u3083\u308D\uFF1F\u300D"
   - MessageId: 1
     Talker: "\u30D7\u30EC\u30A4\u30E4\u30FC"
-    m_talker: []
+    m_talker:
+    - "\u30D7\u30EC\u30A4\u30E4\u30FC"
     Position: 0
-    m_position: 
+    m_position: 00000000
     BackgroundType: 0
-    FaceType: 
+    FaceType: 0
     m_faceTypes: 00000000
     StartAnimationType: "\u306A\u3057"
     EndAnimationType: "\u306A\u3057"
-    Messages: "\u300C\u3059\u3054\u3044\u4EBA\u3060\u3063\u305F\u3068\u3044\u3046\u3053\u3068\u306F\u308F\u304B\u3063\u305F\u3088\uFF01\n\u5C11\u3057\u3060\u3051\u3067\u3082\u3001\u77E5\u308B\u3053\u3068\u304C\u3067\u304D\u3066\u826F\u304B\u3063\u305F\uFF01\u300D"
+    Messages: "\u300C\u3088\u304F\u308F\u304B\u308A\u307E\u3057\u305F\u30FC\uFF01\u653F\u5B50\u69D8\u30FC\uFF01\u300D"
     ChoicesId: 0
     NextId: 2
     m_allMessages:
-    - "\u300C\u3059\u3054\u3044\u4EBA\u3060\u3063\u305F\u3068\u3044\u3046\u3053\u3068\u306F\u308F\u304B\u3063\u305F\u3088\uFF01"
-    - "\u5C11\u3057\u3060\u3051\u3067\u3082\u3001\u77E5\u308B\u3053\u3068\u304C\u3067\u304D\u3066\u826F\u304B\u3063\u305F\uFF01\u300D"
+    - "\u300C\u3088\u304F\u308F\u304B\u308A\u307E\u3057\u305F\u30FC\uFF01\u653F\u5B50\u69D8\u30FC\uFF01\u300D"
   - MessageId: 2
-    Talker: "\u30B3\u30DE\u3001\u6E90\u983C\u671D"
-    m_talker: []
-    Position: 1
-    m_position: 
+    Talker: "\u5317\u6761\u653F\u5B50"
+    m_talker:
+    - "\u5317\u6761\u653F\u5B50"
+    Position: 2
+    m_position: 02000000
     BackgroundType: 0
-    FaceType: 
+    FaceType: 0
     m_faceTypes: 00000000
     StartAnimationType: "\u306A\u3057"
-    EndAnimationType: FadeOut
-    Messages: "\u300C\u4F55\u3088\u308A\uFF01\u300D"
+    EndAnimationType: "\u306A\u3057"
+    Messages: "\u300C\u3046\u3093\u3046\u3093\uFF01\u3088\u3044\u3088\u3044\uFF01\u300D"
     ChoicesId: 0
     NextId: 3
     m_allMessages:
-    - "\u300C\u4F55\u3088\u308A\uFF01\u300D"
+    - "\u300C\u3046\u3093\u3046\u3093\uFF01\u3088\u3044\u3088\u3044\uFF01\u300D"
   - MessageId: 3
-    Talker: 
-    m_talker: []
-    Position: 0
-    m_position: 
+    Talker: "\u30B3\u30DE"
+    m_talker:
+    - "\u30B3\u30DE"
+    Position: 1
+    m_position: 01000000
     BackgroundType: 0
-    FaceType: 
-    m_faceTypes: 00000000
+    FaceType: 3
+    m_faceTypes: 03000000
     StartAnimationType: "\u306A\u3057"
     EndAnimationType: "\u306A\u3057"
-    Messages: 
+    Messages: "\u300C\u3053\u306E\u65B9\u3082\u5358\u7D14\u3060\u30FC\u300D"
     ChoicesId: 0
     NextId: 4
     m_allMessages:
-    - 
-  - MessageId: 4
-    Talker: 
-    m_talker: []
-    Position: 0
-    m_position: 
-    BackgroundType: 0
-    FaceType: 
-    m_faceTypes: 00000000
-    StartAnimationType: "\u306A\u3057"
-    EndAnimationType: "\u306A\u3057"
-    Messages: 
-    ChoicesId: 0
-    NextId: 5
-    m_allMessages:
-    - 
-  - MessageId: 5
-    Talker: 
-    m_talker: []
-    Position: 0
-    m_position: 
-    BackgroundType: 0
-    FaceType: 
-    m_faceTypes: 00000000
-    StartAnimationType: "\u306A\u3057"
-    EndAnimationType: "\u306A\u3057"
-    Messages: 
-    ChoicesId: 0
-    NextId: 6
-    m_allMessages:
-    - 
-  - MessageId: 6
-    Talker: 
-    m_talker: []
-    Position: 0
-    m_position: 
-    BackgroundType: 0
-    FaceType: 
-    m_faceTypes: 00000000
-    StartAnimationType: "\u306A\u3057"
-    EndAnimationType: "\u306A\u3057"
-    Messages: 
-    ChoicesId: 0
-    NextId: 7
-    m_allMessages:
-    - 
-  - MessageId: 7
-    Talker: 
-    m_talker: []
-    Position: 0
-    m_position: 
-    BackgroundType: 0
-    FaceType: 
-    m_faceTypes: 00000000
-    StartAnimationType: "\u306A\u3057"
-    EndAnimationType: "\u306A\u3057"
-    Messages: 
-    ChoicesId: 0
-    NextId: 8
-    m_allMessages:
-    - 
-  - MessageId: 8
-    Talker: 
-    m_talker: []
-    Position: 0
-    m_position: 
-    BackgroundType: 0
-    FaceType: 
-    m_faceTypes: 00000000
-    StartAnimationType: "\u306A\u3057"
-    EndAnimationType: "\u306A\u3057"
-    Messages: 
-    ChoicesId: 0
-    NextId: 9
-    m_allMessages:
-    - 
-  - MessageId: 9
-    Talker: 
-    m_talker: []
-    Position: 0
-    m_position: 
-    BackgroundType: 0
-    FaceType: 
-    m_faceTypes: 00000000
-    StartAnimationType: "\u306A\u3057"
-    EndAnimationType: "\u306A\u3057"
-    Messages: 
-    ChoicesId: 0
-    NextId: 10
-    m_allMessages:
-    - 
-  - MessageId: 10
-    Talker: 
-    m_talker: []
-    Position: 0
-    m_position: 
-    BackgroundType: 0
-    FaceType: 
-    m_faceTypes: 00000000
-    StartAnimationType: "\u306A\u3057"
-    EndAnimationType: "\u306A\u3057"
-    Messages: 
-    ChoicesId: 0
-    NextId: 11
-    m_allMessages:
-    - 
-  - MessageId: 11
-    Talker: 
-    m_talker: []
-    Position: 0
-    m_position: 
-    BackgroundType: 0
-    FaceType: 
-    m_faceTypes: 00000000
-    StartAnimationType: "\u306A\u3057"
-    EndAnimationType: "\u306A\u3057"
-    Messages: 
-    ChoicesId: 0
-    NextId: 12
-    m_allMessages:
-    - 
-  - MessageId: 12
-    Talker: 
-    m_talker: []
-    Position: 0
-    m_position: 
-    BackgroundType: 0
-    FaceType: 
-    m_faceTypes: 00000000
-    StartAnimationType: "\u306A\u3057"
-    EndAnimationType: "\u306A\u3057"
-    Messages: 
-    ChoicesId: 0
-    NextId: 13
-    m_allMessages:
-    - 
-  - MessageId: 13
-    Talker: 
-    m_talker: []
-    Position: 0
-    m_position: 
-    BackgroundType: 0
-    FaceType: 
-    m_faceTypes: 00000000
-    StartAnimationType: "\u306A\u3057"
-    EndAnimationType: "\u306A\u3057"
-    Messages: 
-    ChoicesId: 0
-    NextId: 14
-    m_allMessages:
-    - 
-  - MessageId: 14
-    Talker: 
-    m_talker: []
-    Position: 0
-    m_position: 
-    BackgroundType: 0
-    FaceType: 
-    m_faceTypes: 00000000
-    StartAnimationType: "\u306A\u3057"
-    EndAnimationType: "\u306A\u3057"
-    Messages: 
-    ChoicesId: 0
-    NextId: 15
-    m_allMessages:
-    - 
-  - MessageId: 15
-    Talker: 
-    m_talker: []
-    Position: 0
-    m_position: 
-    BackgroundType: 0
-    FaceType: 
-    m_faceTypes: 00000000
-    StartAnimationType: "\u306A\u3057"
-    EndAnimationType: "\u306A\u3057"
-    Messages: 
-    ChoicesId: 0
-    NextId: 16
-    m_allMessages:
-    - 
-  - MessageId: 16
-    Talker: 
-    m_talker: []
-    Position: 0
-    m_position: 
-    BackgroundType: 0
-    FaceType: 
-    m_faceTypes: 00000000
-    StartAnimationType: "\u306A\u3057"
-    EndAnimationType: "\u306A\u3057"
-    Messages: 
-    ChoicesId: 0
-    NextId: 17
-    m_allMessages:
-    - 
-  - MessageId: 17
-    Talker: 
-    m_talker: []
-    Position: 0
-    m_position: 
-    BackgroundType: 0
-    FaceType: 
-    m_faceTypes: 00000000
-    StartAnimationType: "\u306A\u3057"
-    EndAnimationType: "\u306A\u3057"
-    Messages: 
-    ChoicesId: 0
-    NextId: 18
-    m_allMessages:
-    - 
-  - MessageId: 18
-    Talker: 
-    m_talker: []
-    Position: 0
-    m_position: 
-    BackgroundType: 0
-    FaceType: 
-    m_faceTypes: 00000000
-    StartAnimationType: "\u306A\u3057"
-    EndAnimationType: "\u306A\u3057"
-    Messages: 
-    ChoicesId: 0
-    NextId: 19
-    m_allMessages:
-    - 
-  - MessageId: 19
-    Talker: 
-    m_talker: []
-    Position: 0
-    m_position: 
-    BackgroundType: 0
-    FaceType: 
-    m_faceTypes: 00000000
-    StartAnimationType: "\u306A\u3057"
-    EndAnimationType: "\u306A\u3057"
-    Messages: 
-    ChoicesId: 0
-    NextId: 20
-    m_allMessages:
-    - 
-  - MessageId: 20
-    Talker: 
-    m_talker: []
-    Position: 0
-    m_position: 
-    BackgroundType: 0
-    FaceType: 
-    m_faceTypes: 00000000
-    StartAnimationType: "\u306A\u3057"
-    EndAnimationType: "\u306A\u3057"
-    Messages: 
-    ChoicesId: 0
-    NextId: 21
-    m_allMessages:
-    - 
-  - MessageId: 21
-    Talker: 
-    m_talker: []
-    Position: 0
-    m_position: 
-    BackgroundType: 0
-    FaceType: 
-    m_faceTypes: 00000000
-    StartAnimationType: "\u306A\u3057"
-    EndAnimationType: "\u306A\u3057"
-    Messages: 
-    ChoicesId: 0
-    NextId: 22
-    m_allMessages:
-    - 
-  - MessageId: 22
-    Talker: 
-    m_talker: []
-    Position: 0
-    m_position: 
-    BackgroundType: 0
-    FaceType: 
-    m_faceTypes: 00000000
-    StartAnimationType: "\u306A\u3057"
-    EndAnimationType: "\u306A\u3057"
-    Messages: 
-    ChoicesId: 0
-    NextId: 23
-    m_allMessages:
-    - 
-  - MessageId: 23
-    Talker: 
-    m_talker: []
-    Position: 0
-    m_position: 
-    BackgroundType: 0
-    FaceType: 
-    m_faceTypes: 00000000
-    StartAnimationType: "\u306A\u3057"
-    EndAnimationType: "\u306A\u3057"
-    Messages: 
-    ChoicesId: 0
-    NextId: 24
-    m_allMessages:
-    - 
-  - MessageId: 24
-    Talker: 
-    m_talker: []
-    Position: 0
-    m_position: 
-    BackgroundType: 0
-    FaceType: 
-    m_faceTypes: 00000000
-    StartAnimationType: "\u306A\u3057"
-    EndAnimationType: "\u306A\u3057"
-    Messages: 
-    ChoicesId: 0
-    NextId: 0
-    m_allMessages:
-    - 
+    - "\u300C\u3053\u306E\u65B9\u3082\u5358\u7D14\u3060\u30FC\u300D"
   m_choicesDatas: []
   m_backgroundType: 0

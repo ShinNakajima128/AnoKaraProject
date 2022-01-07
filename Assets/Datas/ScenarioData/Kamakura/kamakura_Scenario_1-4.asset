@@ -18,7 +18,9 @@ MonoBehaviour:
   m_dialogData:
   - MessageId: 0
     Talker: "\u6E90\u983C\u671D"
+    m_talker: []
     Position: 2
+    m_position: 
     BackgroundType: 0
     FaceType: 
     m_faceTypes: 00000000
@@ -31,7 +33,9 @@ MonoBehaviour:
     - "\u300C\u3069\u3046\u3058\u3083\u3063\u305F\uFF1F\u300D"
   - MessageId: 1
     Talker: "\u30D7\u30EC\u30A4\u30E4\u30FC"
+    m_talker: []
     Position: 0
+    m_position: 
     BackgroundType: 0
     FaceType: 
     m_faceTypes: 00000000
@@ -45,7 +49,9 @@ MonoBehaviour:
     - "\u5C11\u3057\u3060\u3051\u3067\u3082\u3001\u77E5\u308B\u3053\u3068\u304C\u3067\u304D\u3066\u826F\u304B\u3063\u305F\uFF01\u300D"
   - MessageId: 2
     Talker: "\u30B3\u30DE\u3001\u6E90\u983C\u671D"
+    m_talker: []
     Position: 1
+    m_position: 
     BackgroundType: 0
     FaceType: 
     m_faceTypes: 00000000
@@ -58,7 +64,9 @@ MonoBehaviour:
     - "\u300C\u4F55\u3088\u308A\uFF01\u300D"
   - MessageId: 3
     Talker: 
+    m_talker: []
     Position: 0
+    m_position: 
     BackgroundType: 0
     FaceType: 
     m_faceTypes: 00000000
@@ -71,7 +79,9 @@ MonoBehaviour:
     - 
   - MessageId: 4
     Talker: 
+    m_talker: []
     Position: 0
+    m_position: 
     BackgroundType: 0
     FaceType: 
     m_faceTypes: 00000000
@@ -84,7 +94,9 @@ MonoBehaviour:
     - 
   - MessageId: 5
     Talker: 
+    m_talker: []
     Position: 0
+    m_position: 
     BackgroundType: 0
     FaceType: 
     m_faceTypes: 00000000
@@ -97,7 +109,9 @@ MonoBehaviour:
     - 
   - MessageId: 6
     Talker: 
+    m_talker: []
     Position: 0
+    m_position: 
     BackgroundType: 0
     FaceType: 
     m_faceTypes: 00000000
@@ -110,7 +124,9 @@ MonoBehaviour:
     - 
   - MessageId: 7
     Talker: 
+    m_talker: []
     Position: 0
+    m_position: 
     BackgroundType: 0
     FaceType: 
     m_faceTypes: 00000000
@@ -123,7 +139,9 @@ MonoBehaviour:
     - 
   - MessageId: 8
     Talker: 
+    m_talker: []
     Position: 0
+    m_position: 
     BackgroundType: 0
     FaceType: 
     m_faceTypes: 00000000
@@ -136,7 +154,9 @@ MonoBehaviour:
     - 
   - MessageId: 9
     Talker: 
+    m_talker: []
     Position: 0
+    m_position: 
     BackgroundType: 0
     FaceType: 
     m_faceTypes: 00000000
@@ -149,7 +169,9 @@ MonoBehaviour:
     - 
   - MessageId: 10
     Talker: 
+    m_talker: []
     Position: 0
+    m_position: 
     BackgroundType: 0
     FaceType: 
     m_faceTypes: 00000000
@@ -162,7 +184,9 @@ MonoBehaviour:
     - 
   - MessageId: 11
     Talker: 
+    m_talker: []
     Position: 0
+    m_position: 
     BackgroundType: 0
     FaceType: 
     m_faceTypes: 00000000
@@ -175,7 +199,9 @@ MonoBehaviour:
     - 
   - MessageId: 12
     Talker: 
+    m_talker: []
     Position: 0
+    m_position: 
     BackgroundType: 0
     FaceType: 
     m_faceTypes: 00000000
@@ -188,7 +214,9 @@ MonoBehaviour:
     - 
   - MessageId: 13
     Talker: 
+    m_talker: []
     Position: 0
+    m_position: 
     BackgroundType: 0
     FaceType: 
     m_faceTypes: 00000000
@@ -201,7 +229,9 @@ MonoBehaviour:
     - 
   - MessageId: 14
     Talker: 
+    m_talker: []
     Position: 0
+    m_position: 
     BackgroundType: 0
     FaceType: 
     m_faceTypes: 00000000
@@ -214,7 +244,9 @@ MonoBehaviour:
     - 
   - MessageId: 15
     Talker: 
+    m_talker: []
     Position: 0
+    m_position: 
     BackgroundType: 0
     FaceType: 
     m_faceTypes: 00000000
@@ -227,7 +259,9 @@ MonoBehaviour:
     - 
   - MessageId: 16
     Talker: 
+    m_talker: []
     Position: 0
+    m_position: 
     BackgroundType: 0
     FaceType: 
     m_faceTypes: 00000000
@@ -240,7 +274,9 @@ MonoBehaviour:
     - 
   - MessageId: 17
     Talker: 
+    m_talker: []
     Position: 0
+    m_position: 
     BackgroundType: 0
     FaceType: 
     m_faceTypes: 00000000
@@ -253,7 +289,9 @@ MonoBehaviour:
     - 
   - MessageId: 18
     Talker: 
+    m_talker: []
     Position: 0
+    m_position: 
     BackgroundType: 0
     FaceType: 
     m_faceTypes: 00000000
@@ -266,7 +304,9 @@ MonoBehaviour:
     - 
   - MessageId: 19
     Talker: 
+    m_talker: []
     Position: 0
+    m_position: 
     BackgroundType: 0
     FaceType: 
     m_faceTypes: 00000000
@@ -279,7 +319,9 @@ MonoBehaviour:
     - 
   - MessageId: 20
     Talker: 
+    m_talker: []
     Position: 0
+    m_position: 
     BackgroundType: 0
     FaceType: 
     m_faceTypes: 00000000
@@ -292,7 +334,9 @@ MonoBehaviour:
     - 
   - MessageId: 21
     Talker: 
+    m_talker: []
     Position: 0
+    m_position: 
     BackgroundType: 0
     FaceType: 
     m_faceTypes: 00000000
@@ -305,7 +349,9 @@ MonoBehaviour:
     - 
   - MessageId: 22
     Talker: 
+    m_talker: []
     Position: 0
+    m_position: 
     BackgroundType: 0
     FaceType: 
     m_faceTypes: 00000000
@@ -318,7 +364,9 @@ MonoBehaviour:
     - 
   - MessageId: 23
     Talker: 
+    m_talker: []
     Position: 0
+    m_position: 
     BackgroundType: 0
     FaceType: 
     m_faceTypes: 00000000
@@ -331,7 +379,9 @@ MonoBehaviour:
     - 
   - MessageId: 24
     Talker: 
+    m_talker: []
     Position: 0
+    m_position: 
     BackgroundType: 0
     FaceType: 
     m_faceTypes: 00000000

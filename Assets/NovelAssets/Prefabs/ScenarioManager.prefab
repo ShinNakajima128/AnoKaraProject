@@ -1000,7 +1000,7 @@ MonoBehaviour:
   m_data:
   - {fileID: 11400000, guid: f4550262d05686b4f8596b7ab55cbd9b, type: 2}
   m_textSpeed: 0.01
-  m_autoflowTime: 1.5
+  m_autoflowTime: 1
   m_playerName: 
   m_malePronoun: "\u4FFA"
   m_famalePronoun: "\u79C1"

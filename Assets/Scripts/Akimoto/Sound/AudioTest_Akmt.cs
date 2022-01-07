@@ -18,7 +18,7 @@ public class AudioTest_Akmt : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.A))
         {
-            SoundManager.Instance.PlayVoice(VoiceType.Giri, m_name);
+            //SoundManager.Instance.PlayVoice(VoiceType.Giri, m_name);
         }
     }
 }

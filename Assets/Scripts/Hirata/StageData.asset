@@ -14,10 +14,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_dataBases:
   - m_sprites:
-    - {fileID: 21300000, guid: 13cae4ddb039b6a43a3f193a026cd8d4, type: 3}
-    - {fileID: 21300000, guid: 1611d9138d89ba84ca333a30c1b6047f, type: 3}
-    - {fileID: 21300000, guid: 5ea8c033144a62948abfc81b39b1328a, type: 3}
-    - {fileID: 21300000, guid: b8166e6cff0ccc34394dceb65b9fe242, type: 3}
+    - {fileID: 21300000, guid: e1237c9ed2101c243a0261405d3a8c8f, type: 3}
+    - {fileID: 21300000, guid: 999c293eb6b5652459fc9f20fc0faa32, type: 3}
+    - {fileID: 21300000, guid: 1dda998f7b7fccf4e8bf8f38be8f80bd, type: 3}
+    - {fileID: 21300000, guid: 7816fd35d37959a40b0a427c7b2814f5, type: 3}
     m_stageText:
     - "\u30B9\u30C6\u30FC\u30B81"
     - "\u30B9\u30C6\u30FC\u30B82"
