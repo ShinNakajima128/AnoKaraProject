@@ -67,7 +67,7 @@ public class GenderSelect : MonoBehaviour
         }
         TitleManager.Instance.TempGender = m_selectGender;
         TitleManager.Instance.ChangePanel(TitleStates.InputName);
-        SoundManager.Instance.PlaySe("SE_select");
+        SoundManager.Instance.PlaySe("SE_touch");
     }
 
     /// <summary>

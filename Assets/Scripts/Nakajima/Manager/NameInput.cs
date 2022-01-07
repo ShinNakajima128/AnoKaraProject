@@ -68,7 +68,7 @@ public class NameInput : MonoBehaviour
     {
         m_input.text = "";
         TitleManager.Instance.ChangePanel(TitleStates.SelectGender);
-        SoundManager.Instance.PlaySe("SE_select");
+        SoundManager.Instance.PlaySe("SE_touch");
     }
 
     /// <summary>
