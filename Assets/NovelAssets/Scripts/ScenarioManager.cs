@@ -355,15 +355,29 @@ public class ScenarioManager : MonoBehaviour
                 bool isHighlighted = false;
                 m_clickReception = false;
 
+                //メッセージにボイスが設定されていたら
                 if (data.DialogData[currentDialogIndex].AllVoiceId[i] != "なし")
                 {
-                    if (m_characterName.text == "コマ")
+                    //各ボイスに合わせたSourceで音声を再生
+                    if (m_characterName.text == "コマ")　//コマの音声を再生
                     {
                         FixPlayVoice(VoiceType.Koma, data.DialogData[currentDialogIndex].AllVoiceId[i]);
                     }
-                    else
+                    else if (m_characterName.text == m_playerName)　//プレイヤーの音声を再生
                     {
                         FixPlayVoice(VoiceType.Player, data.DialogData[currentDialogIndex].AllVoiceId[i]);
+
+                    }
+                    else　//ナレーターやモブが話している場合
+                    {
+                        if (data.DialogData[currentDialogIndex].AllVoiceId[i].Contains("player"))
+                        {
+                            FixPlayVoice(VoiceType.Player, data.DialogData[currentDialogIndex].AllVoiceId[i]);
+                        }
+                        else if (data.DialogData[currentDialogIndex].AllVoiceId[i].Contains("koma"))
+                        {
+                            FixPlayVoice(VoiceType.Koma, data.DialogData[currentDialogIndex].AllVoiceId[i]);
+                        }
                     }
                 }
                 
