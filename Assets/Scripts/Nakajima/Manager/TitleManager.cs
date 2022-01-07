@@ -221,7 +221,7 @@ public class TitleManager : MonoBehaviour
         DataManager.SaveData();
         m_gameDataObject.SetUp();
         LoadSceneManager.AnyLoadScene(m_openingSceneName);
-        SoundManager.Instance.PlaySe("SE_touch");
+        SoundManager.Instance.PlaySe("SE_title");
     }
 
     /// <summary>
