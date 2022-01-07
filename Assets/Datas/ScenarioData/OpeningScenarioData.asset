@@ -290,8 +290,8 @@ MonoBehaviour:
     Talker: "\u30B3\u30DE"
     m_talker:
     - "\u30B3\u30DE"
-    Position: 1
-    m_position: 01000000
+    Position: 2
+    m_position: 02000000
     BackgroundType: 2
     FaceType: 0
     m_faceTypes: 00000000
@@ -328,8 +328,8 @@ MonoBehaviour:
     Talker: "\u30B3\u30DE"
     m_talker:
     - "\u30B3\u30DE"
-    Position: 1
-    m_position: 01000000
+    Position: 2
+    m_position: 02000000
     BackgroundType: 2
     FaceType: 0
     m_faceTypes: 00000000
@@ -366,8 +366,8 @@ MonoBehaviour:
     Talker: "\u30B3\u30DE"
     m_talker:
     - "\u30B3\u30DE"
-    Position: 1
-    m_position: 01000000
+    Position: 2
+    m_position: 02000000
     BackgroundType: 2
     FaceType: '2
 
@@ -412,8 +412,8 @@ MonoBehaviour:
     Talker: "\u30B3\u30DE"
     m_talker:
     - "\u30B3\u30DE"
-    Position: 1
-    m_position: 01000000
+    Position: 2
+    m_position: 02000000
     BackgroundType: 2
     FaceType: 0
     m_faceTypes: 00000000
@@ -450,8 +450,8 @@ MonoBehaviour:
     Talker: "\u30B3\u30DE"
     m_talker:
     - "\u30B3\u30DE"
-    Position: 1
-    m_position: 01000000
+    Position: 2
+    m_position: 02000000
     BackgroundType: 2
     FaceType: '1
 
@@ -494,8 +494,8 @@ MonoBehaviour:
     Talker: "\u30B3\u30DE"
     m_talker:
     - "\u30B3\u30DE"
-    Position: 1
-    m_position: 01000000
+    Position: 2
+    m_position: 02000000
     BackgroundType: 2
     FaceType: 0
     m_faceTypes: 00000000
