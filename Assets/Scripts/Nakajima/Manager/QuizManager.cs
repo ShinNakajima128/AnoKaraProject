@@ -64,6 +64,14 @@ public class QuizManager : MonoBehaviour
     [SerializeField]
     GameObject m_blowingPanel = default;
 
+    /// <summary>デフォルトのキャラ画像の親</summary>
+    [SerializeField]
+    Transform m_defaultParent = default;
+
+    /// <summary>正解時のキャラ画像の親</summary>
+    [SerializeField]
+    Transform m_correctParent = default;
+
     /// <summary> プレイヤーの吹き出し </summary>
     [SerializeField]
     Text m_playerChat = default;
@@ -292,6 +300,7 @@ public class QuizManager : MonoBehaviour
             m_isCorrected = false;
             ShowJudge(m_isCorrected);
         }
+        m_defaultParent.GetChild(0).SetParent(m_correctParent); //キャラ画像を手前に持ってくる
         yield return new WaitForSeconds(m_nextQuestionTimer);
 
         foreach (var images in m_judgeImages)
@@ -302,6 +311,7 @@ public class QuizManager : MonoBehaviour
         m_historicalFiguresImage.sprite = m_historicalFiguresData.CharacterImages[0];
         m_playerChat.text = m_playeData.ThinkingChat;
         m_historicalFiguresChat.text = m_historicalFiguresData.ThinkingChat;
+        m_correctParent.GetChild(0).SetParent(m_defaultParent); //キャラ画像を奥に戻す
         m_JudgePanel.SetActive(false);
     }
 
