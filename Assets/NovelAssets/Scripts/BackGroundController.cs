@@ -23,7 +23,14 @@ public class BackGroundController : MonoBehaviour
 
     public void Setup(int backgroundType)
     {
-        m_backgrounds[0].sprite = m_backgroundTypes[backgroundType];
+        if (backgroundType >= 3)
+        {
+            m_backgrounds[0].sprite = m_backgroundTypes[4];
+        }
+        else
+        {
+            m_backgrounds[0].sprite = m_backgroundTypes[backgroundType];
+        }
     }
 
     public void FadeIn(int backgroundType)
@@ -34,6 +41,11 @@ public class BackGroundController : MonoBehaviour
 
     public void Crossfade(int backgroundType)
     {
+        if (backgroundType >= 3)
+        {
+            backgroundType = 4;
+        }
+
         if (m_currentBackground == 0)
         {
             m_backgrounds[1].sprite = m_backgroundTypes[backgroundType];
