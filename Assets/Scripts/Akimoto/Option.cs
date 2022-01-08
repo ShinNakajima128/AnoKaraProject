@@ -32,9 +32,9 @@ public class Option : MonoBehaviour
 
     public void SetSliderVolume()
     {
-        m_bgmSlider.value = SoundManager.Instance.BgmVolume;
-        m_seSlider.value = SoundManager.Instance.SeVolume;
-        m_voiceSlider.value = SoundManager.Instance.VoiceVolume;
+        m_bgmSlider.value = SoundManager.Instance.BgmVolume * 10;
+        m_seSlider.value = SoundManager.Instance.SeVolume * 10;
+        m_voiceSlider.value = SoundManager.Instance.VoiceVolume * 10;
     }
 
     public void OnClick(bool isActive)

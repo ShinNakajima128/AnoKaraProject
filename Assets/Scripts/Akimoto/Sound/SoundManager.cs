@@ -67,6 +67,7 @@ public class SoundManager : MonoBehaviour
                 if(DataManager.Instance.PlayerData.PlayerGender == GenderType.Boy)
                 {
                     m_voiceBoySource.cueName = name;
+                    m_bgmSource.volume = m_bgmVolume;
                     m_voiceBoySource.Play();
                 }
                 else
