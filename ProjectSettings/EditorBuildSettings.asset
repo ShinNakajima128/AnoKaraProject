@@ -23,4 +23,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Hirata/QuizResult.unity
     guid: 3e59b5f26ecbdfd449bba99c3e778534
+  - enabled: 1
+    path: Assets/Scenes/PlannerTest/Ending.unity
+    guid: eaf4f36e16bbec94b9f4c92be50adc7c
   m_configObjects: {}

@@ -10,7 +10,7 @@ public class GameManager : SingletonMonoBehaviour<GameManager>
     public class ClearFlagArray
     {
         /// <summary>ステージのフラグ</summary>
-        public bool[] m_stageClearFlag;
+        public bool[] m_stageClearFlag = new bool[5];
     }
 
     /// <summary> 現在いる時代 </summary>

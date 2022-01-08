@@ -435,6 +435,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 1024915993, guid: 2507efedb408f5940b98a5383d8fb730, type: 3}
+      propertyPath: gameData.ClearFlags.Array.size
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 1024915993, guid: 2507efedb408f5940b98a5383d8fb730, type: 3}
       propertyPath: gameData.ClearFlags.Array.data[0].m_stageClearFlag.Array.size
       value: 5
       objectReference: {fileID: 0}
@@ -2817,7 +2821,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_openingSceneName: Opening
   m_periodSelectSceneName: PeriodSelect
-  m_resetGameData: 1
+  m_resetGameData: 0
   m_titleState: 0
   m_tempGender: 0
   m_tempName: 

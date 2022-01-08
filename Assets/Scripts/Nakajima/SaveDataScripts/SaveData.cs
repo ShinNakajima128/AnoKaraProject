@@ -15,6 +15,7 @@ public class SaveData
     [Serializable]
     public class GameData
     {
+        public bool FirstPlay = true;
         public string PlayerName;
         public GenderType Gender;
         public GameManager.ClearFlagArray[] ClearFlags;

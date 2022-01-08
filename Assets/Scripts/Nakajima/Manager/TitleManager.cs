@@ -65,6 +65,8 @@ public class TitleManager : MonoBehaviour
 
     PlayerData m_playerData = default;
 
+    GameManager.ClearFlagArray[] m_tempArray = default;
+
     /// <summary>出てくるまでの時間</summary>
     [SerializeField]
     float m_fadeTime = 0.5f;
@@ -85,9 +87,11 @@ public class TitleManager : MonoBehaviour
         m_gameDataObject = FindObjectOfType<GameDataObject>();
         if (m_resetGameData)
         {
-            ResetGameData();
+            PlayerPrefs.DeleteAll();
         }
+        m_tempArray = m_gameDataObject.ClearFlag;
         m_gameDataObject.SetUp();
+       
         ChangePanel(TitleStates.Start);
         SoundManager.Instance.PlayBgm(SoundManager.Instance.BgmName);
     }
@@ -113,8 +117,15 @@ public class TitleManager : MonoBehaviour
 
     private IEnumerator DataCheck()
     {
-        //プレイヤーデータがあれば時代選択画面に遷移する
-        if (m_playerData.PlayerName != "")
+        //ニューゲームであれば初期設定画面を表示
+        if (m_gameDataObject.FirstPlay)
+        {
+            yield return StartCoroutine(TapScreenTextAnim());
+            ChangePanel(TitleStates.SelectGender);
+
+        }
+        //つづきからの場合は時代選択画面に遷移する
+        else
         {
             Debug.Log($"プレイヤー名：{m_playerData.PlayerName}、性別：{m_playerData.PlayerGender}");
             yield return StartCoroutine(TapScreenTextAnim());
@@ -122,12 +133,6 @@ public class TitleManager : MonoBehaviour
             {
                 Debug.Log("時代選択画面に遷移します");
             });
-        }
-        //プレイヤーデータが無ければ初期設定画面を表示
-        else
-        {
-            yield return StartCoroutine(TapScreenTextAnim());
-            ChangePanel(TitleStates.SelectGender);
         }
     }
 
@@ -216,10 +221,12 @@ public class TitleManager : MonoBehaviour
     /// </summary>
     public void LoadOpeningScene()
     {
+        m_gameDataObject.FirstPlay = false;
         m_gameDataObject.PlayerName = m_tempName;
         m_gameDataObject.PlayerGender = m_tempGender;
+        m_gameDataObject.ClearFlag = m_tempArray;
         DataManager.SaveData();
-        m_gameDataObject.SetUp();
+        m_gameDataObject.UpdatePlayerData();
         LoadSceneManager.AnyLoadScene(m_openingSceneName);
         SoundManager.Instance.PlaySe("SE_title");
     }
@@ -237,18 +244,15 @@ public class TitleManager : MonoBehaviour
             {
                 if (i == 0)
                 {
-                    if (n == 0 || n == 1)
+                    if (i == 0 || i == 1)
                     {
                         m_gameDataObject.ClearFlag[i].m_stageClearFlag[n] = true;
-                        continue;
                     }
                 }
                 else
                 {
                     m_gameDataObject.ClearFlag[i].m_stageClearFlag[n] = false;
-
                 }
-                
             }
         }
         DataManager.SaveData();
