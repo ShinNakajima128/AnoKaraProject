@@ -122,6 +122,14 @@ public class ScenarioManager : MonoBehaviour
 
     [SerializeField]
     Sprite[] m_girlSprites = default;
+
+    [Header("感情用のエフェクト")]
+    [SerializeField]
+    GameObject[] m_feelingEffects = default;
+
+    [Header("エフェクトを表示するポジション")]
+    [SerializeField]
+    GameObject[] m_effectPositions = default;
     #endregion
 
     #region public field
@@ -339,7 +347,6 @@ public class ScenarioManager : MonoBehaviour
                 {
                     for (int n = 0; n < data.DialogData[currentDialogIndex].AllPosition.Length; n++)
                     {
-                        Debug.Log(data.DialogData[currentDialogIndex].AllPosition[n]);
                         if (m_characterImage[data.DialogData[currentDialogIndex].AllPosition[n]].enabled)
                         {
                             m_characterImage[data.DialogData[currentDialogIndex].AllPosition[n]].sprite = SetCharaImage(data.DialogData[currentDialogIndex].Talker, data.DialogData[currentDialogIndex].FaceTypes[i]);
@@ -506,7 +513,18 @@ public class ScenarioManager : MonoBehaviour
             }
             else
             {
-                currentDialogIndex = data.DialogData[currentDialogIndex].NextId;
+                //NextIdが100だったら、クイズUIを表示し、そのステージのクイズを開始する
+                if (data.DialogData[currentDialogIndex].NextId == 100)
+                {
+                    Debug.Log("クイズ開始");
+                    LoadSceneManager.FadeOutPanel();
+                    //yield return クイズ開始のコルーチン;
+                    currentDialogIndex++;
+                }
+                else
+                {
+                    currentDialogIndex = data.DialogData[currentDialogIndex].NextId;
+                }
             }
             yield return null;
         }
@@ -986,6 +1004,9 @@ public class ScenarioManager : MonoBehaviour
             if (charaName == m_imageDatas[i].CharacterName)
             {
                 chara = m_imageDatas[i].CharacterImages[faceType];
+
+                //感情のEffectを表示する処理をここに記述する
+
                 break;
             }
         }
