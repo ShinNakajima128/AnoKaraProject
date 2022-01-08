@@ -1083,6 +1083,7 @@ GameObject:
   - component: {fileID: 3556439220118242558}
   - component: {fileID: 3556439220118242556}
   - component: {fileID: 3556439220118242559}
+  - component: {fileID: 6020190043700429628}
   m_Layer: 5
   m_Name: MessageBox
   m_TagString: Untagged
@@ -1148,6 +1149,25 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!95 &6020190043700429628
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3556439220118242545}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 79d3d9c8f14c4da458f33b68cb62feca, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &3556439220121990836
 GameObject:
   m_ObjectHideFlags: 0
