@@ -11,14 +11,14 @@ public class AudioTest_Akmt : MonoBehaviour
 
     void Start()
     {
-        
+        SoundManager.Instance.PlayBgm(m_name);
     }
 
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.A))
         {
-            //SoundManager.Instance.PlayVoice(VoiceType.Giri, m_name);
+            //SoundManager.Instance.PlayVoice(VoiceType.Player, m_name);
         }
     }
 }
