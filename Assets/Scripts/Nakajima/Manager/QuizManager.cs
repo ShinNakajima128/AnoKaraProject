@@ -60,6 +60,14 @@ public class QuizManager : MonoBehaviour
     [SerializeField]
     GameObject m_quizPartObjects = default;
 
+    /// <summary> クイズ画面の背景 </summary>
+    [SerializeField]
+    Image m_background = default;
+
+    /// <summary> 時代毎の背景 </summary>
+    [SerializeField]
+    Sprite[] m_periodBackgrounds = default;
+
     /// <summary> 吹き出し画面のオブジェクトをまとめているPanel </summary>
     [SerializeField]
     GameObject m_blowingPanel = default;
@@ -164,6 +172,7 @@ public class QuizManager : MonoBehaviour
     {
         m_playeData = DataManager.Instance.PlayerData;
         m_historicalFiguresData = DataManager.Instance.CurrentPeriodHistoricalFigures;
+        SetBackground(GameManager.Instance.CurrentPeriod);
         m_QuizResultUI.SetActive(false);
         m_quizPartObjects.SetActive(false);
         m_blowingPanel.SetActive(false);
@@ -407,6 +416,8 @@ public class QuizManager : MonoBehaviour
         //デフォルトポーズの画像をセットする
         m_playerImage.sprite = player.PlayerImage[0];
         m_historicalFiguresImage.sprite = historicalFigures.CharacterImages[0];
+
+        //各時代の人物を名前で判別して表示するキャラクターを変更する処理を追加する必要あり
     }
 
     void HPCheck()
@@ -423,6 +434,34 @@ public class QuizManager : MonoBehaviour
     {
         var s = id.Replace("player_", "voice").Replace("Koma_", "voice");
         SoundManager.Instance.PlayVoice(type, s);
+    }
+
+    void SetBackground(PeriodTypes period)
+    {
+        switch (period)
+        {
+            case PeriodTypes.Jomon_Yayoi:
+                m_background.sprite = m_periodBackgrounds[0];
+                break;
+            case PeriodTypes.Asuka_Nara:
+                m_background.sprite = m_periodBackgrounds[1];
+                break;
+            case PeriodTypes.Heian:
+                m_background.sprite = m_periodBackgrounds[2];
+                break;
+            case PeriodTypes.Kamakura:
+                m_background.sprite = m_periodBackgrounds[3];
+                break;
+            case PeriodTypes.Momoyama:
+                m_background.sprite = m_periodBackgrounds[4];
+                break;
+            case PeriodTypes.Edo:
+                m_background.sprite = m_periodBackgrounds[5];
+                break;
+            default:
+                Debug.LogError("時代が設定されていません");
+                break;
+        }
     }
 
     /// <summary>
