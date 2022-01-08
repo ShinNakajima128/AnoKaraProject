@@ -56,7 +56,7 @@ public class DataManager : SingletonMonoBehaviour<DataManager>
     {
         SaveData data = SaveManager.GetData();
         GameDataObject gameData = FindObjectOfType<GameDataObject>();
-
+        data.CurrentGameData = gameData.GameData;
         ISave saveIf = gameData.GetComponent<ISave>();
         saveIf.Save(data.CurrentGameData);
         Debug.Log(data.CurrentGameData);

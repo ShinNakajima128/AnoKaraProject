@@ -16,12 +16,21 @@ namespace AnoKara
         {
             var json = JsonUtility.ToJson(data);
             PlayerPrefs.SetString(file, json);
+            Debug.Log($"データを保存しました。キー：{file},データ：{data}");
         }
 
         public static T Load<T>(string file)
         {
             string datastr;
             datastr = PlayerPrefs.GetString(file);
+
+            Debug.Log(datastr);
+
+            if (datastr == null || datastr == "")
+            {
+                Debug.Log("データがありませんでした");
+                return default;
+            }
             
             var gameData = JsonUtility.FromJson<T>(datastr); // ロードしたデータで上書き
 

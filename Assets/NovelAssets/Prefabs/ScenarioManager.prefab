@@ -2406,6 +2406,7 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 92d1bc8fed67dc3408b1c8a3b863d5e6, type: 3}
   - {fileID: 21300000, guid: 8034d6f6e7d17654d9cb9e8c8c137d68, type: 3}
   - {fileID: 21300000, guid: de3ddd73c3c618a49b37acdd4af813a2, type: 3}
+  - {fileID: 21300000, guid: 703e4994763f59044bb0f90d19da28b0, type: 3}
 --- !u!95 &3556439220829766393
 Animator:
   serializedVersion: 3
