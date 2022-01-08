@@ -21,10 +21,16 @@ public class SoundManager : MonoBehaviour
     CriAtomSource m_voiceBoySource = default;
     CriAtomSource m_voiceGirlSource = default;
     CriAtomSource m_voiceKomaSource = default;
+    static float m_bgmVolume = 0.5f;
+    static float m_seVolume = 0.5f;
+    static float m_voiceVolume = 0.5f;
 
     public static SoundManager Instance;
     public string BgmName { get => m_bgmName; set => m_bgmName = value; }
     public float SwitchSpeed { set => m_switchSpeed = value; }
+    public float BgmVolume { get => m_bgmVolume; set => m_bgmVolume = value; }
+    public float SeVolume { get => m_seVolume; set => m_seVolume = value; }
+    public float VoiceVolume { get => m_voiceVolume; set => m_voiceVolume = value; }
 
     private void Awake()
     {
@@ -61,6 +67,7 @@ public class SoundManager : MonoBehaviour
                 if(DataManager.Instance.PlayerData.PlayerGender == GenderType.Boy)
                 {
                     m_voiceBoySource.cueName = name;
+                    m_bgmSource.volume = m_bgmVolume;
                     m_voiceBoySource.Play();
                 }
                 else
@@ -83,6 +90,16 @@ public class SoundManager : MonoBehaviour
         m_voiceBoySource = GameObject.FindGameObjectWithTag("VOICE_Boy").GetComponent<CriAtomSource>();
         m_voiceGirlSource = GameObject.FindGameObjectWithTag("VOICE_Girl").GetComponent<CriAtomSource>();
         m_voiceKomaSource = GameObject.FindGameObjectWithTag("VOICE_Koma").GetComponent<CriAtomSource>();
+        SettingVolume();
+    }
+
+    public void SettingVolume()
+    {
+        m_bgmSource.volume = m_bgmVolume;
+        m_seSource.volume = m_seVolume;
+        m_voiceBoySource.volume = m_voiceVolume;
+        m_voiceGirlSource.volume = m_voiceVolume;
+        m_voiceKomaSource.volume = m_voiceVolume;
     }
 
     IEnumerator SwitchBGM(string bgmName)
