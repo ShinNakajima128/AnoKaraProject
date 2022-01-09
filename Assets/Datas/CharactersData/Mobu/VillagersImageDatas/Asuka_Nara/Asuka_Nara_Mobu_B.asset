@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4d9aa4b5244f4994db385df11d119ef7, type: 3}
+  m_Name: Asuka_Nara_Mobu_B
+  m_EditorClassIdentifier: 
+  m_dataName: "\u753A\u4EBA\u7537A"
+  m_characterImages:
+  - {fileID: 21300000, guid: aaaa0a33072ed9344b64956a577a9486, type: 3}
+  - {fileID: 21300000, guid: bfa7000cba738324cb71fc810362ccab, type: 3}
+  - {fileID: 21300000, guid: 9dd9c8f17e7324047876e8bd1fa3eb72, type: 3}
+  - {fileID: 21300000, guid: 9dd9c8f17e7324047876e8bd1fa3eb72, type: 3}
+  - {fileID: 21300000, guid: 9dd9c8f17e7324047876e8bd1fa3eb72, type: 3}
+  - {fileID: 21300000, guid: 9dd9c8f17e7324047876e8bd1fa3eb72, type: 3}
+  - {fileID: 21300000, guid: 9dd9c8f17e7324047876e8bd1fa3eb72, type: 3}
