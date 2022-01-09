@@ -55,6 +55,7 @@ public class Option : MonoBehaviour
             //m_nameInput.transform.DOScale(Vector3.zero, m_fadeTime);
             m_nameInput.SetActive(false);
         }
+        SoundManager.Instance.PlaySe("SE_touch");
     }
 
     public void OnSettingButtonClick()
@@ -69,6 +70,7 @@ public class Option : MonoBehaviour
             m_optionObj.SetActive(true);
             m_flag = true;
         }
+        SoundManager.Instance.PlaySe("SE_touch");
     }
 
     public void OnValueChanged(int changeType)
@@ -86,6 +88,14 @@ public class Option : MonoBehaviour
                 break;
         }
         SoundManager.Instance.SettingVolume();
+        if (changeType == 1)
+        {
+            SoundManager.Instance.PlaySe("SE_touch");
+        }
+        else if (changeType == 2)
+        {
+            SoundManager.Instance.PlayVoice(VoiceType.Koma, "voice008");
+        }
     }
 }
 
