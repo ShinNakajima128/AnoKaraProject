@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: Momoyama_stage1
   m_EditorClassIdentifier: 
   m_spreadsheetURL: https://script.google.com/macros/s/AKfycbwMDfg7S09aVHqyLve2ypq1jwgbYDgIZT25abH-Yp3oHIhtieA/exec
-  m_SheetName: Kamakura _Stage4
-  m_periodType: 4
+  m_SheetName: AzuchiMomoyama stage1
+  m_periodType: 5
   m_stageId: 0
   m_fourChoicesQuizzes:
   - Id: 1
