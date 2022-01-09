@@ -10,8 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 880b9701897616147bbd840a54947f8e, type: 3}
-  m_Name: Kamakura
+  m_Name: Edo_stage4
   m_EditorClassIdentifier: 
   m_spreadsheetURL: https://script.google.com/macros/s/AKfycbwMDfg7S09aVHqyLve2ypq1jwgbYDgIZT25abH-Yp3oHIhtieA/exec
-  m_periodType: 4
-  m_fourChoicesQuiz: []
+  m_SheetName: Edo
+  m_periodType: 6
+  m_stageId: 3
+  m_fourChoicesQuizzes: []

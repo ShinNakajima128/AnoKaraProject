@@ -1,0 +1,131 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 880b9701897616147bbd840a54947f8e, type: 3}
+  m_Name: Kamakura_stage2
+  m_EditorClassIdentifier: 
+  m_spreadsheetURL: https://script.google.com/macros/s/AKfycbwMDfg7S09aVHqyLve2ypq1jwgbYDgIZT25abH-Yp3oHIhtieA/exec
+  m_SheetName: Kamakura _Stage2
+  m_periodType: 4
+  m_stageId: 1
+  m_fourChoicesQuizzes:
+  - Id: 1
+    Question: "\u6E90\u983C\u671D\u306E\u59BB\u306F\u8AB0\u304B\uFF1F"
+    Choices1: "\u5317\u6761\u6CF0\u6642"
+    Choices2: "\u5317\u6761\u6C0F\u653F"
+    Choices3: "\u63A8\u53E4\u5929\u7687"
+    Choices4: "\u5317\u6761\u653F\u5B50"
+    Answer: "\u5317\u6761\u653F\u5B50"
+    Tips: "\u30AF\u30A4\u30BA\u3092\u4ECA\u3055\u305B\u3066\u3044\u308B\u4EBA\u304C\u3044\u308B\u3088\u306D"
+  - Id: 2
+    Question: "\u5317\u6761\u653F\u5B50\u306E\u304A\u7236\u3055\u3093\u306F\u8AB0\u304B\uFF1F"
+    Choices1: "\u5317\u6761\u6642\u653F"
+    Choices2: "\u5317\u6761\u6B63\u660E"
+    Choices3: "\u5317\u6761\u3055\u304B\u305F\u308D\u3046"
+    Choices4: "\u6E90\u983C\u671D"
+    Answer: "\u5317\u6761\u6642\u653F"
+    Tips: "\u6E90\u306F\u9055\u3046\u3088\u306D"
+  - Id: 3
+    Question: "\u6E90\u5BB6\u4E8C\u4EE3\u5C06\u8ECD\u306F\u8AB0\u304B\uFF1F"
+    Choices1: "\u5317\u6761\u6642\u653F"
+    Choices2: "\u6E90\u7FA9\u7D4C"
+    Choices3: "\u6E90\u983C\u5BB6"
+    Choices4: "\u6E90\u983C\u671D"
+    Answer: "\u6E90\u983C\u5BB6"
+    Tips: "\u51FA\u3066\u3053\u306A\u304B\u3063\u305F\u4EBA\u7269\u304C\u3044\u308B\u3088"
+  - Id: 4
+    Question: "\u6E90\u5BB6\u4E09\u4EE3\u5C06\u8ECD\u306F\u8AB0\u304B\uFF1F"
+    Choices1: "\u6E90\u5B9F\u671D"
+    Choices2: "\u6E90\u7FA9\u7D4C"
+    Choices3: "\u5317\u6761\u6642\u5B97"
+    Choices4: "\u5317\u6761\u653F\u5B50"
+    Answer: "\u6E90\u5B9F\u671D"
+    Tips: "\u6E90\u5BB6\u3060\u3088"
+  - Id: 5
+    Question: "\u5C06\u8ECD\u3092\u30B5\u30DD\u30FC\u30C8\u3057\u3001\u5B9F\u969B\u306B\u5B9F\u6A29\u3092\u63E1\u3063\u305F\u5F79\u8077\u306F\u4F55\u304B\uFF1F"
+    Choices1: "\u7DCF\u7406\u5927\u81E3"
+    Choices2: "\u5C06\u8ECD"
+    Choices3: "\u57F7\u6A29"
+    Choices4: "\u8B66\u5BDF"
+    Answer: "\u57F7\u6A29"
+    Tips: "\u540D\u524D\u304C\u305D\u3082\u305D\u3082\u304A\u304B\u3057\u3044\u3088\u306D"
+  - Id: 6
+    Question: "\u5E55\u5E9C\u306E\u5B9F\u6A29\u3092\u63E1\u3063\u305F\u57F7\u6A29\u306F\u4F55\u6C0F\uFF1F"
+    Choices1: "\u308F\u308D\u3057"
+    Choices2: "\u5317\u6761\u6C0F"
+    Choices3: "\u8DB3\u5229\u6C0F"
+    Choices4: "\u826F\u3057"
+    Answer: "\u5317\u6761\u6C0F"
+    Tips: "\uFF12\u3064\u9055\u3046\u306E\u306F\u307F\u3064\u3051\u3089\u308C\u308B\u306F\u305A\u3060\u3088"
+  - Id: 7
+    Question: "\u4E09\u4EE3\u76EE\u57F7\u6A29\u306F\u8AB0\u304B\uFF1F"
+    Choices1: "\u5317\u6761\u6CF0\u6642"
+    Choices2: "\u5317\u6761\u653F\u5B50"
+    Choices3: "\u8C4A\u7A63\u653F\u5B50"
+    Choices4: "\u65B9\u4E08\u6CF0\u6642"
+    Answer: "\u5317\u6761\u6CF0\u6642"
+    Tips: "\u540D\u524D\u3092\u3088\u304F\u898B\u3066\u307F\u3088\u3046"
+  - Id: 8
+    Question: "\u5C06\u8ECD\u304C\u5FA1\u5BB6\u4EBA\u306B\u571F\u5730\u3084\u5730\u4F4D\u3092\u3042\u3052\u308B\u3053\u3068\u3092\u4F55\u3068\u3044\u3046\u304B\uFF1F"
+    Choices1: "\uFF15\u97F3"
+    Choices2: "\u5FA1\u6069"
+    Choices3: "\u5449\u97F3"
+    Choices4: "\u8A9E\u97F3"
+    Answer: "\u5FA1\u6069"
+    Tips: "\u6587\u5B57\u306E\u610F\u5473\u3092\u8003\u3048\u3088\u3046"
+  - Id: 9
+    Question: "\u5FA1\u5BB6\u4EBA\u304C\u5C06\u8ECD\u306E\u305F\u3081\u306B\u4E0E\u3048\u3089\u308C\u305F\u5F79\u8077\u3092\u3053\u306A\u3057\u3001\u547D\u304C\u3051\u3067\u6226\u3046\u3053\u3068\u3092\u4F55\u3068\u3044\u3046\u304B\uFF1F"
+    Choices1: "\u65B9\u5411"
+    Choices2: "\u82B3\u9999"
+    Choices3: "\u5486\u54EE"
+    Choices4: "\u5949\u516C"
+    Answer: "\u5949\u516C"
+    Tips: "\u6587\u5B57\u306E\u610F\u5473\u3092\u8003\u3048\u3088\u3046"
+  - Id: 10
+    Question: "\u5C06\u8ECD\u3068\u5FA1\u5BB6\u4EBA\u306B\u306F\u4F55\u304C\u3042\u3063\u305F\u304B\uFF1F"
+    Choices1: "\u611F\u8B1D\u3068\u611F\u6FC0"
+    Choices2: "\u8F5F\u97F3\u3068\u65B9\u5411"
+    Choices3: "\u5FA1\u6069\u3068\u5949\u516C"
+    Choices4: "\u5FA1\u793E\u3068\u65B9\u5411"
+    Answer: "\u5FA1\u6069\u3068\u5949\u516C"
+    Tips: "\u9055\u3046\u3068\u601D\u3063\u305F\u30E2\u30CE\u304B\u3089\u6D88\u3057\u3066\u3044\u3053\u3046"
+  - Id: 11
+    Question: "\u5E55\u5E9C\u306E\u653F\u6CBB\u3092\u6C7A\u3081\u308B\u3068\u3053\u308D\u3092\u4F55\u3068\u3044\u3046\u304B\uFF1F"
+    Choices1: "\u653F\u6240"
+    Choices2: "\u53F0\u6240"
+    Choices3: "\u3068\u3053\u308D\u3066\u3093"
+    Choices4: "\u6240\u6CA2"
+    Answer: "\u653F\u6240"
+    Tips: "\u98DF\u3079\u7269\u3058\u3083\u306A\u3044\u3088\u306D"
+  - Id: 12
+    Question: "\u6B66\u58EB\u306E\u7BA1\u7406\u3084\u60AA\u4EBA\u3092\u53D6\u308A\u7DE0\u307E\u308B\u3068\u3053\u308D\u3092\u4F55\u3068\u3044\u3046\u304B\uFF1F"
+    Choices1: "\u5834\u6240"
+    Choices2: "\u53F0\u6240"
+    Choices3: "\u4F8D\u6240"
+    Choices4: "\u6240\u30B8\u30E7\u30FC\u30B8"
+    Answer: "\u4F8D\u6240"
+    Tips: "\u6B66\u58EB\u304C\u91CD\u8981"
+  - Id: 13
+    Question: "\u5730\u65B9\u306E\u653F\u6CBB\u3092\u7BA1\u7406\u3059\u308B\u6A5F\u95A2\u306F\u3069\u3053\u304B\uFF1F"
+    Choices1: "\u6771\u5B9D\u6A5F\u95A2"
+    Choices2: "\u5730\u65B9\u6A5F\u95A2"
+    Choices3: "\u6A5F\u95A2\u8ECA"
+    Choices4: "\u7CBE\u5BC6\u6A5F\u68B0"
+    Answer: "\u5730\u65B9\u6A5F\u95A2"
+    Tips: "\u305D\u306E\u307E\u307E\u306E\u610F\u5473\u3060\u3088"
+  - Id: 14
+    Question: "\u6E90\u5B9F\u671D\u3092\u6697\u6BBA\u3057\u305F\u306E\u306F\u8AB0\u304B\uFF1F"
+    Choices1: "\u5317\u6761\u6642\u653F"
+    Choices2: "\u6E90\u983C\u5BB6"
+    Choices3: "\u516C\u6681"
+    Choices4: "\u5317\u6761\u653F\u5B50"
+    Answer: "\u516C\u6681"
+    Tips: "\u898B\u6163\u308C\u306A\u3044\u4EBA\u7269\u304C\u3044\u308B\u306D"

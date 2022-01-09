@@ -148,7 +148,7 @@ public class DataManager : SingletonMonoBehaviour<DataManager>
     {
         for (int i = 0; i < m_allQuizData.FourChoicesQuizDatas.Length; i++)
         {
-            if (m_allQuizData.FourChoicesQuizDatas[i].PeriodTypeName == sheetName)  //プロパティとシート名が一致したら
+            if (m_allQuizData.FourChoicesQuizDatas[i].QuizSheetName == sheetName)  //プロパティとシート名が一致したら
             {
                 LoadMasterData(url, sheetName, (QuizMasterDataClass<FourChoicesQuiz> data) =>
                 {
