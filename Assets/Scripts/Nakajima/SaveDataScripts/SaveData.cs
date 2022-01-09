@@ -43,5 +43,5 @@ public class SaveData
 [Serializable]
 public class StageAchieves
 {
-    public StageQuizAchieveStates[] Achieves = new StageQuizAchieveStates[5];
+    public StageQuizAchieveStates[] Achieves;
 }

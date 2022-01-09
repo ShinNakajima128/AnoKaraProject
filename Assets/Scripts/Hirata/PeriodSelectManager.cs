@@ -44,6 +44,10 @@ public class PeriodSelectManager : MonoBehaviour
     [SerializeField]
     Sprite[] m_periodBackgroundSprites = default;
 
+    /// <summary> アチーブ表示用のクラス </summary>
+    [SerializeField]
+    StageAchieveControl[] m_achieveCtrls = default;
+
     /// <summary>選択された時代番号の保存</summary>
     int m_periodNum;
 
@@ -68,8 +72,8 @@ public class PeriodSelectManager : MonoBehaviour
     private void Awake()
     {
         GetPeriodClearFlag();
-        SetButtonFlag(m_periodButtons, m_periodClearFlags);
-        //DataManager.SaveData();
+        //SetButtonFlag(m_periodButtons, m_periodClearFlags);
+        DataManager.UpdateData();
     }
 
     private void Start()
@@ -86,12 +90,23 @@ public class PeriodSelectManager : MonoBehaviour
     {
         m_periodNum = period;
         GetStageClearFlag(period);
-        SetButtonFlag(m_stageButtons, m_stageClearFlag);
+        SetButtonFlag(m_stageButtons, m_stageClearFlag, StageCheck((PeriodTypes)period));
         SetStageButton(m_stageTexts, m_periodStageData, period);
         m_stageSelectPanel.SetActive(true);
         SetStageBuckground(period);
         m_headerText.text = "ステージ選択";
         m_stageCharactorImage.sprite = DataManager.Instance.PlayerData.PlayerImage[0];
+
+        foreach (var c in m_achieveCtrls)
+        {
+            c.gameObject.SetActive(false);
+        }
+
+        for (int i = 0; i < DataManager.Instance.PlayerData.StageAchieves[period - 1].Achieves.Length; i++)
+        {
+            m_achieveCtrls[i].gameObject.SetActive(true);
+            m_achieveCtrls[i].ViewAchieve(DataManager.Instance.PlayerData.StageAchieves[period - 1].Achieves[i]);
+        }
     }
 
     /// <summary>
@@ -124,10 +139,16 @@ public class PeriodSelectManager : MonoBehaviour
     /// </summary>
     /// <param name="buttons">ボタンの配列</param>
     /// <param name="flags">クリアフラグ</param>
-    Button[] SetButtonFlag(Button[] buttons, bool[] flags)
+    Button[] SetButtonFlag(Button[] buttons, bool[] flags, int stageNum)
     {
-        for (int i = 0; i < buttons.Length; i++)
+        foreach (var b in buttons)
         {
+            b.gameObject.SetActive(false);
+        }
+
+        for (int i = 0; i < stageNum; i++)
+        {
+            buttons[i].gameObject.SetActive(true);
             buttons[i].interactable = flags[i] ? true : false;
         }
         return buttons;
@@ -145,6 +166,41 @@ public class PeriodSelectManager : MonoBehaviour
         {
             texts[i].text = data.m_dataBases[period - 1].StageText[i];
         }
+    }
+
+    /// <summary>
+    /// 選択された時代のステージ数を返す
+    /// </summary>
+    /// <param name="period"> 選択した時代 </param>
+    /// <returns> 選択した時代のステージ数 </returns>
+    int StageCheck(PeriodTypes period)
+    {
+        int n = 0;
+
+        switch (period)
+        {
+            case PeriodTypes.Jomon_Yayoi:
+                n = 1;
+                break;
+            case PeriodTypes.Asuka_Nara:
+                n = 2;
+                break;
+            case PeriodTypes.Heian:
+                n = 3;
+                break;
+            case PeriodTypes.Kamakura:
+                n = 4;
+                break;
+            case PeriodTypes.Momoyama:
+                n = 3;
+                break;
+            case PeriodTypes.Edo:
+                n = 4;
+                break;
+            default:
+                break;
+        }
+        return n;
     }
 
     /// <summary>
