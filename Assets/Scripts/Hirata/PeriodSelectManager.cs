@@ -307,6 +307,6 @@ public class PeriodSelectManager : MonoBehaviour
         {
             LoadSceneManager.AnyLoadScene("SearchScenes");
         }
-        SoundManager.Instance.PlaySe("SE_touch");
+        SoundManager.Instance.PlaySe("SE_title");
     }
 }
