@@ -33,15 +33,16 @@ public class GenderSelect : MonoBehaviour
     /// <summary>
     /// 性別を選択する
     /// </summary>
-    /// <param name="Type"> 性別の種類 </param>
-    public void SelectGender(int Type)
+    /// <param name="type"> 性別の種類 </param>
+    public void SelectGender(int type)
     {
         //Boyを選択した場合、Girlを暗転して仮でBoyを変数にセットする
-        if (Type == 0)
+        if (type == 0)
         {
             m_genderImages[1].color = new Color(0.2f, 0.2f, 0.2f);
             m_selectGender = GenderType.Boy;
             m_genderSelectGuide.text = "男の子でよろしいですか？";
+            SoundManager.Instance.PlayVoice(VoiceType.SelectBoy, "voice004");
         }
         //Girlを選択した場合、Boyを暗転して仮でGirlを変数にセットする
         else
@@ -49,6 +50,7 @@ public class GenderSelect : MonoBehaviour
             m_genderImages[0].color = new Color(0.3f, 0.3f, 0.3f);
             m_selectGender = GenderType.Girl;
             m_genderSelectGuide.text = "女の子でよろしいですか？";
+            SoundManager.Instance.PlayVoice(VoiceType.SelectGirl, "voice004");
         }
         //確認画面を表示する
         m_confirmPanel.SetActive(true);
@@ -81,5 +83,6 @@ public class GenderSelect : MonoBehaviour
             i.color = new Color(1f, 1f, 1f);
         }
         m_genderSelectGuide.text = "性別を選ぼう！";
+        SoundManager.Instance.PlaySe("SE_touch");
     }
 }
