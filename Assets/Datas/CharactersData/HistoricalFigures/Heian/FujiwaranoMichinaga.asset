@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e72118d45febe24db6886a60ba26345, type: 3}
+  m_Name: FujiwaranoMichinaga
+  m_EditorClassIdentifier: 
+  m_characterName: "\u85E4\u539F\u9053\u9577"
+  m_characterPeriod: 3
+  m_characterImages:
+  - {fileID: 21300000, guid: 3676bbfd2afb5be42b183b7f653120a7, type: 3}
+  - {fileID: 21300000, guid: 12b8df0a30b5a304389def126f39fb46, type: 3}
+  - {fileID: 21300000, guid: cac6009497acb9449a6c4f4d03337bf5, type: 3}
+  m_thinkingChat: "\u8003\u3048\u4E2D\u306E\u30BB\u30EA\u30D5\u3092\u3053\u3053\u306B\u5165\u308C\u3066\u304F\u3060\u3055\u3044"
+  m_correctChat: "\u6B63\u89E3\u6642\u306E\u30BB\u30EA\u30D5\u3092\u3053\u3053\u306B\u5165\u308C\u3066\u304F\u3060\u3055\u3044"
+  m_incorrectChat: "\u4E0D\u6B63\u89E3\u6642\u306E\u30BB\u30EA\u30D5\u3092\u3053\u3053\u306B\u5165\u308C\u3066\u304F\u3060\u3055\u3044"

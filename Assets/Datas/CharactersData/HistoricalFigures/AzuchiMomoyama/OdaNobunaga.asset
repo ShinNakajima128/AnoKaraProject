@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e72118d45febe24db6886a60ba26345, type: 3}
+  m_Name: OdaNobunaga
+  m_EditorClassIdentifier: 
+  m_characterName: "\u7E54\u7530\u4FE1\u9577"
+  m_characterPeriod: 5
+  m_characterImages:
+  - {fileID: 21300000, guid: 26eeb8e839d8caf41ab914f2548cb045, type: 3}
+  - {fileID: 21300000, guid: a9ec204bf4203344e8160f062c183bbe, type: 3}
+  - {fileID: 21300000, guid: 41c85ff742f1b10408bd935bb9cb0b65, type: 3}
+  m_thinkingChat: "\u8003\u3048\u4E2D\u306E\u30BB\u30EA\u30D5\u3092\u3053\u3053\u306B\u5165\u308C\u3066\u304F\u3060\u3055\u3044"
+  m_correctChat: "\u6B63\u89E3\u6642\u306E\u30BB\u30EA\u30D5\u3092\u3053\u3053\u306B\u5165\u308C\u3066\u304F\u3060\u3055\u3044"
+  m_incorrectChat: "\u4E0D\u6B63\u89E3\u6642\u306E\u30BB\u30EA\u30D5\u3092\u3053\u3053\u306B\u5165\u308C\u3066\u304F\u3060\u3055\u3044"

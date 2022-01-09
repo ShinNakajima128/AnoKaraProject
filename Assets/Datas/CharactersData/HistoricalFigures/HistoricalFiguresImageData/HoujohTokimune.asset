@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4d9aa4b5244f4994db385df11d119ef7, type: 3}
+  m_Name: HoujohTokimune
+  m_EditorClassIdentifier: 
+  m_dataName: "\u5317\u6761\u6642\u5B97"
+  m_characterImages:
+  - {fileID: 21300000, guid: 2ac74890ff91b164f9507fc6dd23595a, type: 3}
+  - {fileID: 21300000, guid: 23104b4d61e872642b12f3a47c37bd89, type: 3}
+  - {fileID: 21300000, guid: a9ea878b0f8ceb14b8da2538800cbc07, type: 3}
+  - {fileID: 21300000, guid: 8fdb0b7c0b5054e4292d734a08ee7c34, type: 3}
+  - {fileID: 21300000, guid: 5aebf25686df684448665b8a95d42e65, type: 3}
+  - {fileID: 21300000, guid: 2ac74890ff91b164f9507fc6dd23595a, type: 3}
+  - {fileID: 21300000, guid: 88089f98ebfd6a344bdc249e752bdcf6, type: 3}

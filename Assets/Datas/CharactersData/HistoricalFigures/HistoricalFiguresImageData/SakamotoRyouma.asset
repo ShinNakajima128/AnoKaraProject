@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4d9aa4b5244f4994db385df11d119ef7, type: 3}
+  m_Name: SakamotoRyouma
+  m_EditorClassIdentifier: 
+  m_dataName: "\u5742\u672C\u9F8D\u99AC"
+  m_characterImages:
+  - {fileID: 21300000, guid: d4b009d2c0dba924b8225a8e3975b5a8, type: 3}
+  - {fileID: 21300000, guid: 10047df12fac7374da595e5b6a4cacaf, type: 3}
+  - {fileID: 21300000, guid: b7f019281fe560b4ba18fd9cf45f6228, type: 3}
+  - {fileID: 21300000, guid: 18889c1cefc0c5447a3e45d764d0f3e4, type: 3}
+  - {fileID: 21300000, guid: 96e66737fb1a48b4d8f52cd74d75e491, type: 3}
+  - {fileID: 21300000, guid: 1ae438db80ab6994bb9fc12eddb7127b, type: 3}
+  - {fileID: 21300000, guid: 0a0d16361affd5948bf56f8d2ea37ae4, type: 3}

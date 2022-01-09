@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4d9aa4b5244f4994db385df11d119ef7, type: 3}
+  m_Name: Xavier
+  m_EditorClassIdentifier: 
+  m_dataName: "\u30B6\u30D3\u30A8\u30EB"
+  m_characterImages:
+  - {fileID: 21300000, guid: 482ce4f63d271e4408c6975256efc1d7, type: 3}
+  - {fileID: 21300000, guid: 504f8fa9e387c8d4d875bf24e06da904, type: 3}
+  - {fileID: 21300000, guid: 1ff43eef2f3f24e448720948aa8a38ca, type: 3}
+  - {fileID: 21300000, guid: 22e3952bd9c36d844ab130857531b71f, type: 3}
+  - {fileID: 21300000, guid: 3da285cd3e309f24f9e6df8785f4cacb, type: 3}
+  - {fileID: 21300000, guid: fb9fcf5859ccba34d9bcfc0bce9c1ddb, type: 3}
+  - {fileID: 21300000, guid: 3cb413c73e05ce04c8c9991921da2455, type: 3}

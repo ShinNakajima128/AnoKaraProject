@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e72118d45febe24db6886a60ba26345, type: 3}
+  m_Name: SaigohTakamori
+  m_EditorClassIdentifier: 
+  m_characterName: "\u897F\u90F7\u9686\u76DB"
+  m_characterPeriod: 6
+  m_characterImages:
+  - {fileID: 21300000, guid: c9c8399dd2dd3774d908270a0d088343, type: 3}
+  - {fileID: 21300000, guid: d4bb481168f8b694988a54fb3143600f, type: 3}
+  - {fileID: 21300000, guid: cb83420db9fd19a47a0205e36f3d7f71, type: 3}
+  m_thinkingChat: "\u8003\u3048\u4E2D\u306E\u30BB\u30EA\u30D5\u3092\u3053\u3053\u306B\u5165\u308C\u3066\u304F\u3060\u3055\u3044"
+  m_correctChat: "\u6B63\u89E3\u6642\u306E\u30BB\u30EA\u30D5\u3092\u3053\u3053\u306B\u5165\u308C\u3066\u304F\u3060\u3055\u3044"
+  m_incorrectChat: "\u4E0D\u6B63\u89E3\u6642\u306E\u30BB\u30EA\u30D5\u3092\u3053\u3053\u306B\u5165\u308C\u3066\u304F\u3060\u3055\u3044"

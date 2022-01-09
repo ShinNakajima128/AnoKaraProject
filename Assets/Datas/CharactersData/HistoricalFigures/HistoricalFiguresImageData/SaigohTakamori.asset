@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4d9aa4b5244f4994db385df11d119ef7, type: 3}
+  m_Name: SaigohTakamori
+  m_EditorClassIdentifier: 
+  m_dataName: "\u897F\u90F7\u9686\u76DB"
+  m_characterImages:
+  - {fileID: 21300000, guid: d4bb481168f8b694988a54fb3143600f, type: 3}
+  - {fileID: 21300000, guid: 1fc288032034948488050522a935a81f, type: 3}
+  - {fileID: 21300000, guid: cb83420db9fd19a47a0205e36f3d7f71, type: 3}
+  - {fileID: 21300000, guid: c9c8399dd2dd3774d908270a0d088343, type: 3}
+  - {fileID: 21300000, guid: d32ed5c34d95be5458b47b69a29e761f, type: 3}
+  - {fileID: 21300000, guid: d4bb481168f8b694988a54fb3143600f, type: 3}
+  - {fileID: 21300000, guid: cb83420db9fd19a47a0205e36f3d7f71, type: 3}

@@ -15,3 +15,19 @@ MonoBehaviour:
   m_villagersData: []
   m_historicalFiguresData:
   - {fileID: 11400000, guid: bc0087702c6d15f4286a9d3be3e61bf2, type: 2}
+  - {fileID: 11400000, guid: 92bd87c228bc92144b59a6dbb756ca6b, type: 2}
+  - {fileID: 11400000, guid: 5044f0dc1117d3348991021278e72718, type: 2}
+  - {fileID: 11400000, guid: b2bce3bda21536340922b24f3b791d9a, type: 2}
+  - {fileID: 11400000, guid: b21b1f5ac9972d34295df4eb4beb90ea, type: 2}
+  - {fileID: 11400000, guid: 914148c38f02d79428ae6cc878d338d0, type: 2}
+  - {fileID: 11400000, guid: 23f5f763b0a869d499e653d17207e76c, type: 2}
+  - {fileID: 11400000, guid: b5a9b3c2c63e90449a09e699b0dd22ab, type: 2}
+  - {fileID: 11400000, guid: b3eae2765b157bc41b5b18afcbaa25aa, type: 2}
+  - {fileID: 11400000, guid: 961f18af28d5f024c9ac8f82d842f297, type: 2}
+  - {fileID: 11400000, guid: cfbe1d76d489a7d4f8f431e7571b82d0, type: 2}
+  - {fileID: 11400000, guid: 5637c25d5486ec44a931be0c5f7ce0d1, type: 2}
+  - {fileID: 11400000, guid: 6b99e9c1dfd39834fa1b85efbaab17de, type: 2}
+  - {fileID: 11400000, guid: 8ab7409f04c518341a25971aecd54b7b, type: 2}
+  - {fileID: 11400000, guid: 75e7c28b630cd2849891bd738e34acfa, type: 2}
+  - {fileID: 11400000, guid: 9eede7af39a0add4ea1789892a902b2a, type: 2}
+  - {fileID: 11400000, guid: 5bf483d09e01b3a49975b7c7e5bb0289, type: 2}

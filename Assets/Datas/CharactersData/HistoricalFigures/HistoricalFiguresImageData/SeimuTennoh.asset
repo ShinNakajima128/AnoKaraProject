@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4d9aa4b5244f4994db385df11d119ef7, type: 3}
+  m_Name: SeimuTennoh
+  m_EditorClassIdentifier: 
+  m_dataName: "\u8056\u6B66\u5929\u7687"
+  m_characterImages:
+  - {fileID: 21300000, guid: baaa166564efddd408ca3c3f149d7412, type: 3}
+  - {fileID: 21300000, guid: a664f1563f5102c49be08cfb8814e09e, type: 3}
+  - {fileID: 21300000, guid: 490b9747bf6904e47ad5e203bc50f1d7, type: 3}
+  - {fileID: 21300000, guid: 8e92694220bf37047acfae28142ecdf3, type: 3}
+  - {fileID: 21300000, guid: 6a8d4acef913d9449b92d6da5111eea2, type: 3}
+  - {fileID: 21300000, guid: bbfb1e9184a5c56489c53e7892cc29f7, type: 3}
+  - {fileID: 21300000, guid: f122ac29d211cac41a841b0a49fe8dcc, type: 3}
