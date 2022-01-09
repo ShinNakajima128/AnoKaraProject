@@ -24,17 +24,11 @@ public class FourChoicesQuizManager : MonoBehaviour
     void Start()
     {
         var currentPeriod = GameManager.Instance.CurrentPeriod; //現在の時代を取得
-        var quizDatas = DataManager.Instance.FourChoicesQuizDatas; //4択問題のデータを取得
-
+        var quizDatas = DataManager.Instance.FourChoicesQuizDatas.Where(p => p.PeriodType ==currentPeriod)
+                                                                 .FirstOrDefault(s => s.StageId == GameManager.Instance.CurrentStageId); //4択問題のデータを取得
         //取得した時代のクイズデータを取得する
-        for (int i = 0; i < quizDatas.Length; i++)
-        {
-            if (quizDatas[i].PeriodType == currentPeriod)
-            {
-                m_fourChoicesDatas = quizDatas[i].FourChoicesQuizzes;
-                break;
-            }
-        }
+        m_fourChoicesDatas = quizDatas.FourChoicesQuizzes;
+        
         //ランダムで問題を並び変える
         RandomlySorted(m_fourChoicesDatas);
     }
