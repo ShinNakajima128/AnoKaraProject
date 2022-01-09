@@ -40,6 +40,10 @@ public class PeriodSelectManager : MonoBehaviour
     [SerializeField]
     GameObject[] m_stageSelectImages;
 
+    /// <summary> 各時代の巻物の背景 </summary>
+    [SerializeField]
+    Sprite[] m_periodBackgroundSprites = default;
+
     /// <summary>選択された時代番号の保存</summary>
     int m_periodNum;
 
@@ -51,6 +55,8 @@ public class PeriodSelectManager : MonoBehaviour
 
     /// <summary>ステージのクリアフラグの保存</summary>
     bool[] m_stageClearFlag = new bool[4];
+
+    Image m_periodBackground = default;
 
     /// <summary>決定ボタン</summary>
     [SerializeField]
@@ -69,6 +75,7 @@ public class PeriodSelectManager : MonoBehaviour
     private void Start()
     {
         SoundManager.Instance.PlayBgm(SoundManager.Instance.BgmName);
+        m_periodBackground = m_stageSelectPanel.GetComponent<Image>();
     }
 
     /// <summary>
@@ -82,7 +89,9 @@ public class PeriodSelectManager : MonoBehaviour
         SetButtonFlag(m_stageButtons, m_stageClearFlag);
         SetStageButton(m_stageTexts, m_periodStageData, period);
         m_stageSelectPanel.SetActive(true);
+        SetStageBuckground(period);
         m_headerText.text = "ステージ選択";
+        m_stageCharactorImage.sprite = DataManager.Instance.PlayerData.PlayerImage[0];
     }
 
     /// <summary>
@@ -171,6 +180,34 @@ public class PeriodSelectManager : MonoBehaviour
         m_stageCharactorImage.sprite = data.m_dataBases[period - 1].StageSprite[stage];
     }
 
+    void SetStageBuckground(int period)
+    {
+        switch ((PeriodTypes)period)
+        {
+            case PeriodTypes.Jomon_Yayoi:
+                m_periodBackground.sprite = m_periodBackgroundSprites[0];
+                break;
+            case PeriodTypes.Asuka_Nara:
+                m_periodBackground.sprite = m_periodBackgroundSprites[1];
+                break;
+            case PeriodTypes.Heian:
+                m_periodBackground.sprite = m_periodBackgroundSprites[2];
+                break;
+            case PeriodTypes.Kamakura:
+                m_periodBackground.sprite = m_periodBackgroundSprites[3];
+                break;
+            case PeriodTypes.Momoyama:
+                m_periodBackground.sprite = m_periodBackgroundSprites[4];
+                break;
+            case PeriodTypes.Edo:
+                m_periodBackground.sprite = m_periodBackgroundSprites[5];
+                break;
+            default:
+                Debug.LogError("時代が正しく設定されていません");
+                break;
+        }
+    }
+
     /// <summary>
     /// 時代選択に戻る
     /// ボタンに設定する
@@ -178,7 +215,7 @@ public class PeriodSelectManager : MonoBehaviour
     public void BackSelectPeriod()
     {
         GameManager.Instance.CurrentPeriod = (MasterData.PeriodTypes)0;
-        m_stageCharactorImage.sprite = m_stageDefaultSprite;
+        m_stageCharactorImage.sprite = DataManager.Instance.PlayerData.PlayerImage[0];
         ResetSelectStage();
         m_stageSelectPanel.SetActive(false);
         m_headerText.text = "時代選択";
