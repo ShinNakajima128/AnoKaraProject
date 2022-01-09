@@ -107,6 +107,7 @@ public class PeriodSelectManager : MonoBehaviour
             m_achieveCtrls[i].gameObject.SetActive(true);
             m_achieveCtrls[i].ViewAchieve(DataManager.Instance.PlayerData.StageAchieves[period - 1].Achieves[i]);
         }
+        SoundManager.Instance.PlaySe("SE_touch");
     }
 
     /// <summary>
@@ -212,6 +213,7 @@ public class PeriodSelectManager : MonoBehaviour
         m_decisionButton.interactable = true;
         SetStageNum(stage);
         SetStageSprite(m_periodStageData, m_periodNum, m_selectedStageNum);
+        SoundManager.Instance.PlaySe("SE_touch");
     }
 
     /// <summary>
@@ -275,6 +277,7 @@ public class PeriodSelectManager : MonoBehaviour
         ResetSelectStage();
         m_stageSelectPanel.SetActive(false);
         m_headerText.text = "時代選択";
+        SoundManager.Instance.PlaySe("SE_touch");
     }
 
     /// <summary>
@@ -304,5 +307,6 @@ public class PeriodSelectManager : MonoBehaviour
         {
             LoadSceneManager.AnyLoadScene("SearchScenes");
         }
+        SoundManager.Instance.PlaySe("SE_touch");
     }
 }
