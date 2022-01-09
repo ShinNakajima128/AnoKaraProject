@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System.Linq;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using MasterData;
@@ -120,23 +121,30 @@ public class DataManager : SingletonMonoBehaviour<DataManager>
     /// <param name="sheetName"> シート名 </param>
     public void LoadDialogChoicesDataFromSpreadsheet(string url, string sheetName)
     {
-        for (int i = 0; i < m_allScenarioData.AllScenarioDatas.Length; i++)
-        {
-            if (m_allScenarioData.AllScenarioDatas[i].ChoicesSheetName == sheetName)  //プロパティとシート名が一致したら
-            {
-                LoadMasterData(url, sheetName, (ScenarioMasterDataClass<ChoicesData> data) =>
-                {
-                    m_allScenarioData.AllScenarioDatas[i].ChoicesDatas = data.Data;  //データ更新
-                    for (int n = 0; n < m_allScenarioData.AllScenarioDatas[i].ChoicesDatas.Length; n++)
-                    {
-                        m_allScenarioData.AllScenarioDatas[i].ChoicesDatas[n].MessagesAndNextIdToArray();
-                    }
-                });
-                return;
-            }
-        }
+        var extraction = m_allScenarioData.AllScenarioDatas.Where(c => c.ChoicesSheetName == sheetName).ToArray();
+        Debug.Log(sheetName);
+        Debug.Log(extraction.Length);
+
         //データがロードできなかった場合
-        Debug.LogError("データをロードできませんでした");
+        if (extraction == null)
+        {
+            Debug.LogError("データをロードできませんでした");
+            return;
+        }
+        else
+        {
+            LoadMasterData(url, sheetName, (ScenarioMasterDataClass<ChoicesData> data) =>
+            {
+                for (int i = 0; i < extraction.Length; i++)
+                {
+                    extraction[i].ChoicesDatas = data.Data;  //データ更新
+                    for (int n = 0; n < extraction[i].ChoicesDatas.Length; n++)
+                    {
+                        extraction[i].ChoicesDatas[n].MessagesAndNextIdToArray();
+                    }
+                }
+            });
+        }            
     }
 
     /// <summary>

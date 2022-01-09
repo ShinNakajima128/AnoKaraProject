@@ -1,0 +1,92 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2cfd1c762bfb0094ba2bb45123180fd8, type: 3}
+  m_Name: Momoyama1-4
+  m_EditorClassIdentifier: 
+  m_spreadSheetURL: https://script.google.com/macros/s/AKfycbylVkrjxNIliuZ3BKHepU4m1is5teOIuKWqjnDIQUQT__ZDw3Ks/exec
+  m_scenarioSheetName: azutimomoyama1-4
+  m_choicesSheetName: azutimomoyamaSelect
+  m_dialogData:
+  - MessageId: 0
+    Talker: "\u5317\u6761\u653F\u5B50"
+    m_talker:
+    - "\u5317\u6761\u653F\u5B50"
+    Position: 2
+    m_position: 02000000
+    BackgroundType: 0
+    FaceType: 0
+    m_faceTypes: 00000000
+    StartAnimationType: "\u306A\u3057"
+    EndAnimationType: "\u306A\u3057"
+    Messages: "\u300C\u3069\u3046\u3058\u3083\uFF1F\u3069\u3046\u3058\u3083\uFF1F\u5C11\u3057\u3067\u3082\u308F\u304B\u3063\u305F\u3058\u3083\u308D\uFF1F\u300D"
+    ChoicesId: 0
+    NextId: 1
+    VoiceId: 
+    m_allVoiceId: []
+    m_allMessages:
+    - "\u300C\u3069\u3046\u3058\u3083\uFF1F\u3069\u3046\u3058\u3083\uFF1F\u5C11\u3057\u3067\u3082\u308F\u304B\u3063\u305F\u3058\u3083\u308D\uFF1F\u300D"
+  - MessageId: 1
+    Talker: "\u30D7\u30EC\u30A4\u30E4\u30FC"
+    m_talker:
+    - "\u30D7\u30EC\u30A4\u30E4\u30FC"
+    Position: 0
+    m_position: 00000000
+    BackgroundType: 0
+    FaceType: 0
+    m_faceTypes: 00000000
+    StartAnimationType: "\u306A\u3057"
+    EndAnimationType: "\u306A\u3057"
+    Messages: "\u300C\u3088\u304F\u308F\u304B\u308A\u307E\u3057\u305F\u30FC\uFF01\u653F\u5B50\u69D8\u30FC\uFF01\u300D"
+    ChoicesId: 0
+    NextId: 2
+    VoiceId: 
+    m_allVoiceId: []
+    m_allMessages:
+    - "\u300C\u3088\u304F\u308F\u304B\u308A\u307E\u3057\u305F\u30FC\uFF01\u653F\u5B50\u69D8\u30FC\uFF01\u300D"
+  - MessageId: 2
+    Talker: "\u5317\u6761\u653F\u5B50"
+    m_talker:
+    - "\u5317\u6761\u653F\u5B50"
+    Position: 2
+    m_position: 02000000
+    BackgroundType: 0
+    FaceType: 0
+    m_faceTypes: 00000000
+    StartAnimationType: "\u306A\u3057"
+    EndAnimationType: "\u306A\u3057"
+    Messages: "\u300C\u3046\u3093\u3046\u3093\uFF01\u3088\u3044\u3088\u3044\uFF01\u300D"
+    ChoicesId: 0
+    NextId: 3
+    VoiceId: 
+    m_allVoiceId: []
+    m_allMessages:
+    - "\u300C\u3046\u3093\u3046\u3093\uFF01\u3088\u3044\u3088\u3044\uFF01\u300D"
+  - MessageId: 3
+    Talker: "\u30B3\u30DE"
+    m_talker:
+    - "\u30B3\u30DE"
+    Position: 1
+    m_position: 01000000
+    BackgroundType: 0
+    FaceType: 3
+    m_faceTypes: 03000000
+    StartAnimationType: "\u306A\u3057"
+    EndAnimationType: "\u306A\u3057"
+    Messages: "\u300C\u3053\u306E\u65B9\u3082\u5358\u7D14\u3060\u30FC\u300D"
+    ChoicesId: 0
+    NextId: 4
+    VoiceId: 
+    m_allVoiceId: []
+    m_allMessages:
+    - "\u300C\u3053\u306E\u65B9\u3082\u5358\u7D14\u3060\u30FC\u300D"
+  m_choicesDatas: []
+  m_backgroundType: 0

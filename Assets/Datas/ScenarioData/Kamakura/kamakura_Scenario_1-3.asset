@@ -29,6 +29,8 @@ MonoBehaviour:
     Messages: "\u300C\u77E5\u3089\u306A\u3044\u306E\u306F\u56F0\u308B\u306E\u3067\u3001\u304A\u4E3B\u306B\u306F\u8A13\u7DF4\u3092\u3057\u3066\u3082\u3089\u3046\u300D"
     ChoicesId: 1
     NextId: 1
+    VoiceId: 
+    m_allVoiceId: []
     m_allMessages:
     - "\u300C\u77E5\u3089\u306A\u3044\u306E\u306F\u56F0\u308B\u306E\u3067\u3001\u304A\u4E3B\u306B\u306F\u8A13\u7DF4\u3092\u3057\u3066\u3082\u3089\u3046\u300D"
   - MessageId: 1
@@ -44,6 +46,8 @@ MonoBehaviour:
     Messages: "\u300C\u306A\u305C\uFF1F\u300D"
     ChoicesId: 0
     NextId: 3
+    VoiceId: 
+    m_allVoiceId: []
     m_allMessages:
     - "\u300C\u306A\u305C\uFF1F\u300D"
   - MessageId: 2
@@ -59,6 +63,8 @@ MonoBehaviour:
     Messages: "\u300C\uFF37\uFF48\uFF59\uFF1F\u300D"
     ChoicesId: 0
     NextId: 5
+    VoiceId: 
+    m_allVoiceId: []
     m_allMessages:
     - "\u300C\uFF37\uFF48\uFF59\uFF1F\u300D"
   - MessageId: 3
@@ -74,6 +80,8 @@ MonoBehaviour:
     Messages: "\u300C\u79C1\u304C\u3084\u3063\u3066\u307B\u3057\u3044\u304B\u3089\u3060\uFF01\u300D"
     ChoicesId: 0
     NextId: 4
+    VoiceId: 
+    m_allVoiceId: []
     m_allMessages:
     - "\u300C\u79C1\u304C\u3084\u3063\u3066\u307B\u3057\u3044\u304B\u3089\u3060\uFF01\u300D"
   - MessageId: 4
@@ -89,6 +97,8 @@ MonoBehaviour:
     Messages: "\u300C\u308F\u304B\u308A\u3084\u3059\u3044\u300D"
     ChoicesId: 0
     NextId: 7
+    VoiceId: 
+    m_allVoiceId: []
     m_allMessages:
     - "\u300C\u308F\u304B\u308A\u3084\u3059\u3044\u300D"
   - MessageId: 5
@@ -104,6 +114,8 @@ MonoBehaviour:
     Messages: "\u300C\u4F55\u3092\u8A00\u3046\u3066\u304A\u308B\u306E\u304B\u308F\u304B\u3089\u3093\u304C\u3001\u3068\u306B\u304B\u304F\u3084\u3063\u3066\u307B\u3057\u3044\u306E\u3060\uFF01\u300D"
     ChoicesId: 0
     NextId: 6
+    VoiceId: 
+    m_allVoiceId: []
     m_allMessages:
     - "\u300C\u4F55\u3092\u8A00\u3046\u3066\u304A\u308B\u306E\u304B\u308F\u304B\u3089\u3093\u304C\u3001\u3068\u306B\u304B\u304F\u3084\u3063\u3066\u307B\u3057\u3044\u306E\u3060\uFF01\u300D"
   - MessageId: 6
@@ -119,6 +131,8 @@ MonoBehaviour:
     Messages: "\u300C\u4ED5\u65B9\u304C\u306A\u3044\u300D"
     ChoicesId: 0
     NextId: 7
+    VoiceId: 
+    m_allVoiceId: []
     m_allMessages:
     - "\u300C\u4ED5\u65B9\u304C\u306A\u3044\u300D"
   - MessageId: 7
@@ -134,6 +148,8 @@ MonoBehaviour:
     Messages: 
     ChoicesId: 0
     NextId: 8
+    VoiceId: 
+    m_allVoiceId: []
     m_allMessages:
     - 
   - MessageId: 8
@@ -149,6 +165,8 @@ MonoBehaviour:
     Messages: 
     ChoicesId: 0
     NextId: 9
+    VoiceId: 
+    m_allVoiceId: []
     m_allMessages:
     - 
   - MessageId: 9
@@ -164,6 +182,8 @@ MonoBehaviour:
     Messages: 
     ChoicesId: 0
     NextId: 10
+    VoiceId: 
+    m_allVoiceId: []
     m_allMessages:
     - 
   - MessageId: 10
@@ -179,6 +199,8 @@ MonoBehaviour:
     Messages: 
     ChoicesId: 0
     NextId: 11
+    VoiceId: 
+    m_allVoiceId: []
     m_allMessages:
     - 
   - MessageId: 11
@@ -194,6 +216,8 @@ MonoBehaviour:
     Messages: 
     ChoicesId: 0
     NextId: 12
+    VoiceId: 
+    m_allVoiceId: []
     m_allMessages:
     - 
   - MessageId: 12
@@ -209,6 +233,8 @@ MonoBehaviour:
     Messages: 
     ChoicesId: 0
     NextId: 13
+    VoiceId: 
+    m_allVoiceId: []
     m_allMessages:
     - 
   - MessageId: 13
@@ -224,6 +250,8 @@ MonoBehaviour:
     Messages: 
     ChoicesId: 0
     NextId: 14
+    VoiceId: 
+    m_allVoiceId: []
     m_allMessages:
     - 
   - MessageId: 14
@@ -239,6 +267,8 @@ MonoBehaviour:
     Messages: 
     ChoicesId: 0
     NextId: 15
+    VoiceId: 
+    m_allVoiceId: []
     m_allMessages:
     - 
   - MessageId: 15
@@ -254,6 +284,8 @@ MonoBehaviour:
     Messages: 
     ChoicesId: 0
     NextId: 16
+    VoiceId: 
+    m_allVoiceId: []
     m_allMessages:
     - 
   - MessageId: 16
@@ -269,6 +301,8 @@ MonoBehaviour:
     Messages: 
     ChoicesId: 0
     NextId: 17
+    VoiceId: 
+    m_allVoiceId: []
     m_allMessages:
     - 
   - MessageId: 17
@@ -284,6 +318,8 @@ MonoBehaviour:
     Messages: 
     ChoicesId: 0
     NextId: 18
+    VoiceId: 
+    m_allVoiceId: []
     m_allMessages:
     - 
   - MessageId: 18
@@ -299,6 +335,8 @@ MonoBehaviour:
     Messages: 
     ChoicesId: 0
     NextId: 19
+    VoiceId: 
+    m_allVoiceId: []
     m_allMessages:
     - 
   - MessageId: 19
@@ -314,6 +352,8 @@ MonoBehaviour:
     Messages: 
     ChoicesId: 0
     NextId: 20
+    VoiceId: 
+    m_allVoiceId: []
     m_allMessages:
     - 
   - MessageId: 20
@@ -329,6 +369,8 @@ MonoBehaviour:
     Messages: 
     ChoicesId: 0
     NextId: 21
+    VoiceId: 
+    m_allVoiceId: []
     m_allMessages:
     - 
   - MessageId: 21
@@ -344,6 +386,8 @@ MonoBehaviour:
     Messages: 
     ChoicesId: 0
     NextId: 22
+    VoiceId: 
+    m_allVoiceId: []
     m_allMessages:
     - 
   - MessageId: 22
@@ -359,6 +403,8 @@ MonoBehaviour:
     Messages: 
     ChoicesId: 0
     NextId: 23
+    VoiceId: 
+    m_allVoiceId: []
     m_allMessages:
     - 
   - MessageId: 23
@@ -374,6 +420,8 @@ MonoBehaviour:
     Messages: 
     ChoicesId: 0
     NextId: 24
+    VoiceId: 
+    m_allVoiceId: []
     m_allMessages:
     - 
   - MessageId: 24
@@ -389,6 +437,8 @@ MonoBehaviour:
     Messages: 
     ChoicesId: 0
     NextId: 0
+    VoiceId: 
+    m_allVoiceId: []
     m_allMessages:
     - 
   m_choicesDatas:
