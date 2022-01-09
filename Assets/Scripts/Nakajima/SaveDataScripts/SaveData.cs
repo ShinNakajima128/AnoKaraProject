@@ -9,6 +9,21 @@ public enum GenderType
     Girl
 }
 
+/// <summary>
+/// 各ステージのクイズ達成状況のステータス
+/// </summary>
+public enum StageQuizAchieveStates
+{
+    /// <summary> 未達成orHP0でやり直し </summary>
+    None,
+    /// <summary> HP1～2でステージクリア </summary>
+    One,
+    /// <summary> HP3～4でステージクリア </summary>
+    Two,
+    /// <summary> HP5(ノーダメージ)でステージクリア </summary>
+    Three
+}
+
 [Serializable]
 public class SaveData
 {
