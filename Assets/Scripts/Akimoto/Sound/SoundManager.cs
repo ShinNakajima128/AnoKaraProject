@@ -53,14 +53,12 @@ public class SoundManager : MonoBehaviour
 
     public void PlaySe(string name)
     {
-        m_bgmSource.loop = false;
         m_seSource.cueName = name;
         m_seSource.Play();
     }
 
     public void PlayVoice(VoiceType voiceType, string name)
     {
-        m_bgmSource.loop = false;
         switch (voiceType)
         {
             case VoiceType.Player:
