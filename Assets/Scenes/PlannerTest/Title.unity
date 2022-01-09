@@ -439,6 +439,34 @@ PrefabInstance:
       value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 1024915993, guid: 2507efedb408f5940b98a5383d8fb730, type: 3}
+      propertyPath: gameData.AllStageAchieves.Array.size
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 1024915993, guid: 2507efedb408f5940b98a5383d8fb730, type: 3}
+      propertyPath: gameData.AllStageAchieves.Array.data[0].Achieves.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1024915993, guid: 2507efedb408f5940b98a5383d8fb730, type: 3}
+      propertyPath: gameData.AllStageAchieves.Array.data[1].Achieves.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1024915993, guid: 2507efedb408f5940b98a5383d8fb730, type: 3}
+      propertyPath: gameData.AllStageAchieves.Array.data[2].Achieves.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1024915993, guid: 2507efedb408f5940b98a5383d8fb730, type: 3}
+      propertyPath: gameData.AllStageAchieves.Array.data[3].Achieves.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 1024915993, guid: 2507efedb408f5940b98a5383d8fb730, type: 3}
+      propertyPath: gameData.AllStageAchieves.Array.data[4].Achieves.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1024915993, guid: 2507efedb408f5940b98a5383d8fb730, type: 3}
+      propertyPath: gameData.AllStageAchieves.Array.data[5].Achieves.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 1024915993, guid: 2507efedb408f5940b98a5383d8fb730, type: 3}
       propertyPath: gameData.ClearFlags.Array.data[0].m_stageClearFlag.Array.size
       value: 5
       objectReference: {fileID: 0}
@@ -2821,7 +2849,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_openingSceneName: Opening
   m_periodSelectSceneName: PeriodSelect
-  m_resetGameData: 0
+  m_resetGameData: 1
   m_titleState: 0
   m_tempGender: 0
   m_tempName: 

@@ -102,6 +102,7 @@ public class TitleManager : MonoBehaviour
     public void GameStart()
     {
         DataManager.LoadData();
+        m_gameDataObject.UpdatePlayerData();
         m_playerData = DataManager.Instance.PlayerData;
         StartCoroutine(DataCheck());
         SoundManager.Instance.PlaySe("SE_title");
@@ -225,6 +226,7 @@ public class TitleManager : MonoBehaviour
         m_gameDataObject.PlayerName = m_tempName;
         m_gameDataObject.PlayerGender = m_tempGender;
         m_gameDataObject.ClearFlag = m_tempArray;
+
         DataManager.SaveData();
         m_gameDataObject.UpdatePlayerData();
         LoadSceneManager.AnyLoadScene(m_openingSceneName);
