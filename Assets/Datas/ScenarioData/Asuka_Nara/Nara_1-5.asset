@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_spreadSheetURL: https://script.google.com/macros/s/AKfycbylVkrjxNIliuZ3BKHepU4m1is5teOIuKWqjnDIQUQT__ZDw3Ks/exec
   m_scenarioSheetName: nara1-5
-  m_choicesSheetName: Jomon_YayoiSelect
+  m_choicesSheetName: 
   m_dialogData:
   - MessageId: 0
     Talker: "\u30B3\u30DE"

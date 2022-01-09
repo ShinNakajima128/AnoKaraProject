@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: Edo3-4
   m_EditorClassIdentifier: 
   m_spreadSheetURL: https://script.google.com/macros/s/AKfycbylVkrjxNIliuZ3BKHepU4m1is5teOIuKWqjnDIQUQT__ZDw3Ks/exec
-  m_scenarioSheetName: azutimomoyama3-6
-  m_choicesSheetName: azutimomoyamaSelect
+  m_scenarioSheetName: edo_03-04
+  m_choicesSheetName: edo_choice
   m_dialogData:
   - MessageId: 0
     Talker: "\u5317\u6761\u653F\u5B50"
@@ -88,5 +88,32 @@ MonoBehaviour:
     m_allVoiceId: []
     m_allMessages:
     - "\u300C\u3053\u306E\u65B9\u3082\u5358\u7D14\u3060\u30FC\u300D"
-  m_choicesDatas: []
+  m_choicesDatas:
+  - ChoicesId: 1
+    Choices: "\u53CD\u6297\u3059\u308B\n\u4E0B\u304C\u308B"
+    NextMessageId: '11
+
+      11'
+    m_allChoices:
+    - "\u53CD\u6297\u3059\u308B"
+    - "\u4E0B\u304C\u308B"
+    m_nextId: 0b0000000b000000
+  - ChoicesId: 2
+    Choices: "\u9811\u5F35\u3063\u3066\u82F1\u8A9E\u3067\u8A71\u3059\n\u65E5\u672C\u8A9E\u3067\u8A71\u3059"
+    NextMessageId: '10
+
+      10'
+    m_allChoices:
+    - "\u9811\u5F35\u3063\u3066\u82F1\u8A9E\u3067\u8A71\u3059"
+    - "\u65E5\u672C\u8A9E\u3067\u8A71\u3059"
+    m_nextId: 0a0000000a000000
+  - ChoicesId: 3
+    Choices: "\u308F\u304B\u3089\u306A\u3044\u3068\u7B54\u3048\u308B\n\u30B3\u30DE\u306B\u805E\u304F"
+    NextMessageId: '5
+
+      5'
+    m_allChoices:
+    - "\u308F\u304B\u3089\u306A\u3044\u3068\u7B54\u3048\u308B"
+    - "\u30B3\u30DE\u306B\u805E\u304F"
+    m_nextId: 0500000005000000
   m_backgroundType: 0
