@@ -16,11 +16,11 @@ MonoBehaviour:
   m_playerGender: 1
   m_clearFlag:
   - m_stageClearFlag: 0101000000
-  - m_stageClearFlag: 0100000000
-  - m_stageClearFlag: 0100000000
-  - m_stageClearFlag: 0100000000
-  - m_stageClearFlag: 0100000000
-  - m_stageClearFlag: 0100000000
+  - m_stageClearFlag: 0000000000
+  - m_stageClearFlag: 0000000000
+  - m_stageClearFlag: 0000000000
+  - m_stageClearFlag: 0000000000
+  - m_stageClearFlag: 0000000000
   m_stageAchieves:
   - Achieves: 00000000
   - Achieves: 0000000000000000
