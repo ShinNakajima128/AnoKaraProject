@@ -222,7 +222,7 @@ public class QuizManager : MonoBehaviour
 
             while (!QuizDataUpdated)
             {
-                int num = UnityEngine.Random.Range(0, 2); //各クイズからランダムで問題を抽選する
+                int num = UnityEngine.Random.Range(0, 1); //各クイズからランダムで問題を抽選する
 
                 switch (num)
                 {
