@@ -35,6 +35,10 @@ public class BackGroundController : MonoBehaviour
 
     public void FadeIn(int backgroundType)
     {
+        if (backgroundType >= 3)
+        {
+            backgroundType = 4;
+        }
         m_backgrounds[1].sprite = m_backgroundTypes[backgroundType];
         m_anim.Play("BackgroundFadeIn");
     }
