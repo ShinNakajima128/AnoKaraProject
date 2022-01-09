@@ -34,6 +34,18 @@ public class DataManager : SingletonMonoBehaviour<DataManager>
     public CharacterData[] CurrentPeriodAllVillegersData => m_allCharacterData.GetCurrentPeriodVillagersData;
     /// <summary> 現在の時代の偉人データを取得する </summary>
     public CharacterData CurrentPeriodHistoricalFigures => m_allCharacterData.GetCurrentHistoricalFiguresData;
+
+    /// <summary>
+    /// 現在のステージのクイズ達成状況を取得する
+    /// </summary>
+    public StageQuizAchieveStates CurrentStageAchieve
+    {
+        get => m_playerData.StageAchieves[(int)GameManager.Instance.CurrentPeriod - 1]
+                           .Achieves[GameManager.Instance.CurrentStageId];
+        set => m_playerData.StageAchieves[(int)GameManager.Instance.CurrentPeriod - 1]
+                           .Achieves[GameManager.Instance.CurrentStageId] = value;
+    }
+
     /// <summary> 4択クイズのデータ </summary>
     public FourChoicesQuizData[] FourChoicesQuizDatas => m_allQuizData.FourChoicesQuizDatas;
     public AnaumeQuizData[] AnaumeQuizDatabases => m_allQuizData.AnaumeQuizDatas;
@@ -77,6 +89,19 @@ public class DataManager : SingletonMonoBehaviour<DataManager>
         ISave saveIf = gameData.GetComponent<ISave>();
         saveIf.Load(data.CurrentGameData);
         Debug.Log(data);
+    }
+
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <param name="achieve"></param>
+    public void UpdateAchieve(StageQuizAchieveStates achieve)
+    {
+        if ((int)achieve > (int)CurrentStageAchieve)
+        {
+            CurrentStageAchieve = achieve;
+            Debug.Log("アチーブ更新");
+        }
     }
 
     #region SpreadsheetMethod

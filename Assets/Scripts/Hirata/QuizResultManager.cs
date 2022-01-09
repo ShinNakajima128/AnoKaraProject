@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System.Linq;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -60,21 +61,26 @@ public class QuizResultManager : MonoBehaviour
             QuizResultUiSet(0);
             StartCoroutine(SetIcon(2, m_iconTimer));
             FlagOpen();
+            DataManager.Instance.UpdateAchieve(StageQuizAchieveStates.Three);
         }
         else if (m_ansCount >= 7)
         {
             QuizResultUiSet(2);
             StartCoroutine(SetIcon(1, m_iconTimer));
             FlagOpen();
+            DataManager.Instance.UpdateAchieve(StageQuizAchieveStates.Two);
         }
         else if (m_ansCount >= 3)
         {
             QuizResultUiSet(3);
             StartCoroutine(SetIcon(0, m_iconTimer));
+            DataManager.Instance.UpdateAchieve(StageQuizAchieveStates.One);
         }
         else if (m_ansCount < 3)
         {
             QuizResultUiSet(3);
+            DataManager.Instance.UpdateAchieve(StageQuizAchieveStates.None);
+            Debug.Log("アチーブ：なし");
         }
     }
 

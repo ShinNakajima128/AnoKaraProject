@@ -18,6 +18,10 @@ public class PlayerData : ScriptableObject
     [SerializeField]
     GameManager.ClearFlagArray[] m_clearFlag = default;
 
+    [Header("各時代、各ステージのクイズクリア状況")]
+    [SerializeField]
+    StageAchieves[] m_stageAchieves = new StageAchieves[6];
+
     [Header("プレイヤーのクイズパートの考え中・正解・不正解のセリフ")]
     [SerializeField]
     string m_thinkingChat = default;
@@ -38,6 +42,7 @@ public class PlayerData : ScriptableObject
     public string PlayerName { get => m_playerName; set => m_playerName = value; }
     public GenderType PlayerGender { get => m_playerGender; set => m_playerGender = value; }
     public GameManager.ClearFlagArray[] ClearFlags { get => m_clearFlag; set => m_clearFlag = value; }
+    public StageAchieves[] StageAchieves { get => m_stageAchieves; set => m_stageAchieves = value; }
 
     /// <summary> 現在のプレイヤーの性別に合わせた画像データを取得する </summary>
     public Sprite[] PlayerImage 

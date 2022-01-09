@@ -34,7 +34,14 @@ public class SaveData
         public string PlayerName;
         public GenderType Gender;
         public GameManager.ClearFlagArray[] ClearFlags;
+        public StageAchieves[] AllStageAchieves;
     }
 
     public GameData CurrentGameData = new GameData();
+}
+
+[Serializable]
+public class StageAchieves
+{
+    public StageQuizAchieveStates[] Achieves = new StageQuizAchieveStates[5];
 }
