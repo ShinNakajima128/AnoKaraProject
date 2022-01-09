@@ -72,7 +72,7 @@ public class PeriodSelectManager : MonoBehaviour
     private void Awake()
     {
         GetPeriodClearFlag();
-        //SetButtonFlag(m_periodButtons, m_periodClearFlags);
+        SetButtonFlag(m_periodButtons, m_periodClearFlags, 6);
         DataManager.UpdateData();
     }
 
