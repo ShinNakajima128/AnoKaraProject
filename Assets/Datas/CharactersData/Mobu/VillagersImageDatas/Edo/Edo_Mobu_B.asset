@@ -12,12 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4d9aa4b5244f4994db385df11d119ef7, type: 3}
   m_Name: Edo_Mobu_B
   m_EditorClassIdentifier: 
-  m_dataName: "\u753A\u4EBA\u5973"
+  m_dataName: "\u753A\u4EBA\u7537"
   m_characterImages:
-  - {fileID: 21300000, guid: fe101c84e3b805b4ba2007586514f262, type: 3}
-  - {fileID: 21300000, guid: 4018aaad8bd42e24fbd2feb658459493, type: 3}
-  - {fileID: 21300000, guid: b0ec62da6603dcf4f949d2b3280cc7fb, type: 3}
-  - {fileID: 21300000, guid: b0ec62da6603dcf4f949d2b3280cc7fb, type: 3}
-  - {fileID: 21300000, guid: b0ec62da6603dcf4f949d2b3280cc7fb, type: 3}
-  - {fileID: 21300000, guid: b0ec62da6603dcf4f949d2b3280cc7fb, type: 3}
-  - {fileID: 21300000, guid: b0ec62da6603dcf4f949d2b3280cc7fb, type: 3}
+  - {fileID: 21300000, guid: 6a2afb4210a534f42afff6136d31b345, type: 3}
+  - {fileID: 21300000, guid: 3c46ce62e60b92c4ba8ceb3a2cddcaf6, type: 3}
+  - {fileID: 21300000, guid: 64fb15257b8553441b2d9678a81c3d72, type: 3}
+  - {fileID: 21300000, guid: 64fb15257b8553441b2d9678a81c3d72, type: 3}
+  - {fileID: 21300000, guid: 64fb15257b8553441b2d9678a81c3d72, type: 3}
+  - {fileID: 21300000, guid: 64fb15257b8553441b2d9678a81c3d72, type: 3}
+  - {fileID: 21300000, guid: 64fb15257b8553441b2d9678a81c3d72, type: 3}
