@@ -14,6 +14,9 @@ public class CharacterData : ScriptableObject
     PeriodTypes m_characterPeriod = default;
 
     [SerializeField]
+    int m_stageId = default;
+
+    [SerializeField]
     Sprite[] m_characterImages = default;
 
     [Header("各偉人のクイズパートの考え中・正解・不正解のセリフ")]
@@ -27,6 +30,7 @@ public class CharacterData : ScriptableObject
 
     public string CharacterName => m_characterName;
     public PeriodTypes CharacterPeriod => m_characterPeriod;
+    public int StageId => m_stageId;
     public Sprite[] CharacterImages => m_characterImages;
     public string ThinkingChat => m_thinkingChat;
     public string CorrectChat => m_correctChat;
