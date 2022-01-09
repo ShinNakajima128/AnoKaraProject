@@ -13,7 +13,9 @@ MonoBehaviour:
   m_Name: Jomon_Yayoi
   m_EditorClassIdentifier: 
   m_spreadsheetURL: https://script.google.com/macros/s/AKfycbw6vpPYJ-aWAUK75W6zlWgfcbVV_KdRySjaRUtslTSL_uWEHIQ/exec
+  m_SheetName: 
   m_periodType: 1
+  m_stageId: 0
   m_database:
   - Id: 1
     Question: "\u3053\u306E\u56FD\u3092\u6CBB\u3081\u305F\u5973\u738B\u3067\u3042\u308B\u308F\u3057\u306E\u540D\u524D\u306F\uFF1F"
