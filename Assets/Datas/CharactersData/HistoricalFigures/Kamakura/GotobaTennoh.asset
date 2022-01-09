@@ -14,6 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_characterName: "\u5F8C\u9CE5\u7FBD\u5929\u7687"
   m_characterPeriod: 4
+  m_stageId: 2
   m_characterImages:
   - {fileID: 21300000, guid: 5c8fb723c54ee154ea69aa811817c877, type: 3}
   - {fileID: 21300000, guid: 87ffb1277dbea054086b9601afed73fe, type: 3}
