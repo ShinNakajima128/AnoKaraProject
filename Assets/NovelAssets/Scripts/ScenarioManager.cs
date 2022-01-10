@@ -361,7 +361,7 @@ public class ScenarioManager : MonoBehaviour
                         if (m_characterImage[data.DialogData[currentDialogIndex].AllPosition[n]].enabled)
                         {
                             m_characterImage[data.DialogData[currentDialogIndex].AllPosition[n]].sprite = SetCharaImage(data.DialogData[currentDialogIndex].Talker, data.DialogData[currentDialogIndex].FaceTypes[i]);
-                            SetFeelingAnim(m_characterImage[data.DialogData[currentDialogIndex].AllPosition[n]], data.DialogData[currentDialogIndex].FaceTypes[i]);
+                            SetFeelingAnim(m_effectPositions[i], data.DialogData[currentDialogIndex].FaceTypes[i]);
                             //m_effectPositions[data.DialogData[currentDialogIndex].AllPosition[n]].sprite = SetFeelingImage(data.DialogData[currentDialogIndex].FaceTypes[i]);
                         }
                     }
@@ -1042,8 +1042,8 @@ public class ScenarioManager : MonoBehaviour
         {
             case FeelingType.Happy:
                 tra = image.transform;
-                sequence.Append(image.transform.DOMoveX(tra.position.x + 10f, 0.1f))
-                    .Append(image.transform.DOMoveX(tra.position.x, 0.1f));
+                sequence.Append(image.transform.DOMoveY(tra.position.y + 20f, 0.1f))
+                    .Append(image.transform.DOMoveX(tra.position.y, 0.1f));
                 break;
             case FeelingType.Angry:
                 break;
@@ -1053,12 +1053,12 @@ public class ScenarioManager : MonoBehaviour
                 break;
             case FeelingType.Surprise:
                 tra = image.transform;
-                sequence.Append(image.transform.DOMoveX(tra.position.x + 10f, 0.1f))
+                sequence.Append(image.transform.DOMoveX(tra.position.x + 20f, 0.1f))
                     .Append(image.transform.DOMoveX(tra.position.x, 0.1f));
                 break;
             case FeelingType.Think:
                 tra = image.transform;
-                sequence.Append(image.transform.DOMoveX(tra.position.x + 10f, 0.1f))
+                sequence.Append(image.transform.DOMoveX(tra.position.x + 20f, 0.1f))
                     .Append(image.transform.DOMoveX(tra.position.x, 0.1f));
                 break;
         }
