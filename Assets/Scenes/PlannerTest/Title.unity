@@ -695,7 +695,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 386077c253f373243a6a10150d3fe6c0, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 8af74be03ac61a34bb51162eb20e17fe, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -1766,7 +1766,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: f9dd0ec397538fd45a2a898ba34149f1, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 376de1b700fd0744e8930922411f38d9, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -1899,7 +1899,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: f9dd0ec397538fd45a2a898ba34149f1, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 376de1b700fd0744e8930922411f38d9, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -2090,7 +2090,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 386077c253f373243a6a10150d3fe6c0, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 8af74be03ac61a34bb51162eb20e17fe, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -2849,7 +2849,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_openingSceneName: Opening
   m_periodSelectSceneName: PeriodSelect
-  m_resetGameData: 0
+  m_resetGameData: 1
   m_titleState: 0
   m_tempGender: 0
   m_tempName: 
@@ -4347,7 +4347,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: f9dd0ec397538fd45a2a898ba34149f1, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 376de1b700fd0744e8930922411f38d9, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -4575,7 +4575,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 386077c253f373243a6a10150d3fe6c0, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 8af74be03ac61a34bb51162eb20e17fe, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
