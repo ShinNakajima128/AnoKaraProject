@@ -16,7 +16,7 @@ public class SearchManager : MonoBehaviour
     StageData[] m_stagePanel;
 
     #region sheetName
-
+    [Header("タスク終了後のシナリオシート名")]
     [SerializeField]
     string m_jomon_yayoi_sheetName01 = default;
 
@@ -91,6 +91,13 @@ public class SearchManager : MonoBehaviour
         m_villegersData = DataManager.Instance.CurrentPeriodAllVillegersData;
         JidaiSelect();
         StageSelect();
+        StartCoroutine(PlayEachStageFirstScenario());
+
+        //クイズ終了後の場合はシナリオ終了後、時代選択画面に戻る
+        if (GameManager.Instance.IsAfterQuized)
+        {
+            EventManager.ListenEvents(Events.FinishDialog, StageClear);
+        }
     }
 
     /// <summary>
@@ -190,6 +197,11 @@ public class SearchManager : MonoBehaviour
     /// </summary>
     void StageSelect()
     {
+        if (GameManager.Instance.IsAfterQuized)
+        {
+            return;
+        }
+
         var jidai = GameManager.Instance.CurrentPeriod;
 
         var p = m_stagePanel.Where(a => a.PeriodType == jidai).ToArray();
@@ -218,6 +230,7 @@ public class SearchManager : MonoBehaviour
         }
 
         CurrentTaskNum++;
+        Debug.Log(CurrentTaskNum);
         IsTaskComplited = false;
 
         if (CurrentTaskNum >= m_maxTaskNum)
@@ -338,15 +351,238 @@ public class SearchManager : MonoBehaviour
                 default:
                     break;
             }
-
-            ScenarioManager.Instance.EndEvent.AddListener(() =>
+            EventManager.ListenEvents(Events.FinishDialog, () =>
             {
-                LoadSceneManager.AnyLoadScene("PeriodSelect", () =>
-                {
-                    DataManager.Instance.FlagOpen((int)GameManager.Instance.CurrentPeriod, GameManager.Instance.CurrentStageId);
-                });
+                LoadSceneManager.AnyLoadScene("QuizPart");
+                //LoadSceneManager.AnyLoadScene("PeriodSelect", () =>
+                //{
+                //    DataManager.Instance.FlagOpen((int)GameManager.Instance.CurrentPeriod, GameManager.Instance.CurrentStageId);
+                //});
             });
             Debug.Log("全てのタスクが終了しました");    
         }
     }
+
+    /// <summary>
+    /// 各時代、各ステージの最初のシナリオを開始する
+    /// </summary>
+    IEnumerator PlayEachStageFirstScenario()
+    {
+        yield return null;
+        switch (GameManager.Instance.CurrentPeriod)
+        {
+            case MasterData.PeriodTypes.Jomon_Yayoi:
+
+                if (!GameManager.Instance.IsAfterQuized)
+                {
+                    ScenarioManager.Instance.StartSelectScenario(0);
+                }
+                else
+                {
+                    ScenarioManager.Instance.StartSelectScenario(8);
+                }
+
+                break;
+            case MasterData.PeriodTypes.Asuka_Nara:
+
+                if (GameManager.Instance.CurrentStageId == 0)
+                {
+                    if (!GameManager.Instance.IsAfterQuized)
+                    {
+                        ScenarioManager.Instance.StartSelectScenario(9);
+                    }
+                    else
+                    {
+                        ScenarioManager.Instance.StartSelectScenario(14);
+                    }
+                }
+                else
+                {
+                    if (!GameManager.Instance.IsAfterQuized)
+                    {
+                        ScenarioManager.Instance.StartSelectScenario(15);
+                    }
+                    else
+                    {
+                        ScenarioManager.Instance.StartSelectScenario(20);
+                    }
+                }
+                break;
+            case MasterData.PeriodTypes.Heian:
+                if (GameManager.Instance.CurrentStageId == 0)
+                {
+                    if (!GameManager.Instance.IsAfterQuized)
+                    {
+                        ScenarioManager.Instance.StartSelectScenario(21);
+                    }
+                    else
+                    {
+                        ScenarioManager.Instance.StartSelectScenario(26);
+                    }
+                }
+                else if (GameManager.Instance.CurrentStageId == 1)
+                {
+                    if (!GameManager.Instance.IsAfterQuized)
+                    {
+                        ScenarioManager.Instance.StartSelectScenario(27);
+                    }
+                    else
+                    {
+                        ScenarioManager.Instance.StartSelectScenario(32);
+                    }
+                }
+                else
+                {
+                    if (!GameManager.Instance.IsAfterQuized)
+                    {
+                        ScenarioManager.Instance.StartSelectScenario(33);
+                    }
+                    else
+                    {
+                        ScenarioManager.Instance.StartSelectScenario(38);
+                    }
+                }
+                break;
+            case MasterData.PeriodTypes.Kamakura:
+                if (GameManager.Instance.CurrentStageId == 0)
+                {
+                    if (!GameManager.Instance.IsAfterQuized)
+                    {
+                        ScenarioManager.Instance.StartSelectScenario(39);
+                    }
+                    else
+                    {
+                        ScenarioManager.Instance.StartSelectScenario(42);
+                    }
+                }
+                else if (GameManager.Instance.CurrentStageId == 1)
+                {
+                    if (!GameManager.Instance.IsAfterQuized)
+                    {
+                        ScenarioManager.Instance.StartSelectScenario(43);
+                    }
+                    else
+                    {
+                        ScenarioManager.Instance.StartSelectScenario(47);
+                    }
+                }
+                else if (GameManager.Instance.CurrentStageId == 2)
+                {
+                    if (!GameManager.Instance.IsAfterQuized)
+                    {
+                        ScenarioManager.Instance.StartSelectScenario(48);
+                    }
+                    else
+                    {
+                        ScenarioManager.Instance.StartSelectScenario(52);
+                    }
+                }
+                else
+                {
+                    if (!GameManager.Instance.IsAfterQuized)
+                    {
+                        ScenarioManager.Instance.StartSelectScenario(53);
+                    }
+                    else
+                    {
+                        ScenarioManager.Instance.StartSelectScenario(58);
+                    }
+                }
+                break;
+            case MasterData.PeriodTypes.Momoyama:
+                if (GameManager.Instance.CurrentStageId == 0)
+                {
+                    if (!GameManager.Instance.IsAfterQuized)
+                    {
+                        ScenarioManager.Instance.StartSelectScenario(59);
+                    }
+                    else
+                    {
+                        ScenarioManager.Instance.StartSelectScenario(65);
+                    }
+                }
+                else if (GameManager.Instance.CurrentStageId == 1)
+                {
+                    if (!GameManager.Instance.IsAfterQuized)
+                    {
+                        ScenarioManager.Instance.StartSelectScenario(66);
+                    }
+                    else
+                    {
+                        ScenarioManager.Instance.StartSelectScenario(71);
+                    }
+                }
+                else
+                {
+                    if (!GameManager.Instance.IsAfterQuized)
+                    {
+                        ScenarioManager.Instance.StartSelectScenario(72);
+                    }
+                    else
+                    {
+                        ScenarioManager.Instance.StartSelectScenario(77);
+                    }
+                }
+                break;
+            case MasterData.PeriodTypes.Edo:
+                if (GameManager.Instance.CurrentStageId == 0)
+                {
+                    if (!GameManager.Instance.IsAfterQuized)
+                    {
+                        ScenarioManager.Instance.StartSelectScenario(78);
+                    }
+                    else
+                    {
+                        ScenarioManager.Instance.StartSelectScenario(83);
+                    }
+                }
+                else if (GameManager.Instance.CurrentStageId == 1)
+                {
+                    if (!GameManager.Instance.IsAfterQuized)
+                    {
+                        ScenarioManager.Instance.StartSelectScenario(84);
+                    }
+                    else
+                    {
+                        ScenarioManager.Instance.StartSelectScenario(89);
+                    }
+                }
+                else if (GameManager.Instance.CurrentStageId == 2)
+                {
+                    if (!GameManager.Instance.IsAfterQuized)
+                    {
+                        ScenarioManager.Instance.StartSelectScenario(90);
+                    }
+                    else
+                    {
+                        ScenarioManager.Instance.StartSelectScenario(95);
+                    }
+                }
+                else
+                {
+                    if (!GameManager.Instance.IsAfterQuized)
+                    {
+                        ScenarioManager.Instance.StartSelectScenario(96);
+                    }
+                    else
+                    {
+                        ScenarioManager.Instance.StartSelectScenario(100);
+                    }
+                }
+                break;
+            default:
+                break;
+        }
+    }
+
+    /// <summary>
+    /// ステージクリアした場合、シナリオ終了後に時代選択画面に遷移させる
+    /// </summary>
+    void StageClear()
+    {
+        GameManager.Instance.IsAfterQuized = false;
+
+        LoadSceneManager.AnyLoadScene("PeriodSelect");
+    }
 }
+     
