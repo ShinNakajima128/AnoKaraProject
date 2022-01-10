@@ -1919,6 +1919,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3556439220019624003, guid: 0850286fda9bd6145914c63f2fa6698b, type: 3}
+      propertyPath: m_transparentSprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 703e4994763f59044bb0f90d19da28b0, type: 3}
+    - target: {fileID: 3556439220019624003, guid: 0850286fda9bd6145914c63f2fa6698b, type: 3}
       propertyPath: m_data.Array.data[0]
       value: 
       objectReference: {fileID: 11400000, guid: f4550262d05686b4f8596b7ab55cbd9b, type: 2}
@@ -1944,7 +1948,7 @@ PrefabInstance:
       objectReference: {fileID: 21300000, guid: 67704a8620c688b42b9613d165b196de, type: 3}
     - target: {fileID: 3556439220019624003, guid: 0850286fda9bd6145914c63f2fa6698b, type: 3}
       propertyPath: m_feelingEffects.Array.size
-      value: 6
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 3556439220019624003, guid: 0850286fda9bd6145914c63f2fa6698b, type: 3}
       propertyPath: m_girlSprites.Array.data[5]
@@ -1982,6 +1986,14 @@ PrefabInstance:
       propertyPath: m_feelingEffects.Array.data[5]
       value: 
       objectReference: {fileID: 21300000, guid: fa1ec3ced408ebd43bf2c25f6e744646, type: 3}
+    - target: {fileID: 3556439220019624003, guid: 0850286fda9bd6145914c63f2fa6698b, type: 3}
+      propertyPath: m_feelingEffects.Array.data[6]
+      value: 
+      objectReference: {fileID: 21300000, guid: 7a907129a11ad4a42a7ac9869358fcd6, type: 3}
+    - target: {fileID: 3556439220019624003, guid: 0850286fda9bd6145914c63f2fa6698b, type: 3}
+      propertyPath: m_feelingEffects.Array.data[7]
+      value: 
+      objectReference: {fileID: 21300000, guid: 5f43741ab92dda140b4446fa07d237eb, type: 3}
     - target: {fileID: 3556439220019624003, guid: 0850286fda9bd6145914c63f2fa6698b, type: 3}
       propertyPath: m_effectPositions.Array.data[0]
       value: 

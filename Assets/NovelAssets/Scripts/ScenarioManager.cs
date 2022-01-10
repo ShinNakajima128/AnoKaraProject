@@ -17,12 +17,15 @@ public enum HighlightTextType
 
 public enum FeelingType
 {
+    none = -1,
     Happy,
     Angry,
     Cry,
     raku,
     Surprise,
-    Think
+    Think,
+    Correct,
+    Incorrect
 }
 
 /// <summary>
@@ -137,6 +140,10 @@ public class ScenarioManager : MonoBehaviour
     [Header("感情用のエフェクト")]
     [SerializeField]
     Sprite[] m_feelingEffects = default;
+
+    [Header("画像差し替え用の透明画像")]
+    [SerializeField]
+    Sprite m_transparentSprite = default;
 
     [Header("エフェクトを表示するポジション")]
     [SerializeField]
@@ -362,7 +369,6 @@ public class ScenarioManager : MonoBehaviour
                         {
                             m_characterImage[data.DialogData[currentDialogIndex].AllPosition[n]].sprite = SetCharaImage(data.DialogData[currentDialogIndex].Talker, data.DialogData[currentDialogIndex].FaceTypes[i]);
                             SetFeelingAnim(m_effectPositions[i], data.DialogData[currentDialogIndex].FaceTypes[i]);
-                            //m_effectPositions[data.DialogData[currentDialogIndex].AllPosition[n]].sprite = SetFeelingImage(data.DialogData[currentDialogIndex].FaceTypes[i]);
                         }
                     }
                 }
@@ -797,6 +803,10 @@ public class ScenarioManager : MonoBehaviour
                 break;
             case "FadeOut":
                 m_anim[index].Play("FadeOut");
+                for (int i = 0; i < m_effectPositions.Length; i++)
+                {
+                    m_effectPositions[i].sprite = m_transparentSprite;
+                }
                 break;
             case "AllFadeIn":
                 for (int i = 0; i < m_characterImage.Length; i++)
@@ -828,6 +838,7 @@ public class ScenarioManager : MonoBehaviour
                         m_characterImage[i].enabled = true;
                     }
                     m_anim[i].Play("FadeOut");
+                    m_effectPositions[i].sprite = m_transparentSprite;
                 }
                 break;
             default:
@@ -1036,6 +1047,8 @@ public class ScenarioManager : MonoBehaviour
         //楽 => 数回上下
         //驚 => 一回上下
         //考 => 一回上下
+        //正解 => 
+        //不正解 => 
         Vector2 befPos = image.transform.position;
         Sequence sequence = DOTween.Sequence();
         switch (feelingType)
