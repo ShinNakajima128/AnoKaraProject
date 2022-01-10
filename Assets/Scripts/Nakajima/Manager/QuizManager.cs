@@ -346,10 +346,15 @@ public class QuizManager : MonoBehaviour
     {
         yield return new WaitForSeconds(2.0f);
 
-        m_JudgePanel.SetActive(false);
+        //m_JudgePanel.SetActive(false);
         m_panel.SetActive(true);
-        yield return new WaitForSeconds(2.0f);
-        LoadSceneManager.AnyLoadScene("PeriodSelect");
+
+        while (true)
+        {
+            yield return null;
+        }
+        //yield return new WaitForSeconds(2.0f);
+        //LoadSceneManager.AnyLoadScene("PeriodSelect");
     }
 
     /// <summary>
@@ -475,6 +480,22 @@ public class QuizManager : MonoBehaviour
         return (correctNum / currentQuestionNum) * 100;
     }
     #endregion
+
+    /// <summary>
+    /// クイズをやり直す。ボタン用
+    /// </summary>
+    public void Retry()
+    {
+        LoadSceneManager.AnyLoadScene("QuizPart");
+    }
+
+    /// <summary>
+    /// 時代選択画面に戻る。ボタン用
+    /// </summary>
+    public void ReturnPeriodSelect()
+    {
+        LoadSceneManager.AnyLoadScene("PeriodSelect");
+    }
 
     #region FourChoicesQuizMethod
     /// <summary>

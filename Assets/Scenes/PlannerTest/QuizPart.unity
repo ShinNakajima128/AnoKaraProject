@@ -1133,14 +1133,46 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1248510872, guid: e1dacf4572dd80143b50cb7a73e36d93, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1248510872, guid: e1dacf4572dd80143b50cb7a73e36d93, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1248510872, guid: e1dacf4572dd80143b50cb7a73e36d93, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -174.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1248510872, guid: e1dacf4572dd80143b50cb7a73e36d93, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -207
+      objectReference: {fileID: 0}
+    - target: {fileID: 1412438760, guid: e1dacf4572dd80143b50cb7a73e36d93, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1792521333, guid: e1dacf4572dd80143b50cb7a73e36d93, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1792521333, guid: e1dacf4572dd80143b50cb7a73e36d93, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1792521333, guid: e1dacf4572dd80143b50cb7a73e36d93, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 282.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1792521333, guid: e1dacf4572dd80143b50cb7a73e36d93, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -207
+      objectReference: {fileID: 0}
     - target: {fileID: 2055684878, guid: e1dacf4572dd80143b50cb7a73e36d93, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 2118772312}
-    - target: {fileID: 73129724859819694, guid: e1dacf4572dd80143b50cb7a73e36d93, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 434024879647280401, guid: e1dacf4572dd80143b50cb7a73e36d93, type: 3}
       propertyPath: m_RootOrder
       value: 7
