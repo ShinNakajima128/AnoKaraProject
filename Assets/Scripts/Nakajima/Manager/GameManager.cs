@@ -22,11 +22,15 @@ public class GameManager : SingletonMonoBehaviour<GameManager>
     [SerializeField]
     int m_currentStageId = default;
 
+    /// <summary> クイズ後かどうかのフラグ </summary>
+    [SerializeField]
+    bool m_isAfterQuized = false;
+
     public int CurrentStageId { get => m_currentStageId; set => m_currentStageId = value; }
     public PeriodTypes CurrentPeriod { get => m_currentPeriod; set => m_currentPeriod = value; }
 
     /// <summary> クイズシーンから戻っていたかどうかのフラグ </summary>
-    public bool IsAfterQuized { get; set; } = false;
+    public bool IsAfterQuized { get => m_isAfterQuized; set => m_isAfterQuized = value; }
 
     private void Awake()
     {
