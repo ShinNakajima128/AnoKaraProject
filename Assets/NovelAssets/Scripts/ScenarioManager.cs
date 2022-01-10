@@ -17,7 +17,6 @@ public enum HighlightTextType
 
 public enum FeelingType
 {
-    none = -1,
     Happy,
     Angry,
     Cry,
@@ -368,7 +367,7 @@ public class ScenarioManager : MonoBehaviour
                         if (m_characterImage[data.DialogData[currentDialogIndex].AllPosition[n]].enabled)
                         {
                             m_characterImage[data.DialogData[currentDialogIndex].AllPosition[n]].sprite = SetCharaImage(data.DialogData[currentDialogIndex].Talker, data.DialogData[currentDialogIndex].FaceTypes[i]);
-                            SetFeelingAnim(m_effectPositions[i], data.DialogData[currentDialogIndex].FaceTypes[i]);
+                            SetFeelingAnim(m_effectPositions[data.DialogData[currentDialogIndex].AllPosition[n]], data.DialogData[currentDialogIndex].FaceTypes[i]);
                         }
                     }
                 }
@@ -1036,10 +1035,12 @@ public class ScenarioManager : MonoBehaviour
         }
         return chara;
     }
-
+    int m_beforeEmoteType = -1;
     void SetFeelingAnim(Image image, int emoteType)
     {
+        if (m_beforeEmoteType == emoteType) return;
         image.sprite = m_feelingEffects[emoteType];
+        m_beforeEmoteType = emoteType;
         FeelingType feelingType = (FeelingType)emoteType;
         //喜 => 一回上下
         //怒 => 左右に素早く
@@ -1080,6 +1081,12 @@ public class ScenarioManager : MonoBehaviour
             case FeelingType.Think:
                 sequence.Append(image.transform.DOMoveY(befPos.y + 50f, 0.1f))
                     .Append(image.transform.DOMoveY(befPos.y, 0.1f));
+                break;
+            case FeelingType.Correct:
+                //正解
+                break;
+            case FeelingType.Incorrect:
+                //不正解
                 break;
         }
     }
