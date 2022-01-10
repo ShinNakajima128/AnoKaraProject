@@ -1036,30 +1036,37 @@ public class ScenarioManager : MonoBehaviour
         //楽 => 数回上下
         //驚 => 一回上下
         //考 => 一回上下
-        Transform tra = default;
+        Vector2 befPos = image.transform.position;
         Sequence sequence = DOTween.Sequence();
         switch (feelingType)
         {
             case FeelingType.Happy:
-                tra = image.transform;
-                sequence.Append(image.transform.DOMoveY(tra.position.y + 20f, 0.1f))
-                    .Append(image.transform.DOMoveY(tra.position.y, 0.1f));
+                sequence.Append(image.transform.DOMoveY(befPos.y + 50f, 0.1f))
+                    .Append(image.transform.DOMoveY(befPos.y, 0.1f));
                 break;
             case FeelingType.Angry:
+                sequence.Append(image.transform.DOMoveX(befPos.x + 50f, 0.1f))
+                    .Append(image.transform.DOMoveX(befPos.x + -50f, 0.1f))
+                    .Append(image.transform.DOMoveX(befPos.x, 0.1f));
                 break;
             case FeelingType.Cry:
+                sequence.Append(image.transform.DOMoveY(befPos.y + -50f, 1f))
+                    .Append(image.transform.DOMoveY(befPos.y, 0.5f));
                 break;
             case FeelingType.raku:
+                sequence.Append(image.transform.DOMoveY(befPos.y + 30f, 0.1f))
+                    .Append(image.transform.DOMoveY(befPos.y + -30f, 0.1f))
+                    .Append(image.transform.DOMoveY(befPos.y + 30f, 0.1f))
+                    .Append(image.transform.DOMoveY(befPos.y + -30f, 0.1f))
+                    .Append(image.transform.DOMoveY(befPos.y, 0.1f));
                 break;
             case FeelingType.Surprise:
-                tra = image.transform;
-                sequence.Append(image.transform.DOMoveY(tra.position.y + 20f, 0.1f))
-                    .Append(image.transform.DOMoveY(tra.position.y, 0.1f));
+                sequence.Append(image.transform.DOMoveY(befPos.y + 50f, 0.1f))
+                    .Append(image.transform.DOMoveY(befPos.y, 0.1f));
                 break;
             case FeelingType.Think:
-                tra = image.transform;
-                sequence.Append(image.transform.DOMoveY(tra.position.y + 20f, 0.1f))
-                    .Append(image.transform.DOMoveY(tra.position.y, 0.1f));
+                sequence.Append(image.transform.DOMoveY(befPos.y + 50f, 0.1f))
+                    .Append(image.transform.DOMoveY(befPos.y, 0.1f));
                 break;
         }
     }
