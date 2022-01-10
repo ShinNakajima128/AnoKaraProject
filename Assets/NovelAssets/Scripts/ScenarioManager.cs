@@ -629,6 +629,7 @@ public class ScenarioManager : MonoBehaviour
             {
                 m_characterImage[i].color = new Color(1, 1, 1);
                 m_anim[i].Play("FadeOut");
+                m_effectPositions[i].sprite = m_transparentSprite;
                 isAnimPlaying = true;
                 CharacterPanel.CharacterAnim += FinishReceive;
             }
