@@ -296,17 +296,12 @@ public class PeriodSelectManager : MonoBehaviour
     /// <param name="scene">シーン名</param>
     public void Decision()
     {
+        //選択したステージの時代とIDをゲームマネージャーに保存
         GameManager.Instance.CurrentPeriod = (MasterData.PeriodTypes)m_periodNum;
         GameManager.Instance.CurrentStageId = m_selectedStageNum;
 
-        if (m_selectedStageNum == 3)
-        {
-            LoadSceneManager.AnyLoadScene("QuizPart");
-        }
-        else
-        {
-            LoadSceneManager.AnyLoadScene("SearchScenes");
-        }
+        //探索Sceneへ遷移
+        LoadSceneManager.AnyLoadScene("SearchScenes");
         SoundManager.Instance.PlaySe("SE_title");
     }
 }
