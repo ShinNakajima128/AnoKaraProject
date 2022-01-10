@@ -104,6 +104,7 @@ public class QuizTips : MonoBehaviour
                 StartCoroutine(MashTips());
             }
             m_mashCount++;
+            SoundManager.Instance.PlaySe("SE_touch");
         }
     }
 
@@ -149,6 +150,7 @@ public class QuizTips : MonoBehaviour
         GetTips();
         m_isTips = true;
         m_tipsUi.SetActive(true);
+        SoundManager.Instance.PlaySe("SE_popup");
         StartCoroutine(CloseTips());
     }
 
@@ -162,6 +164,7 @@ public class QuizTips : MonoBehaviour
             yield return new WaitForEndOfFrame();
         }
         m_tipsUi.SetActive(false);
+        SoundManager.Instance.PlaySe("SE_touch");
         yield break;
     }
 

@@ -20,10 +20,19 @@ public class Option : MonoBehaviour
     Slider m_bgmSlider = default;
 
     [SerializeField]
+    Image m_bgmSliderFill = default;
+
+    [SerializeField]
     Slider m_seSlider = default;
 
     [SerializeField]
+    Image m_seSliderFill = default;
+
+    [SerializeField]
     Slider m_voiceSlider = default;
+
+    [SerializeField]
+    Image m_voiceSliderFill = default;
 
     private bool m_flag = false;
 
@@ -39,6 +48,11 @@ public class Option : MonoBehaviour
         m_bgmSlider.value = SoundManager.Instance.BgmVolume * 10;
         m_seSlider.value = SoundManager.Instance.SeVolume * 10;
         m_voiceSlider.value = SoundManager.Instance.VoiceVolume * 10;
+
+        m_bgmSliderFill.fillAmount = SoundManager.Instance.BgmVolume;
+        m_seSliderFill.fillAmount = SoundManager.Instance.SeVolume;
+        m_voiceSliderFill.fillAmount = SoundManager.Instance.VoiceVolume;
+
     }
 
     public void OnNameInputClick(bool isActive)
@@ -55,6 +69,7 @@ public class Option : MonoBehaviour
             //m_nameInput.transform.DOScale(Vector3.zero, m_fadeTime);
             m_nameInput.SetActive(false);
         }
+        SoundManager.Instance.PlaySe("SE_touch");
     }
 
     public void OnSettingButtonClick()
@@ -69,6 +84,7 @@ public class Option : MonoBehaviour
             m_optionObj.SetActive(true);
             m_flag = true;
         }
+        SoundManager.Instance.PlaySe("SE_touch");
     }
 
     public void OnValueChanged(int changeType)
@@ -77,15 +93,31 @@ public class Option : MonoBehaviour
         {
             case ChangeType.Bgm:
                 SoundManager.Instance.BgmVolume = m_bgmSlider.value / 10;
+                m_bgmSliderFill.fillAmount = m_bgmSlider.value / 10;
                 break;
             case ChangeType.Se:
                 SoundManager.Instance.SeVolume = m_seSlider.value / 10;
+                m_seSliderFill.fillAmount = m_seSlider.value / 10;
                 break;
             case ChangeType.Voice:
                 SoundManager.Instance.VoiceVolume = m_voiceSlider.value / 10;
+                m_voiceSliderFill.fillAmount = m_voiceSlider.value / 10;
                 break;
         }
+
         SoundManager.Instance.SettingVolume();
+
+        if (m_flag)
+        {
+            if (changeType == 1)
+            {
+                SoundManager.Instance.PlaySe("SE_touch");
+            }
+            else if (changeType == 2)
+            {
+                SoundManager.Instance.PlayVoice(VoiceType.Koma, "voice008");
+            }
+        } 
     }
 }
 

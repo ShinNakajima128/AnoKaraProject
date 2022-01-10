@@ -4,6 +4,8 @@ using UnityEngine;
 
 public enum VoiceType
 {
+    SelectBoy,
+    SelectGirl,
     Player,
     Koma
 }
@@ -53,31 +55,41 @@ public class SoundManager : MonoBehaviour
 
     public void PlaySe(string name)
     {
-        m_bgmSource.loop = false;
         m_seSource.cueName = name;
         m_seSource.Play();
     }
 
     public void PlayVoice(VoiceType voiceType, string name)
     {
-        m_bgmSource.loop = false;
         switch (voiceType)
         {
+            case VoiceType.SelectBoy:
+                m_voiceBoySource.cueName = name;
+                m_voiceBoySource.volume = m_voiceVolume;
+                m_voiceBoySource.Play();
+                break;
+            case VoiceType.SelectGirl:
+                m_voiceGirlSource.cueName = name;
+                m_voiceGirlSource.volume = m_voiceVolume;
+                m_voiceGirlSource.Play();
+                break;
             case VoiceType.Player:
                 if(DataManager.Instance.PlayerData.PlayerGender == GenderType.Boy)
                 {
                     m_voiceBoySource.cueName = name;
-                    m_bgmSource.volume = m_bgmVolume;
+                    m_voiceBoySource.volume = m_voiceVolume;
                     m_voiceBoySource.Play();
                 }
                 else
                 {
                     m_voiceGirlSource.cueName = name;
+                    m_voiceGirlSource.volume = m_voiceVolume;
                     m_voiceGirlSource.Play();
                 }
                 break;
             case VoiceType.Koma:
                 m_voiceKomaSource.cueName = name;
+                m_voiceKomaSource.volume = m_voiceVolume;
                 m_voiceKomaSource.Play();
                 break;
         }

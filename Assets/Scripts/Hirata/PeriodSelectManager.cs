@@ -72,7 +72,7 @@ public class PeriodSelectManager : MonoBehaviour
     private void Awake()
     {
         GetPeriodClearFlag();
-        //SetButtonFlag(m_periodButtons, m_periodClearFlags);
+        SetButtonFlag(m_periodButtons, m_periodClearFlags, 6);
         DataManager.UpdateData();
     }
 
@@ -107,6 +107,7 @@ public class PeriodSelectManager : MonoBehaviour
             m_achieveCtrls[i].gameObject.SetActive(true);
             m_achieveCtrls[i].ViewAchieve(DataManager.Instance.PlayerData.StageAchieves[period - 1].Achieves[i]);
         }
+        SoundManager.Instance.PlaySe("SE_touch");
     }
 
     /// <summary>
@@ -212,6 +213,7 @@ public class PeriodSelectManager : MonoBehaviour
         m_decisionButton.interactable = true;
         SetStageNum(stage);
         SetStageSprite(m_periodStageData, m_periodNum, m_selectedStageNum);
+        SoundManager.Instance.PlaySe("SE_touch");
     }
 
     /// <summary>
@@ -275,6 +277,7 @@ public class PeriodSelectManager : MonoBehaviour
         ResetSelectStage();
         m_stageSelectPanel.SetActive(false);
         m_headerText.text = "時代選択";
+        SoundManager.Instance.PlaySe("SE_touch");
     }
 
     /// <summary>
@@ -293,16 +296,12 @@ public class PeriodSelectManager : MonoBehaviour
     /// <param name="scene">シーン名</param>
     public void Decision()
     {
+        //選択したステージの時代とIDをゲームマネージャーに保存
         GameManager.Instance.CurrentPeriod = (MasterData.PeriodTypes)m_periodNum;
         GameManager.Instance.CurrentStageId = m_selectedStageNum;
 
-        if (m_selectedStageNum == 3)
-        {
-            LoadSceneManager.AnyLoadScene("QuizPart");
-        }
-        else
-        {
-            LoadSceneManager.AnyLoadScene("SearchScenes");
-        }
+        //探索Sceneへ遷移
+        LoadSceneManager.AnyLoadScene("SearchScenes");
+        SoundManager.Instance.PlaySe("SE_title");
     }
 }

@@ -44,6 +44,7 @@ public class QuizResultManager : MonoBehaviour
 
     void Start()
     {
+        m_nextUiButton.interactable = false;
         if (!m_isDebug)
         {
             m_ansCount = QuizManager.CorrectAnswersNum;
@@ -116,6 +117,7 @@ public class QuizResultManager : MonoBehaviour
             m_moveIconMove[i].IconSet();
             yield return new WaitForSeconds(timer);
         }
+        m_nextUiButton.interactable = true;
         yield break;
     }
 
@@ -135,10 +137,17 @@ public class QuizResultManager : MonoBehaviour
     /// </summary>
     public void NextScene(string scene)
     {
-        LoadSceneManager.AnyLoadScene(scene, () =>
+        if (GameManager.Instance.CurrentPeriod == MasterData.PeriodTypes.Edo && GameManager.Instance.CurrentStageId == 3)
         {
-            LoadSceneManager.FadeOutPanel();
-        });
+            LoadSceneManager.AnyLoadScene("Ending");
+        }
+        else
+        {
+            LoadSceneManager.AnyLoadScene(scene, () =>
+            {
+                GameManager.Instance.IsAfterQuized = true;
+            });
+        }     
     }
 
     /// <summary>

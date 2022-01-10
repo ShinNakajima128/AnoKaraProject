@@ -22,6 +22,14 @@ public class NameInput : MonoBehaviour
     /// <summary> 設定中のプレイヤー名 </summary>
     string m_tempName = default;
 
+    private void OnEnable()
+    {
+        if (DataManager.Instance.PlayerData.PlayerName != null && DataManager.Instance.PlayerData.PlayerName != "")
+        {
+            m_input.text = DataManager.Instance.PlayerData.PlayerName;
+        }
+    }
+
     /// <summary>
     /// 入力された名前を確認する
     /// </summary>
@@ -63,6 +71,7 @@ public class NameInput : MonoBehaviour
                 else
                 {
                     DataManager.Instance.PlayerData.PlayerName = m_tempName;
+                    DataManager.UpdateData();
                 }
                 SoundManager.Instance.PlaySe("SE_touch");
             }

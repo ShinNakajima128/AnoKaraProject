@@ -77,6 +77,24 @@ public class DataManager : SingletonMonoBehaviour<DataManager>
     }
 
     /// <summary>
+    /// ゲームデータを更新する
+    /// </summary>
+    public static void UpdateData()
+    {
+        SaveData data = SaveManager.GetData();
+        GameDataObject gameData = FindObjectOfType<GameDataObject>();
+
+        gameData.GameData.PlayerName = Instance.m_playerData.PlayerName;
+        gameData.GameData.Gender = Instance.m_playerData.PlayerGender;
+        gameData.GameData.ClearFlags = Instance.m_playerData.ClearFlags;
+        gameData.GameData.AllStageAchieves = Instance.m_playerData.StageAchieves;
+
+        ISave saveIf = gameData.GetComponent<ISave>();
+        saveIf.Save(data.CurrentGameData);
+        Debug.Log($"{data.CurrentGameData}のデータを更新しました");
+        SaveManager.Save();
+    }
+    /// <summary>
     /// ゲームデータをロードする
     /// </summary>
     public static void LoadData()
