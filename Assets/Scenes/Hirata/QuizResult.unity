@@ -1933,7 +1933,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4b932815c3c850747b275cd56c52b22e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_isDebug: 1
+  m_isDebug: 0
   m_answerCountText: {fileID: 1149008113}
   m_charactorImage: {fileID: 980518674}
   m_nextUiButton: {fileID: 1940383984}
