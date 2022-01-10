@@ -21,19 +21,10 @@ public class SearchManager : MonoBehaviour
     string m_jomon_yayoi_sheetName01 = default;
 
     [SerializeField]
-    string m_jomon_yayoi_sheetName02 = default;
-
-    [SerializeField]
-    string m_jomon_yayoi_sheetName03 = default;
-
-    [SerializeField]
     string m_asuka_nara_sheetName01 = default;
 
     [SerializeField]
     string m_asuka_nara_sheetName02 = default;
-
-    [SerializeField]
-    string m_asuka_nara_sheetName03 = default;
 
     [SerializeField]
     string m_heian_sheetName01 = default;
@@ -54,6 +45,9 @@ public class SearchManager : MonoBehaviour
     string m_kamakura_sheetName03 = default;
 
     [SerializeField]
+    string m_kamakura_sheetName04 = default;
+
+    [SerializeField]
     string m_momoyama_sheetName01 = default;
 
     [SerializeField]
@@ -70,6 +64,9 @@ public class SearchManager : MonoBehaviour
 
     [SerializeField]
     string m_edo_sheetName03 = default;
+
+    [SerializeField]
+    string m_edo_sheetName04 = default;
 
     #endregion
 
@@ -236,16 +233,6 @@ public class SearchManager : MonoBehaviour
                         {
                             ScenarioManager.Instance.StartSelectScenario(i);
                         }
-
-                        if (a[i].ScenarioSheetName == m_jomon_yayoi_sheetName02)
-                        {
-                            ScenarioManager.Instance.StartSelectScenario(i);
-                        }
-
-                        if (a[i].ScenarioSheetName == m_jomon_yayoi_sheetName03)
-                        {
-                            ScenarioManager.Instance.StartSelectScenario(i);
-                        }
                     }
                     break;
                 case MasterData.PeriodTypes.Asuka_Nara:
@@ -257,11 +244,6 @@ public class SearchManager : MonoBehaviour
                         }
 
                         if (a[i].ScenarioSheetName == m_asuka_nara_sheetName02)
-                        {
-                            ScenarioManager.Instance.StartSelectScenario(i);
-                        }
-
-                        if (a[i].ScenarioSheetName == m_asuka_nara_sheetName03)
                         {
                             ScenarioManager.Instance.StartSelectScenario(i);
                         }
@@ -303,6 +285,11 @@ public class SearchManager : MonoBehaviour
                         {
                             ScenarioManager.Instance.StartSelectScenario(i);
                         }
+
+                        if (a[i].ScenarioSheetName == m_kamakura_sheetName04)
+                        {
+                            ScenarioManager.Instance.StartSelectScenario(i);
+                        }
                     }
                     break;
                 case MasterData.PeriodTypes.Momoyama:
@@ -338,6 +325,11 @@ public class SearchManager : MonoBehaviour
                         }
 
                         if (a[i].ScenarioSheetName == m_edo_sheetName03)
+                        {
+                            ScenarioManager.Instance.StartSelectScenario(i);
+                        }
+
+                        if (a[i].ScenarioSheetName == m_edo_sheetName04)
                         {
                             ScenarioManager.Instance.StartSelectScenario(i);
                         }
