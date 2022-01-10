@@ -17,119 +17,257 @@ MonoBehaviour:
   m_choicesSheetName: "Heian\u9078\u629E\u80A2\u30B7\u30FC\u30C8"
   m_dialogData:
   - MessageId: 0
-    Talker: "\u30B3\u30DE"
+    Talker: "\u30D7\u30EC\u30A4\u30E4\u30FC"
     m_talker:
-    - "\u30B3\u30DE"
-    Position: 2
-    m_position: 02000000
-    BackgroundType: 3
+    - "\u30D7\u30EC\u30A4\u30E4\u30FC"
+    Position: 0
+    m_position: 00000000
+    BackgroundType: 0
     FaceType: 3
     m_faceTypes: 03000000
     StartAnimationType: AllFadeIn
     EndAnimationType: "\u306A\u3057"
-    Messages: "\u300C\u3055\u3066\u65E9\u901F\u3060\u3051\u3069\u3053\u3053\u304C\u521D\u3081\u306E\u5F25\u751F\u6642\u4EE3\u306E\u4E16\u754C\u3060\u3002\u300D"
+    Messages: "\u300C\u306D\u30FC\u3001\u30B3\u30DE\u3002\u306A\u3093\u304B\u304A\u8179\u7A7A\u3044\u305F\u300D"
     ChoicesId: 0
     NextId: 1
     VoiceId: "\u306A\u3057"
     m_allVoiceId:
     - "\u306A\u3057"
     m_allMessages:
-    - "\u300C\u3055\u3066\u65E9\u901F\u3060\u3051\u3069\u3053\u3053\u304C\u521D\u3081\u306E\u5F25\u751F\u6642\u4EE3\u306E\u4E16\u754C\u3060\u3002\u300D"
+    - "\u300C\u306D\u30FC\u3001\u30B3\u30DE\u3002\u306A\u3093\u304B\u304A\u8179\u7A7A\u3044\u305F\u300D"
   - MessageId: 1
     Talker: "\u30B3\u30DE"
     m_talker:
     - "\u30B3\u30DE"
-    Position: 2
-    m_position: 02000000
-    BackgroundType: 3
+    Position: 1
+    m_position: 01000000
+    BackgroundType: 0
     FaceType: 3
     m_faceTypes: 03000000
     StartAnimationType: "\u306A\u3057"
     EndAnimationType: "\u306A\u3057"
-    Messages: "\u300C\u65E9\u901F\u3060\u3051\u3069\u541B\u306F\u5F25\u751F\u6642\u4EE3\u306E\u5049\u3044\u4EBA\u3063\u3066\u77E5\u3063\u3066\u308B\u304B\u306A\uFF08\u6C57\uFF09\u300D"
-    ChoicesId: 1
-    NextId: 0
+    Messages: "\u300C\u78BA\u304B\u306B\u50D5\u3082\u304A\u8179\u7A7A\u3044\u305F\u306A\u3041\u3002\u3061\u3087\u3063\u3068\u805E\u3044\u3066\u307F\u3088\u3046\u304B\u300D\n\u300C\u3059\u307F\u307E\u305B\u30FC\u3093\u300D"
+    ChoicesId: 0
+    NextId: 2
+    VoiceId: koma_003
+    m_allVoiceId:
+    - koma_003
+    m_allMessages:
+    - "\u300C\u78BA\u304B\u306B\u50D5\u3082\u304A\u8179\u7A7A\u3044\u305F\u306A\u3041\u3002\u3061\u3087\u3063\u3068\u805E\u3044\u3066\u307F\u3088\u3046\u304B\u300D"
+    - "\u300C\u3059\u307F\u307E\u305B\u30FC\u3093\u300D"
+  - MessageId: 2
+    Talker: "\u30E2\u30D6"
+    m_talker:
+    - "\u30E2\u30D6"
+    Position: 2
+    m_position: 02000000
+    BackgroundType: 0
+    FaceType: 1
+    m_faceTypes: 01000000
+    StartAnimationType: FadeIn
+    EndAnimationType: "\u306A\u3057"
+    Messages: "\u300C\u3093\uFF1F\u306A\u3093\u3060\u304A\u524D\u3089\u306F\uFF1F\u300D"
+    ChoicesId: 0
+    NextId: 3
     VoiceId: "\u306A\u3057"
     m_allVoiceId:
     - "\u306A\u3057"
     m_allMessages:
-    - "\u300C\u65E9\u901F\u3060\u3051\u3069\u541B\u306F\u5F25\u751F\u6642\u4EE3\u306E\u5049\u3044\u4EBA\u3063\u3066\u77E5\u3063\u3066\u308B\u304B\u306A\uFF08\u6C57\uFF09\u300D"
-  - MessageId: 2
-    Talker: "\u30D7\u30EC\u30A4\u30E4\u30FC"
-    m_talker:
-    - "\u30D7\u30EC\u30A4\u30E4\u30FC"
-    Position: 0
-    m_position: 00000000
-    BackgroundType: 3
-    FaceType: 5
-    m_faceTypes: 05000000
-    StartAnimationType: "\u306A\u3057"
-    EndAnimationType: "\u306A\u3057"
-    Messages: "\u300C\u3054\u3081\u3093\u2026\u308F\u304B\u3089\u306A\u3044\u3084\u3002\u300D"
-    ChoicesId: 0
-    NextId: 4
-    VoiceId: player_001
-    m_allVoiceId:
-    - player_001
-    m_allMessages:
-    - "\u300C\u3054\u3081\u3093\u2026\u308F\u304B\u3089\u306A\u3044\u3084\u3002\u300D"
+    - "\u300C\u3093\uFF1F\u306A\u3093\u3060\u304A\u524D\u3089\u306F\uFF1F\u300D"
   - MessageId: 3
     Talker: "\u30D7\u30EC\u30A4\u30E4\u30FC"
     m_talker:
     - "\u30D7\u30EC\u30A4\u30E4\u30FC"
     Position: 0
     m_position: 00000000
-    BackgroundType: 3
-    FaceType: 0
-    m_faceTypes: 00000000
+    BackgroundType: 0
+    FaceType: 3
+    m_faceTypes: 03000000
     StartAnimationType: "\u306A\u3057"
     EndAnimationType: "\u306A\u3057"
-    Messages: "\u300C\u5973\u6027\u3060\u3063\u305F\u6C17\u304C\u3059\u308B\u3093\u3060\u3088\u306D\uFF01\u65E9\u304F\u4F1A\u3063\u3066\u307F\u305F\u3044\u306A\u300D"
+    Messages: "\u300C\u5B9F\u306F\u4FFA\uFF08\u79C1\uFF09\u305F\u3061\u3001\u304A\u8179\u7A7A\u3044\u3066\u3066\uFF5E\u300D"
     ChoicesId: 0
-    NextId: 5
-    VoiceId: player_008
+    NextId: 4
+    VoiceId: "\u306A\u3057"
     m_allVoiceId:
-    - player_008
+    - "\u306A\u3057"
     m_allMessages:
-    - "\u300C\u5973\u6027\u3060\u3063\u305F\u6C17\u304C\u3059\u308B\u3093\u3060\u3088\u306D\uFF01\u65E9\u304F\u4F1A\u3063\u3066\u307F\u305F\u3044\u306A\u300D"
+    - "\u300C\u5B9F\u306F\u4FFA\uFF08\u79C1\uFF09\u305F\u3061\u3001\u304A\u8179\u7A7A\u3044\u3066\u3066\uFF5E\u300D"
   - MessageId: 4
     Talker: "\u30B3\u30DE"
     m_talker:
     - "\u30B3\u30DE"
+    Position: 1
+    m_position: 01000000
+    BackgroundType: 0
+    FaceType: 3
+    m_faceTypes: 03000000
+    StartAnimationType: "\u306A\u3057"
+    EndAnimationType: "\u306A\u3057"
+    Messages: "\u300C\u3054\u98EF\u5206\u3051\u3066\u3044\u305F\u3060\u3051\u305F\u308A\u3057\u307E\u305B\u3093\u304B\u306D\uFF5E\uFF1F\u300D"
+    ChoicesId: 0
+    NextId: 5
+    VoiceId: "\u306A\u3057"
+    m_allVoiceId:
+    - "\u306A\u3057"
+    m_allMessages:
+    - "\u300C\u3054\u98EF\u5206\u3051\u3066\u3044\u305F\u3060\u3051\u305F\u308A\u3057\u307E\u305B\u3093\u304B\u306D\uFF5E\uFF1F\u300D"
+  - MessageId: 5
+    Talker: "\u30E2\u30D6"
+    m_talker:
+    - "\u30E2\u30D6"
     Position: 2
     m_position: 02000000
-    BackgroundType: 3
+    BackgroundType: 0
     FaceType: 2
     m_faceTypes: 02000000
     StartAnimationType: "\u306A\u3057"
     EndAnimationType: "\u306A\u3057"
-    Messages: "\u300C\u305D\u3046\u304B\u30FC\u2026\u3067\u306F\u305B\u3063\u304B\u304F\u306E\u8CB4\u91CD\u306A\u65C5\u884C\u3060\u3057\u8ABF\u3079\u306A\u304C\u3089\u898B\u3066\u3044\u3053\u3046\u300D"
-    ChoicesId: 0
+    Messages: "\u300C\u5206\u3051\u308B\u307B\u3069\u306E\u98EF\u306F\u306A\u3044\u3093\u3060\u304C...\u300D\n\u300C\u96D1\u7A40\u3068\u304B\u3067\u3044\u3044\u304B\uFF1F\u300D"
+    ChoicesId: 2
     NextId: 6
-    VoiceId: koma_005
+    VoiceId: "\u306A\u3057\n\u306A\u3057"
     m_allVoiceId:
-    - koma_005
+    - "\u306A\u3057"
+    - "\u306A\u3057"
     m_allMessages:
-    - "\u300C\u305D\u3046\u304B\u30FC\u2026\u3067\u306F\u305B\u3063\u304B\u304F\u306E\u8CB4\u91CD\u306A\u65C5\u884C\u3060\u3057\u8ABF\u3079\u306A\u304C\u3089\u898B\u3066\u3044\u3053\u3046\u300D"
-  - MessageId: 5
+    - "\u300C\u5206\u3051\u308B\u307B\u3069\u306E\u98EF\u306F\u306A\u3044\u3093\u3060\u304C...\u300D"
+    - "\u300C\u96D1\u7A40\u3068\u304B\u3067\u3044\u3044\u304B\uFF1F\u300D"
+  - MessageId: 6
+    Talker: "\u30D7\u30EC\u30A4\u30E4\u30FC"
+    m_talker:
+    - "\u30D7\u30EC\u30A4\u30E4\u30FC"
+    Position: 0
+    m_position: 00000000
+    BackgroundType: 0
+    FaceType: 2
+    m_faceTypes: 02000000
+    StartAnimationType: "\u306A\u3057"
+    EndAnimationType: "\u306A\u3057"
+    Messages: "\u300C\u3048\u3001\u767D\u7C73\u306F...\uFF1F\u300D"
+    ChoicesId: 0
+    NextId: 7
+    VoiceId: player_005
+    m_allVoiceId:
+    - player_005
+    m_allMessages:
+    - "\u300C\u3048\u3001\u767D\u7C73\u306F...\uFF1F\u300D"
+  - MessageId: 7
+    Talker: "\u30D7\u30EC\u30A4\u30E4\u30FC"
+    m_talker:
+    - "\u30D7\u30EC\u30A4\u30E4\u30FC"
+    Position: 0
+    m_position: 00000000
+    BackgroundType: 0
+    FaceType: 2
+    m_faceTypes: 02000000
+    StartAnimationType: "\u306A\u3057"
+    EndAnimationType: "\u306A\u3057"
+    Messages: "\u300C\u3048\u3001\u304A\u8089\u306F...\uFF1F\u300D"
+    ChoicesId: 0
+    NextId: 8
+    VoiceId: player_005
+    m_allVoiceId:
+    - player_005
+    m_allMessages:
+    - "\u300C\u3048\u3001\u304A\u8089\u306F...\uFF1F\u300D"
+  - MessageId: 8
+    Talker: "\u30E2\u30D6"
+    m_talker:
+    - "\u30E2\u30D6"
+    Position: 2
+    m_position: 02000000
+    BackgroundType: 0
+    FaceType: 1
+    m_faceTypes: 01000000
+    StartAnimationType: "\u306A\u3057"
+    EndAnimationType: FadeOut
+    Messages: "\u300C\u305D\u3093\u306A\u3082\u306E\u3042\u308B\u308F\u3051\u306A\u3044\u3060\u308D\uFF01\u300D\n\u300C\u305D\u3093\u306A\u3053\u3068\u3092\u8A00\u3046\u3084\u3064\u306F\u51FA\u3066\u3044\u3051\uFF01\u300D"
+    ChoicesId: 0
+    NextId: 9
+    VoiceId: "\u306A\u3057\n\u306A\u3057"
+    m_allVoiceId:
+    - "\u306A\u3057"
+    - "\u306A\u3057"
+    m_allMessages:
+    - "\u300C\u305D\u3093\u306A\u3082\u306E\u3042\u308B\u308F\u3051\u306A\u3044\u3060\u308D\uFF01\u300D"
+    - "\u300C\u305D\u3093\u306A\u3053\u3068\u3092\u8A00\u3046\u3084\u3064\u306F\u51FA\u3066\u3044\u3051\uFF01\u300D"
+  - MessageId: 9
     Talker: "\u30B3\u30DE"
     m_talker:
     - "\u30B3\u30DE"
-    Position: 2
-    m_position: 02000000
-    BackgroundType: 3
-    FaceType: 0
-    m_faceTypes: 00000000
+    Position: 1
+    m_position: 01000000
+    BackgroundType: 0
+    FaceType: 1
+    m_faceTypes: 01000000
     StartAnimationType: "\u306A\u3057"
     EndAnimationType: "\u306A\u3057"
-    Messages: "\u300C\u5F53\u305F\u308A\u3060\u3088\uFF01\u30B9\u30BF\u30FC\u30C8\u30C0\u30C3\u30B7\u30E5\u3068\u3057\u3066\u306F\u3044\u3044\u611F\u3058\u3060\u306D\u3002\u3053\u3053\u304B\u3089\u3057\u3063\u304B\u308A\u8ABF\u3079\u3066\u3044\u3053\u3046\u3002\u300D"
+    Messages: "\u300C\u3053\u3089\uFF01\u5E73\u5B89\u6642\u4EE3\u3067\u306F\u767D\u7C73\u3084\u8089\u306F\u8CB4\u65CF\u3057\u304B\u98DF\u3079\u3089\u308C\u306A\u3044\u3093\u3060\u3088\uFF01\u300D"
     ChoicesId: 0
-    NextId: 6
-    VoiceId: koma_004
+    NextId: 10
+    VoiceId: "\u306A\u3057"
     m_allVoiceId:
-    - koma_004
+    - "\u306A\u3057"
     m_allMessages:
-    - "\u300C\u5F53\u305F\u308A\u3060\u3088\uFF01\u30B9\u30BF\u30FC\u30C8\u30C0\u30C3\u30B7\u30E5\u3068\u3057\u3066\u306F\u3044\u3044\u611F\u3058\u3060\u306D\u3002\u3053\u3053\u304B\u3089\u3057\u3063\u304B\u308A\u8ABF\u3079\u3066\u3044\u3053\u3046\u3002\u300D"
+    - "\u300C\u3053\u3089\uFF01\u5E73\u5B89\u6642\u4EE3\u3067\u306F\u767D\u7C73\u3084\u8089\u306F\u8CB4\u65CF\u3057\u304B\u98DF\u3079\u3089\u308C\u306A\u3044\u3093\u3060\u3088\uFF01\u300D"
+  - MessageId: 10
+    Talker: "\u30D7\u30EC\u30A4\u30E4\u30FC"
+    m_talker:
+    - "\u30D7\u30EC\u30A4\u30E4\u30FC"
+    Position: 0
+    m_position: 00000000
+    BackgroundType: 0
+    FaceType: 4
+    m_faceTypes: 04000000
+    StartAnimationType: "\u306A\u3057"
+    EndAnimationType: "\u306A\u3057"
+    Messages: "\u300C\u3048\u3001\u305D\u3046\u3060\u3063\u305F\u306E\uFF01\uFF1F\u5931\u793C\u306A\u3053\u3068\u3057\u3061\u3083\u3063\u305F\u306A\u3041...\u300D"
+    ChoicesId: 0
+    NextId: 11
+    VoiceId: "\u306A\u3057"
+    m_allVoiceId:
+    - "\u306A\u3057"
+    m_allMessages:
+    - "\u300C\u3048\u3001\u305D\u3046\u3060\u3063\u305F\u306E\uFF01\uFF1F\u5931\u793C\u306A\u3053\u3068\u3057\u3061\u3083\u3063\u305F\u306A\u3041...\u300D"
+  - MessageId: 11
+    Talker: "\u30B3\u30DE"
+    m_talker:
+    - "\u30B3\u30DE"
+    Position: 1
+    m_position: 01000000
+    BackgroundType: 0
+    FaceType: 1
+    m_faceTypes: 01000000
+    StartAnimationType: "\u306A\u3057"
+    EndAnimationType: "\u306A\u3057"
+    Messages: "\u300C\u541B\u306E\u305B\u3044\u3067\u3054\u98EF\u98DF\u3079\u640D\u306D\u3061\u3083\u3063\u305F\u3058\u3083\u306A\u3044\u304B\u30FC\uFF01\u300D"
+    ChoicesId: 0
+    NextId: 12
+    VoiceId: "\u306A\u3057"
+    m_allVoiceId:
+    - "\u306A\u3057"
+    m_allMessages:
+    - "\u300C\u541B\u306E\u305B\u3044\u3067\u3054\u98EF\u98DF\u3079\u640D\u306D\u3061\u3083\u3063\u305F\u3058\u3083\u306A\u3044\u304B\u30FC\uFF01\u300D"
+  - MessageId: 12
+    Talker: "\u30D7\u30EC\u30A4\u30E4\u30FC"
+    m_talker:
+    - "\u30D7\u30EC\u30A4\u30E4\u30FC"
+    Position: 0
+    m_position: 00000000
+    BackgroundType: 0
+    FaceType: 2
+    m_faceTypes: 02000000
+    StartAnimationType: "\u306A\u3057"
+    EndAnimationType: AllFadeOut
+    Messages: "\u300C\u30B3\u30DE\u3001\u3054\u3081\u3093\u3088\u30FC\u30FC\u30FC\uFF01\u300D"
+    ChoicesId: 0
+    NextId: 13
+    VoiceId: "\u306A\u3057"
+    m_allVoiceId:
+    - "\u306A\u3057"
+    m_allMessages:
+    - "\u300C\u30B3\u30DE\u3001\u3054\u3081\u3093\u3088\u30FC\u30FC\u30FC\uFF01\u300D"
   m_choicesDatas:
   - ChoicesId: 1
     Choices: "\u590F\u796D\u308A\u3067\u98DF\u3079\u308B\u3084\u3064\uFF1F\n\u304B\u304D\u6C37\u7F8E\u5473\u3057\u3044\u3088\u306D\uFF01"
