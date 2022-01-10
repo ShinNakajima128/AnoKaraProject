@@ -72,8 +72,11 @@ public class NameInput : MonoBehaviour
                 {
                     DataManager.Instance.PlayerData.PlayerName = m_tempName;
                     DataManager.UpdateData();
+                    //ここに新しい名前のお知らせ画面を表示して一定時間経過したら非表示にする
+
                 }
                 SoundManager.Instance.PlaySe("SE_touch");
+                
             }
         }
     }
