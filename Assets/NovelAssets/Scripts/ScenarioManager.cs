@@ -1036,14 +1036,14 @@ public class ScenarioManager : MonoBehaviour
         //楽 => 数回上下
         //驚 => 一回上下
         //考 => 一回上下
-        Sequence sequence = DOTween.Sequence();
         Transform tra = default;
+        Sequence sequence = DOTween.Sequence();
         switch (feelingType)
         {
             case FeelingType.Happy:
                 tra = image.transform;
                 sequence.Append(image.transform.DOMoveY(tra.position.y + 20f, 0.1f))
-                    .Append(image.transform.DOMoveX(tra.position.y, 0.1f));
+                    .Append(image.transform.DOMoveY(tra.position.y, 0.1f));
                 break;
             case FeelingType.Angry:
                 break;
@@ -1053,13 +1053,13 @@ public class ScenarioManager : MonoBehaviour
                 break;
             case FeelingType.Surprise:
                 tra = image.transform;
-                sequence.Append(image.transform.DOMoveX(tra.position.x + 20f, 0.1f))
-                    .Append(image.transform.DOMoveX(tra.position.x, 0.1f));
+                sequence.Append(image.transform.DOMoveY(tra.position.y + 20f, 0.1f))
+                    .Append(image.transform.DOMoveY(tra.position.y, 0.1f));
                 break;
             case FeelingType.Think:
                 tra = image.transform;
-                sequence.Append(image.transform.DOMoveX(tra.position.x + 20f, 0.1f))
-                    .Append(image.transform.DOMoveX(tra.position.x, 0.1f));
+                sequence.Append(image.transform.DOMoveY(tra.position.y + 20f, 0.1f))
+                    .Append(image.transform.DOMoveY(tra.position.y, 0.1f));
                 break;
         }
     }
