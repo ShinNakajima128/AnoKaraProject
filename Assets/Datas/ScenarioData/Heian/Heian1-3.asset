@@ -22,7 +22,7 @@ MonoBehaviour:
     - "\u30D7\u30EC\u30A4\u30E4\u30FC"
     Position: 0
     m_position: 00000000
-    BackgroundType: 0
+    BackgroundType: 5
     FaceType: 3
     m_faceTypes: 03000000
     StartAnimationType: AllFadeIn
@@ -41,30 +41,33 @@ MonoBehaviour:
     - "\u30B3\u30DE"
     Position: 1
     m_position: 01000000
-    BackgroundType: 0
-    FaceType: 3
-    m_faceTypes: 03000000
+    BackgroundType: 5
+    FaceType: '3
+
+      3'
+    m_faceTypes: 0300000003000000
     StartAnimationType: "\u306A\u3057"
     EndAnimationType: "\u306A\u3057"
     Messages: "\u300C\u78BA\u304B\u306B\u50D5\u3082\u304A\u8179\u7A7A\u3044\u305F\u306A\u3041\u3002\u3061\u3087\u3063\u3068\u805E\u3044\u3066\u307F\u3088\u3046\u304B\u300D\n\u300C\u3059\u307F\u307E\u305B\u30FC\u3093\u300D"
     ChoicesId: 0
     NextId: 2
-    VoiceId: koma_003
+    VoiceId: "koma_003\n\u306A\u3057"
     m_allVoiceId:
     - koma_003
+    - "\u306A\u3057"
     m_allMessages:
     - "\u300C\u78BA\u304B\u306B\u50D5\u3082\u304A\u8179\u7A7A\u3044\u305F\u306A\u3041\u3002\u3061\u3087\u3063\u3068\u805E\u3044\u3066\u307F\u3088\u3046\u304B\u300D"
     - "\u300C\u3059\u307F\u307E\u305B\u30FC\u3093\u300D"
   - MessageId: 2
-    Talker: "\u30E2\u30D6"
+    Talker: "\u5E73\u5B89 \u753A\u4EBA\u7537"
     m_talker:
-    - "\u30E2\u30D6"
+    - "\u5E73\u5B89 \u753A\u4EBA\u7537"
     Position: 2
     m_position: 02000000
-    BackgroundType: 0
+    BackgroundType: 5
     FaceType: 1
     m_faceTypes: 01000000
-    StartAnimationType: FadeIn
+    StartAnimationType: "\u306A\u3057"
     EndAnimationType: "\u306A\u3057"
     Messages: "\u300C\u3093\uFF1F\u306A\u3093\u3060\u304A\u524D\u3089\u306F\uFF1F\u300D"
     ChoicesId: 0
@@ -80,7 +83,7 @@ MonoBehaviour:
     - "\u30D7\u30EC\u30A4\u30E4\u30FC"
     Position: 0
     m_position: 00000000
-    BackgroundType: 0
+    BackgroundType: 5
     FaceType: 3
     m_faceTypes: 03000000
     StartAnimationType: "\u306A\u3057"
@@ -99,7 +102,7 @@ MonoBehaviour:
     - "\u30B3\u30DE"
     Position: 1
     m_position: 01000000
-    BackgroundType: 0
+    BackgroundType: 5
     FaceType: 3
     m_faceTypes: 03000000
     StartAnimationType: "\u306A\u3057"
@@ -113,14 +116,16 @@ MonoBehaviour:
     m_allMessages:
     - "\u300C\u3054\u98EF\u5206\u3051\u3066\u3044\u305F\u3060\u3051\u305F\u308A\u3057\u307E\u305B\u3093\u304B\u306D\uFF5E\uFF1F\u300D"
   - MessageId: 5
-    Talker: "\u30E2\u30D6"
+    Talker: "\u5E73\u5B89 \u753A\u4EBA\u7537"
     m_talker:
-    - "\u30E2\u30D6"
+    - "\u5E73\u5B89 \u753A\u4EBA\u7537"
     Position: 2
     m_position: 02000000
-    BackgroundType: 0
-    FaceType: 2
-    m_faceTypes: 02000000
+    BackgroundType: 5
+    FaceType: '1
+
+      1'
+    m_faceTypes: 0100000001000000
     StartAnimationType: "\u306A\u3057"
     EndAnimationType: "\u306A\u3057"
     Messages: "\u300C\u5206\u3051\u308B\u307B\u3069\u306E\u98EF\u306F\u306A\u3044\u3093\u3060\u304C...\u300D\n\u300C\u96D1\u7A40\u3068\u304B\u3067\u3044\u3044\u304B\uFF1F\u300D"
@@ -139,14 +144,14 @@ MonoBehaviour:
     - "\u30D7\u30EC\u30A4\u30E4\u30FC"
     Position: 0
     m_position: 00000000
-    BackgroundType: 0
+    BackgroundType: 5
     FaceType: 2
     m_faceTypes: 02000000
     StartAnimationType: "\u306A\u3057"
     EndAnimationType: "\u306A\u3057"
     Messages: "\u300C\u3048\u3001\u767D\u7C73\u306F...\uFF1F\u300D"
     ChoicesId: 0
-    NextId: 7
+    NextId: 8
     VoiceId: player_005
     m_allVoiceId:
     - player_005
@@ -158,7 +163,7 @@ MonoBehaviour:
     - "\u30D7\u30EC\u30A4\u30E4\u30FC"
     Position: 0
     m_position: 00000000
-    BackgroundType: 0
+    BackgroundType: 5
     FaceType: 2
     m_faceTypes: 02000000
     StartAnimationType: "\u306A\u3057"
@@ -172,14 +177,16 @@ MonoBehaviour:
     m_allMessages:
     - "\u300C\u3048\u3001\u304A\u8089\u306F...\uFF1F\u300D"
   - MessageId: 8
-    Talker: "\u30E2\u30D6"
+    Talker: "\u5E73\u5B89 \u753A\u4EBA\u7537"
     m_talker:
-    - "\u30E2\u30D6"
+    - "\u5E73\u5B89 \u753A\u4EBA\u7537"
     Position: 2
     m_position: 02000000
-    BackgroundType: 0
-    FaceType: 1
-    m_faceTypes: 01000000
+    BackgroundType: 5
+    FaceType: '1
+
+      1'
+    m_faceTypes: 0100000001000000
     StartAnimationType: "\u306A\u3057"
     EndAnimationType: FadeOut
     Messages: "\u300C\u305D\u3093\u306A\u3082\u306E\u3042\u308B\u308F\u3051\u306A\u3044\u3060\u308D\uFF01\u300D\n\u300C\u305D\u3093\u306A\u3053\u3068\u3092\u8A00\u3046\u3084\u3064\u306F\u51FA\u3066\u3044\u3051\uFF01\u300D"
@@ -198,7 +205,7 @@ MonoBehaviour:
     - "\u30B3\u30DE"
     Position: 1
     m_position: 01000000
-    BackgroundType: 0
+    BackgroundType: 5
     FaceType: 1
     m_faceTypes: 01000000
     StartAnimationType: "\u306A\u3057"
@@ -217,7 +224,7 @@ MonoBehaviour:
     - "\u30D7\u30EC\u30A4\u30E4\u30FC"
     Position: 0
     m_position: 00000000
-    BackgroundType: 0
+    BackgroundType: 5
     FaceType: 4
     m_faceTypes: 04000000
     StartAnimationType: "\u306A\u3057"
@@ -236,7 +243,7 @@ MonoBehaviour:
     - "\u30B3\u30DE"
     Position: 1
     m_position: 01000000
-    BackgroundType: 0
+    BackgroundType: 5
     FaceType: 1
     m_faceTypes: 01000000
     StartAnimationType: "\u306A\u3057"
@@ -255,11 +262,11 @@ MonoBehaviour:
     - "\u30D7\u30EC\u30A4\u30E4\u30FC"
     Position: 0
     m_position: 00000000
-    BackgroundType: 0
+    BackgroundType: 5
     FaceType: 2
     m_faceTypes: 02000000
     StartAnimationType: "\u306A\u3057"
-    EndAnimationType: AllFadeOut
+    EndAnimationType: "\u306A\u3057"
     Messages: "\u300C\u30B3\u30DE\u3001\u3054\u3081\u3093\u3088\u30FC\u30FC\u30FC\uFF01\u300D"
     ChoicesId: 0
     NextId: 13
@@ -280,13 +287,13 @@ MonoBehaviour:
     m_nextId: 0500000006000000
   - ChoicesId: 2
     Choices: "\u3048\u3001\u767D\u7C73\u306F...\uFF1F\n\u3048\u3001\u304A\u8089\u306F...\uFF1F"
-    NextMessageId: '12
+    NextMessageId: '6
 
-      12'
+      7'
     m_allChoices:
     - "\u3048\u3001\u767D\u7C73\u306F...\uFF1F"
     - "\u3048\u3001\u304A\u8089\u306F...\uFF1F"
-    m_nextId: 0c0000000c000000
+    m_nextId: 0600000007000000
   - ChoicesId: 3
     Choices: "\u30D7\u30E9\u30A4\u30C9\uFF1F\n\u306A\u3093\u3067\uFF1F"
     NextMessageId: '10
