@@ -244,6 +244,7 @@ public class SearchManager : MonoBehaviour
         if (CurrentTaskNum >= m_maxTaskNum)
         {
             var a = ScenarioManager.Instance.Data;
+            var stage = GameManager.Instance.CurrentStageId;
 
             switch (GameManager.Instance.CurrentPeriod)
             {
@@ -259,100 +260,105 @@ public class SearchManager : MonoBehaviour
                 case MasterData.PeriodTypes.Asuka_Nara:
                     for (int i = 0; i < a.Length; i++)
                     {
-                        if (a[i].ScenarioSheetName == m_asuka_nara_sheetName01)
+                        if (stage == 0 && a[i].ScenarioSheetName == m_asuka_nara_sheetName01)
                         {
                             ScenarioManager.Instance.StartSelectScenario(i);
+                            break;
                         }
-
-                        if (a[i].ScenarioSheetName == m_asuka_nara_sheetName02)
+                        else if (stage == 1 && a[i].ScenarioSheetName == m_asuka_nara_sheetName02)
                         {
                             ScenarioManager.Instance.StartSelectScenario(i);
+                            break;
                         }
                     }
                     break;
                 case MasterData.PeriodTypes.Heian:
                     for (int i = 0; i < a.Length; i++)
                     {
-                        if (a[i].ScenarioSheetName == m_heian_sheetName01)
+                        if (stage == 0 && a[i].ScenarioSheetName == m_heian_sheetName01)
                         {
                             ScenarioManager.Instance.StartSelectScenario(i);
+                            break;
                         }
-
-                        if (a[i].ScenarioSheetName == m_heian_sheetName02)
+                        else if (stage == 1 && a[i].ScenarioSheetName == m_heian_sheetName02)
                         {
                             ScenarioManager.Instance.StartSelectScenario(i);
+                            break;
                         }
-
-                        if (a[i].ScenarioSheetName == m_heian_sheetName03)
+                        else if (stage == 2 && a[i].ScenarioSheetName == m_heian_sheetName03)
                         {
                             ScenarioManager.Instance.StartSelectScenario(i);
+                            break;
                         }
                     }
                     break;
                 case MasterData.PeriodTypes.Kamakura:
                     for (int i = 0; i < a.Length; i++)
                     {
-                        if (a[i].ScenarioSheetName == m_kamakura_sheetName01)
+                        if (stage == 0 && a[i].ScenarioSheetName == m_kamakura_sheetName01)
                         {
                             ScenarioManager.Instance.StartSelectScenario(i);
+                            break;
                         }
-
-                        if (a[i].ScenarioSheetName == m_kamakura_sheetName02)
+                        else if (stage == 1 && a[i].ScenarioSheetName == m_kamakura_sheetName02)
                         {
                             ScenarioManager.Instance.StartSelectScenario(i);
+                            break;
                         }
-
-                        if (a[i].ScenarioSheetName == m_kamakura_sheetName03)
+                        else if (stage == 2 && a[i].ScenarioSheetName == m_kamakura_sheetName03)
                         {
                             ScenarioManager.Instance.StartSelectScenario(i);
+                            break;
                         }
-
-                        if (a[i].ScenarioSheetName == m_kamakura_sheetName04)
+                        else if (stage == 3 && a[i].ScenarioSheetName == m_kamakura_sheetName04)
                         {
                             ScenarioManager.Instance.StartSelectScenario(i);
+                            break;
                         }
                     }
                     break;
                 case MasterData.PeriodTypes.Momoyama:
                     for (int i = 0; i < a.Length; i++)
                     {
-                        if (a[i].ScenarioSheetName == m_momoyama_sheetName01)
+                        if (stage == 0 && a[i].ScenarioSheetName == m_momoyama_sheetName01)
                         {
                             ScenarioManager.Instance.StartSelectScenario(i);
+                            break;
                         }
-
-                        if (a[i].ScenarioSheetName == m_momoyama_sheetName02)
+                        else if (stage == 1 && a[i].ScenarioSheetName == m_momoyama_sheetName02)
                         {
                             ScenarioManager.Instance.StartSelectScenario(i);
+                            break;
                         }
-
-                        if (a[i].ScenarioSheetName == m_momoyama_sheetName03)
+                        else if (stage == 2 && a[i].ScenarioSheetName == m_momoyama_sheetName03)
                         {
                             ScenarioManager.Instance.StartSelectScenario(i);
+                            break;
                         }
                     }
                     break;
                 case MasterData.PeriodTypes.Edo:
                     for (int i = 0; i < a.Length; i++)
                     {
-                        if (a[i].ScenarioSheetName == m_edo_sheetName01)
+                        if (stage == 0 && a[i].ScenarioSheetName == m_edo_sheetName01)
                         {
                             ScenarioManager.Instance.StartSelectScenario(i);
+                            break;
                         }
-
-                        if (a[i].ScenarioSheetName == m_edo_sheetName02)
+                        else if (stage == 1 && a[i].ScenarioSheetName == m_edo_sheetName02)
                         {
                             ScenarioManager.Instance.StartSelectScenario(i);
+                            break;
                         }
-
-                        if (a[i].ScenarioSheetName == m_edo_sheetName03)
+                        else if (stage == 2 && a[i].ScenarioSheetName == m_edo_sheetName03)
                         {
                             ScenarioManager.Instance.StartSelectScenario(i);
+                            break;
                         }
-
-                        if (a[i].ScenarioSheetName == m_edo_sheetName04)
+                        else if (stage == 3 && a[i].ScenarioSheetName == m_edo_sheetName04)
                         {
                             ScenarioManager.Instance.StartSelectScenario(i);
+                            break;
                         }
                     }
                     break;
