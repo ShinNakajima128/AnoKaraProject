@@ -102,7 +102,7 @@ MonoBehaviour:
     FaceType: 4
     m_faceTypes: 04000000
     StartAnimationType: "\u306A\u3057"
-    EndAnimationType: AllFadeOut
+    EndAnimationType: "\u306A\u3057"
     Messages: "\u300C\u3081\u3061\u3083\u304F\u3061\u3083\u3055\u3063\u304D\u306E\u516B\u30C3\u6A4B\u7121\u8996\u3057\u3066\u308B\u3058\u3083\u3093\u300D"
     ChoicesId: 0
     NextId: 5
@@ -159,13 +159,13 @@ MonoBehaviour:
     m_nextId: 0300000003000000
   - ChoicesId: 6
     Choices: "\u307E\u304B\u305B\u3066\u3088\uFF01\n\u96E3\u3057\u3044\u306D"
-    NextMessageId: '11
+    NextMessageId: '10
 
-      12'
+      11'
     m_allChoices:
     - "\u307E\u304B\u305B\u3066\u3088\uFF01"
     - "\u96E3\u3057\u3044\u306D"
-    m_nextId: 0b0000000c000000
+    m_nextId: 0a0000000b000000
   - ChoicesId: 7
     Choices: "\u307B\u3089\u3001\u3042\u3068\u3067\u306F\u3061\u307F\u3064\u3042\u3052\u308B\u304B\u3089\n\u307B\u3089\u3001\u3042\u3068\u3067\u308F\u305F\u3071\u3061\u3042\u3052\u308B\u304B\u3089"
     NextMessageId: '4
