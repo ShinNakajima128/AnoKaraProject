@@ -380,7 +380,7 @@ public class QuizManager : MonoBehaviour
             //m_judgeImages[0].enabled = true;
             m_judgePanelTexts[0].text = "<color=#FB3535>正解！</color>";
             m_judgePanelTexts[1].text = $"正しい答え\n【{m_correctAnswer}】";
-            m_judgePanelTexts[2].text = $"プレイヤーの解答\n【{m_playerAnswer}】";
+            m_judgePanelTexts[2].text = $"{DataManager.Instance.PlayerData.PlayerName}の解答\n【{m_playerAnswer}】";
             m_playerImage.sprite = m_playeData.PlayerImage[2];
             m_historicalFiguresImage.sprite = m_historicalFiguresData.CharacterImages[1];
             m_playerChat.text = m_playeData.CorrectChat;
