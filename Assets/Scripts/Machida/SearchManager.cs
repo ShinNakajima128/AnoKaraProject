@@ -92,6 +92,7 @@ public class SearchManager : MonoBehaviour
         JidaiSelect();
         StageSelect();
         StartCoroutine(PlayEachStageFirstScenario());
+        SoundManager.Instance.PlayBgm(SoundManager.Instance.BgmName);
 
         //クイズ終了後の場合はシナリオ終了後、時代選択画面に戻る
         if (GameManager.Instance.IsAfterQuized)
