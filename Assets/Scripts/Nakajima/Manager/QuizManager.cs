@@ -5,6 +5,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using MasterData;
 using System;
+using DG.Tweening;
 
 /// <summary>
 /// クイズを表示するクラス
@@ -124,6 +125,17 @@ public class QuizManager : MonoBehaviour
     [SerializeField]
     GameObject m_AnaumeQuizPanel = default;
 
+    [Header("チュートリアル見るかどうか確認する用の画面")]
+    [SerializeField]
+    GameObject m_tutorialSelectPanel = default;
+
+    [Header("チュートリアル用の画面")]
+    [SerializeField]
+    GameObject m_tutorialPanel = default;
+
+    [SerializeField]
+    Button[] m_tutorialButtons = default;
+
     /// <summary> クイズの最大出題数 </summary>
     [Header("デバッグ用")]
     [SerializeField]
@@ -149,6 +161,13 @@ public class QuizManager : MonoBehaviour
     bool m_isAnswered = false;
     /// <summary> 正誤フラグ </summary>
     bool m_isCorrected = false;
+
+    /// <summary> チュートリアル画面でボタンを押したかどうかのフラグ </summary>
+    bool m_isSelect = false;
+
+    /// <summary> チュートリアルを見るか見ないかのフラグ </summary>
+    bool m_TutorialSelect = false;
+
     /// <summary> 現在のクイズのコルーチン </summary>
     IEnumerator m_currentQuestion = default;
     #region property
@@ -182,7 +201,31 @@ public class QuizManager : MonoBehaviour
         //各人物の画像をセットする
         SetCharacterPanel(m_playeData, m_historicalFiguresData);
         m_questionResults = new bool[questionLimit];
-        StartCoroutine(QuizStart());
+        
+        //縄文時代のみチュートリアルを見るかどうかの画面を表示
+        if (GameManager.Instance.CurrentPeriod == PeriodTypes.Jomon_Yayoi)
+        {
+            Debug.Log("チュートリアル画面表示");
+            m_tutorialSelectPanel.SetActive(true);
+            m_tutorialSelectPanel.transform.localScale = Vector3.zero;
+            m_tutorialSelectPanel.transform.DOScale(new Vector3(1, 1, 1), 0.3f);
+
+            m_tutorialButtons[0].onClick.AddListener(() => //「はい」ボタンに登録
+            {
+                m_isSelect = true;
+                m_TutorialSelect = true;
+            });
+            m_tutorialButtons[1].onClick.AddListener(() => //「いいえ」ボタンに登録
+            {
+                m_isSelect = true;
+                m_TutorialSelect = false;
+            });
+            StartCoroutine(WaitForTutorialSelect());
+        }
+        else
+        {
+            StartCoroutine(QuizStart());
+        }
         SoundManager.Instance.PlayBgm(SoundManager.Instance.BgmName);
     }
 
@@ -272,6 +315,20 @@ public class QuizManager : MonoBehaviour
         RemainingHP = HPController.Instance.CurrentHP;
     }
 
+    IEnumerator WaitForTutorialSelect()
+    {
+        //ボタンを押すまで待機
+        while (!m_isSelect)
+        {
+            yield return null;
+        }
+
+        //チュートリアルを見る場合
+        if (m_TutorialSelect)
+        {
+            OnTutorialPanel();
+        }
+    }
     #region common
     #region coroutine
 
@@ -500,6 +557,26 @@ public class QuizManager : MonoBehaviour
         LoadSceneManager.AnyLoadScene("PeriodSelect");
     }
 
+    /// <summary>
+    /// チュートリアル画面を表示する
+    /// </summary>
+    void OnTutorialPanel()
+    {
+        m_tutorialPanel.SetActive(true);
+    }
+
+    /// <summary>
+    /// チュートリアル画面を閉じる
+    /// </summary>
+    public void OffTutorialPanel()
+    {
+        m_tutorialSelectPanel.transform.DOScale(Vector3.zero, 0.25f)
+                             .OnComplete(() => 
+                             {
+                                 m_tutorialSelectPanel.SetActive(false);
+                                 StartCoroutine(QuizStart());
+                             });
+    }
     #region FourChoicesQuizMethod
     /// <summary>
     /// 4択問題を解答する
