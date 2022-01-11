@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4d9aa4b5244f4994db385df11d119ef7, type: 3}
   m_Name: Kamakura_Mobu_F_C
   m_EditorClassIdentifier: 
-  m_dataName: "\u5E73\u6C11\u5973C"
+  m_dataName: "\u938C\u5009 \u5E73\u6C11\u5973"
   m_characterImages:
   - {fileID: 21300000, guid: 45641020ff9bac147a5e31d5bedafa75, type: 3}
   - {fileID: 21300000, guid: 79068d6a1cd14944ebe8dfc29177e9b2, type: 3}
