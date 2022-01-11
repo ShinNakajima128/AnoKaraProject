@@ -7,6 +7,10 @@ public class SearchManager : MonoBehaviour
 {
     CharacterData[] m_villegersData;
 
+    [Header("タスク終了時にシナリオを表示するまでの時間")]
+    [SerializeField]
+    float m_finishTaskScenarioTimer = 0.5f;
+
     /// <summary>全時代のCanvas<summary>
     [SerializeField]
     GameObject[] m_jidaiCanvas;
@@ -239,7 +243,7 @@ public class SearchManager : MonoBehaviour
         {
             yield return null;
         }
-        yield return new WaitForSeconds(0.3f);
+        yield return new WaitForSeconds(m_finishTaskScenarioTimer);
 
         if (CurrentTaskNum >= m_maxTaskNum)
         {
