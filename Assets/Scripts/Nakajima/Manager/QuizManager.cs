@@ -125,16 +125,21 @@ public class QuizManager : MonoBehaviour
     [SerializeField]
     GameObject m_AnaumeQuizPanel = default;
 
-    [Header("チュートリアル見るかどうか確認する用の画面")]
+    [Header("チュートリアル画面用")]
     [SerializeField]
     GameObject m_tutorialSelectPanel = default;
 
-    [Header("チュートリアル用の画面")]
     [SerializeField]
     GameObject m_tutorialPanel = default;
 
     [SerializeField]
+    GameObject m_guidePanel = default;
+
+    [SerializeField]
     Button[] m_tutorialButtons = default;
+
+    [SerializeField]
+    Text m_tutorialGuideText = default;
 
     /// <summary> クイズの最大出題数 </summary>
     [Header("デバッグ用")]
@@ -208,7 +213,7 @@ public class QuizManager : MonoBehaviour
             Debug.Log("チュートリアル画面表示");
             m_tutorialSelectPanel.SetActive(true);
             m_tutorialSelectPanel.transform.localScale = Vector3.zero;
-            m_tutorialSelectPanel.transform.DOScale(new Vector3(1, 1, 1), 0.3f);
+            m_tutorialSelectPanel.transform.DOScale(new Vector3(0.8f, 0.8f, 0.8f), 0.3f);
 
             m_tutorialButtons[0].onClick.AddListener(() => //「はい」ボタンに登録
             {
@@ -562,7 +567,10 @@ public class QuizManager : MonoBehaviour
     /// </summary>
     void OnTutorialPanel()
     {
+        SoundManager.Instance.PlaySe("SE_touch");
         m_tutorialPanel.SetActive(true);
+        m_guidePanel.SetActive(false);
+        m_tutorialGuideText.text = "チュートリアル";
     }
 
     /// <summary>
@@ -570,6 +578,7 @@ public class QuizManager : MonoBehaviour
     /// </summary>
     public void OffTutorialPanel()
     {
+        SoundManager.Instance.PlaySe("SE_touch");
         m_tutorialSelectPanel.transform.DOScale(Vector3.zero, 0.25f)
                              .OnComplete(() => 
                              {
