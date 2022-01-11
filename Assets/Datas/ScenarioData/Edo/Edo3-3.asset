@@ -17,77 +17,176 @@ MonoBehaviour:
   m_choicesSheetName: edo_choice
   m_dialogData:
   - MessageId: 0
-    Talker: "\u5317\u6761\u653F\u5B50"
-    m_talker:
-    - "\u5317\u6761\u653F\u5B50"
-    Position: 2
-    m_position: 02000000
-    BackgroundType: 0
-    FaceType: 0
-    m_faceTypes: 00000000
-    StartAnimationType: "\u306A\u3057"
-    EndAnimationType: "\u306A\u3057"
-    Messages: "\u300C\u3069\u3046\u3058\u3083\uFF1F\u3069\u3046\u3058\u3083\uFF1F\u5C11\u3057\u3067\u3082\u308F\u304B\u3063\u305F\u3058\u3083\u308D\uFF1F\u300D"
-    ChoicesId: 0
-    NextId: 1
-    VoiceId: 
-    m_allVoiceId: []
-    m_allMessages:
-    - "\u300C\u3069\u3046\u3058\u3083\uFF1F\u3069\u3046\u3058\u3083\uFF1F\u5C11\u3057\u3067\u3082\u308F\u304B\u3063\u305F\u3058\u3083\u308D\uFF1F\u300D"
-  - MessageId: 1
     Talker: "\u30D7\u30EC\u30A4\u30E4\u30FC"
     m_talker:
     - "\u30D7\u30EC\u30A4\u30E4\u30FC"
     Position: 0
     m_position: 00000000
-    BackgroundType: 0
+    BackgroundType: 8
     FaceType: 0
     m_faceTypes: 00000000
     StartAnimationType: "\u306A\u3057"
     EndAnimationType: "\u306A\u3057"
-    Messages: "\u300C\u3088\u304F\u308F\u304B\u308A\u307E\u3057\u305F\u30FC\uFF01\u653F\u5B50\u69D8\u30FC\uFF01\u300D"
+    Messages: "\u3042\uFF01\u3053\u306E\u65D7\u77E5\u3063\u3066\u308B\uFF01\u65B0\u9078\u7D44\u3060\u3088\u306D\uFF01\uFF1F"
+    ChoicesId: 0
+    NextId: 1
+    VoiceId: "\u306A\u3057"
+    m_allVoiceId:
+    - "\u306A\u3057"
+    m_allMessages:
+    - "\u3042\uFF01\u3053\u306E\u65D7\u77E5\u3063\u3066\u308B\uFF01\u65B0\u9078\u7D44\u3060\u3088\u306D\uFF01\uFF1F"
+  - MessageId: 1
+    Talker: "\u30B3\u30DE"
+    m_talker:
+    - "\u30B3\u30DE"
+    Position: 1
+    m_position: 01000000
+    BackgroundType: 8
+    FaceType: 3
+    m_faceTypes: 03000000
+    StartAnimationType: "\u306A\u3057"
+    EndAnimationType: "\u306A\u3057"
+    Messages: "\u304A\uFF01\u3059\u3054\u3044\u3058\u3083\u306A\u3044\u4E3B\u4EBA\u516C\u541B\uFF01\u5927\u6B63\u89E3\uFF01"
     ChoicesId: 0
     NextId: 2
-    VoiceId: 
-    m_allVoiceId: []
+    VoiceId: "\u306A\u3057"
+    m_allVoiceId:
+    - "\u306A\u3057"
     m_allMessages:
-    - "\u300C\u3088\u304F\u308F\u304B\u308A\u307E\u3057\u305F\u30FC\uFF01\u653F\u5B50\u69D8\u30FC\uFF01\u300D"
+    - "\u304A\uFF01\u3059\u3054\u3044\u3058\u3083\u306A\u3044\u4E3B\u4EBA\u516C\u541B\uFF01\u5927\u6B63\u89E3\uFF01"
   - MessageId: 2
-    Talker: "\u5317\u6761\u653F\u5B50"
+    Talker: "\u30D7\u30EC\u30A4\u30E4\u30FC"
     m_talker:
-    - "\u5317\u6761\u653F\u5B50"
-    Position: 2
-    m_position: 02000000
-    BackgroundType: 0
-    FaceType: 0
-    m_faceTypes: 00000000
+    - "\u30D7\u30EC\u30A4\u30E4\u30FC"
+    Position: 0
+    m_position: 00000000
+    BackgroundType: 8
+    FaceType: 3
+    m_faceTypes: 03000000
     StartAnimationType: "\u306A\u3057"
     EndAnimationType: "\u306A\u3057"
-    Messages: "\u300C\u3046\u3093\u3046\u3093\uFF01\u3088\u3044\u3088\u3044\uFF01\u300D"
+    Messages: "\u308F\u3042\uFF01\u308F\u3042\uFF01\u3066\u3053\u3068\u306F\u65B0\u9078\u7D44\u3082\u8FD1\u304F\u306B\u3044\u308B\uFF01\uFF1F"
     ChoicesId: 0
     NextId: 3
-    VoiceId: 
-    m_allVoiceId: []
+    VoiceId: "\u306A\u3057"
+    m_allVoiceId:
+    - "\u306A\u3057"
     m_allMessages:
-    - "\u300C\u3046\u3093\u3046\u3093\uFF01\u3088\u3044\u3088\u3044\uFF01\u300D"
+    - "\u308F\u3042\uFF01\u308F\u3042\uFF01\u3066\u3053\u3068\u306F\u65B0\u9078\u7D44\u3082\u8FD1\u304F\u306B\u3044\u308B\uFF01\uFF1F"
   - MessageId: 3
     Talker: "\u30B3\u30DE"
     m_talker:
     - "\u30B3\u30DE"
     Position: 1
     m_position: 01000000
-    BackgroundType: 0
-    FaceType: 3
-    m_faceTypes: 03000000
+    BackgroundType: 8
+    FaceType: 5
+    m_faceTypes: 05000000
     StartAnimationType: "\u306A\u3057"
     EndAnimationType: "\u306A\u3057"
-    Messages: "\u300C\u3053\u306E\u65B9\u3082\u5358\u7D14\u3060\u30FC\u300D"
+    Messages: "\u3044\u308B\u304B\u306A\u30FC\uFF1F\u3044\u308B\u304B\u3082\u3057\u308C\u306A\u3044\u3051\u3069\u305D\u3046\u3060\u3068\u3057\u305F\u3089\u9F8D\u99AC\u541B\u306F\u8FD1\u304F\u306B\u3044\u306A\u3044\u3068\u601D\u3046\u3088"
     ChoicesId: 0
     NextId: 4
-    VoiceId: 
-    m_allVoiceId: []
+    VoiceId: "\u306A\u3057"
+    m_allVoiceId:
+    - "\u306A\u3057"
     m_allMessages:
-    - "\u300C\u3053\u306E\u65B9\u3082\u5358\u7D14\u3060\u30FC\u300D"
+    - "\u3044\u308B\u304B\u306A\u30FC\uFF1F\u3044\u308B\u304B\u3082\u3057\u308C\u306A\u3044\u3051\u3069\u305D\u3046\u3060\u3068\u3057\u305F\u3089\u9F8D\u99AC\u541B\u306F\u8FD1\u304F\u306B\u3044\u306A\u3044\u3068\u601D\u3046\u3088"
+  - MessageId: 4
+    Talker: "\u30D7\u30EC\u30A4\u30E4\u30FC"
+    m_talker:
+    - "\u30D7\u30EC\u30A4\u30E4\u30FC"
+    Position: 0
+    m_position: 00000000
+    BackgroundType: 8
+    FaceType: 4
+    m_faceTypes: 04000000
+    StartAnimationType: "\u306A\u3057"
+    EndAnimationType: "\u306A\u3057"
+    Messages: "\u306A\u3093\u3067\uFF01\uFF1F"
+    ChoicesId: 0
+    NextId: 5
+    VoiceId: "\u306A\u3057"
+    m_allVoiceId:
+    - "\u306A\u3057"
+    m_allMessages:
+    - "\u306A\u3093\u3067\uFF01\uFF1F"
+  - MessageId: 5
+    Talker: "\u30B3\u30DE"
+    m_talker:
+    - "\u30B3\u30DE"
+    Position: 1
+    m_position: 01000000
+    BackgroundType: 8
+    FaceType: 0
+    m_faceTypes: 00000000
+    StartAnimationType: "\u306A\u3057"
+    EndAnimationType: "\u306A\u3057"
+    Messages: "\u65B0\u9078\u7D44\u306F\u5E55\u5E9C\u3092\u5B88\u308B\u8B66\u5BDF\u3060\u3088\u30FC\uFF1F\u4ECA\u306E\u5E55\u5E9C\u306B\u53CD\u767A\u3059\u308B\u52D5\u304D\u3092\u3057\u3066\u3044\u308B\u9F8D\u99AC\u541B\u3068\u306F\u5BFE\u7ACB\u3057\u3066\u308B\u3093\u3060\u304B\u3089\u3001\u305D\u308A\u3083\u3001\u9F8D\u99AC\u541B\u5BC4\u308A\u4ED8\u304B\u306A\u3044\u3067\u3057\u3087\u3002\u6355\u307E\u308A\u305F\u304F\u306A\u3044\u3082\u3093"
+    ChoicesId: 0
+    NextId: 6
+    VoiceId: "\u306A\u3057"
+    m_allVoiceId:
+    - "\u306A\u3057"
+    m_allMessages:
+    - "\u65B0\u9078\u7D44\u306F\u5E55\u5E9C\u3092\u5B88\u308B\u8B66\u5BDF\u3060\u3088\u30FC\uFF1F\u4ECA\u306E\u5E55\u5E9C\u306B\u53CD\u767A\u3059\u308B\u52D5\u304D\u3092\u3057\u3066\u3044\u308B\u9F8D\u99AC\u541B\u3068\u306F\u5BFE\u7ACB\u3057\u3066\u308B\u3093\u3060\u304B\u3089\u3001\u305D\u308A\u3083\u3001\u9F8D\u99AC\u541B\u5BC4\u308A\u4ED8\u304B\u306A\u3044\u3067\u3057\u3087\u3002\u6355\u307E\u308A\u305F\u304F\u306A\u3044\u3082\u3093"
+  - MessageId: 6
+    Talker: "\u30D7\u30EC\u30A4\u30E4\u30FC"
+    m_talker:
+    - "\u30D7\u30EC\u30A4\u30E4\u30FC"
+    Position: 0
+    m_position: 00000000
+    BackgroundType: 8
+    FaceType: 2
+    m_faceTypes: 02000000
+    StartAnimationType: "\u306A\u3057"
+    EndAnimationType: "\u306A\u3057"
+    Messages: "\u3048\u3047\u30FC\uFF01\u4E21\u65B9\u306B\u4F1A\u3044\u305F\u3044\uFF01\u30B5\u30A4\u30F3\u6B32\u3057\u3044"
+    ChoicesId: 0
+    NextId: 7
+    VoiceId: "\u306A\u3057"
+    m_allVoiceId:
+    - "\u306A\u3057"
+    m_allMessages:
+    - "\u3048\u3047\u30FC\uFF01\u4E21\u65B9\u306B\u4F1A\u3044\u305F\u3044\uFF01\u30B5\u30A4\u30F3\u6B32\u3057\u3044"
+  - MessageId: 7
+    Talker: "\u30B3\u30DE"
+    m_talker:
+    - "\u30B3\u30DE"
+    Position: 1
+    m_position: 01000000
+    BackgroundType: 8
+    FaceType: 0
+    m_faceTypes: 00000000
+    StartAnimationType: "\u306A\u3057"
+    EndAnimationType: "\u306A\u3057"
+    Messages: "\u65B0\u9078\u7D44\u304C\u6765\u308B\u306E\u5F85\u3063\u3066\u3082\u3044\u3044\u3051\u3069\u305D\u3057\u305F\u3089\u9F8D\u99AC\u541B\u306F\u5B8C\u5168\u306B\u898B\u5931\u3046\u3060\u308D\u3046\u306D\uFF1F"
+    ChoicesId: 0
+    NextId: 8
+    VoiceId: "\u306A\u3057"
+    m_allVoiceId:
+    - "\u306A\u3057"
+    m_allMessages:
+    - "\u65B0\u9078\u7D44\u304C\u6765\u308B\u306E\u5F85\u3063\u3066\u3082\u3044\u3044\u3051\u3069\u305D\u3057\u305F\u3089\u9F8D\u99AC\u541B\u306F\u5B8C\u5168\u306B\u898B\u5931\u3046\u3060\u308D\u3046\u306D\uFF1F"
+  - MessageId: 8
+    Talker: "\u30D7\u30EC\u30A4\u30E4\u30FC"
+    m_talker:
+    - "\u30D7\u30EC\u30A4\u30E4\u30FC"
+    Position: 0
+    m_position: 00000000
+    BackgroundType: 8
+    FaceType: 2
+    m_faceTypes: 02000000
+    StartAnimationType: "\u306A\u3057"
+    EndAnimationType: "\u306A\u3057"
+    Messages: "\u305D\u3093\u306A\u3041\u2026"
+    ChoicesId: 0
+    NextId: 9
+    VoiceId: "\u306A\u3057"
+    m_allVoiceId:
+    - "\u306A\u3057"
+    m_allMessages:
+    - "\u305D\u3093\u306A\u3041\u2026"
   m_choicesDatas:
   - ChoicesId: 1
     Choices: "\u53CD\u6297\u3059\u308B\n\u4E0B\u304C\u308B"
