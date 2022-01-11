@@ -27,7 +27,7 @@ MonoBehaviour:
 
       2'
     m_faceTypes: 0200000002000000
-    StartAnimationType: "\u306A\u3057"
+    StartAnimationType: AllFadeIn
     EndAnimationType: "\u306A\u3057"
     Messages: "\u300C\u3053\uFF1F\u3053\u308C\u3067\u3088\u3044\u304B\u306E\uFF1F\u300D\r\n\u300C\u8A33\u304C\u5206\u304B\u3089\u3093\u306E\u3060\u304C\u2026\u300D"
     ChoicesId: 0
@@ -43,8 +43,8 @@ MonoBehaviour:
     Talker: "\u30B3\u30DE"
     m_talker:
     - "\u30B3\u30DE"
-    Position: 0
-    m_position: 00000000
+    Position: 1
+    m_position: 01000000
     BackgroundType: 7
     FaceType: '0
 
@@ -66,8 +66,8 @@ MonoBehaviour:
     Talker: "\u30D7\u30EC\u30A4\u30E4\u30FC"
     m_talker:
     - "\u30D7\u30EC\u30A4\u30E4\u30FC"
-    Position: 1
-    m_position: 01000000
+    Position: 0
+    m_position: 00000000
     BackgroundType: 7
     FaceType: '4
 
@@ -89,8 +89,8 @@ MonoBehaviour:
     Talker: "\u30B3\u30DE"
     m_talker:
     - "\u30B3\u30DE"
-    Position: 2
-    m_position: 02000000
+    Position: 1
+    m_position: 01000000
     BackgroundType: 7
     FaceType: '3
 
