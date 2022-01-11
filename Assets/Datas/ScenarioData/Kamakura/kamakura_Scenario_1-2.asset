@@ -102,8 +102,10 @@ MonoBehaviour:
       2'
     m_position: 0000000002000000
     BackgroundType: 6
-    FaceType: 1
-    m_faceTypes: 01000000
+    FaceType: '1
+
+      1'
+    m_faceTypes: 0100000001000000
     StartAnimationType: "\u306A\u3057"
     EndAnimationType: "\u306A\u3057"
     Messages: "\u300C\u3060\u304B\u3089\u3001\u8AB0\u3060\u3088\uFF01\u300D"
@@ -125,14 +127,14 @@ MonoBehaviour:
     m_faceTypes: 01000000
     StartAnimationType: FadeIn
     EndAnimationType: "\u306A\u3057"
-    Messages: "\u300C\u540D\u524D\u304F\u3089\u3044\u899A\u3048\u3068\u3051\uFF01\u304A\u4E3B\u3089\uFF01\u79C1\u304C\uFF03\u5F81\u5937\u5927\u5C06\u8ECD\u6E90\u983C\u671D\uFF03\u3067\u3042\u308B\u300D"
+    Messages: "\u300C\u540D\u524D\u304F\u3089\u3044\u899A\u3048\u3068\u3051\uFF01\u304A\u4E3B\u3089\uFF01\u79C1\u304C#\u5F81\u5937\u5927\u5C06\u8ECD\u6E90\u983C\u671D#\u3067\u3042\u308B\u300D"
     ChoicesId: 0
     NextId: 6
     VoiceId: "\u306A\u3057"
     m_allVoiceId:
     - "\u306A\u3057"
     m_allMessages:
-    - "\u300C\u540D\u524D\u304F\u3089\u3044\u899A\u3048\u3068\u3051\uFF01\u304A\u4E3B\u3089\uFF01\u79C1\u304C\uFF03\u5F81\u5937\u5927\u5C06\u8ECD\u6E90\u983C\u671D\uFF03\u3067\u3042\u308B\u300D"
+    - "\u300C\u540D\u524D\u304F\u3089\u3044\u899A\u3048\u3068\u3051\uFF01\u304A\u4E3B\u3089\uFF01\u79C1\u304C#\u5F81\u5937\u5927\u5C06\u8ECD\u6E90\u983C\u671D#\u3067\u3042\u308B\u300D"
   - MessageId: 6
     Talker: "\u30B3\u30DE"
     m_talker:
