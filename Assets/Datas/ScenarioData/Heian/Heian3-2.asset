@@ -100,8 +100,8 @@ MonoBehaviour:
     Talker: "\u5E73\u5B89 \u753A\u4EBA\u5973"
     m_talker:
     - "\u5E73\u5B89 \u753A\u4EBA\u5973"
-    Position: 1
-    m_position: 01000000
+    Position: 2
+    m_position: 02000000
     BackgroundType: 5
     FaceType: 2
     m_faceTypes: 02000000
@@ -120,8 +120,8 @@ MonoBehaviour:
     Talker: "\u5E73\u5B89 \u753A\u4EBA\u5973"
     m_talker:
     - "\u5E73\u5B89 \u753A\u4EBA\u5973"
-    Position: 1
-    m_position: 01000000
+    Position: 2
+    m_position: 02000000
     BackgroundType: 5
     FaceType: 2
     m_faceTypes: 02000000
@@ -174,9 +174,9 @@ MonoBehaviour:
     m_allMessages:
     - "\u300C\u3046\u30FC\u3093...\u300D"
   - MessageId: 8
-    Talker: "\u30E2\u30D6"
+    Talker: "\u5E73\u5B89 \u753A\u4EBA\u5973"
     m_talker:
-    - "\u30E2\u30D6"
+    - "\u5E73\u5B89 \u753A\u4EBA\u5973"
     Position: 2
     m_position: 02000000
     BackgroundType: 5
