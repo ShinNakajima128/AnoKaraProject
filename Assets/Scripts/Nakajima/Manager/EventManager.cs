@@ -15,7 +15,8 @@ public enum Events
     AutoSave,
     FinishDialog,
     Debug,
-    Transition
+    Transition,
+    TaskComplite
 }
 /// <summary>
 /// イベントを管理するクラス

@@ -198,6 +198,7 @@ public class SearchManager : MonoBehaviour
     /// </summary>
     void StageSelect()
     {
+        //クイズ終了後のシナリオの場合はその時代の背景のみを表示する
         if (GameManager.Instance.IsAfterQuized)
         {
             return;
@@ -231,6 +232,7 @@ public class SearchManager : MonoBehaviour
         }
 
         CurrentTaskNum++;
+        EventManager.OnEvent(Events.TaskComplite);
         Debug.Log(CurrentTaskNum);
         IsTaskComplited = false;
 
