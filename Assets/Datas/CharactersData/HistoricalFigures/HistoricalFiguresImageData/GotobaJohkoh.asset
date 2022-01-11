@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4d9aa4b5244f4994db385df11d119ef7, type: 3}
-  m_Name: GotobaTennoh
+  m_Name: GotobaJohkoh
   m_EditorClassIdentifier: 
-  m_dataName: "\u5F8C\u9CE5\u7FBD\u5929\u7687"
+  m_dataName: "\u5F8C\u9CE5\u7FBD\u4E0A\u7687"
   m_characterImages:
   - {fileID: 21300000, guid: 27a2bf04c717e914288050077f8bf950, type: 3}
   - {fileID: 21300000, guid: f9d71fda9b50d574aa3ca1865561f4ad, type: 3}
