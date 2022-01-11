@@ -54,7 +54,12 @@ public class EventButton : MonoBehaviour
         m_buttonImage.sprite = m_complitedImage; //画像差し替え
 
         //指定した時間で元のサイズに戻すアニメーションを開始
-        m_rt.DOScale(new Vector3(1, 1, 1), 0.5f).OnComplete(() => { SoundManager.Instance.PlaySe("SE_touch"); });
+        m_rt.DOScale(new Vector3(1, 1, 1), m_animTimer)
+            .OnComplete(() => 
+            { 
+                SoundManager.Instance.PlaySe("SE_touch");
+                SearchManager.Instance.IsTaskComplited = false;
+            });
         
         //EventManagerから関数を削除
         EventManager.RemoveEvents(Events.TaskComplite, FinishTask);

@@ -234,7 +234,12 @@ public class SearchManager : MonoBehaviour
         CurrentTaskNum++;
         EventManager.OnEvent(Events.TaskComplite);
         Debug.Log(CurrentTaskNum);
-        IsTaskComplited = false;
+
+        while (IsTaskComplited)
+        {
+            yield return null;
+        }
+        yield return new WaitForSeconds(0.3f);
 
         if (CurrentTaskNum >= m_maxTaskNum)
         {
