@@ -2564,7 +2564,7 @@ MonoBehaviour:
   - m_periodType: 3
     m_stageId: 1
     m_stagePanel: {fileID: 1211609963}
-    m_taskCount: 1
+    m_taskCount: 3
   - m_periodType: 3
     m_stageId: 2
     m_stagePanel: {fileID: 1141765174}
@@ -6840,7 +6840,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 447483709531774641, guid: a877d34447378504984e2afe6efcb7e0, type: 3}
       propertyPath: m_currentStageId
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 447483709531774654, guid: a877d34447378504984e2afe6efcb7e0, type: 3}
       propertyPath: m_RootOrder
