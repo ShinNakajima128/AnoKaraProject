@@ -95,9 +95,9 @@ MonoBehaviour:
     Messages: "\u300C\u4E09\u5272\u3063\u3066\u4F4E\u304F\u306A\u3044\uFF1F\u300D"
     ChoicesId: 0
     NextId: 4
-    VoiceId: "\u306A\u3057"
+    VoiceId: player_001
     m_allVoiceId:
-    - "\u306A\u3057"
+    - player_001
     m_allMessages:
     - "\u300C\u4E09\u5272\u3063\u3066\u4F4E\u304F\u306A\u3044\uFF1F\u300D"
   m_choicesDatas:

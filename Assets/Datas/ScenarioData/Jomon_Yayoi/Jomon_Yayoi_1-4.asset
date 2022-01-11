@@ -75,9 +75,9 @@ MonoBehaviour:
     Messages: "\u300C\u3078\u3047\u3002\u6614\u306E\u571F\u5668\u306F\u3082\u3063\u3068\u539A\u304B\u3063\u305F\u3093\u3060\u3002\u300D"
     ChoicesId: 0
     NextId: 4
-    VoiceId: "\u306A\u3057"
+    VoiceId: player_001
     m_allVoiceId:
-    - "\u306A\u3057"
+    - player_001
     m_allMessages:
     - "\u300C\u3078\u3047\u3002\u6614\u306E\u571F\u5668\u306F\u3082\u3063\u3068\u539A\u304B\u3063\u305F\u3093\u3060\u3002\u300D"
   - MessageId: 3
@@ -94,9 +94,9 @@ MonoBehaviour:
     Messages: "\u300C\u3082\u3063\u3068\u539A\u304F\u3059\u308C\u3070\u826F\u3044\u306E\u3067\u306F\uFF1F\u300D"
     ChoicesId: 0
     NextId: 5
-    VoiceId: "\u306A\u3057"
+    VoiceId: player_001
     m_allVoiceId:
-    - "\u306A\u3057"
+    - player_001
     m_allMessages:
     - "\u300C\u3082\u3063\u3068\u539A\u304F\u3059\u308C\u3070\u826F\u3044\u306E\u3067\u306F\uFF1F\u300D"
   - MessageId: 4
