@@ -155,6 +155,8 @@ public class QuizManager : MonoBehaviour
     public static QuizManager Instance { get; private set; }
     /// <summary> 正解した数 </summary>
     public static int CorrectAnswersNum { get;  private set; }
+    /// <summary> クイズ終了時の残りHP </summary>
+    public static int RemainingHP { get; private set; }
     public int CurrentTurnNum { get; set; }
     public string QuestionResult { get; set; }
     public string PlayerAnswer { get => m_playerAnswer; set => m_playerAnswer = value; }
@@ -267,6 +269,7 @@ public class QuizManager : MonoBehaviour
         //仮にここでResult画面へ遷移の記述。できればEventManagerのOnGameEnd関数等を用意してここに書きたい
         yield return new WaitForSeconds(2.0f);
         LoadSceneManager.AnyLoadScene("QuizResult");
+        RemainingHP = HPController.Instance.CurrentHP;
     }
 
     #region common
