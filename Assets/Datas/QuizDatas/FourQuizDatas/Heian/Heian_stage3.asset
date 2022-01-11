@@ -15,7 +15,7 @@ MonoBehaviour:
   m_spreadsheetURL: https://script.google.com/macros/s/AKfycbwMDfg7S09aVHqyLve2ypq1jwgbYDgIZT25abH-Yp3oHIhtieA/exec
   m_SheetName: 
   m_periodType: 3
-  m_stageId: 3
+  m_stageId: 2
   m_fourChoicesQuizzes:
   - Id: 1
     Question: "\uFF11\uFF11\uFF19\uFF12\u5E74\u306B\u5F81\u5937\u5927\u5C06\u8ECD\u306B\u547D\u3058\u3089\u308C\u305F\u4EBA\u7269\u306F\u8AB0\u304B\uFF1F"

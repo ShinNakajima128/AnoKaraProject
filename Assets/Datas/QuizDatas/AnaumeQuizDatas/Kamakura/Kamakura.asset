@@ -13,5 +13,7 @@ MonoBehaviour:
   m_Name: Kamakura
   m_EditorClassIdentifier: 
   m_spreadsheetURL: https://script.google.com/macros/s/AKfycbw6vpPYJ-aWAUK75W6zlWgfcbVV_KdRySjaRUtslTSL_uWEHIQ/exec
+  m_SheetName: 
   m_periodType: 4
+  m_stageId: 0
   m_database: []
