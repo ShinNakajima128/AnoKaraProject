@@ -24,9 +24,6 @@ public class ScenarioData : ScriptableObject
     [SerializeField]
     ChoicesData[] m_choicesDatas = default;
 
-    [SerializeField]
-    int m_backgroundType = default;
-
     delegate void ScenarioDataCallback<T>(T data);
 
     public string URL => m_spreadSheetURL;
@@ -34,7 +31,6 @@ public class ScenarioData : ScriptableObject
     public string ChoicesSheetName => m_choicesSheetName;
     public DialogData[] DialogData { get => m_dialogData; set => m_dialogData = value; }
     public ChoicesData[] ChoicesDatas { get => m_choicesDatas; set => m_choicesDatas = value; }
-    public int BackgroundType { get => m_backgroundType; set => m_backgroundType = value; }
 
     public void LoadDialogDataFromSpreadsheet()
     {
