@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4d9aa4b5244f4994db385df11d119ef7, type: 3}
-  m_Name: Momoyama_Mobu_B
+  m_Name: Momoyama_Mobu_M_E
   m_EditorClassIdentifier: 
   m_dataName: "\u753A\u4EBA\u7537"
   m_characterImages:
