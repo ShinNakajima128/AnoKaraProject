@@ -142,22 +142,22 @@ MonoBehaviour:
     m_nextId: 0500000006000000
   - ChoicesId: 2
     Choices: "\u3048\u3001\u767D\u7C73\u306F...\uFF1F\n\u3048\u3001\u304A\u8089\u306F...\uFF1F"
-    NextMessageId: '12
+    NextMessageId: '6
 
-      12'
+      7'
     m_allChoices:
     - "\u3048\u3001\u767D\u7C73\u306F...\uFF1F"
     - "\u3048\u3001\u304A\u8089\u306F...\uFF1F"
-    m_nextId: 0c0000000c000000
+    m_nextId: 0600000007000000
   - ChoicesId: 3
     Choices: "\u30D7\u30E9\u30A4\u30C9\uFF1F\n\u306A\u3093\u3067\uFF1F"
-    NextMessageId: '10
+    NextMessageId: '9
 
       10'
     m_allChoices:
     - "\u30D7\u30E9\u30A4\u30C9\uFF1F"
     - "\u306A\u3093\u3067\uFF1F"
-    m_nextId: 0a0000000a000000
+    m_nextId: 090000000a000000
   - ChoicesId: 4
     Choices: "\u305D\u3046\u306A\u306E\u304B...\n\u3046\u30FC\u3093..."
     NextMessageId: '7
