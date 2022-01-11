@@ -2823,13 +2823,13 @@ MonoBehaviour:
   m_kamakura_sheetName02: kamakura_Scenario_2-4
   m_kamakura_sheetName03: kamakura_Scenario_3-4
   m_kamakura_sheetName04: kamakura_Scenario_4-5
-  m_momoyama_sheetName01: 
-  m_momoyama_sheetName02: 
-  m_momoyama_sheetName03: 
-  m_edo_sheetName01: 
-  m_edo_sheetName02: 
-  m_edo_sheetName03: 
-  m_edo_sheetName04: 
+  m_momoyama_sheetName01: azutimomoyama1-6
+  m_momoyama_sheetName02: azutimomoyama2-5
+  m_momoyama_sheetName03: azutimomoyama3-5
+  m_edo_sheetName01: edo_01-04
+  m_edo_sheetName02: edo_02-05
+  m_edo_sheetName03: edo_03-05
+  m_edo_sheetName04: edo_04-05
 --- !u!4 &423571175
 Transform:
   m_ObjectHideFlags: 0
@@ -7613,7 +7613,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 447483709531774641, guid: a877d34447378504984e2afe6efcb7e0, type: 3}
       propertyPath: m_currentPeriod
-      value: 4
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 447483709531774641, guid: a877d34447378504984e2afe6efcb7e0, type: 3}
       propertyPath: m_isAfterQuized
@@ -7621,7 +7621,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 447483709531774641, guid: a877d34447378504984e2afe6efcb7e0, type: 3}
       propertyPath: m_currentStageId
-      value: 3
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 447483709531774654, guid: a877d34447378504984e2afe6efcb7e0, type: 3}
       propertyPath: m_RootOrder
