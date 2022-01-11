@@ -2849,7 +2849,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_openingSceneName: Opening
   m_periodSelectSceneName: PeriodSelect
-  m_resetGameData: 1
+  m_resetGameData: 0
   m_titleState: 0
   m_tempGender: 0
   m_tempName: 

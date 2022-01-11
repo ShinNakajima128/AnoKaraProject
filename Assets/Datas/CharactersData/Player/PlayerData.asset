@@ -12,12 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 15f888eeb45e0d74caed4223631a181c, type: 3}
   m_Name: PlayerData
   m_EditorClassIdentifier: 
-  m_playerName: aa
+  m_playerName: 
   m_playerGender: 1
   m_clearFlag:
   - m_stageClearFlag: 0101000000
-  - m_stageClearFlag: 0000000000
-  - m_stageClearFlag: 0000000000
+  - m_stageClearFlag: 0101010000
+  - m_stageClearFlag: 0101000000
   - m_stageClearFlag: 0000000000
   - m_stageClearFlag: 0000000000
   - m_stageClearFlag: 0000000000
