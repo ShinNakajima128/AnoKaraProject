@@ -41,6 +41,7 @@ public class EventButton : MonoBehaviour
     {
         //EventManagerのタスク終了時のイベント通知に登録
         EventManager.ListenEvents(Events.TaskComplite, FinishTask);
+        EventManager.OnEvent(Events.BeginTask);
     }
 
     /// <summary>

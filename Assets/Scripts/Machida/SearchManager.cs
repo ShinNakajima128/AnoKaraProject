@@ -19,6 +19,10 @@ public class SearchManager : MonoBehaviour
     [SerializeField]
     StageData[] m_stagePanel;
 
+    /// <summary> シナリオ終了までスクロール等を不可にするPanel </summary>
+    [SerializeField]
+    GameObject m_InoperablePanel = default;
+
     #region sheetName
     [Header("タスク終了後のシナリオシート名")]
     [SerializeField]
@@ -96,6 +100,9 @@ public class SearchManager : MonoBehaviour
         JidaiSelect();
         StageSelect();
         StartCoroutine(PlayEachStageFirstScenario());
+        m_InoperablePanel.SetActive(true);
+        EventManager.ListenEvents(Events.BeginTask, OnInoperablePanel);
+        EventManager.ListenEvents(Events.FinishDialog, OnlyOnceMethod);
         SoundManager.Instance.PlayBgm(SoundManager.Instance.BgmName);
 
         //クイズ終了後の場合はシナリオ終了後、時代選択画面に戻る
@@ -105,6 +112,11 @@ public class SearchManager : MonoBehaviour
         }
     }
 
+    void OnlyOnceMethod()
+    {
+        OffInoperablePanel();
+        EventManager.RemoveEvents(Events.FinishDialog, OnlyOnceMethod);
+    }
     /// <summary>
     /// 選んだステージのCanvasを表示
     /// </summary>
@@ -237,6 +249,7 @@ public class SearchManager : MonoBehaviour
 
         CurrentTaskNum++;
         EventManager.OnEvent(Events.TaskComplite);
+        m_InoperablePanel.SetActive(false);
         Debug.Log(CurrentTaskNum);
 
         while (IsTaskComplited)
@@ -601,6 +614,19 @@ public class SearchManager : MonoBehaviour
         GameManager.Instance.IsAfterQuized = false;
 
         LoadSceneManager.AnyLoadScene("PeriodSelect");
+    }
+
+    /// <summary>
+    /// 操作制限用のパネルをONにする
+    /// </summary>
+    void OnInoperablePanel()
+    {
+        m_InoperablePanel.SetActive(true);
+    }
+
+    void OffInoperablePanel()
+    {
+        m_InoperablePanel.SetActive(false);
     }
 }
      

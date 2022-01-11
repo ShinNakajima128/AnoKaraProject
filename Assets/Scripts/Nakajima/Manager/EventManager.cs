@@ -16,6 +16,7 @@ public enum Events
     FinishDialog,
     Debug,
     Transition,
+    BeginTask,
     TaskComplite
 }
 /// <summary>
