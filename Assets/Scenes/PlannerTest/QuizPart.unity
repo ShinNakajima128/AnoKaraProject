@@ -1185,6 +1185,26 @@ PrefabInstance:
       propertyPath: m_Name
       value: QuizManager
       objectReference: {fileID: 0}
+    - target: {fileID: 434024880841983926, guid: e1dacf4572dd80143b50cb7a73e36d93, type: 3}
+      propertyPath: m_Text
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 434024880841983926, guid: e1dacf4572dd80143b50cb7a73e36d93, type: 3}
+      propertyPath: m_Color.b
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 434024880841983926, guid: e1dacf4572dd80143b50cb7a73e36d93, type: 3}
+      propertyPath: m_Color.g
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 434024880841983926, guid: e1dacf4572dd80143b50cb7a73e36d93, type: 3}
+      propertyPath: m_Color.r
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 434024880841983927, guid: e1dacf4572dd80143b50cb7a73e36d93, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e1dacf4572dd80143b50cb7a73e36d93, type: 3}
 --- !u!114 &434024880554720039 stripped
