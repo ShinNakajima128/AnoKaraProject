@@ -16,18 +16,18 @@ public class EventButton : MonoBehaviour
     /// <summary> アニメーションの時間 </summary>
     [SerializeField]
     float m_animTimer = 0.25f;
-
+    /// <summary> 差し替え先のImage </summary>
+    [SerializeField]
+    Image m_buttonImage = default;
     /// <summary> 操作するボタン </summary>
     Button m_eventButton = default;
-    /// <summary> 差し替え先のImage </summary>
-    Image m_buttonImage = default;
+    
     /// <summary> 操作するボタンのRectTransform </summary>
     RectTransform m_rt = default;
 
     void Start()
     {
         m_eventButton = GetComponent<Button>();
-        m_buttonImage = GetComponent<Image>();
         m_rt = GetComponent<RectTransform>();
 
         //ボタンが押された時の処理を追加
