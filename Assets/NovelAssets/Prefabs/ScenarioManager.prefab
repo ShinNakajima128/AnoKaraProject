@@ -358,7 +358,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -100, y: -25}
+  m_AnchoredPosition: {x: -380, y: 63}
   m_SizeDelta: {x: 650, y: 500}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &3556439219319857646
@@ -417,7 +417,7 @@ MonoBehaviour:
     m_Top: 0
     m_Bottom: 0
   m_ChildAlignment: 0
-  m_Spacing: 0
+  m_Spacing: 15
   m_ChildForceExpandWidth: 1
   m_ChildForceExpandHeight: 1
   m_ChildControlWidth: 0
@@ -633,7 +633,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 832, y: 72}
+  m_AnchoredPosition: {x: 832, y: 50}
   m_SizeDelta: {x: 250, y: 750.5764}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &3556439219747479895
@@ -1077,6 +1077,7 @@ MonoBehaviour:
   m_textSpeed: 0.01
   m_autoflowTime: 1
   m_playerName: 
+  m_replacePlayerNameKeyword: 
   m_malePronoun: "\u4FFA"
   m_famalePronoun: "\u79C1"
   m_triggerChar: 35
