@@ -167,6 +167,7 @@ public class ScenarioManager : MonoBehaviour
     int m_AfterReactionMessageId = 0;
     int m_currentBackgroundType = default;
     int m_beforeEmoteType = -1;
+    string m_currentStageGreatMan = default;
     string m_htmlStartCode = default;
     string m_htmlEndCode = default;
     string m_tempLog = "";
@@ -202,6 +203,8 @@ public class ScenarioManager : MonoBehaviour
     void Start()
     {
         m_playerName = DataManager.Instance.PlayerData.PlayerName;
+        m_currentStageGreatMan = DataManager.Instance.CurrentPeriodHistoricalFigures.CharacterName;
+        Debug.Log(m_currentStageGreatMan);
         m_imageDatas[0].CharacterImages = DataManager.Instance.PlayerData.PlayerGender == GenderType.Boy ? m_boySprites : m_girlSprites;
         HighlightCodeSetup(m_textType, ColorToHex(m_HighlightTextColor));
         m_characterImage = new Image[m_character.Length];
@@ -341,7 +344,17 @@ public class ScenarioManager : MonoBehaviour
 
             m_display.SetActive(true);
             OnContinueDialog();
-            m_characterName.text = data.DialogData[currentDialogIndex].Talker.Replace("プレイヤー", m_playerName);
+
+            m_characterName.text = "";
+
+            for (int i = 0; i < data.DialogData[currentDialogIndex].AllTalker.Length; i++)
+            {
+                if (i > 0)
+                {
+                    m_characterName.text += "＆";
+                }
+                m_characterName.text += data.DialogData[currentDialogIndex].AllTalker[i].Replace("プレイヤー", m_playerName);
+            }
 
             if (m_characterName.text == "ナレーター")
             {
@@ -1033,10 +1046,16 @@ public class ScenarioManager : MonoBehaviour
     Sprite SetCharaImage(string charaName, int faceType = 0)
     {
         Sprite chara = default;
+        string c = charaName;
+
+        if (c == "？？？") 
+        {
+            c = m_currentStageGreatMan;
+        }
 
         for (int i = 0; i < m_imageDatas.Length; i++)
         {
-            if (charaName == m_imageDatas[i].CharacterName)
+            if (c == m_imageDatas[i].CharacterName)
             {
                 chara = m_imageDatas[i].CharacterImages[faceType];
 
