@@ -96,6 +96,7 @@ public class LoadSceneManager : MonoBehaviour
     /// </summary>
     public static void Restart(Action callBack = null)
     {
+        
         Instance.m_isFadeOut = true;
         Instance.StartCoroutine(Instance.LoadScene(CurrentScene, Instance.m_LoadTimer, callBack));
     }
@@ -124,6 +125,18 @@ public class LoadSceneManager : MonoBehaviour
     /// <param name="callBack"> フェードイン後のコールバック </param>
     public static void FadeInPanel(Action callBack = null)
     {
+        Instance.SetColor(0, 0, 0);
+        Instance.m_isFadeIn = true;
+        Instance.m_currentFade = Instance.StartCoroutine(Instance.FadeIn(callBack));
+    }
+
+    /// <summary>
+    /// 白い画面でフェードイン(画面を徐々に表示)する
+    /// </summary>
+    /// <param name="callBack"> フェードイン後のコールバック </param>
+    public static void WhiteFadeInPanel(Action callBack = null)
+    {
+        Instance.SetColor(1, 1, 1);
         Instance.m_isFadeIn = true;
         Instance.m_currentFade = Instance.StartCoroutine(Instance.FadeIn(callBack));
     }
@@ -134,6 +147,18 @@ public class LoadSceneManager : MonoBehaviour
     /// <param name="action"> フェードアウト後のコールバック </param>
     public static void FadeOutPanel(Action callBack = null)
     {
+        Instance.SetColor(0, 0, 0);
+        Instance.m_isFadeOut = true;
+        Instance.m_currentFade = Instance.StartCoroutine(Instance.FadeOut(callBack));
+    }
+
+    /// <summary>
+    /// 白い画面でフェードアウト(画面が徐々に暗転)する
+    /// </summary>
+    /// <param name="action"> フェードアウト後のコールバック </param>
+    public static void WhiteFadeOutPanel(Action callBack = null)
+    {
+        Instance.SetColor(1, 1, 1);
         Instance.m_isFadeOut = true;
         Instance.m_currentFade = Instance.StartCoroutine(Instance.FadeOut(callBack));
     }
@@ -144,6 +169,13 @@ public class LoadSceneManager : MonoBehaviour
     void SetAlfa()
     {
         m_fadeImage.color = new Color(m_red, m_green, m_blue, m_alfa);
+    }
+
+    void SetColor(float r, float g, float b)
+    {
+        m_red = r;
+        m_green = g;
+        m_blue = b;
     }
     #endregion
 
