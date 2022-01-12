@@ -49,13 +49,18 @@ public class QuizTips : MonoBehaviour
     [SerializeField]
     float m_tutorialTipsTimer = 5f;
 
+    [SerializeField]
+    Transform m_tipImage = default;
+
     Vector2 m_defPos = default;
 
+    /// <summary>ヒント出す生物の動く時間</summary>
     [SerializeField]
     float m_moveDuration = 0.1f;
 
+    /// <summary>ヒント出す生物の動く幅</summary>
     [SerializeField]
-    float m_moveValue = 0.1f;
+    float m_moveValue = 20f;
 
     private void Start()
     {
@@ -63,7 +68,7 @@ public class QuizTips : MonoBehaviour
         {
             EventManager.ListenEvents(Events.QuizStart, GetTips);
         }
-        m_defPos = transform.position;
+        m_defPos = m_tipImage.position;
     }
 
     /// <summary>
@@ -114,8 +119,10 @@ public class QuizTips : MonoBehaviour
                 StartCoroutine(MashTips());
             }
             m_mashCount++;
-            transform.position = m_defPos;
-            transform.DOMoveY(m_moveValue, m_moveDuration);
+            m_tipImage.position = m_defPos;
+            Sequence s = DOTween.Sequence();
+            s.Append(m_tipImage.DOMoveY(m_defPos.y + m_moveValue, m_moveDuration))
+                .Append(m_tipImage.DOMoveY(m_defPos.y, m_moveDuration));
             SoundManager.Instance.PlaySe("SE_touch");
         }
     }

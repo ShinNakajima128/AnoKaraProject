@@ -1008,6 +1008,11 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1617001986}
   m_CullTransparentMesh: 1
+--- !u!224 &1948844418 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 6878185084312574315, guid: e1dacf4572dd80143b50cb7a73e36d93, type: 3}
+  m_PrefabInstance: {fileID: 434024880554720037}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &2046303694
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1133,10 +1138,54 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 294008318, guid: e1dacf4572dd80143b50cb7a73e36d93, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 294008318, guid: e1dacf4572dd80143b50cb7a73e36d93, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 294008318, guid: e1dacf4572dd80143b50cb7a73e36d93, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 294008318, guid: e1dacf4572dd80143b50cb7a73e36d93, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 703314102, guid: e1dacf4572dd80143b50cb7a73e36d93, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 703314102, guid: e1dacf4572dd80143b50cb7a73e36d93, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 703314102, guid: e1dacf4572dd80143b50cb7a73e36d93, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 703314102, guid: e1dacf4572dd80143b50cb7a73e36d93, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2055684878, guid: e1dacf4572dd80143b50cb7a73e36d93, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 2118772312}
+    - target: {fileID: 73129724149297349, guid: e1dacf4572dd80143b50cb7a73e36d93, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -441
+      objectReference: {fileID: 0}
+    - target: {fileID: 73129724149297351, guid: e1dacf4572dd80143b50cb7a73e36d93, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 73129724149297351, guid: e1dacf4572dd80143b50cb7a73e36d93, type: 3}
+      propertyPath: m_Color.a
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 434024879647280401, guid: e1dacf4572dd80143b50cb7a73e36d93, type: 3}
       propertyPath: m_RootOrder
       value: 7
@@ -1205,6 +1254,34 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6878185084312574315, guid: e1dacf4572dd80143b50cb7a73e36d93, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 228
+      objectReference: {fileID: 0}
+    - target: {fileID: 6878185084312574315, guid: e1dacf4572dd80143b50cb7a73e36d93, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 231.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6878185084312574315, guid: e1dacf4572dd80143b50cb7a73e36d93, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6878185084312574315, guid: e1dacf4572dd80143b50cb7a73e36d93, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8122175936133881871, guid: e1dacf4572dd80143b50cb7a73e36d93, type: 3}
+      propertyPath: m_tipImage
+      value: 
+      objectReference: {fileID: 1948844418}
+    - target: {fileID: 8122175936133881871, guid: e1dacf4572dd80143b50cb7a73e36d93, type: 3}
+      propertyPath: m_moveValue
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 8122175936133881871, guid: e1dacf4572dd80143b50cb7a73e36d93, type: 3}
+      propertyPath: m_tipImagePos
+      value: 
+      objectReference: {fileID: 1948844418}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e1dacf4572dd80143b50cb7a73e36d93, type: 3}
 --- !u!114 &434024880554720039 stripped
