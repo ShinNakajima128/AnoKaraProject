@@ -770,7 +770,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 8af74be03ac61a34bb51162eb20e17fe, type: 3}
+  m_Sprite: {fileID: 21300000, guid: cd084849dc723e84780e4c23d32a7a27, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -1424,7 +1424,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &354412807
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1941,7 +1941,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 376de1b700fd0744e8930922411f38d9, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 677e1efde7e7d0d4bbde87e01be0ed28, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -2074,7 +2074,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 376de1b700fd0744e8930922411f38d9, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 677e1efde7e7d0d4bbde87e01be0ed28, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -2265,7 +2265,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 8af74be03ac61a34bb51162eb20e17fe, type: 3}
+  m_Sprite: {fileID: 21300000, guid: cd084849dc723e84780e4c23d32a7a27, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -4447,7 +4447,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 376de1b700fd0744e8930922411f38d9, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 677e1efde7e7d0d4bbde87e01be0ed28, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -4675,7 +4675,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 8af74be03ac61a34bb51162eb20e17fe, type: 3}
+  m_Sprite: {fileID: 21300000, guid: cd084849dc723e84780e4c23d32a7a27, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -5201,6 +5201,10 @@ PrefabInstance:
       propertyPath: m_AnchorMin.x
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 2593138419298882426, guid: ef9e0ae96b23d77419a06104a9edf655, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 999a11c56c6aab24eabe3c488239e26c, type: 3}
     - target: {fileID: 2593138419768455288, guid: ef9e0ae96b23d77419a06104a9edf655, type: 3}
       propertyPath: m_IsActive
       value: 0
@@ -5293,6 +5297,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: TitleSettingUI
       objectReference: {fileID: 0}
+    - target: {fileID: 2593138419883626921, guid: ef9e0ae96b23d77419a06104a9edf655, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2593138419933104501, guid: ef9e0ae96b23d77419a06104a9edf655, type: 3}
       propertyPath: m_Text
       value: "\u30C7\u30FC\u30BF\u306E\u30EA\u30BB\u30C3\u30C8"
@@ -5307,7 +5315,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2593138420098701741, guid: ef9e0ae96b23d77419a06104a9edf655, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2593138420272854557, guid: ef9e0ae96b23d77419a06104a9edf655, type: 3}
       propertyPath: m_AnchorMax.x
