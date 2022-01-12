@@ -88,6 +88,7 @@ public class TitleManager : MonoBehaviour
         if (m_resetGameData)
         {
             PlayerPrefs.DeleteAll();
+            Debug.Log("データをリセットしました");
         }
         m_tempArray = m_gameDataObject.ClearFlag;
         m_gameDataObject.SetUp();
