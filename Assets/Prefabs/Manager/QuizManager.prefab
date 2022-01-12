@@ -6371,8 +6371,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 30, y: -190}
-  m_SizeDelta: {x: 870.06, y: 737.46}
+  m_AnchoredPosition: {x: -7.7986, y: -190}
+  m_SizeDelta: {x: 794.4628, y: 737.46}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &2031805226
 CanvasRenderer:
@@ -6402,7 +6402,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: df01566682a54f64b8b1c35bdcc13a2f, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 868e4d6258a80c44694802eb407ccf04, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -6969,6 +6969,14 @@ MonoBehaviour:
   m_EffectColor: {r: 0, g: 0, b: 0, a: 0.91764706}
   m_EffectDistance: {x: 2, y: -2}
   m_UseGraphicAlpha: 1
+--- !u!222 &6071060013438409026
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 73129723166823958}
+  m_CullTransparentMesh: 1
 --- !u!1 &346578701816633056
 GameObject:
   m_ObjectHideFlags: 0
@@ -8793,13 +8801,17 @@ PrefabInstance:
       propertyPath: m_RaycastTarget
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 506153910591917460, guid: 86041ff81c6d80041b1f3580fde96598, type: 3}
+      propertyPath: m_Colors.m_ColorMultiplier
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 506153910591917461, guid: 86041ff81c6d80041b1f3580fde96598, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 228.4453
+      value: 228
       objectReference: {fileID: 0}
     - target: {fileID: 506153910591917461, guid: 86041ff81c6d80041b1f3580fde96598, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 209.8093
+      value: 209
       objectReference: {fileID: 0}
     - target: {fileID: 506153910591917461, guid: 86041ff81c6d80041b1f3580fde96598, type: 3}
       propertyPath: m_AnchoredPosition.x
@@ -8807,11 +8819,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 506153910591917461, guid: 86041ff81c6d80041b1f3580fde96598, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -427.51166
+      value: -456
       objectReference: {fileID: 0}
     - target: {fileID: 506153910591917463, guid: 86041ff81c6d80041b1f3580fde96598, type: 3}
-      propertyPath: m_Color.a
+      propertyPath: m_Type
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 506153910591917463, guid: 86041ff81c6d80041b1f3580fde96598, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 102b092122dca2040b7dfe0ead57ce24, type: 3}
+    - target: {fileID: 506153910591917463, guid: 86041ff81c6d80041b1f3580fde96598, type: 3}
+      propertyPath: m_Color.a
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 506153911072217250, guid: 86041ff81c6d80041b1f3580fde96598, type: 3}
       propertyPath: m_SizeDelta.x
@@ -8852,6 +8872,10 @@ PrefabInstance:
     - target: {fileID: 506153911339510598, guid: 86041ff81c6d80041b1f3580fde96598, type: 3}
       propertyPath: m_Name
       value: TipsSystem
+      objectReference: {fileID: 0}
+    - target: {fileID: 506153911339510598, guid: 86041ff81c6d80041b1f3580fde96598, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 506153911339510601, guid: 86041ff81c6d80041b1f3580fde96598, type: 3}
       propertyPath: m_Pivot.x
@@ -8970,6 +8994,11 @@ PrefabInstance:
 --- !u!224 &73129724859819729 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 506153909815597953, guid: 86041ff81c6d80041b1f3580fde96598, type: 3}
+  m_PrefabInstance: {fileID: 434024881222417744}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &73129723166823958 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 506153911339510598, guid: 86041ff81c6d80041b1f3580fde96598, type: 3}
   m_PrefabInstance: {fileID: 434024881222417744}
   m_PrefabAsset: {fileID: 0}
 --- !u!224 &73129723166823961 stripped
