@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using DG.Tweening;
 
 /// <summary>クイズのヒント</summary>
 public class QuizTips : MonoBehaviour
@@ -48,12 +49,21 @@ public class QuizTips : MonoBehaviour
     [SerializeField]
     float m_tutorialTipsTimer = 5f;
 
+    Vector2 m_defPos = default;
+
+    [SerializeField]
+    float m_moveDuration = 0.1f;
+
+    [SerializeField]
+    float m_moveValue = 0.1f;
+
     private void Start()
     {
         if (GameManager.Instance.CurrentPeriod == MasterData.PeriodTypes.Jomon_Yayoi)
         {
             EventManager.ListenEvents(Events.QuizStart, GetTips);
         }
+        m_defPos = transform.position;
     }
 
     /// <summary>
@@ -104,6 +114,8 @@ public class QuizTips : MonoBehaviour
                 StartCoroutine(MashTips());
             }
             m_mashCount++;
+            transform.position = m_defPos;
+            transform.DOMoveY(m_moveValue, m_moveDuration);
             SoundManager.Instance.PlaySe("SE_touch");
         }
     }
