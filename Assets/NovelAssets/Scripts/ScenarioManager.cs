@@ -5,6 +5,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using ScenarioMasterData;
 using UnityEngine.Events;
+using DG.Tweening;
 
 public enum HighlightTextType
 {
@@ -12,6 +13,18 @@ public enum HighlightTextType
     Bold,
     Color,
     BoldAndColor
+}
+
+public enum FeelingType
+{
+    Happy,
+    Angry,
+    Cry,
+    raku,
+    Surprise,
+    Think,
+    Correct,
+    Incorrect
 }
 
 /// <summary>
@@ -125,11 +138,15 @@ public class ScenarioManager : MonoBehaviour
 
     [Header("感情用のエフェクト")]
     [SerializeField]
-    GameObject[] m_feelingEffects = default;
+    Sprite[] m_feelingEffects = default;
+
+    [Header("画像差し替え用の透明画像")]
+    [SerializeField]
+    Sprite m_transparentSprite = default;
 
     [Header("エフェクトを表示するポジション")]
     [SerializeField]
-    GameObject[] m_effectPositions = default;
+    Image[] m_effectPositions = default;
     #endregion
 
     #region public field
@@ -145,6 +162,7 @@ public class ScenarioManager : MonoBehaviour
     int m_nextMessageId = 0;
     int m_AfterReactionMessageId = 0;
     int m_currentBackgroundType = default;
+    int m_beforeEmoteType = -1;
     string m_htmlStartCode = default;
     string m_htmlEndCode = default;
     string m_tempLog = "";
@@ -191,7 +209,7 @@ public class ScenarioManager : MonoBehaviour
             m_anim[i] = m_character[i].GetComponent<Animator>();
         }
         m_display.SetActive(false);
-        StartEvent?.Invoke(); 
+        StartEvent?.Invoke();
     }
     #endregion
 
@@ -303,7 +321,7 @@ public class ScenarioManager : MonoBehaviour
                     yield return null;
                 }
                 BackGroundController.BackgroundAnim -= FinishReceive;
-            }            
+            }
             //デバッグの場合はデバッグ用のイベントを実行する
             if (isDebug)
             {
@@ -350,15 +368,16 @@ public class ScenarioManager : MonoBehaviour
                         if (m_characterImage[data.DialogData[currentDialogIndex].AllPosition[n]].enabled)
                         {
                             m_characterImage[data.DialogData[currentDialogIndex].AllPosition[n]].sprite = SetCharaImage(data.DialogData[currentDialogIndex].Talker, data.DialogData[currentDialogIndex].FaceTypes[i]);
+                            SetFeelingAnim(m_effectPositions[data.DialogData[currentDialogIndex].AllPosition[n]], data.DialogData[currentDialogIndex].FaceTypes[i]);
                         }
-                    }   
-                }              
+                    }
+                }
 
                 //表示されたメッセージをリセット
                 m_clickIcon.SetActive(false);
                 m_messageText.text = "";
                 string message = data.DialogData[currentDialogIndex].AllMessages[i].Replace("プレイヤー", m_playerName)
-                                                                                   .Replace("私（僕or俺)", DataManager.Instance.PlayerData.PlayerGender == GenderType.Boy ? m_malePronoun: m_famalePronoun);
+                                                                                   .Replace("私（僕or俺)", DataManager.Instance.PlayerData.PlayerGender == GenderType.Boy ? m_malePronoun : m_famalePronoun);
                 bool isHighlighted = false;
                 m_clickReception = false;
 
@@ -387,13 +406,13 @@ public class ScenarioManager : MonoBehaviour
                         }
                     }
                 }
-                
+
                 //各メッセージを一文字ずつ表示する
                 foreach (var m in message)
                 {
                     if (m == m_triggerChar) //強調表現用の文字だった場合
                     {
-                        if (!isHighlighted) 
+                        if (!isHighlighted)
                         {
                             isHighlighted = true; //強調開始
                         }
@@ -419,7 +438,7 @@ public class ScenarioManager : MonoBehaviour
                     yield return WaitTimer(m_textSpeed); //次の文字を表示するのを設定した時間待つ
 
                     //表示中にクリックされたら現在のメッセージを全て表示して処理を中断する
-                    if (isClicked) 
+                    if (isClicked)
                     {
                         m_messageText.text = HighlightKeyword(message);
                         break;
@@ -563,7 +582,7 @@ public class ScenarioManager : MonoBehaviour
             yield break;
         }
 
-        
+
 
         for (int i = 0; i < charaName.Length; i++)
         {
@@ -596,7 +615,7 @@ public class ScenarioManager : MonoBehaviour
                 yield return null;
             }
             CharacterPanel.CharacterAnim -= FinishReceive;
-        }        
+        }
     }
 
     /// <summary>
@@ -611,6 +630,7 @@ public class ScenarioManager : MonoBehaviour
             {
                 m_characterImage[i].color = new Color(1, 1, 1);
                 m_anim[i].Play("FadeOut");
+                m_effectPositions[i].sprite = m_transparentSprite;
                 isAnimPlaying = true;
                 CharacterPanel.CharacterAnim += FinishReceive;
             }
@@ -753,7 +773,7 @@ public class ScenarioManager : MonoBehaviour
             Time.timeScale = 1f; //コルーチン再開
         }
     }
-    
+
     /// <summary>
     /// 次に表示するメッセージを切り替える
     /// </summary>
@@ -784,6 +804,10 @@ public class ScenarioManager : MonoBehaviour
                 break;
             case "FadeOut":
                 m_anim[index].Play("FadeOut");
+                for (int i = 0; i < m_effectPositions.Length; i++)
+                {
+                    m_effectPositions[i].sprite = m_transparentSprite;
+                }
                 break;
             case "AllFadeIn":
                 for (int i = 0; i < m_characterImage.Length; i++)
@@ -815,6 +839,7 @@ public class ScenarioManager : MonoBehaviour
                         m_characterImage[i].enabled = true;
                     }
                     m_anim[i].Play("FadeOut");
+                    m_effectPositions[i].sprite = m_transparentSprite;
                 }
                 break;
             default:
@@ -844,7 +869,7 @@ public class ScenarioManager : MonoBehaviour
         {
             if (m_characterImage[i].enabled)
             {
-                for(int n = 0; n < currentIndex.Length; n++)
+                for (int n = 0; n < currentIndex.Length; n++)
                 {
                     if (i == currentIndex[n])
                     {
@@ -1011,6 +1036,61 @@ public class ScenarioManager : MonoBehaviour
             }
         }
         return chara;
+    }
+    
+    void SetFeelingAnim(Image image, int emoteType)
+    {
+        if (m_beforeEmoteType == emoteType) return;
+        image.sprite = m_feelingEffects[emoteType];
+        m_beforeEmoteType = emoteType;
+        FeelingType feelingType = (FeelingType)emoteType;
+        //喜 => 一回上下
+        //怒 => 左右に素早く
+        //哀 => ゆっくり沈む
+        //楽 => 数回上下
+        //驚 => 一回上下
+        //考 => 一回上下
+        //正解 => 
+        //不正解 => 
+        Vector2 befPos = image.transform.position;
+        Sequence sequence = DOTween.Sequence();
+        switch (feelingType)
+        {
+            case FeelingType.Happy:
+                sequence.Append(image.transform.DOMoveY(befPos.y + 50f, 0.1f))
+                    .Append(image.transform.DOMoveY(befPos.y, 0.1f));
+                break;
+            case FeelingType.Angry:
+                sequence.Append(image.transform.DOMoveX(befPos.x + 50f, 0.1f))
+                    .Append(image.transform.DOMoveX(befPos.x + -50f, 0.1f))
+                    .Append(image.transform.DOMoveX(befPos.x, 0.1f));
+                break;
+            case FeelingType.Cry:
+                sequence.Append(image.transform.DOMoveY(befPos.y + -50f, 1f))
+                    .Append(image.transform.DOMoveY(befPos.y, 0.5f));
+                break;
+            case FeelingType.raku:
+                sequence.Append(image.transform.DOMoveY(befPos.y + 30f, 0.1f))
+                    .Append(image.transform.DOMoveY(befPos.y + -30f, 0.1f))
+                    .Append(image.transform.DOMoveY(befPos.y + 30f, 0.1f))
+                    .Append(image.transform.DOMoveY(befPos.y + -30f, 0.1f))
+                    .Append(image.transform.DOMoveY(befPos.y, 0.1f));
+                break;
+            case FeelingType.Surprise:
+                sequence.Append(image.transform.DOMoveY(befPos.y + 50f, 0.1f))
+                    .Append(image.transform.DOMoveY(befPos.y, 0.1f));
+                break;
+            case FeelingType.Think:
+                sequence.Append(image.transform.DOMoveY(befPos.y + 50f, 0.1f))
+                    .Append(image.transform.DOMoveY(befPos.y, 0.1f));
+                break;
+            case FeelingType.Correct:
+                //正解
+                break;
+            case FeelingType.Incorrect:
+                //不正解
+                break;
+        }
     }
 
     /// <summary>
