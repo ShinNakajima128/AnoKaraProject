@@ -25,7 +25,7 @@ MonoBehaviour:
     BackgroundType: 8
     FaceType: 2
     m_faceTypes: 02000000
-    StartAnimationType: "\u306A\u3057"
+    StartAnimationType: AllFadeIn
     EndAnimationType: "\u306A\u3057"
     Messages: "Oh no\uFF01\u3042\u3093\u307E\u308A\u30C7\u30FC\u30B9\uFF01\u8CA0\u3051\u3066\u3057\u307E\u3044\u307E\u3057\u305F\u30FC\uFF01"
     ChoicesId: 0
