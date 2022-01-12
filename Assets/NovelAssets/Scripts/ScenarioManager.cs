@@ -162,6 +162,7 @@ public class ScenarioManager : MonoBehaviour
     int m_nextMessageId = 0;
     int m_AfterReactionMessageId = 0;
     int m_currentBackgroundType = default;
+    int m_beforeEmoteType = -1;
     string m_htmlStartCode = default;
     string m_htmlEndCode = default;
     string m_tempLog = "";
@@ -1036,7 +1037,7 @@ public class ScenarioManager : MonoBehaviour
         }
         return chara;
     }
-    int m_beforeEmoteType = -1;
+    
     void SetFeelingAnim(Image image, int emoteType)
     {
         if (m_beforeEmoteType == emoteType) return;
