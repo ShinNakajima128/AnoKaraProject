@@ -33,8 +33,8 @@ public class AllCharacterData : ScriptableObject
     { 
         get 
         {
+            if (GameManager.Instance.CurrentPeriod == MasterData.PeriodTypes.None) return m_historicalFiguresData[0];
             CharacterData hf = default;
-
             hf = m_historicalFiguresData.Where(h => h.CharacterPeriod == GameManager.Instance.CurrentPeriod)
                                         .FirstOrDefault(s => s.StageId == GameManager.Instance.CurrentStageId);
 

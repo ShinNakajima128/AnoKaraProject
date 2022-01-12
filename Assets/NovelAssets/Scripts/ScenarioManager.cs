@@ -203,7 +203,15 @@ public class ScenarioManager : MonoBehaviour
     void Start()
     {
         m_playerName = DataManager.Instance.PlayerData.PlayerName;
-        m_currentStageGreatMan = DataManager.Instance.CurrentPeriodHistoricalFigures.CharacterName;
+        if (GameManager.Instance.CurrentPeriod == MasterData.PeriodTypes.None)
+        {
+            m_currentStageGreatMan = "コマ";
+        }
+        else
+        {
+            m_currentStageGreatMan = DataManager.Instance.CurrentPeriodHistoricalFigures.CharacterName;
+        }
+
         Debug.Log(m_currentStageGreatMan);
         m_imageDatas[0].CharacterImages = DataManager.Instance.PlayerData.PlayerGender == GenderType.Boy ? m_boySprites : m_girlSprites;
         HighlightCodeSetup(m_textType, ColorToHex(m_HighlightTextColor));
