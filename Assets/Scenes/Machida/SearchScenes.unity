@@ -3286,9 +3286,9 @@ MonoBehaviour:
     m_stagePanel: {fileID: 151092161}
     m_taskCount: 3
   - m_periodType: 5
-    m_stageId: 3
+    m_stageId: 2
     m_stagePanel: {fileID: 1983586123}
-    m_taskCount: 3
+    m_taskCount: 1
   - m_periodType: 6
     m_stageId: 0
     m_stagePanel: {fileID: 355269292}
@@ -3318,7 +3318,7 @@ MonoBehaviour:
   m_kamakura_sheetName04: kamakura_Scenario_4-5
   m_momoyama_sheetName01: azutimomoyama1-6Q
   m_momoyama_sheetName02: azutimomoyama2-5Q
-  m_momoyama_sheetName03: azutimomoyama3-5
+  m_momoyama_sheetName03: azutimomoyama3-5Q
   m_edo_sheetName01: edo_01-04
   m_edo_sheetName02: edo_02-05
   m_edo_sheetName03: edo_03-05
@@ -9022,11 +9022,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 447483709531774641, guid: a877d34447378504984e2afe6efcb7e0, type: 3}
       propertyPath: m_isAfterQuized
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 447483709531774641, guid: a877d34447378504984e2afe6efcb7e0, type: 3}
       propertyPath: m_currentStageId
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 447483709531774654, guid: a877d34447378504984e2afe6efcb7e0, type: 3}
       propertyPath: m_RootOrder
@@ -13844,7 +13844,7 @@ PrefabInstance:
       objectReference: {fileID: 11400000, guid: b0c00af57fcc8184198eafe8237732f1, type: 2}
     - target: {fileID: 3556439220019624003, guid: 0850286fda9bd6145914c63f2fa6698b, type: 3}
       propertyPath: m_imageDatas.Array.size
-      value: 37
+      value: 39
       objectReference: {fileID: 0}
     - target: {fileID: 3556439220019624003, guid: 0850286fda9bd6145914c63f2fa6698b, type: 3}
       propertyPath: m_imageDatas.Array.data[1]
@@ -13994,6 +13994,14 @@ PrefabInstance:
       propertyPath: m_imageDatas.Array.data[36]
       value: 
       objectReference: {fileID: 11400000, guid: 0e2848b6e4874d445b9f30711d382bf8, type: 2}
+    - target: {fileID: 3556439220019624003, guid: 0850286fda9bd6145914c63f2fa6698b, type: 3}
+      propertyPath: m_imageDatas.Array.data[37]
+      value: 
+      objectReference: {fileID: 11400000, guid: 9551b996a09ec9646a4cc6a399d19a0f, type: 2}
+    - target: {fileID: 3556439220019624003, guid: 0850286fda9bd6145914c63f2fa6698b, type: 3}
+      propertyPath: m_imageDatas.Array.data[38]
+      value: 
+      objectReference: {fileID: 11400000, guid: 093204774728e4645b5cedd0609bc0ad, type: 2}
     - target: {fileID: 3556439220019624003, guid: 0850286fda9bd6145914c63f2fa6698b, type: 3}
       propertyPath: EndEvent.m_PersistentCalls.m_Calls.Array.size
       value: 0
