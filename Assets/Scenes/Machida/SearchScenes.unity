@@ -3910,11 +3910,11 @@ MonoBehaviour:
   - m_periodType: 6
     m_stageId: 0
     m_stagePanel: {fileID: 355269292}
-    m_taskCount: 1
+    m_taskCount: 3
   - m_periodType: 6
     m_stageId: 1
     m_stagePanel: {fileID: 1489997294}
-    m_taskCount: 3
+    m_taskCount: 1
   - m_periodType: 6
     m_stageId: 2
     m_stagePanel: {fileID: 1146842469}
@@ -9826,7 +9826,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 447483709531774641, guid: a877d34447378504984e2afe6efcb7e0, type: 3}
       propertyPath: m_currentStageId
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 447483709531774654, guid: a877d34447378504984e2afe6efcb7e0, type: 3}
       propertyPath: m_RootOrder
