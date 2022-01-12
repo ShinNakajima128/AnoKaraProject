@@ -17,9 +17,9 @@ MonoBehaviour:
   m_choicesSheetName: edo_choice
   m_dialogData:
   - MessageId: 0
-    Talker: "\u30E2\u30D6\u7537"
+    Talker: "\u6C5F\u6238 \u753A\u4EBA\u7537"
     m_talker:
-    - "\u30E2\u30D6\u7537"
+    - "\u6C5F\u6238 \u753A\u4EBA\u7537"
     Position: 2
     m_position: 02000000
     BackgroundType: 8
@@ -49,9 +49,9 @@ MonoBehaviour:
     Messages: "\u60AA\u3044\u4EBA\u306A\u306E\u304B\u306A\u3041"
     ChoicesId: 0
     NextId: 2
-    VoiceId: "\u306A\u3057"
+    VoiceId: player_001
     m_allVoiceId:
-    - "\u306A\u3057"
+    - player_001
     m_allMessages:
     - "\u60AA\u3044\u4EBA\u306A\u306E\u304B\u306A\u3041"
   - MessageId: 2
@@ -74,14 +74,16 @@ MonoBehaviour:
     m_allMessages:
     - "\u3055\u3042\u306D\u30FC"
   - MessageId: 3
-    Talker: "\u30E2\u30D6\u7537"
+    Talker: "\u6C5F\u6238 \u753A\u4EBA\u7537"
     m_talker:
-    - "\u30E2\u30D6\u7537"
+    - "\u6C5F\u6238 \u753A\u4EBA\u7537"
     Position: 2
     m_position: 02000000
     BackgroundType: 8
-    FaceType: 0
-    m_faceTypes: 00000000
+    FaceType: '1
+
+      1'
+    m_faceTypes: 0100000001000000
     StartAnimationType: "\u306A\u3057"
     EndAnimationType: "\u306A\u3057"
     Messages: "\u307E\u3042\u3057\u3087\u3046\u304C\u306A\u3044\u306E\u304B\u3082\u308C\u3057\u306A\u3044\u3051\u3069\u306D\u3048\u3002\n\u3042\u306E\u4EBA\u306F\u5C06\u8ECD\u69D8\u306B\u306A\u308B\u4E88\u5B9A\u304C\u306A\u304B\u3063\u305F\u3089\u3057\u3044\u304B\u3089\u3001\u3061\u3083\u3093\u3068\u6559\u80B2\u3082\u3055\u308C\u306A\u304B\u3063\u305F\u306B\u9055\u3044\u306A\u3044"

@@ -131,9 +131,9 @@ MonoBehaviour:
     m_allMessages:
     - "\u3042\u3063\u3061\u304B\u3089\u3060\u306D\u30FC\uFF01\u884C\u3063\u3066\u307F\u3088\u3046\uFF01"
   - MessageId: 6
-    Talker: "\u30DA\u30EA\u30FC"
+    Talker: "\uFF1F\uFF1F\uFF1F"
     m_talker:
-    - "\u30DA\u30EA\u30FC"
+    - "\uFF1F\uFF1F\uFF1F"
     Position: 2
     m_position: 02000000
     BackgroundType: 8
@@ -353,9 +353,9 @@ MonoBehaviour:
     Messages: "\u3048\u30FC\u56F0\u308B"
     ChoicesId: 0
     NextId: 18
-    VoiceId: "\u306A\u3057"
+    VoiceId: koma_005
     m_allVoiceId:
-    - "\u306A\u3057"
+    - koma_005
     m_allMessages:
     - "\u3048\u30FC\u56F0\u308B"
   - MessageId: 18
@@ -562,9 +562,9 @@ MonoBehaviour:
     Messages: "\u3061\u3087\u3063\u3068\u3061\u3087\u3063\u3068\u3061\u3087\u3063\u3068\uFF01"
     ChoicesId: 0
     NextId: 29
-    VoiceId: "\u306A\u3057"
+    VoiceId: koma_008
     m_allVoiceId:
-    - "\u306A\u3057"
+    - koma_008
     m_allMessages:
     - "\u3061\u3087\u3063\u3068\u3061\u3087\u3063\u3068\u3061\u3087\u3063\u3068\uFF01"
   - MessageId: 29

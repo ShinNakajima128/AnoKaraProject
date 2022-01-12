@@ -49,9 +49,9 @@ MonoBehaviour:
     Messages: "\u3069\u3093\u306A\u3082\u3093\u3060\u3044\uFF01"
     ChoicesId: 0
     NextId: 2
-    VoiceId: "\u306A\u3057"
+    VoiceId: player_008
     m_allVoiceId:
-    - "\u306A\u3057"
+    - player_008
     m_allMessages:
     - "\u3069\u3093\u306A\u3082\u3093\u3060\u3044\uFF01"
   - MessageId: 2
@@ -68,9 +68,9 @@ MonoBehaviour:
     Messages: "\u3059\u3063\u3054\u3044\u8FEB\u529B\u3060\u3063\u305F\u306D\u4E3B\u4EBA\u516C\u541B"
     ChoicesId: 0
     NextId: 3
-    VoiceId: "\u306A\u3057"
+    VoiceId: koma_007
     m_allVoiceId:
-    - "\u306A\u3057"
+    - koma_007
     m_allMessages:
     - "\u3059\u3063\u3054\u3044\u8FEB\u529B\u3060\u3063\u305F\u306D\u4E3B\u4EBA\u516C\u541B"
   m_choicesDatas:

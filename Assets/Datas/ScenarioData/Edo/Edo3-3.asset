@@ -163,9 +163,9 @@ MonoBehaviour:
     Messages: "\u65B0\u9078\u7D44\u304C\u6765\u308B\u306E\u5F85\u3063\u3066\u3082\u3044\u3044\u3051\u3069\u305D\u3057\u305F\u3089\u9F8D\u99AC\u541B\u306F\u5B8C\u5168\u306B\u898B\u5931\u3046\u3060\u308D\u3046\u306D\uFF1F"
     ChoicesId: 0
     NextId: 8
-    VoiceId: "\u306A\u3057"
+    VoiceId: koma_003
     m_allVoiceId:
-    - "\u306A\u3057"
+    - koma_003
     m_allMessages:
     - "\u65B0\u9078\u7D44\u304C\u6765\u308B\u306E\u5F85\u3063\u3066\u3082\u3044\u3044\u3051\u3069\u305D\u3057\u305F\u3089\u9F8D\u99AC\u541B\u306F\u5B8C\u5168\u306B\u898B\u5931\u3046\u3060\u308D\u3046\u306D\uFF1F"
   - MessageId: 8
@@ -182,9 +182,9 @@ MonoBehaviour:
     Messages: "\u305D\u3093\u306A\u3041\u2026"
     ChoicesId: 0
     NextId: 9
-    VoiceId: "\u306A\u3057"
+    VoiceId: player_005
     m_allVoiceId:
-    - "\u306A\u3057"
+    - player_005
     m_allMessages:
     - "\u305D\u3093\u306A\u3041\u2026"
   m_choicesDatas:
