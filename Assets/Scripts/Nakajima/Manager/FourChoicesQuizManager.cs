@@ -57,10 +57,11 @@ public class FourChoicesQuizManager : MonoBehaviour
             panel.SetActive(true);
             //各テキストを更新する
             question.text = m_fourChoicesDatas[m_currentNum].Question;
-            c1.text = m_fourChoicesDatas[m_currentNum].Choices1;
-            c2.text = m_fourChoicesDatas[m_currentNum].Choices2;
-            c3.text = m_fourChoicesDatas[m_currentNum].Choices3;
-            c4.text = m_fourChoicesDatas[m_currentNum].Choices4;
+            string[] choices = ChoiceRandomly(m_fourChoicesDatas[m_currentNum].Choices1, m_fourChoicesDatas[m_currentNum].Choices2, m_fourChoicesDatas[m_currentNum].Choices3, m_fourChoicesDatas[m_currentNum].Choices4);
+            c1.text = choices[0];
+            c2.text = choices[1];
+            c3.text = choices[2];
+            c4.text = choices[3];
             QuizManager.Instance.CorrectAnswer = m_fourChoicesDatas[m_currentNum].Answer;
         }
         yield return QuizManager.Instance.TimeLimit();
@@ -91,5 +92,17 @@ public class FourChoicesQuizManager : MonoBehaviour
             m_fourChoicesDatas[i] = m_fourChoicesDatas[random];
             m_fourChoicesDatas[random] = temp;
         }
+    }
+    string[] ChoiceRandomly(string s1, string s2, string s3, string s4)
+    {
+        string[] ret = new string[] { s1, s2, s3, s4 };
+        for (int i = 0; i < ret.Length; i++)
+        {
+            int r = Random.Range(0, ret.Length);
+            string temp = ret[i];
+            ret[i] = ret[r];
+            ret[r] = temp;
+        }
+        return ret;
     }
 }
