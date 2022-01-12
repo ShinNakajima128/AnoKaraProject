@@ -80,8 +80,8 @@ MonoBehaviour:
     Position: 1
     m_position: 01000000
     BackgroundType: 8
-    FaceType: 5
-    m_faceTypes: 05000000
+    FaceType: 3
+    m_faceTypes: 03000000
     StartAnimationType: "\u306A\u3057"
     EndAnimationType: "\u306A\u3057"
     Messages: "\u3044\u308B\u304B\u306A\u30FC\uFF1F\u3044\u308B\u304B\u3082\u3057\u308C\u306A\u3044\u3051\u3069\u305D\u3046\u3060\u3068\u3057\u305F\u3089\u9F8D\u99AC\u541B\u306F\u8FD1\u304F\u306B\u3044\u306A\u3044\u3068\u601D\u3046\u3088"
