@@ -105,8 +105,15 @@ public class SearchManager : MonoBehaviour
         EventManager.ListenEvents(Events.FinishDialog, OnlyOnceMethod);
         SoundManager.Instance.PlayBgm(SoundManager.Instance.BgmName);
 
-        //クイズ終了後の場合はシナリオ終了後、時代選択画面に戻る
-        if (GameManager.Instance.IsAfterQuized)
+        //クイズ終了後の場合はシナリオ終了後、時代選択画面に戻る。最後のステージのクイズ後の場合はエンディングに遷移するイベントを登録する
+        if (GameManager.Instance.CurrentPeriod == MasterData.PeriodTypes.Edo && GameManager.Instance.CurrentStageId == 2)
+        {
+            EventManager.ListenEvents(Events.FinishDialog, () => 
+            {
+                LoadSceneManager.AnyLoadScene("Ending");
+            });
+        }
+        else if (GameManager.Instance.IsAfterQuized)
         {
             EventManager.ListenEvents(Events.FinishDialog, StageClear);
         }
@@ -586,7 +593,7 @@ public class SearchManager : MonoBehaviour
                     }
                     else
                     {
-                        ScenarioManager.Instance.StartSelectScenario(95);
+                        ScenarioManager.Instance.StartSelectScenario(96);
                     }
                 }
                 else
