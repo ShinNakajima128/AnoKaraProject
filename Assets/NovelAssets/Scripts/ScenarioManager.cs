@@ -485,6 +485,8 @@ public class ScenarioManager : MonoBehaviour
 
                 if (data.DialogData[currentDialogIndex].ChoicesId != 0) //選択肢がある場合
                 {
+                    yield return new WaitForSeconds(0.8f);
+
                     m_choicesPanel.SetActive(true);
 
                     for (int k = 0; k < data.ChoicesDatas.Length; k++)
@@ -636,6 +638,7 @@ public class ScenarioManager : MonoBehaviour
                 if (IsInputed())
                 {
                     m_anim[positionIndex[i]].Play("Idle");
+                    Debug.Log("スキップ");
                     isAnimPlaying = false;
                 }
                 yield return null;
@@ -667,7 +670,13 @@ public class ScenarioManager : MonoBehaviour
         {
             yield return null;
         }
+        for (int i = 0; i < m_characterImage.Length; i++)
+        {
+            m_anim[i].Play("Idle");
+            m_characterImage[i].enabled = false;
+        }
         Debug.Log("終了");
+        m_clickReception = false;
         CharacterPanel.CharacterAnim -= FinishReceive;
     }
 
