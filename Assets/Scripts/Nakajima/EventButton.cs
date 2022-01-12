@@ -28,7 +28,7 @@ public class EventButton : MonoBehaviour
     void Start()
     {
         m_eventButton = GetComponent<Button>();
-        m_rt = GetComponent<RectTransform>();
+        m_rt = m_buttonImage.GetComponent<RectTransform>();
 
         //ボタンが押された時の処理を追加
         m_eventButton.onClick.AddListener(RegisteringFunction);
