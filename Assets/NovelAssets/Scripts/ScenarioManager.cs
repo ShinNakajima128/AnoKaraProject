@@ -53,6 +53,10 @@ public class ScenarioManager : MonoBehaviour
     [SerializeField]
     string m_playerName = default;
 
+    [Header("プレイヤー名を差し替えるキーワード")]
+    [SerializeField]
+    string m_replacePlayerNameKeyword = default;
+
     [Header("プレイヤーが男の子の場合の一人称")]
     [SerializeField]
     string m_malePronoun = default;
@@ -257,6 +261,9 @@ public class ScenarioManager : MonoBehaviour
         int currentDialogIndex = 0;
         m_nextMessageId = 0;
         int setCount = 0;
+        set1 = false;
+        set2 = false;
+        set3 = false;
 
         for (int i = 0; i < data.DialogData.Length; i++)
         {
@@ -367,7 +374,7 @@ public class ScenarioManager : MonoBehaviour
                     {
                         if (m_characterImage[data.DialogData[currentDialogIndex].AllPosition[n]].enabled)
                         {
-                            m_characterImage[data.DialogData[currentDialogIndex].AllPosition[n]].sprite = SetCharaImage(data.DialogData[currentDialogIndex].Talker, data.DialogData[currentDialogIndex].FaceTypes[i]);
+                            m_characterImage[data.DialogData[currentDialogIndex].AllPosition[n]].sprite = SetCharaImage(data.DialogData[currentDialogIndex].AllTalker[n], data.DialogData[currentDialogIndex].FaceTypes[i]);
                             SetFeelingAnim(m_effectPositions[data.DialogData[currentDialogIndex].AllPosition[n]], data.DialogData[currentDialogIndex].FaceTypes[i]);
                         }
                     }
@@ -377,7 +384,7 @@ public class ScenarioManager : MonoBehaviour
                 m_clickIcon.SetActive(false);
                 m_messageText.text = "";
                 string message = data.DialogData[currentDialogIndex].AllMessages[i].Replace("プレイヤー", m_playerName)
-                                                                                   .Replace("私（僕or俺)", DataManager.Instance.PlayerData.PlayerGender == GenderType.Boy ? m_malePronoun : m_famalePronoun);
+                                                                                   .Replace(m_replacePlayerNameKeyword, DataManager.Instance.PlayerData.PlayerGender == GenderType.Boy ? m_malePronoun : m_famalePronoun);
                 bool isHighlighted = false;
                 m_clickReception = false;
 
@@ -536,8 +543,6 @@ public class ScenarioManager : MonoBehaviour
                 if (data.DialogData[currentDialogIndex].NextId == 100)
                 {
                     Debug.Log("クイズ開始");
-                    LoadSceneManager.FadeOutPanel();
-                    //yield return クイズ開始のコルーチン;
                     currentDialogIndex++;
                 }
                 else
@@ -926,6 +931,11 @@ public class ScenarioManager : MonoBehaviour
             //選択肢の項目名をボタンオブジェクトの下にあるテキストに代入
             var t = c.GetComponentInChildren<Text>();
             t.text = data.AllChoices[i];
+
+            if (t.text.Length >= 25)
+            {
+                t.fontSize = 45;
+            }
         }
     }
 
