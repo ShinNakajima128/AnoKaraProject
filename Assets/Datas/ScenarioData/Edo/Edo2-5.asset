@@ -346,8 +346,8 @@ MonoBehaviour:
     Position: 1
     m_position: 01000000
     BackgroundType: 8
-    FaceType: 5
-    m_faceTypes: 05000000
+    FaceType: 2
+    m_faceTypes: 02000000
     StartAnimationType: "\u306A\u3057"
     EndAnimationType: "\u306A\u3057"
     Messages: "\u3048\u30FC\u56F0\u308B"

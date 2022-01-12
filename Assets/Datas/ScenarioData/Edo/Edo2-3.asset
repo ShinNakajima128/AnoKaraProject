@@ -82,7 +82,7 @@ MonoBehaviour:
     BackgroundType: 8
     FaceType: 4
     m_faceTypes: 04000000
-    StartAnimationType: "\u306A\u3057"
+    StartAnimationType: FadeIn
     EndAnimationType: "\u306A\u3057"
     Messages: What is that! ??
     ChoicesId: 0
@@ -178,7 +178,7 @@ MonoBehaviour:
     FaceType: 2
     m_faceTypes: 02000000
     StartAnimationType: "\u306A\u3057"
-    EndAnimationType: "\u306A\u3057"
+    EndAnimationType: FadeOut
     Messages: "scary\u203C"
     ChoicesId: 0
     NextId: 9
