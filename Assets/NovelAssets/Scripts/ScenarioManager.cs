@@ -566,7 +566,7 @@ public class ScenarioManager : MonoBehaviour
                 if (data.DialogData[currentDialogIndex].NextId == 100)
                 {
                     Debug.Log("クイズ開始");
-                    currentDialogIndex++;
+                    currentDialogIndex += 100;
                 }
                 else
                 {
