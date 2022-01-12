@@ -9,6 +9,14 @@ public class Option : MonoBehaviour
     //[SerializeField]
     //float m_fadeTime = 1;
 
+    [Header("名前変更後に表示するパネル")]
+    [SerializeField]
+    GameObject m_panel = default;
+
+    [Header("名前変更後パネルの表示時間")]
+    [SerializeField]
+    float m_time = default;
+
     /// <summary>名前入力欄</summary>
     [SerializeField]
     GameObject m_nameInput = default;
@@ -39,6 +47,7 @@ public class Option : MonoBehaviour
     private void Start()
     {
         SetSliderVolume();
+        m_panel.SetActive(false);
         m_nameInput.SetActive(false);
         m_optionObj.SetActive(false);
     }
@@ -53,6 +62,18 @@ public class Option : MonoBehaviour
         m_seSliderFill.fillAmount = SoundManager.Instance.SeVolume;
         m_voiceSliderFill.fillAmount = SoundManager.Instance.VoiceVolume;
 
+    }
+
+    public void RenameClick()
+    {
+        StartCoroutine("Rename");
+    }
+
+    IEnumerator Rename()
+    {
+        m_panel.SetActive(true);
+        yield return new WaitForSeconds(m_time);
+        m_panel.SetActive(false);
     }
 
     public void OnNameInputClick(bool isActive)

@@ -19,6 +19,9 @@ public class NameInput : MonoBehaviour
     [SerializeField]
     string[] m_bannedWords = default;
 
+    [SerializeField]
+    Text m_nameText = default;
+
     /// <summary> 設定中のプレイヤー名 </summary>
     string m_tempName = default;
 
@@ -72,8 +75,7 @@ public class NameInput : MonoBehaviour
                 {
                     DataManager.Instance.PlayerData.PlayerName = m_tempName;
                     DataManager.UpdateData();
-                    //ここに新しい名前のお知らせ画面を表示して一定時間経過したら非表示にする
-
+                    m_nameText.text = ($"名前が{m_tempName}に変更されました");
                 }
                 SoundManager.Instance.PlaySe("SE_touch");
                 
