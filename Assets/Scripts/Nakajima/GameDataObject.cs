@@ -24,6 +24,7 @@ public class GameDataObject : MonoBehaviour, ISave
     public GenderType PlayerGender { get => gameData.Gender; set => gameData.Gender = value; }
     /// <summary> クリアフラグを取得する </summary>
     public GameManager.ClearFlagArray[] ClearFlag { get => gameData.ClearFlags; set => gameData.ClearFlags = value; }
+    public StageAchieves[] AllStageAchieves { get => gameData.AllStageAchieves; set => gameData.AllStageAchieves = value; }
 
     /// <summary>
     /// セーブする
