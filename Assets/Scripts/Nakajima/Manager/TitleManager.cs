@@ -66,6 +66,8 @@ public class TitleManager : MonoBehaviour
     PlayerData m_playerData = default;
 
     GameManager.ClearFlagArray[] m_tempArray = default;
+    StageAchieves[] m_tempStageAchieves = default;
+
 
     /// <summary>出てくるまでの時間</summary>
     [SerializeField]
@@ -91,6 +93,7 @@ public class TitleManager : MonoBehaviour
             Debug.Log("データをリセットしました");
         }
         m_tempArray = m_gameDataObject.ClearFlag;
+        m_tempStageAchieves = m_gameDataObject.AllStageAchieves;
         m_gameDataObject.SetUp();
        
         ChangePanel(TitleStates.Start);
@@ -227,6 +230,7 @@ public class TitleManager : MonoBehaviour
         m_gameDataObject.PlayerName = m_tempName;
         m_gameDataObject.PlayerGender = m_tempGender;
         m_gameDataObject.ClearFlag = m_tempArray;
+        m_gameDataObject.AllStageAchieves = m_tempStageAchieves;
 
         DataManager.SaveData();
         m_gameDataObject.UpdatePlayerData();
