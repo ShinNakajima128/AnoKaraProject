@@ -13,7 +13,7 @@ PlayerSettings:
   useOnDemandResources: 0
   accelerometerFrequency: 60
   companyName: Vantan
-  productName: HanamaruHistravel
+  productName: "\u82B1\u4E38\u30D2\u30B9\u30C8\u30E9\u30D9\u30EB"
   defaultCursor: {fileID: 0}
   cursorHotspot: {x: 0, y: 0}
   m_SplashScreenBackgroundColor: {r: 0.13725491, g: 0.12156863, b: 0.1254902, a: 1}
