@@ -13,14 +13,14 @@ MonoBehaviour:
   m_Name: PlayerData
   m_EditorClassIdentifier: 
   m_playerName: 
-  m_playerGender: 1
+  m_playerGender: 0
   m_clearFlag:
   - m_stageClearFlag: 0101000000
-  - m_stageClearFlag: 0101010000
-  - m_stageClearFlag: 0101000000
-  - m_stageClearFlag: 0000000000
-  - m_stageClearFlag: 0000000000
-  - m_stageClearFlag: 0000000000
+  - m_stageClearFlag: 0101010100
+  - m_stageClearFlag: 0101010100
+  - m_stageClearFlag: 0101010100
+  - m_stageClearFlag: 0101010100
+  - m_stageClearFlag: 0101010100
   m_stageAchieves:
   - Achieves: 00000000
   - Achieves: 0000000000000000

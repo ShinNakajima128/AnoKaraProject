@@ -4692,6 +4692,7 @@ MonoBehaviour:
   - a
   - b
   - c
+  m_nameText: {fileID: 0}
 --- !u!1001 &1945733488
 PrefabInstance:
   m_ObjectHideFlags: 0
