@@ -5561,7 +5561,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: -0.002319336, y: -450}
-  m_SizeDelta: {x: 3400, y: 1200}
+  m_SizeDelta: {x: 3115, y: 1080}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &745419727
 MonoBehaviour:
@@ -5583,7 +5583,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: bd78e8d59d083214b8a0b20100f545e6, type: 3}
+  m_Sprite: {fileID: 21300000, guid: c356134dcc90c954c861b38f91831503, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -6055,8 +6055,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -823.4, y: 0}
-  m_SizeDelta: {x: 1480, y: 300}
+  m_AnchoredPosition: {x: -458.24084, y: 0}
+  m_SizeDelta: {x: 1190.791, y: 300}
   m_Pivot: {x: 0, y: 1}
 --- !u!1 &832377011
 GameObject:
@@ -7689,15 +7689,15 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 447483709531774641, guid: a877d34447378504984e2afe6efcb7e0, type: 3}
       propertyPath: m_currentPeriod
-      value: 5
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 447483709531774641, guid: a877d34447378504984e2afe6efcb7e0, type: 3}
       propertyPath: m_isAfterQuized
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 447483709531774641, guid: a877d34447378504984e2afe6efcb7e0, type: 3}
       propertyPath: m_currentStageId
-      value: 2
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 447483709531774654, guid: a877d34447378504984e2afe6efcb7e0, type: 3}
       propertyPath: m_RootOrder
@@ -9367,7 +9367,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1338314130
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11867,6 +11867,10 @@ PrefabInstance:
       propertyPath: m_imageDatas.Array.data[9]
       value: 
       objectReference: {fileID: 11400000, guid: cfe32fea932061e48ad79139fbca96b9, type: 2}
+    - target: {fileID: 3556439220019624003, guid: 0850286fda9bd6145914c63f2fa6698b, type: 3}
+      propertyPath: m_replacePlayerNameKeyword
+      value: "\u4FFA\uFF08\u79C1\uFF09"
+      objectReference: {fileID: 0}
     - target: {fileID: 3556439220019624003, guid: 0850286fda9bd6145914c63f2fa6698b, type: 3}
       propertyPath: m_imageDatas.Array.data[10]
       value: 
