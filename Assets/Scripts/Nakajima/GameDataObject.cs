@@ -34,6 +34,7 @@ public class GameDataObject : MonoBehaviour, ISave
         data.PlayerName = gameData.PlayerName;
         data.Gender = gameData.Gender;
         data.ClearFlags = gameData.ClearFlags;
+        data.AllStageAchieves = gameData.AllStageAchieves;
     }
 
     /// <summary>
@@ -45,6 +46,7 @@ public class GameDataObject : MonoBehaviour, ISave
         gameData.PlayerName = data.PlayerName;
         gameData.Gender = data.Gender;
         gameData.ClearFlags = data.ClearFlags;
+        gameData.AllStageAchieves = data.AllStageAchieves;
     }
 
     /// <summary>
@@ -77,5 +79,6 @@ public class GameDataObject : MonoBehaviour, ISave
         m_playerData.PlayerName = gameData.PlayerName;
         m_playerData.PlayerGender = gameData.Gender;
         m_playerData.ClearFlags = gameData.ClearFlags;
+        m_playerData.StageAchieves = gameData.AllStageAchieves;
     }
 }
