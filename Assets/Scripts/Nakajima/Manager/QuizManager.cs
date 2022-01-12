@@ -5,6 +5,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using MasterData;
 using System;
+using DG.Tweening;
 
 /// <summary>
 /// クイズを表示するクラス
@@ -124,6 +125,22 @@ public class QuizManager : MonoBehaviour
     [SerializeField]
     GameObject m_AnaumeQuizPanel = default;
 
+    [Header("チュートリアル画面用")]
+    [SerializeField]
+    GameObject m_tutorialSelectPanel = default;
+
+    [SerializeField]
+    GameObject m_tutorialPanel = default;
+
+    [SerializeField]
+    GameObject m_guidePanel = default;
+
+    [SerializeField]
+    Button[] m_tutorialButtons = default;
+
+    [SerializeField]
+    Text m_tutorialGuideText = default;
+
     /// <summary> クイズの最大出題数 </summary>
     [Header("デバッグ用")]
     [SerializeField]
@@ -149,12 +166,21 @@ public class QuizManager : MonoBehaviour
     bool m_isAnswered = false;
     /// <summary> 正誤フラグ </summary>
     bool m_isCorrected = false;
+
+    /// <summary> チュートリアル画面でボタンを押したかどうかのフラグ </summary>
+    bool m_isSelect = false;
+
+    /// <summary> チュートリアルを見るか見ないかのフラグ </summary>
+    bool m_TutorialSelect = false;
+
     /// <summary> 現在のクイズのコルーチン </summary>
     IEnumerator m_currentQuestion = default;
     #region property
     public static QuizManager Instance { get; private set; }
     /// <summary> 正解した数 </summary>
     public static int CorrectAnswersNum { get;  private set; }
+    /// <summary> クイズ終了時の残りHP </summary>
+    public static int RemainingHP { get; private set; }
     public int CurrentTurnNum { get; set; }
     public string QuestionResult { get; set; }
     public string PlayerAnswer { get => m_playerAnswer; set => m_playerAnswer = value; }
@@ -180,7 +206,31 @@ public class QuizManager : MonoBehaviour
         //各人物の画像をセットする
         SetCharacterPanel(m_playeData, m_historicalFiguresData);
         m_questionResults = new bool[questionLimit];
-        StartCoroutine(QuizStart());
+        
+        //縄文時代のみチュートリアルを見るかどうかの画面を表示
+        if (GameManager.Instance.CurrentPeriod == PeriodTypes.Jomon_Yayoi)
+        {
+            Debug.Log("チュートリアル画面表示");
+            m_tutorialSelectPanel.SetActive(true);
+            m_tutorialSelectPanel.transform.localScale = Vector3.zero;
+            m_tutorialSelectPanel.transform.DOScale(new Vector3(0.8f, 0.8f, 0.8f), 0.3f);
+
+            m_tutorialButtons[0].onClick.AddListener(() => //「はい」ボタンに登録
+            {
+                m_isSelect = true;
+                m_TutorialSelect = true;
+            });
+            m_tutorialButtons[1].onClick.AddListener(() => //「いいえ」ボタンに登録
+            {
+                m_isSelect = true;
+                m_TutorialSelect = false;
+            });
+            StartCoroutine(WaitForTutorialSelect());
+        }
+        else
+        {
+            StartCoroutine(QuizStart());
+        }
         SoundManager.Instance.PlayBgm(SoundManager.Instance.BgmName);
     }
 
@@ -267,8 +317,23 @@ public class QuizManager : MonoBehaviour
         //仮にここでResult画面へ遷移の記述。できればEventManagerのOnGameEnd関数等を用意してここに書きたい
         yield return new WaitForSeconds(2.0f);
         LoadSceneManager.AnyLoadScene("QuizResult");
+        RemainingHP = HPController.Instance.CurrentHP;
     }
 
+    IEnumerator WaitForTutorialSelect()
+    {
+        //ボタンを押すまで待機
+        while (!m_isSelect)
+        {
+            yield return null;
+        }
+
+        //チュートリアルを見る場合
+        if (m_TutorialSelect)
+        {
+            OnTutorialPanel();
+        }
+    }
     #region common
     #region coroutine
 
@@ -346,10 +411,15 @@ public class QuizManager : MonoBehaviour
     {
         yield return new WaitForSeconds(2.0f);
 
-        m_JudgePanel.SetActive(false);
+        //m_JudgePanel.SetActive(false);
         m_panel.SetActive(true);
-        yield return new WaitForSeconds(2.0f);
-        LoadSceneManager.AnyLoadScene("PeriodSelect");
+
+        while (true)
+        {
+            yield return null;
+        }
+        //yield return new WaitForSeconds(2.0f);
+        //LoadSceneManager.AnyLoadScene("PeriodSelect");
     }
 
     /// <summary>
@@ -375,7 +445,7 @@ public class QuizManager : MonoBehaviour
             //m_judgeImages[0].enabled = true;
             m_judgePanelTexts[0].text = "<color=#FB3535>正解！</color>";
             m_judgePanelTexts[1].text = $"正しい答え\n【{m_correctAnswer}】";
-            m_judgePanelTexts[2].text = $"プレイヤーの解答\n【{m_playerAnswer}】";
+            m_judgePanelTexts[2].text = $"{DataManager.Instance.PlayerData.PlayerName}の解答\n【{m_playerAnswer}】";
             m_playerImage.sprite = m_playeData.PlayerImage[2];
             m_historicalFiguresImage.sprite = m_historicalFiguresData.CharacterImages[1];
             m_playerChat.text = m_playeData.CorrectChat;
@@ -476,6 +546,46 @@ public class QuizManager : MonoBehaviour
     }
     #endregion
 
+    /// <summary>
+    /// クイズをやり直す。ボタン用
+    /// </summary>
+    public void Retry()
+    {
+        LoadSceneManager.AnyLoadScene("QuizPart");
+    }
+
+    /// <summary>
+    /// 時代選択画面に戻る。ボタン用
+    /// </summary>
+    public void ReturnPeriodSelect()
+    {
+        LoadSceneManager.AnyLoadScene("PeriodSelect");
+    }
+
+    /// <summary>
+    /// チュートリアル画面を表示する
+    /// </summary>
+    void OnTutorialPanel()
+    {
+        SoundManager.Instance.PlaySe("SE_touch");
+        m_tutorialPanel.SetActive(true);
+        m_guidePanel.SetActive(false);
+        m_tutorialGuideText.text = "チュートリアル";
+    }
+
+    /// <summary>
+    /// チュートリアル画面を閉じる
+    /// </summary>
+    public void OffTutorialPanel()
+    {
+        SoundManager.Instance.PlaySe("SE_touch");
+        m_tutorialSelectPanel.transform.DOScale(Vector3.zero, 0.25f)
+                             .OnComplete(() => 
+                             {
+                                 m_tutorialSelectPanel.SetActive(false);
+                                 StartCoroutine(QuizStart());
+                             });
+    }
     #region FourChoicesQuizMethod
     /// <summary>
     /// 4択問題を解答する

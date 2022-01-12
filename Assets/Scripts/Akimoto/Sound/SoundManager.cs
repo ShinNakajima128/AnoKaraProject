@@ -40,6 +40,10 @@ public class SoundManager : MonoBehaviour
         Setup();
     }
 
+    /// <summary>
+    /// BGMを再生する
+    /// </summary>
+    /// <param name="name"> BGM名 </param>
     public void PlayBgm(string name)
     {
         m_bgmSource.loop = true;
@@ -53,12 +57,21 @@ public class SoundManager : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// SEを再生する
+    /// </summary>
+    /// <param name="name"> SE名 </param>
     public void PlaySe(string name)
     {
         m_seSource.cueName = name;
         m_seSource.Play();
     }
 
+    /// <summary>
+    /// 指定したキャラクターのボイスを再生する
+    /// </summary>
+    /// <param name="voiceType"> キャラクターの種類 </param>
+    /// <param name="name">  </param>
     public void PlayVoice(VoiceType voiceType, string name)
     {
         switch (voiceType)

@@ -273,19 +273,83 @@ public class DataManager : SingletonMonoBehaviour<DataManager>
     /// <param name="stageNum">ステージ番号</param>
     public void FlagOpen(int periodNum, int stageNum)
     {
-        if (stageNum == 3)
+        switch ((PeriodTypes)periodNum)
         {
-            if (periodNum < 6)
-            {
+            case PeriodTypes.Jomon_Yayoi:
+
                 for (int i = 0; i < 2; i++)
                 {
                     m_playerData.ClearFlags[periodNum].m_stageClearFlag[i] = true;
                 }
-            }
-        }
-        else
-        {
-            m_playerData.ClearFlags[periodNum - 1].m_stageClearFlag[stageNum + 2] = true;
+
+                break;
+            case PeriodTypes.Asuka_Nara:
+                if (stageNum == 1)
+                {
+                    for (int i = 0; i < 2; i++)
+                    {
+                        m_playerData.ClearFlags[periodNum].m_stageClearFlag[i] = true;
+                    }
+                }
+                else
+                {
+                    m_playerData.ClearFlags[periodNum - 1].m_stageClearFlag[stageNum + 2] = true;
+                }
+                break;
+            case PeriodTypes.Heian:
+                if (stageNum == 2)
+                {
+                    for (int i = 0; i < 2; i++)
+                    {
+                        m_playerData.ClearFlags[periodNum].m_stageClearFlag[i] = true;
+                    }
+                }
+                else
+                {
+                    m_playerData.ClearFlags[periodNum - 1].m_stageClearFlag[stageNum + 2] = true;
+                }
+                break;
+            case PeriodTypes.Kamakura:
+                if (stageNum == 3)
+                {
+                    for (int i = 0; i < 2; i++)
+                    {
+                        m_playerData.ClearFlags[periodNum].m_stageClearFlag[i] = true;
+                    }
+                }
+                else
+                {
+                    m_playerData.ClearFlags[periodNum - 1].m_stageClearFlag[stageNum + 2] = true;
+                }
+                break;
+            case PeriodTypes.Momoyama:
+                if (stageNum == 2)
+                {
+                    for (int i = 0; i < 2; i++)
+                    {
+                        m_playerData.ClearFlags[periodNum].m_stageClearFlag[i] = true;
+                    }
+                }
+                else
+                {
+                    m_playerData.ClearFlags[periodNum - 1].m_stageClearFlag[stageNum + 2] = true;
+                }
+                break;
+            case PeriodTypes.Edo:
+                if (stageNum == 3)
+                {
+                    for (int i = 0; i < 2; i++)
+                    {
+                        m_playerData.ClearFlags[periodNum].m_stageClearFlag[i] = true;
+                    }
+                }
+                else
+                {
+                    m_playerData.ClearFlags[periodNum - 1].m_stageClearFlag[stageNum + 2] = true;
+                }
+                break;
+            default:
+                break;
         }
     }
 }

@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Jomon_Yayoi
   m_EditorClassIdentifier: 
   m_spreadsheetURL: https://script.google.com/macros/s/AKfycbw6vpPYJ-aWAUK75W6zlWgfcbVV_KdRySjaRUtslTSL_uWEHIQ/exec
-  m_SheetName: 
+  m_SheetName: Jomon_Yayoi
   m_periodType: 1
   m_stageId: 0
   m_database:
@@ -29,7 +29,7 @@ MonoBehaviour:
     - "\u7D10"
     - "\u7891"
     - "\u8996"
-    Tips: 
+    Tips: a
   - Id: 2
     Question: "\u3053\u306E\u6642\u4EE3\uFF083\u4E16\u7D00\u3054\u308D\uFF09\u4E2D\u56FD\u3067\u306F\u3001\u9B4F\u30FB\u8700\u30FB\u5449\u306E\u4E09\u56FD\u306B\u5206\u304B\u308C\u305F\u6642\u4EE3\u3092\u4F55\u3068\u547C\u3093\u3067\u305F\uFF1F"
     Answer: "\u4E09\u56FD"
@@ -42,7 +42,7 @@ MonoBehaviour:
     - "\u8A69"
     - "\u7E04"
     - "\u6587"
-    Tips: 
+    Tips: b
   - Id: 3
     Question: "\u5F25\u751F\u6642\u4EE3\u306B\u53CE\u7A6B\u3057\u305F\u7A40\u7269\u3092\u84C4\u3048\u308B\u305F\u3081\u306B\u4F5C\u3089\u308C\u305F\u5EFA\u7269\u3092\u4F55\u3068\u3044\u3046\uFF1F"
     Answer: "\u9AD8\u5E8A\u5009\u5EAB"
@@ -56,7 +56,7 @@ MonoBehaviour:
     - "\u5065"
     - "\u9020"
     - "\u5F0F"
-    Tips: 
+    Tips: c
   - Id: 4
     Question: "3\u4E16\u7D00\u3054\u308D\u3001\u308F\u3057\u304C\u7D0D\u3081\u305F\u56FD\u306F\u4F55\u3068\u3044\u3046\u56FD\u3058\u3083\uFF1F"
     Answer: "\u90AA\u99AC\u53F0\u56FD"
@@ -70,7 +70,7 @@ MonoBehaviour:
     - "\u671D"
     - "\u738B"
     - "\u5927"
-    Tips: 
+    Tips: d
   - Id: 5
     Question: "\u738B\u3084\u8C6A\u65CF\u3092\u307B\u3046\u3080\u308B\u5927\u304D\u306A\u5893\u306E\u5468\u308A\u306B\u7F6E\u3044\u3066\u3044\u308B\u5186\u7B52\u578B\u3084\u4EBA\u7269\u306A\u3069\u306E\u713C\u304D\u7269\u3092\u4F55\u3066\u3044\u3046\uFF1F"
     Answer: "\u306F\u306B\u308F"
@@ -83,4 +83,4 @@ MonoBehaviour:
     - "\u308F"
     - "\u308F"
     - "\u3069"
-    Tips: 
+    Tips: e

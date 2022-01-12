@@ -42,12 +42,20 @@ public class QuizResultManager : MonoBehaviour
     [SerializeField]
     int m_ansCount = 7;
 
+    /// <summary>
+    /// 残り体力
+    /// クイズマネージャーが正解数を持っているので参照する
+    /// </summary>
+    [SerializeField]
+    int m_hp = 5;
+
     void Start()
     {
         m_nextUiButton.interactable = false;
         if (!m_isDebug)
         {
             m_ansCount = QuizManager.CorrectAnswersNum;
+            m_hp = QuizManager.RemainingHP;
         }
         QuizResult();
     }
@@ -57,27 +65,27 @@ public class QuizResultManager : MonoBehaviour
     /// </summary>
     public void QuizResult()
     {
-        if (m_ansCount == 10)
+        if (m_hp == 5)
         {
-            QuizResultUiSet(0);
+            QuizResultUiSet(2);
             StartCoroutine(SetIcon(2, m_iconTimer));
             FlagOpen();
             DataManager.Instance.UpdateAchieve(StageQuizAchieveStates.Three);
         }
-        else if (m_ansCount >= 7)
+        else if (m_hp >= 3)
         {
-            QuizResultUiSet(2);
+            QuizResultUiSet(0);
             StartCoroutine(SetIcon(1, m_iconTimer));
             FlagOpen();
             DataManager.Instance.UpdateAchieve(StageQuizAchieveStates.Two);
         }
-        else if (m_ansCount >= 3)
+        else if (m_hp >= 1)
         {
-            QuizResultUiSet(3);
+            QuizResultUiSet(0);
             StartCoroutine(SetIcon(0, m_iconTimer));
             DataManager.Instance.UpdateAchieve(StageQuizAchieveStates.One);
         }
-        else if (m_ansCount < 3)
+        else if (m_hp < 1)
         {
             QuizResultUiSet(3);
             DataManager.Instance.UpdateAchieve(StageQuizAchieveStates.None);
