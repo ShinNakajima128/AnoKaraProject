@@ -1965,7 +1965,7 @@ PrefabInstance:
     - target: {fileID: 3556439220019624003, guid: 0850286fda9bd6145914c63f2fa6698b, type: 3}
       propertyPath: m_feelingEffects.Array.data[0]
       value: 
-      objectReference: {fileID: 21300000, guid: 1382d154e0c992b45a15abf0175b563c, type: 3}
+      objectReference: {fileID: 21300000, guid: 7a907129a11ad4a42a7ac9869358fcd6, type: 3}
     - target: {fileID: 3556439220019624003, guid: 0850286fda9bd6145914c63f2fa6698b, type: 3}
       propertyPath: m_feelingEffects.Array.data[1]
       value: 
