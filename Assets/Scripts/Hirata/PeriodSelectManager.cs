@@ -76,15 +76,34 @@ public class PeriodSelectManager : MonoBehaviour
 
     [SerializeField]
     Text m_headerText = default;
+
+    [SerializeField]
+    bool m_isDebugMode = default;
     
     public static PeriodSelectManager Instance { get; private set; }
 
     private void Awake()
     {
         Instance = this;
-        GetPeriodClearFlag();
-        SetButtonFlag(m_periodButtons, m_periodClearFlags, 6);
-        DataManager.UpdateData();
+        if (m_isDebugMode)
+        {
+            for (int i = 0; i < m_periodClearFlags.Length; i++)
+            {
+                m_periodClearFlags[i] = true;
+            }
+
+            for (int i = 0; i < m_stageClearFlag.Length; i++)
+            {
+                m_stageClearFlag[i] = true;
+            }
+            SetButtonFlag(m_periodButtons, m_periodClearFlags, 6);
+        }
+        else
+        {
+            GetPeriodClearFlag();
+            SetButtonFlag(m_periodButtons, m_periodClearFlags, 6);
+            DataManager.UpdateData();
+        }     
     }
 
     private void Start()
@@ -180,6 +199,20 @@ public class PeriodSelectManager : MonoBehaviour
     /// <param name="flags">クリアフラグ</param>
     Button[] SetButtonFlag(Button[] buttons, bool[] flags, int stageNum)
     {
+        if (m_isDebugMode)
+        {
+            foreach (var b in buttons)
+            {
+                b.gameObject.SetActive(true);
+            }
+            for (int i = 0; i < stageNum; i++)
+            {
+                buttons[i].gameObject.SetActive(true);
+                buttons[i].interactable = true;
+            }
+            return buttons;
+        }
+
         foreach (var b in buttons)
         {
             b.gameObject.SetActive(false);
@@ -190,6 +223,7 @@ public class PeriodSelectManager : MonoBehaviour
             buttons[i].gameObject.SetActive(true);
             buttons[i].interactable = flags[i] ? true : false;
         }
+
         return buttons;
     }
 
@@ -234,7 +268,7 @@ public class PeriodSelectManager : MonoBehaviour
                 n = 3;
                 break;
             case PeriodTypes.Edo:
-                n = 4;
+                n = 3;
                 break;
             default:
                 break;
