@@ -312,7 +312,7 @@ public class QuizManager : MonoBehaviour
         ///ここから下にクイズが終了した時の処理を記述する///
         m_quizResultUIImage.fillAmount = CurrentTurnNum * 0.1f;
         m_playerChat.text = "難しかった…";
-        m_historicalFiguresChat.text = "よく頑張った！";
+        m_historicalFiguresChat.text = m_historicalFiguresData.ClearChat;
         m_finishPanel.SetActive(true);
         //仮にここでResult画面へ遷移の記述。できればEventManagerのOnGameEnd関数等を用意してここに書きたい
         yield return new WaitForSeconds(2.0f);
@@ -413,6 +413,7 @@ public class QuizManager : MonoBehaviour
 
         //m_JudgePanel.SetActive(false);
         m_panel.SetActive(true);
+        m_historicalFiguresChat.text = m_historicalFiguresData.FailureChat;
 
         while (true)
         {

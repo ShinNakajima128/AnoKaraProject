@@ -28,6 +28,12 @@ public class CharacterData : ScriptableObject
     [SerializeField]
     string m_incorrectChat = default;
 
+    [SerializeField]
+    string m_clearChat = default;
+
+    [SerializeField]
+    string m_failureChat = default;
+
     public string CharacterName => m_characterName;
     public PeriodTypes CharacterPeriod => m_characterPeriod;
     public int StageId => m_stageId;
@@ -35,4 +41,6 @@ public class CharacterData : ScriptableObject
     public string ThinkingChat => m_thinkingChat;
     public string CorrectChat => m_correctChat;
     public string IncorrectChat => m_incorrectChat;
+    public string ClearChat => m_clearChat;
+    public string FailureChat => m_failureChat;
 }

@@ -14,10 +14,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_characterName: "\u8056\u6B66\u5929\u7687"
   m_characterPeriod: 2
+  m_stageId: 1
   m_characterImages:
   - {fileID: 21300000, guid: 8e92694220bf37047acfae28142ecdf3, type: 3}
   - {fileID: 21300000, guid: bbfb1e9184a5c56489c53e7892cc29f7, type: 3}
   - {fileID: 21300000, guid: f122ac29d211cac41a841b0a49fe8dcc, type: 3}
-  m_thinkingChat: "\u8003\u3048\u4E2D\u306E\u30BB\u30EA\u30D5\u3092\u3053\u3053\u306B\u5165\u308C\u3066\u304F\u3060\u3055\u3044"
-  m_correctChat: "\u6B63\u89E3\u6642\u306E\u30BB\u30EA\u30D5\u3092\u3053\u3053\u306B\u5165\u308C\u3066\u304F\u3060\u3055\u3044"
-  m_incorrectChat: "\u4E0D\u6B63\u89E3\u6642\u306E\u30BB\u30EA\u30D5\u3092\u3053\u3053\u306B\u5165\u308C\u3066\u304F\u3060\u3055\u3044"
+  m_thinkingChat: "\u9811\u5F35\u308C\uFF01"
+  m_correctChat: "\u3059\u3054\u3044\u3058\u3083\u306A\u3044\u304B\uFF01"
+  m_incorrectChat: "\u6B21\u3053\u305D\u306F\uFF01"
+  m_clearChat: "\u304A\u75B2\u308C\u3055\u307E\uFF01"
+  m_failureChat: "\u6B21\u304C\u3042\u308B\u3055\uFF01"

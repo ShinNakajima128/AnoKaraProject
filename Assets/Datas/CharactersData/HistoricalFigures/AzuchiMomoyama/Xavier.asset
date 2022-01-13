@@ -19,6 +19,8 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 22e3952bd9c36d844ab130857531b71f, type: 3}
   - {fileID: 21300000, guid: fb9fcf5859ccba34d9bcfc0bce9c1ddb, type: 3}
   - {fileID: 21300000, guid: 3cb413c73e05ce04c8c9991921da2455, type: 3}
-  m_thinkingChat: "\u8003\u3048\u4E2D\u306E\u30BB\u30EA\u30D5\u3092\u3053\u3053\u306B\u5165\u308C\u3066\u304F\u3060\u3055\u3044"
-  m_correctChat: "\u6B63\u89E3\u6642\u306E\u30BB\u30EA\u30D5\u3092\u3053\u3053\u306B\u5165\u308C\u3066\u304F\u3060\u3055\u3044"
-  m_incorrectChat: "\u4E0D\u6B63\u89E3\u6642\u306E\u30BB\u30EA\u30D5\u3092\u3053\u3053\u306B\u5165\u308C\u3066\u304F\u3060\u3055\u3044"
+  m_thinkingChat: "\u3088\u304F\u8003\u3048\u307E\u3057\u3087\u3046\uFF01"
+  m_correctChat: "\u6B63\u89E3\u3067\u3059\uFF01"
+  m_incorrectChat: "\u6B21\u304C\u3042\u308A\u307E\u3059\uFF01"
+  m_clearChat: "\u3059\u3070\u3089\u3057\u3044\u3067\u3059\uFF01"
+  m_failureChat: "\u307E\u3060\u3053\u308C\u304B\u3089\u3067\u3059\u3088\uFF01"
