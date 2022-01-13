@@ -10,6 +10,7 @@ TagManager:
   - VOICE_Boy
   - VOICE_Girl
   - VOICE_Koma
+  - Setting
   layers:
   - Default
   - TransparentFX
