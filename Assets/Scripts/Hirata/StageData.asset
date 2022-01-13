@@ -24,13 +24,13 @@ MonoBehaviour:
     - "\u30B9\u30C6\u30FC\u30B83"
     - "\u30B9\u30C6\u30FC\u30B84"
   - m_sprites:
-    - {fileID: 21300000, guid: 8e92694220bf37047acfae28142ecdf3, type: 3}
     - {fileID: 21300000, guid: 8250fc4a44a29634981ef15fb22ae9b7, type: 3}
+    - {fileID: 21300000, guid: 8e92694220bf37047acfae28142ecdf3, type: 3}
     - {fileID: 21300000, guid: 5ea8c033144a62948abfc81b39b1328a, type: 3}
     - {fileID: 21300000, guid: b8166e6cff0ccc34394dceb65b9fe242, type: 3}
     m_stageText:
-    - "\u8056\u6B66\u5929\u7687"
     - "\u8056\u5FB3\u592A\u5B50"
+    - "\u8056\u6B66\u5929\u7687"
     - "\u30B9\u30C6\u30FC\u30B83"
     - "\u30B9\u30C6\u30FC\u30B84"
   - m_sprites:
