@@ -7,6 +7,13 @@ using MasterData;
 using System;
 using DG.Tweening;
 
+public enum QuizTypes
+{
+    FourChoice,
+    Anaume,
+    FourChoiceAndAnaume
+}
+
 /// <summary>
 /// クイズを表示するクラス
 /// </summary>
@@ -20,6 +27,10 @@ public class QuizManager : MonoBehaviour
     [Header("次の問題を表示するまでの時間")]
     [SerializeField]
     float m_nextQuestionTimer = 2.0f;
+
+    [Header("出題するクイズの種類")]
+    [SerializeField]
+    QuizTypes m_quizType = QuizTypes.FourChoice;
 
     [Header("クイズ画面の各オブジェクト")]
     [SerializeField]
@@ -145,6 +156,10 @@ public class QuizManager : MonoBehaviour
     [Header("デバッグ用")]
     [SerializeField]
     int questionLimit = 10;
+
+    [SerializeField]
+    bool m_isDebugMode = false;
+
     /// <summary>GameOverパネル /summary>
     [SerializeField]
     GameObject m_panel;
@@ -166,6 +181,10 @@ public class QuizManager : MonoBehaviour
     bool m_isAnswered = false;
     /// <summary> 正誤フラグ </summary>
     bool m_isCorrected = false;
+    /// <summary> クイズ出題の乱数の最小値 </summary>
+    int m_minRangeNum = default;
+    /// <summary> クイズ出題の乱数の最大値 </summary>
+    int m_maxRangeNum = default;
 
     /// <summary> チュートリアル画面でボタンを押したかどうかのフラグ </summary>
     bool m_isSelect = false;
@@ -232,6 +251,27 @@ public class QuizManager : MonoBehaviour
             StartCoroutine(QuizStart());
         }
         SoundManager.Instance.PlayBgm(SoundManager.Instance.BgmName);
+
+        if (!m_isDebugMode) 
+        {
+            //縄文時代と平安時代のステージ1,ステージ2のみ、穴埋め問題も出題する
+            if (GameManager.Instance.CurrentPeriod == PeriodTypes.Jomon_Yayoi || 
+                GameManager.Instance.CurrentPeriod == PeriodTypes.Heian && GameManager.Instance.CurrentStageId == 0 ||
+                GameManager.Instance.CurrentPeriod == PeriodTypes.Heian && GameManager.Instance.CurrentStageId == 1)
+            {
+                m_quizType = QuizTypes.FourChoiceAndAnaume;
+                SetQuizType(m_quizType);
+            }
+            else　//その他の時代は4択問題のみ出題
+            {
+                m_quizType = QuizTypes.FourChoice;
+                SetQuizType(m_quizType);
+            }
+        }
+        else //デバッグ中は指定したクイズを出題する
+        {
+            SetQuizType(m_quizType);
+        }
     }
 
     /// <summary>
@@ -272,7 +312,7 @@ public class QuizManager : MonoBehaviour
 
             while (!QuizDataUpdated)
             {
-                int num = UnityEngine.Random.Range(0, 1); //各クイズからランダムで問題を抽選する
+                int num = UnityEngine.Random.Range(m_minRangeNum, m_maxRangeNum); //各クイズからランダムで問題を抽選する
 
                 switch (num)
                 {
@@ -434,6 +474,32 @@ public class QuizManager : MonoBehaviour
     }
 
     /// <summary>
+    /// 出題するクイズの種類を設定する
+    /// </summary>
+    /// <param name="type"></param>
+    void SetQuizType(QuizTypes type)
+    {
+        switch (type)
+        {
+            case QuizTypes.FourChoice:
+                m_minRangeNum = 0;
+                m_maxRangeNum = 1;
+                break;
+            case QuizTypes.Anaume:
+                m_minRangeNum = 1;
+                m_maxRangeNum = 2;
+                break;
+            case QuizTypes.FourChoiceAndAnaume:
+                m_minRangeNum = 0;
+                m_maxRangeNum = 2;
+                break;
+            default:
+                Debug.LogError("値が正しくありません");
+                break;
+        }
+    }
+
+    /// <summary>
     /// 判定の結果を表示する
     /// </summary>
     /// <param name="correct"> 判定 </param>
@@ -470,7 +536,12 @@ public class QuizManager : MonoBehaviour
             m_quizResultUIAnims[CurrentTurnNum].Play("InCorrect");
             SoundManager.Instance.PlaySe("SE_incorrect");
             FixPlayVoice(VoiceType.Player, "voice005");
-            HPController.Instance.CurrentHP--;
+            
+            //デバッグモードでは体力が減らない
+            if (!m_isDebugMode)
+            {
+                HPController.Instance.CurrentHP--;
+            }
         }
         m_questionResults[CurrentTurnNum] = correct;
         EventManager.OnEvent(Events.QuizEnd);

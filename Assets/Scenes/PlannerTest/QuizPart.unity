@@ -1026,7 +1026,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 447483709531774641, guid: a877d34447378504984e2afe6efcb7e0, type: 3}
       propertyPath: m_currentPeriod
-      value: 1
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 447483709531774641, guid: a877d34447378504984e2afe6efcb7e0, type: 3}
       propertyPath: m_currentStageId
@@ -1185,6 +1185,14 @@ PrefabInstance:
     - target: {fileID: 73129724149297351, guid: e1dacf4572dd80143b50cb7a73e36d93, type: 3}
       propertyPath: m_Color.a
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 434024879647280400, guid: e1dacf4572dd80143b50cb7a73e36d93, type: 3}
+      propertyPath: m_quizType
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 434024879647280400, guid: e1dacf4572dd80143b50cb7a73e36d93, type: 3}
+      propertyPath: m_isDebugMode
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 434024879647280401, guid: e1dacf4572dd80143b50cb7a73e36d93, type: 3}
       propertyPath: m_RootOrder
