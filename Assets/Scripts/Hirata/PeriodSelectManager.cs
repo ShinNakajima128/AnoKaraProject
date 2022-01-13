@@ -48,6 +48,9 @@ public class PeriodSelectManager : MonoBehaviour
     [SerializeField]
     StageAchieveControl[] m_achieveCtrls = default;
 
+    /// <summary> オプションボタンをまとめたPanel </summary>
+    GameObject m_settingPanel = default;
+
     /// <summary>選択された時代番号の保存</summary>
     int m_periodNum;
 
@@ -80,6 +83,7 @@ public class PeriodSelectManager : MonoBehaviour
     {
         SoundManager.Instance.PlayBgm(SoundManager.Instance.BgmName);
         m_periodBackground = m_stageSelectPanel.GetComponent<Image>();
+        m_settingPanel = GameObject.FindGameObjectWithTag("Setting");
     }
 
     /// <summary>
@@ -93,6 +97,10 @@ public class PeriodSelectManager : MonoBehaviour
         SetButtonFlag(m_stageButtons, m_stageClearFlag, StageCheck((PeriodTypes)period));
         SetStageButton(m_stageTexts, m_periodStageData, period);
         m_stageSelectPanel.SetActive(true);
+        if (m_settingPanel != null)
+        {
+            m_settingPanel.SetActive(false);
+        }
         SetStageBuckground(period);
         m_headerText.text = "ステージ選択";
         m_stageCharactorImage.sprite = DataManager.Instance.PlayerData.PlayerImage[0];
@@ -276,6 +284,10 @@ public class PeriodSelectManager : MonoBehaviour
         m_stageCharactorImage.sprite = DataManager.Instance.PlayerData.PlayerImage[0];
         ResetSelectStage();
         m_stageSelectPanel.SetActive(false);
+        if (m_settingPanel != null)
+        {
+            m_settingPanel.SetActive(true);
+        }
         m_headerText.text = "時代選択";
         SoundManager.Instance.PlaySe("SE_touch");
     }
