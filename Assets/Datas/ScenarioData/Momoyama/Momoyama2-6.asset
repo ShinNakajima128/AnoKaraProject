@@ -46,8 +46,8 @@ MonoBehaviour:
     Position: 1
     m_position: 01000000
     BackgroundType: 7
-    FaceType: 2
-    m_faceTypes: 02000000
+    FaceType: 7
+    m_faceTypes: 07000000
     StartAnimationType: "\u306A\u3057"
     EndAnimationType: "\u306A\u3057"
     Messages: "\uFF08\u9854\u304C\u8FD1\u3044\u3043\u3043\uFF01\uFF01\uFF09"
@@ -65,8 +65,8 @@ MonoBehaviour:
     Position: 1
     m_position: 01000000
     BackgroundType: 7
-    FaceType: 0
-    m_faceTypes: 00000000
+    FaceType: 7
+    m_faceTypes: 07000000
     StartAnimationType: "\u306A\u3057"
     EndAnimationType: "\u306A\u3057"
     Messages: "\u300C\u30B6\u30D3\u30A8\u30EB\u3055\u3093\uFF01\u9854\u304C\u6016\u3044\u3067\u3059\uFF01\u300D"
@@ -84,10 +84,10 @@ MonoBehaviour:
     Position: 0
     m_position: 00000000
     BackgroundType: 7
-    FaceType: '1
+    FaceType: '4
 
       3'
-    m_faceTypes: 0100000003000000
+    m_faceTypes: 0400000003000000
     StartAnimationType: "\u306A\u3057"
     EndAnimationType: FadeOut
     Messages: "\u300C\u3059\u307E\u306A\u3044\u3002\u6025\u7528\u3092\u601D\u3044\u51FA\u3057\u305F\uFF01\u300D\n\u300C\u3044\u304F\u3088\uFF01\u6642\u9593\u304C\u306A\u3044\u3084\uFF01\u300D"

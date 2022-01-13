@@ -27,7 +27,7 @@ MonoBehaviour:
 
       3'
     m_faceTypes: 0500000003000000
-    StartAnimationType: "\u306A\u3057"
+    StartAnimationType: AllFadeIn
     EndAnimationType: "\u306A\u3057"
     Messages: "\u300C\u3042\u308C\u3001\u7BB1\u306E\u4E2D\u306E\u6B66\u5668\u3063\u3066\u30FB\u30FB\u30FB\u300D\n\u300C\u4FE1\u9577\u306E\u3068\u3053\u308D\u306B\u51FA\u3066\u304D\u305F\u306E\u306B\u4F3C\u3066\u308B\u306D\u300D"
     ChoicesId: 0
