@@ -30,6 +30,7 @@ public class NameInput : MonoBehaviour
         if (DataManager.Instance.PlayerData.PlayerName != null && DataManager.Instance.PlayerData.PlayerName != "")
         {
             m_input.text = DataManager.Instance.PlayerData.PlayerName;
+            m_tempName = m_input.text;
         }
     }
 
