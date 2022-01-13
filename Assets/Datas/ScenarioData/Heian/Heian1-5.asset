@@ -187,7 +187,7 @@ MonoBehaviour:
     FaceType: 3
     m_faceTypes: 03000000
     StartAnimationType: "\u306A\u3057"
-    EndAnimationType: AllFadeOut
+    EndAnimationType: "\u306A\u3057"
     Messages: "\u300C\u3046\u3093\uFF01\u300D"
     ChoicesId: 0
     NextId: 9
