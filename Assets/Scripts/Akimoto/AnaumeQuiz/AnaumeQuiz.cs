@@ -55,6 +55,10 @@ public class AnaumeQuiz : MonoBehaviour
     {
         var currentPeriod = GameManager.Instance.CurrentPeriod;
         Debug.Log(currentPeriod);
+        if (currentPeriod != PeriodTypes.Jomon_Yayoi)
+        {
+            return;
+        }
         var quizDatas = DataManager.Instance.AnaumeQuizDatabases.Where(p => p.PeriodType == currentPeriod)
                                                                  .FirstOrDefault(s => s.StageId == GameManager.Instance.CurrentStageId); //穴埋めデータ取得
         m_anaumeQuizdatas = quizDatas.AnaumeQuizDatabases;
