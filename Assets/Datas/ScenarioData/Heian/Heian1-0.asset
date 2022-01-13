@@ -121,7 +121,7 @@ MonoBehaviour:
     FaceType: 4
     m_faceTypes: 04000000
     StartAnimationType: "\u306A\u3057"
-    EndAnimationType: AllFadeOut
+    EndAnimationType: "\u306A\u3057"
     Messages: "\u300C\u306A\u3093\u3067\u805E\u3044\u305F\u306E\uFF01\uFF1F\u300D"
     ChoicesId: 0
     NextId: 6

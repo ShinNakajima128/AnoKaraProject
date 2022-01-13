@@ -27,9 +27,9 @@ MonoBehaviour:
 
       4'
     m_faceTypes: 0300000004000000
-    StartAnimationType: "\u306A\u3057"
+    StartAnimationType: FadeIn
     EndAnimationType: "\u306A\u3057"
-    Messages: "\u300C\u3042\u308C\uFF1F\u57CE\u306E\u9580\u304C\u958B\u3044\u3066\u308B\u2026\u300D\n\u300C\u306A\u3093\u304B\u5ACC\u306A\u4E88\u611F\u304C\u3059\u308B\u305E\u2026\u300D\n"
+    Messages: "\u300C\u3042\u308C\uFF1F\u57CE\u306E\u9580\u304C\u958B\u3044\u3066\u308B\u2026\u300D\n\u300C\u306A\u3093\u304B\u5ACC\u306A\u4E88\u611F\u304C\u3059\u308B\u305E\u2026\u300D"
     ChoicesId: 0
     NextId: 1
     VoiceId: "\u306A\u3057\n\u306A\u3057"
@@ -39,7 +39,6 @@ MonoBehaviour:
     m_allMessages:
     - "\u300C\u3042\u308C\uFF1F\u57CE\u306E\u9580\u304C\u958B\u3044\u3066\u308B\u2026\u300D"
     - "\u300C\u306A\u3093\u304B\u5ACC\u306A\u4E88\u611F\u304C\u3059\u308B\u305E\u2026\u300D"
-    - 
   - MessageId: 1
     Talker: "\u30D7\u30EC\u30A4\u30E4\u30FC"
     m_talker:
@@ -49,7 +48,7 @@ MonoBehaviour:
     BackgroundType: 7
     FaceType: 0
     m_faceTypes: 00000000
-    StartAnimationType: "\u306A\u3057"
+    StartAnimationType: FadeIn
     EndAnimationType: "\u306A\u3057"
     Messages: "\u300C\u30B3\u30DE\u30FC\u3002\u57CE\u304C\u958B\u3044\u3066\u308B\u3088\uFF1F\u5049\u4EBA\u306B\u4ECA\u306A\u3089\u4F1A\u3048\u308B\u304B\u3082\u3002\u300D"
     ChoicesId: 0
@@ -97,7 +96,7 @@ MonoBehaviour:
     m_faceTypes: 01000000
     StartAnimationType: "\u306A\u3057"
     EndAnimationType: "\u306A\u3057"
-    Messages: "\u300C\u8AB0\u3060\uFF01\u304A\u524D\u305F\u3061\uFF01\u300D\n"
+    Messages: "\u300C\u8AB0\u3060\uFF01\u304A\u524D\u305F\u3061\uFF01\u300D"
     ChoicesId: 0
     NextId: 4
     VoiceId: "\u306A\u3057"
@@ -105,7 +104,6 @@ MonoBehaviour:
     - "\u306A\u3057"
     m_allMessages:
     - "\u300C\u8AB0\u3060\uFF01\u304A\u524D\u305F\u3061\uFF01\u300D"
-    - 
   - MessageId: 4
     Talker: "\u5B89\u571F\u6843\u5C71 \u6B66\u58EB"
     m_talker:
@@ -157,7 +155,7 @@ MonoBehaviour:
     EndAnimationType: "\u306A\u3057"
     Messages: "\u300C\u3042\u3002\u3048\u30FC\u3068\u2026\u300D"
     ChoicesId: 0
-    NextId: 14
+    NextId: 8
     VoiceId: player_001
     m_allVoiceId:
     - player_001

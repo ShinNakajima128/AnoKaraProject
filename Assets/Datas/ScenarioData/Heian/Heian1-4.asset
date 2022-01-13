@@ -17,9 +17,9 @@ MonoBehaviour:
   m_choicesSheetName: "Heian\u9078\u629E\u80A2\u30B7\u30FC\u30C8"
   m_dialogData:
   - MessageId: 0
-    Talker: "\u6853\u6B66\u5929\u7687"
+    Talker: "\uFF1F\uFF1F\uFF1F"
     m_talker:
-    - "\u6853\u6B66\u5929\u7687"
+    - "\uFF1F\uFF1F\uFF1F"
     Position: 2
     m_position: 02000000
     BackgroundType: 5
@@ -55,9 +55,9 @@ MonoBehaviour:
     m_allMessages:
     - "\u300C\u3093\uFF1F\u304A\u3058\u3055\u3093\u8AB0\uFF1F\u300D"
   - MessageId: 2
-    Talker: "\u6853\u6B66\u5929\u7687"
+    Talker: "\uFF1F\uFF1F\uFF1F"
     m_talker:
-    - "\u6853\u6B66\u5929\u7687"
+    - "\uFF1F\uFF1F\uFF1F"
     Position: 2
     m_position: 02000000
     BackgroundType: 5
