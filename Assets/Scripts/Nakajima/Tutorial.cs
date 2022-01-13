@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 /// <summary>
 /// チュートリルの機能を持つクラス
@@ -38,6 +39,7 @@ public class Tutorial : MonoBehaviour
         m_tutorialImage.sprite = m_tutorialSprites[0];
         m_tutorialText.text = m_tutorialMessage[0];
         m_currentIndex = 0;
+        m_nextButtonText.text = "つぎへ";
         m_progressButtons[1].gameObject.SetActive(false);
     }
 
@@ -45,7 +47,15 @@ public class Tutorial : MonoBehaviour
     {
         if (m_currentIndex >= m_tutorialSprites.Length - 1)
         {
-            QuizManager.Instance.OffTutorialPanel();
+            if (SceneManager.GetActiveScene().name == "QuizPart")
+            {
+                QuizManager.Instance.OffTutorialPanel();
+            }
+            else if (SceneManager.GetActiveScene().name == "PeriodSelect")
+            {
+                PeriodSelectManager.Instance.OffHelpPanel();
+            }
+
             SoundManager.Instance.PlaySe("SE_touch");
             return;
         }
@@ -56,6 +66,16 @@ public class Tutorial : MonoBehaviour
         m_currentIndex++;
         m_tutorialImage.sprite = m_tutorialSprites[m_currentIndex];
         m_tutorialText.text = m_tutorialMessage[m_currentIndex];
+
+        //文字数に応じてフォントサイズ調整
+        if (m_tutorialText.text.Length >= 35)
+        {
+            m_tutorialText.fontSize = 35;
+        }
+        else
+        {
+            m_tutorialText.fontSize = 50;
+        }
 
         if (!m_progressButtons[1].gameObject.activeSelf)
         {
@@ -83,6 +103,17 @@ public class Tutorial : MonoBehaviour
         m_currentIndex--;
         m_tutorialImage.sprite = m_tutorialSprites[m_currentIndex];
         m_tutorialText.text = m_tutorialMessage[m_currentIndex];
+
+        //文字数に応じてフォントサイズ調整
+        if (m_tutorialText.text.Length >= 35)
+        {
+            m_tutorialText.fontSize = 35;
+        }
+        else
+        {
+            m_tutorialText.fontSize = 50;
+        }
+
         SoundManager.Instance.PlaySe("SE_touch");
     }
 }

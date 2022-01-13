@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
 using MasterData;
+using DG.Tweening;
 
 /// <summary>時代・ステージ選択画面マネージャー</summary>
 public class PeriodSelectManager : MonoBehaviour
@@ -48,6 +49,10 @@ public class PeriodSelectManager : MonoBehaviour
     [SerializeField]
     StageAchieveControl[] m_achieveCtrls = default;
 
+    /// <summary> 時代選択画面のヘルプ画面 </summary>
+    [SerializeField]
+    GameObject m_periodSelectHelpPanel = default;
+
     /// <summary> オプションボタンをまとめたPanel </summary>
     GameObject m_settingPanel = default;
 
@@ -71,9 +76,12 @@ public class PeriodSelectManager : MonoBehaviour
 
     [SerializeField]
     Text m_headerText = default;
+    
+    public static PeriodSelectManager Instance { get; private set; }
 
     private void Awake()
     {
+        Instance = this;
         GetPeriodClearFlag();
         SetButtonFlag(m_periodButtons, m_periodClearFlags, 6);
         DataManager.UpdateData();
@@ -116,6 +124,28 @@ public class PeriodSelectManager : MonoBehaviour
             m_achieveCtrls[i].ViewAchieve(DataManager.Instance.PlayerData.StageAchieves[period - 1].Achieves[i]);
         }
         SoundManager.Instance.PlaySe("SE_touch");
+    }
+
+    /// <summary>
+    /// ヘルプ画面を開く
+    /// </summary>
+    public void OnHelpPanel()
+    {
+        m_periodSelectHelpPanel.SetActive(true);
+        m_periodSelectHelpPanel.transform.localScale = Vector3.zero;
+        m_periodSelectHelpPanel.transform.DOScale(Vector3.one, 0.1f);
+    }
+
+    /// <summary>
+    /// ヘルプ画面を閉じる
+    /// </summary>
+    public void OffHelpPanel()
+    {
+        m_periodSelectHelpPanel.transform.DOScale(Vector3.zero, 0.1f).OnComplete(() => 
+        {
+            m_periodSelectHelpPanel.SetActive(false);
+        });
+
     }
 
     /// <summary>
