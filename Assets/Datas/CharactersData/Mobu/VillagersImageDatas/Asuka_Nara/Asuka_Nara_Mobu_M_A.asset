@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_dataName: "\u753A\u4EBA\u7537A"
   m_characterImages:
-  - {fileID: 21300000, guid: aaaa0a33072ed9344b64956a577a9486, type: 3}
+  - {fileID: 21300000, guid: 9dd9c8f17e7324047876e8bd1fa3eb72, type: 3}
   - {fileID: 21300000, guid: bfa7000cba738324cb71fc810362ccab, type: 3}
   - {fileID: 21300000, guid: 9dd9c8f17e7324047876e8bd1fa3eb72, type: 3}
   - {fileID: 21300000, guid: 9dd9c8f17e7324047876e8bd1fa3eb72, type: 3}
