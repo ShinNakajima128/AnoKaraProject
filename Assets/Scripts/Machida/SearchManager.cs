@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using System.Linq;
+using DG.Tweening;
 
 public class SearchManager : MonoBehaviour
 {
@@ -22,6 +23,10 @@ public class SearchManager : MonoBehaviour
     /// <summary> シナリオ終了までスクロール等を不可にするPanel </summary>
     [SerializeField]
     GameObject m_InoperablePanel = default;
+
+    /// <summary> 一度プレイしたステージをスキップする用のPanel </summary>
+    [SerializeField]
+    GameObject m_skipPanel = default;
 
     #region sheetName
     [Header("タスク終了後のシナリオシート名")]
@@ -98,7 +103,7 @@ public class SearchManager : MonoBehaviour
         m_villegersData = new CharacterData[DataManager.Instance.CurrentPeriodAllVillegersData.Length];
         m_villegersData = DataManager.Instance.CurrentPeriodAllVillegersData;
         JidaiSelect();
-        //StageSelect();
+        ConfirmSkip();
         StartCoroutine(PlayEachStageFirstScenario());
         m_InoperablePanel.SetActive(true);
         EventManager.ListenEvents(Events.BeginTask, OnInoperablePanel);
@@ -125,6 +130,22 @@ public class SearchManager : MonoBehaviour
         StageSelect();
         EventManager.RemoveEvents(Events.FinishDialog, OnlyOnceMethod);
     }
+
+    void ConfirmSkip()
+    {
+        var a = DataManager.Instance.PlayerData.StageAchieves[(int)GameManager.Instance.CurrentPeriod - 1];
+        if (a.Achieves[GameManager.Instance.CurrentStageId] != StageQuizAchieveStates.None)
+        {
+            Debug.Log(a.Achieves[GameManager.Instance.CurrentStageId]);
+            m_skipPanel.SetActive(true);
+            m_skipPanel.transform.localScale = Vector3.zero;
+            m_skipPanel.transform.DOScale(Vector3.one, 1.1f).OnComplete(() => 
+            {
+                Time.timeScale = 0;
+            });
+        }
+    } 
+
     /// <summary>
     /// 選んだステージのCanvasを表示
     /// </summary>
@@ -636,5 +657,27 @@ public class SearchManager : MonoBehaviour
     {
         m_InoperablePanel.SetActive(false);
     }
+
+    /// <summary>
+    /// 探索Sceneをスキップして現在のステージのクイズを開始する。ボタンに設定
+    /// </summary
+    public void OnSkip()
+    {
+        Time.timeScale = 1;
+        LoadSceneManager.AnyLoadScene("QuizPart");
+    }
+
+    /// <summary>
+    /// スキップ画面をOFFにする。ボタンに設定
+    /// </summary>
+    public void OffSkipPanel()
+    {
+        Time.timeScale = 1;
+        m_skipPanel.transform.DOScale(Vector3.zero, 0.2f).OnComplete(() => 
+        {
+            m_skipPanel.SetActive(false);
+        });
+    }
+
 }
      
