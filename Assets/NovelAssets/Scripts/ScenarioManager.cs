@@ -389,14 +389,20 @@ public class ScenarioManager : MonoBehaviour
                 }
 
                 //キャラクターの表情の変更があればここで変更
-                if (m_characterName.text != "ナレーター")
+                if (m_characterName.text != "ナレーター" &&
+                    !m_characterName.text.Contains("（"))
                 {
                     for (int n = 0; n < data.DialogData[currentDialogIndex].AllPosition.Length; n++)
                     {
                         if (m_characterImage[data.DialogData[currentDialogIndex].AllPosition[n]].enabled)
                         {
                             m_characterImage[data.DialogData[currentDialogIndex].AllPosition[n]].sprite = SetCharaImage(data.DialogData[currentDialogIndex].AllTalker[n], data.DialogData[currentDialogIndex].FaceTypes[i]);
-                            SetFeelingAnim(m_effectPositions[data.DialogData[currentDialogIndex].AllPosition[n]], data.DialogData[currentDialogIndex].FaceTypes[i]);
+
+                            //モブキャラ以外の場合は感情エフェクトを表示する
+                            if (!m_characterName.text.Contains("村") && !m_characterName.text.Contains("町"))
+                            {
+                                SetFeelingAnim(m_effectPositions[data.DialogData[currentDialogIndex].AllPosition[n]], data.DialogData[currentDialogIndex].FaceTypes[i]);
+                            }
                         }
                     }
                 }
@@ -1065,7 +1071,7 @@ public class ScenarioManager : MonoBehaviour
         Sprite chara = default;
         string c = charaName;
 
-        if (c == "？？？") 
+        if (c == "？？？")
         {
             c = m_currentStageGreatMan;
         }
@@ -1083,7 +1089,7 @@ public class ScenarioManager : MonoBehaviour
         }
         return chara;
     }
-    
+
     void SetFeelingAnim(Image image, int emoteType)
     {
         if (m_beforeEmoteType == emoteType) return;
