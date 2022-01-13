@@ -55,9 +55,9 @@ MonoBehaviour:
     m_allMessages:
     - "\u77E5\u3089\u3093\u306A\u3002\u52D8\u9055\u3044\u3060\u308D\u3046"
   - MessageId: 2
-    Talker: "\u30CA\u30EC\u30FC\u30BF\u30FC"
+    Talker: "(\u30D7\u30EC\u30A4\u30E4\u30FC)"
     m_talker:
-    - "\u30CA\u30EC\u30FC\u30BF\u30FC"
+    - "(\u30D7\u30EC\u30A4\u30E4\u30FC)"
     Position: 
     m_position: 00000000
     BackgroundType: 8
@@ -74,9 +74,9 @@ MonoBehaviour:
     m_allMessages:
     - "\uFF08\u304A\u3001\u62BC\u3057\u5165\u308C\u306F\u30D0\u30EC\u3061\u3083\u3046\u3093\u3058\u3083\u306A\u3044\u306E\uFF1F\uFF09"
   - MessageId: 3
-    Talker: "\u30CA\u30EC\u30FC\u30BF\u30FC"
+    Talker: "(\u30B3\u30DE)"
     m_talker:
-    - "\u30CA\u30EC\u30FC\u30BF\u30FC"
+    - "(\u30B3\u30DE)"
     Position: 
     m_position: 00000000
     BackgroundType: 8
@@ -154,9 +154,9 @@ MonoBehaviour:
     - "\u3075\u3093\u3001\u305D\u3061\u3089\u306E\u305B\u3044\u3067\u85A9\u6469\u85E9\u306E\u4F5C\u6226\u306F\u3044\u3064\u3082\u4E0A\u624B\u304F\u3044\u304B\u306C\u3002"
     - "\u4ECA\u56DE\u305D\u3061\u3089\u304C\u5E55\u5E9C\u306B\u5FB9\u5E95\u653B\u6483\u3055\u308C\u305F\u306E\u3082\u81EA\u696D\u81EA\u5F97\u3060\u308D\u3046\u3002\u306A\u305C\u85A9\u6469\u85E9\u304C\u308F\u3056\u308F\u3056\u624B\u3092\u8CB8\u3055\u306D\u3070\u306A\u3089\u306C\uFF01"
   - MessageId: 7
-    Talker: "\u30CA\u30EC\u30FC\u30BF\u30FC"
+    Talker: "(\u30D7\u30EC\u30A4\u30E4\u30FC)"
     m_talker:
-    - "\u30CA\u30EC\u30FC\u30BF\u30FC"
+    - "(\u30D7\u30EC\u30A4\u30E4\u30FC)"
     Position: 
     m_position: 00000000
     BackgroundType: 8
@@ -173,9 +173,9 @@ MonoBehaviour:
     m_allMessages:
     - "\uFF08\u3081\u3061\u3083\u3081\u3061\u3083\u4EF2\u60AA\u3044\u2026\u85A9\u9577\u540C\u76DF\u3063\u3066\u4E0A\u624B\u304F\u3044\u3063\u305F\u306E\uFF1F\uFF09"
   - MessageId: 8
-    Talker: "\u30CA\u30EC\u30FC\u30BF\u30FC"
+    Talker: "(\u30B3\u30DE)"
     m_talker:
-    - "\u30CA\u30EC\u30FC\u30BF\u30FC"
+    - "(\u30B3\u30DE)"
     Position: 
     m_position: 00000000
     BackgroundType: 8
@@ -192,9 +192,9 @@ MonoBehaviour:
     m_allMessages:
     - "\uFF08\u3044\u3063\u305F\u306F\u305A\u3060\u3088\u30FC\uFF1F\u4E0D\u5B89\u306A\u3089\u30D7\u30EC\u30A4\u30E4\u30FC\u3082\u3044\u3063\u3061\u3087\u4F1A\u8B70\u306B\u53C2\u52A0\u3057\u3066\u307F\u308B\uFF1F\uFF09"
   - MessageId: 9
-    Talker: "\u30CA\u30EC\u30FC\u30BF\u30FC"
+    Talker: "(\u30D7\u30EC\u30A4\u30E4\u30FC)"
     m_talker:
-    - "\u30CA\u30EC\u30FC\u30BF\u30FC"
+    - "(\u30D7\u30EC\u30A4\u30E4\u30FC)"
     Position: 
     m_position: 00000000
     BackgroundType: 8
