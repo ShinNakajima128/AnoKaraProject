@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4d9aa4b5244f4994db385df11d119ef7, type: 3}
   m_Name: Asuka_Nara_Mobu_M_B
   m_EditorClassIdentifier: 
-  m_dataName: "\u753A\u4EBA\u7537B"
+  m_dataName: "\u5948\u826F \u753A\u4EBA\u7537\u6027B"
   m_characterImages:
   - {fileID: 21300000, guid: 882aa4bfdf569f34ca699d73c3d6f6e1, type: 3}
   - {fileID: 21300000, guid: 882aa4bfdf569f34ca699d73c3d6f6e1, type: 3}
