@@ -57,11 +57,87 @@ public class FourChoicesQuizManager : MonoBehaviour
             panel.SetActive(true);
             //各テキストを更新する
             question.text = m_fourChoicesDatas[m_currentNum].Question;
+            if (question.text.Length >= 60)
+            {
+                question.fontSize = 30;
+            }
+            else
+            {
+                question.fontSize = 35;
+            }
             string[] choices = ChoiceRandomly(m_fourChoicesDatas[m_currentNum].Choices1, m_fourChoicesDatas[m_currentNum].Choices2, m_fourChoicesDatas[m_currentNum].Choices3, m_fourChoicesDatas[m_currentNum].Choices4);
+            
             c1.text = choices[0];
+            if (c1.text.Length > 19)
+            {
+                c1.fontSize = 25;
+            }
+            else if (c1.text.Length > 14)
+            {
+                c1.fontSize = 30;
+            }
+            else if (c1.text.Length > 7)
+            {
+                c1.fontSize = 40;
+            }
+            else
+            {
+                c1.fontSize = 50;
+            }
+
             c2.text = choices[1];
+            if (c2.text.Length > 19)
+            {
+                c2.fontSize = 25;
+            }
+            else if (c2.text.Length > 14)
+            {
+                c2.fontSize = 30;
+            }
+            else if (c2.text.Length > 7)
+            {
+                c2.fontSize = 40;
+            }
+            else
+            {
+                c2.fontSize = 50;
+            }
+            
             c3.text = choices[2];
+            if (c3.text.Length > 19)
+            {
+                c3.fontSize = 25;
+            }
+            else if (c3.text.Length > 14)
+            {
+                c3.fontSize = 30;
+            }
+            else if (c3.text.Length > 7)
+            {
+                c3.fontSize = 40;
+            }
+            else
+            {
+                c3.fontSize = 50;
+            }
+            
             c4.text = choices[3];
+            if (c4.text.Length > 19)
+            {
+                c4.fontSize = 25;
+            }
+            else if (c4.text.Length > 14)
+            {
+                c4.fontSize = 30;
+            }
+            else if (c4.text.Length > 7)
+            {
+                c4.fontSize = 40;
+            }
+            else
+            {
+                c4.fontSize = 50;
+            }
             QuizManager.Instance.CorrectAnswer = m_fourChoicesDatas[m_currentNum].Answer;
         }
         yield return QuizManager.Instance.TimeLimit();

@@ -123,6 +123,17 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!114 &84480356 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 73129724149297348, guid: e1dacf4572dd80143b50cb7a73e36d93, type: 3}
+  m_PrefabInstance: {fileID: 434024880554720037}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &195416516
 GameObject:
   m_ObjectHideFlags: 0
@@ -226,6 +237,14 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1795151798, guid: 5dea40183d711924d807356cf107e6c4, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4927543417613732011, guid: 5dea40183d711924d807356cf107e6c4, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6818322722249736336, guid: 5dea40183d711924d807356cf107e6c4, type: 3}
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
@@ -1135,7 +1154,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 447483709531774641, guid: a877d34447378504984e2afe6efcb7e0, type: 3}
       propertyPath: m_currentPeriod
-      value: 3
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 447483709531774641, guid: a877d34447378504984e2afe6efcb7e0, type: 3}
       propertyPath: m_currentStageId
@@ -1283,6 +1302,10 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 2118772312}
+    - target: {fileID: 73129724149297348, guid: e1dacf4572dd80143b50cb7a73e36d93, type: 3}
+      propertyPath: m_Interactable
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 73129724149297349, guid: e1dacf4572dd80143b50cb7a73e36d93, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: -441
@@ -1295,10 +1318,34 @@ PrefabInstance:
       propertyPath: m_Color.a
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 434024879318317975, guid: e1dacf4572dd80143b50cb7a73e36d93, type: 3}
+      propertyPath: m_FontData.m_MinSize
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 434024879318317975, guid: e1dacf4572dd80143b50cb7a73e36d93, type: 3}
+      propertyPath: m_FontData.m_FontSize
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 434024879371760354, guid: e1dacf4572dd80143b50cb7a73e36d93, type: 3}
+      propertyPath: m_FontData.m_MinSize
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 434024879371760354, guid: e1dacf4572dd80143b50cb7a73e36d93, type: 3}
+      propertyPath: m_FontData.m_FontSize
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 434024879581997528, guid: e1dacf4572dd80143b50cb7a73e36d93, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 434024879647280400, guid: e1dacf4572dd80143b50cb7a73e36d93, type: 3}
       propertyPath: m_quizType
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 434024879647280400, guid: e1dacf4572dd80143b50cb7a73e36d93, type: 3}
+      propertyPath: m_tipsButton
+      value: 
+      objectReference: {fileID: 84480356}
     - target: {fileID: 434024879647280400, guid: e1dacf4572dd80143b50cb7a73e36d93, type: 3}
       propertyPath: m_isDebugMode
       value: 0
@@ -1351,9 +1398,37 @@ PrefabInstance:
       propertyPath: m_Name
       value: QuizManager
       objectReference: {fileID: 0}
+    - target: {fileID: 434024880204794294, guid: e1dacf4572dd80143b50cb7a73e36d93, type: 3}
+      propertyPath: m_Text
+      value: "\u9078\u629E\u80A2"
+      objectReference: {fileID: 0}
+    - target: {fileID: 434024880204794294, guid: e1dacf4572dd80143b50cb7a73e36d93, type: 3}
+      propertyPath: m_FontData.m_MinSize
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 434024880204794294, guid: e1dacf4572dd80143b50cb7a73e36d93, type: 3}
+      propertyPath: m_FontData.m_FontSize
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 434024880260643263, guid: e1dacf4572dd80143b50cb7a73e36d93, type: 3}
+      propertyPath: m_FontData.m_MinSize
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 434024880260643263, guid: e1dacf4572dd80143b50cb7a73e36d93, type: 3}
+      propertyPath: m_FontData.m_FontSize
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 434024880841983924, guid: e1dacf4572dd80143b50cb7a73e36d93, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 434024880841983924, guid: e1dacf4572dd80143b50cb7a73e36d93, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 68
+      objectReference: {fileID: 0}
     - target: {fileID: 434024880841983926, guid: e1dacf4572dd80143b50cb7a73e36d93, type: 3}
       propertyPath: m_Text
-      value: 
+      value: "\u554F\u984C\u6587"
       objectReference: {fileID: 0}
     - target: {fileID: 434024880841983926, guid: e1dacf4572dd80143b50cb7a73e36d93, type: 3}
       propertyPath: m_Color.b
@@ -1366,6 +1441,14 @@ PrefabInstance:
     - target: {fileID: 434024880841983926, guid: e1dacf4572dd80143b50cb7a73e36d93, type: 3}
       propertyPath: m_Color.r
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 434024880841983926, guid: e1dacf4572dd80143b50cb7a73e36d93, type: 3}
+      propertyPath: m_FontData.m_MinSize
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 434024880841983926, guid: e1dacf4572dd80143b50cb7a73e36d93, type: 3}
+      propertyPath: m_FontData.m_FontSize
+      value: 35
       objectReference: {fileID: 0}
     - target: {fileID: 434024880841983927, guid: e1dacf4572dd80143b50cb7a73e36d93, type: 3}
       propertyPath: m_Enabled

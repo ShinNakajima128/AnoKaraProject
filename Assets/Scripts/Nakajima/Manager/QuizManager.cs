@@ -124,6 +124,9 @@ public class QuizManager : MonoBehaviour
     [SerializeField]
     GameObject m_finishPanel = default;
 
+    [SerializeField]
+    Button m_tipsButton = default;
+
     [Header("4択クイズのオブジェクト")]
     [SerializeField]
     GameObject m_fourChoicesQuizPanel = default;
@@ -430,6 +433,8 @@ public class QuizManager : MonoBehaviour
     IEnumerator CountDown()
     {
         m_countDown.enabled = true;
+        //ヒントボタンOFF
+        m_tipsButton.interactable = false;
         m_countDown.text = "3";
 
         yield return new WaitForSeconds(1.0f);
@@ -441,6 +446,9 @@ public class QuizManager : MonoBehaviour
         yield return new WaitForSeconds(1.0f);
         m_countDown.text = "スタート！";
         yield return new WaitForSeconds(1.0f);
+        
+        //ヒントボタンON
+        m_tipsButton.interactable = true;
         m_countDown.enabled = false;
     }
     #endregion
@@ -503,14 +511,46 @@ public class QuizManager : MonoBehaviour
     /// <param name="correct"> 判定 </param>
     void ShowJudge(bool correct)
     {
+        if (m_correctAnswer.Length > 19)
+        {
+            m_judgePanelTexts[1].text = $"正しい答え\n<size=35>【{m_correctAnswer}】</size>";
+        }
+        else if (m_correctAnswer.Length > 14)
+        {
+            m_judgePanelTexts[1].text = $"正しい答え\n<size=45>【{m_correctAnswer}】</size>";
+        }
+        else if (m_correctAnswer.Length > 7)
+        {
+            m_judgePanelTexts[1].text = $"正しい答え\n<size=55>【{m_correctAnswer}】</size>";
+        }
+        else
+        {
+            m_judgePanelTexts[1].text = $"正しい答え\n【{m_correctAnswer}】";
+        }
+
         //正解
         if (correct)
         {
             m_JudgePanel.SetActive(true);
             //m_judgeImages[0].enabled = true;
             m_judgePanelTexts[0].text = "<color=#FB3535>正解！</color>";
-            m_judgePanelTexts[1].text = $"正しい答え\n【{m_correctAnswer}】";
-            m_judgePanelTexts[2].text = $"{DataManager.Instance.PlayerData.PlayerName}の解答\n【{m_playerAnswer}】";
+
+            if (m_playerAnswer.Length > 19)
+            {
+                m_judgePanelTexts[2].text = $"{DataManager.Instance.PlayerData.PlayerName}の解答\n<size=35>【{m_playerAnswer}】</size>";
+            }
+            else if (m_playerAnswer.Length > 14)
+            {
+                m_judgePanelTexts[2].text = $"{DataManager.Instance.PlayerData.PlayerName}の解答\n<size=45>【{m_playerAnswer}】</size>";
+            }
+            else if (m_playerAnswer.Length > 7)
+            {
+                m_judgePanelTexts[2].text = $"{DataManager.Instance.PlayerData.PlayerName}の解答\n<size=55>【{m_playerAnswer}】</size>";
+            }
+            else
+            {
+                m_judgePanelTexts[2].text = $"{DataManager.Instance.PlayerData.PlayerName}の解答\n【{m_playerAnswer}】";
+            }
             m_playerImage.sprite = m_playeData.PlayerImage[2];
             m_historicalFiguresImage.sprite = m_historicalFiguresData.CharacterImages[1];
             m_playerChat.text = m_playeData.CorrectChat;
@@ -525,8 +565,23 @@ public class QuizManager : MonoBehaviour
             m_JudgePanel.SetActive(true);
             //m_judgeImages[1].enabled = true;
             m_judgePanelTexts[0].text = "<color=#588AFF>不正解…</color>";
-            m_judgePanelTexts[1].text = $"正しい答え\n【{m_correctAnswer}】";
-            m_judgePanelTexts[2].text = $"プレイヤーの解答\n【{m_playerAnswer}】";
+            if (m_playerAnswer.Length > 19)
+            {
+                m_judgePanelTexts[2].text = $"{DataManager.Instance.PlayerData.PlayerName}の解答\n<size=35>【{m_playerAnswer}】</size>";
+            }
+            else if (m_playerAnswer.Length > 14)
+            {
+                m_judgePanelTexts[2].text = $"{DataManager.Instance.PlayerData.PlayerName}の解答\n<size=45>【{m_playerAnswer}】</size>";
+            }
+            else if (m_playerAnswer.Length > 7)
+            {
+                m_judgePanelTexts[2].text = $"{DataManager.Instance.PlayerData.PlayerName}の解答\n<size=55>【{m_playerAnswer}】</size>";
+            }
+            else
+            {
+                m_judgePanelTexts[2].text = $"{DataManager.Instance.PlayerData.PlayerName}の解答\n【{m_playerAnswer}】";
+            }
+
             m_playerImage.sprite = m_playeData.PlayerImage[3];
             m_historicalFiguresImage.sprite = m_historicalFiguresData.CharacterImages[2];
             m_playerChat.text = m_playeData.IncorrectChat;
