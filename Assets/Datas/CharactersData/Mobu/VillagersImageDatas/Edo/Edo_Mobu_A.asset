@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4d9aa4b5244f4994db385df11d119ef7, type: 3}
   m_Name: Edo_Mobu_A
   m_EditorClassIdentifier: 
-  m_dataName: "\u6C5F\u6238 \u753A\u4EBA\u5973"
+  m_dataName: "\u6C5F\u6238 \u753A\u4EBA\u5973\u6027"
   m_characterImages:
   - {fileID: 21300000, guid: 4018aaad8bd42e24fbd2feb658459493, type: 3}
   - {fileID: 21300000, guid: 4018aaad8bd42e24fbd2feb658459493, type: 3}
