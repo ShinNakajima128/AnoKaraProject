@@ -17,9 +17,9 @@ MonoBehaviour:
   m_choicesSheetName: azutimomoyamaSelect
   m_dialogData:
   - MessageId: 0
-    Talker: "\u5B89\u571F\u6843\u5C71 \u753A\u6C11A"
+    Talker: "\u5B89\u571F\u6843\u5C71 \u753A\u6C11\u5973\u6027"
     m_talker:
-    - "\u5B89\u571F\u6843\u5C71 \u753A\u6C11A"
+    - "\u5B89\u571F\u6843\u5C71 \u753A\u6C11\u5973\u6027"
     Position: 2
     m_position: 02000000
     BackgroundType: 7
@@ -36,9 +36,9 @@ MonoBehaviour:
     m_allMessages:
     - "\u300C\u3063\u3044\u3084\u3060\u306D\u3047\u3046\u3061\u306E\u7530\u3093\u307C\u304C\u5C11\u3057\u3067\u304B\u3044\u304B\u3089\u5E74\u8CA2\u3092\u7D0D\u3081\u308B\u7FBD\u76EE\u306B\u306A\u3063\u305F\u3088\u2026\u300D"
   - MessageId: 1
-    Talker: "\u5B89\u571F\u6843\u5C71 \u753A\u6C11B"
+    Talker: "\u5B89\u571F\u6843\u5C71 \u753A\u6C11\u7537\u6027"
     m_talker:
-    - "\u5B89\u571F\u6843\u5C71 \u753A\u6C11B"
+    - "\u5B89\u571F\u6843\u5C71 \u753A\u6C11\u7537\u6027"
     Position: 1
     m_position: 01000000
     BackgroundType: 7
@@ -55,9 +55,9 @@ MonoBehaviour:
     m_allMessages:
     - "\u300C\u4ECA\u307E\u3067\u7533\u544A\u5236\u3060\u3063\u305F\u304B\u3089\u306A\u3002\u307E\u3042\u6B63\u78BA\u306A\u5206\u3001\u5909\u306B\u53D6\u3089\u308C\u308B\u3088\u308A\u306F\u307E\u3057\u306A\u3093\u3058\u3083\u306D\u3048\u304B\uFF1F\u300D"
   - MessageId: 2
-    Talker: "\u5B89\u571F\u6843\u5C71 \u753A\u6C11A"
+    Talker: "\u5B89\u571F\u6843\u5C71 \u753A\u6C11\u5973\u6027"
     m_talker:
-    - "\u5B89\u571F\u6843\u5C71 \u753A\u6C11A"
+    - "\u5B89\u571F\u6843\u5C71 \u753A\u6C11\u5973\u6027"
     Position: 2
     m_position: 02000000
     BackgroundType: 7
