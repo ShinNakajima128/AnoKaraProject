@@ -73,6 +73,9 @@ public class TitleManager : MonoBehaviour
     [SerializeField]
     float m_fadeTime = 0.5f;
 
+    [SerializeField]
+    GameObject m_finalConfirmPanel = default;
+
     public static TitleManager Instance { get; private set; }
 
     public bool IsAnim { get; set; } = false;
@@ -95,7 +98,7 @@ public class TitleManager : MonoBehaviour
         m_tempArray = m_gameDataObject.ClearFlag;
         m_tempStageAchieves = m_gameDataObject.AllStageAchieves;
         m_gameDataObject.SetUp();
-       
+
         ChangePanel(TitleStates.Start);
         SoundManager.Instance.PlayBgm(SoundManager.Instance.BgmName);
     }
@@ -243,6 +246,7 @@ public class TitleManager : MonoBehaviour
     /// </summary>
     public void ResetGameData()
     {
+        m_gameDataObject.FirstPlay = true;
         m_gameDataObject.PlayerName = "";
         m_gameDataObject.PlayerGender = default;
         for (int i = 0; i < m_gameDataObject.ClearFlag.Length; i++)
@@ -263,5 +267,32 @@ public class TitleManager : MonoBehaviour
             }
         }
         DataManager.SaveData();
+    }
+
+    /// <summary>
+    /// データ消去の際の最終確認画面を表示。ボタンに設定
+    /// </summary>
+    public void OnFinalConfirmPanel()
+    {
+        m_finalConfirmPanel.SetActive(true);
+    }
+
+    /// <summary>
+    /// 最終確認画面を閉じる。ボタンに設定
+    /// </summary>
+    public void OffFinalConfirmPanel()
+    {
+        m_finalConfirmPanel.SetActive(false);
+    }
+    /// <summary>
+    /// データをリセットする。ボタンに設定する。
+    /// </summary>
+    public void ResetData()
+    {
+        LoadSceneManager.AnyLoadScene("Title", () =>
+        {
+            PlayerPrefs.DeleteAll();
+            Debug.Log("データを消去しました");
+        });
     }
 }

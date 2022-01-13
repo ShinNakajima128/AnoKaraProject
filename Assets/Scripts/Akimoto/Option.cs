@@ -47,7 +47,10 @@ public class Option : MonoBehaviour
     private void Start()
     {
         SetSliderVolume();
-        m_panel.SetActive(false);
+        if (m_panel != null)
+        {
+            m_panel.SetActive(false);
+        }
         m_nameInput.SetActive(false);
         m_optionObj.SetActive(false);
     }
