@@ -255,9 +255,7 @@ public class QuizManager : MonoBehaviour
         if (!m_isDebugMode) 
         {
             //縄文時代と平安時代のステージ1,ステージ2のみ、穴埋め問題も出題する
-            if (GameManager.Instance.CurrentPeriod == PeriodTypes.Jomon_Yayoi || 
-                GameManager.Instance.CurrentPeriod == PeriodTypes.Heian && GameManager.Instance.CurrentStageId == 0 ||
-                GameManager.Instance.CurrentPeriod == PeriodTypes.Heian && GameManager.Instance.CurrentStageId == 1)
+            if (GameManager.Instance.CurrentPeriod == PeriodTypes.Jomon_Yayoi)
             {
                 m_quizType = QuizTypes.FourChoiceAndAnaume;
                 SetQuizType(m_quizType);
