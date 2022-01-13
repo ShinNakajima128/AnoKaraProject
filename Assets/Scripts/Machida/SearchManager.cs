@@ -134,12 +134,12 @@ public class SearchManager : MonoBehaviour
     void ConfirmSkip()
     {
         var a = DataManager.Instance.PlayerData.StageAchieves[(int)GameManager.Instance.CurrentPeriod - 1];
-        if (a.Achieves[GameManager.Instance.CurrentStageId] != StageQuizAchieveStates.None)
+        if (a.Achieves[GameManager.Instance.CurrentStageId] != StageQuizAchieveStates.None && !GameManager.Instance.IsAfterQuized)
         {
             Debug.Log(a.Achieves[GameManager.Instance.CurrentStageId]);
             m_skipPanel.SetActive(true);
             m_skipPanel.transform.localScale = Vector3.zero;
-            m_skipPanel.transform.DOScale(Vector3.one, 1.1f).OnComplete(() => 
+            m_skipPanel.transform.DOScale(Vector3.one, 1.01f).OnComplete(() => 
             {
                 Time.timeScale = 0;
             });
