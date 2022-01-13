@@ -791,6 +791,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3556439220019624003, guid: 0850286fda9bd6145914c63f2fa6698b, type: 3}
+      propertyPath: m_textSpeed
+      value: 0.02
+      objectReference: {fileID: 0}
+    - target: {fileID: 3556439220019624003, guid: 0850286fda9bd6145914c63f2fa6698b, type: 3}
       propertyPath: StartEvent.m_PersistentCalls.m_Calls.Array.size
       value: 1
       objectReference: {fileID: 0}
