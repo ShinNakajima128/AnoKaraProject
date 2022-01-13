@@ -13,14 +13,21 @@ MonoBehaviour:
   m_Name: Heian_Stage1
   m_EditorClassIdentifier: 
   m_spreadsheetURL: https://script.google.com/macros/s/AKfycbw6vpPYJ-aWAUK75W6zlWgfcbVV_KdRySjaRUtslTSL_uWEHIQ/exec
-  m_SheetName: HeianStage2
+  m_SheetName: HeianStage1
   m_periodType: 3
-  m_stageId: 1
+  m_stageId: 0
   m_database:
   - Id: 1
-    Question: "\u7AF6\u3079\u5F13\u306F\u306A\u3093\u3068\u8AAD\u3080\uFF1F"
-    Answer: "\u304F\u3089\u3079\u3086\u307F"
-    Dragtext: "\u304D\u3001\u305D\u3001\u304F\u3001\u307F\u3001\u3089\u3001\u3079\u3001\u3046\u3001\u3086"
+    Question: "\u6795\u8349\u5B50\u3092\u66F8\u3044\u305F\u4EBA\u7269\u306F\u8AB0\uFF1F"
+    Answer: "\u6E05\u5C11\u7D0D\u8A00"
+    Dragtext: "\u7D2B,\u5C11,\u7D0D,\u90E8,\u6E05,\u5F0F,\u85E4,\u8A00"
     m_dragTexts:
-    - "\u304D\u3001\u305D\u3001\u304F\u3001\u307F\u3001\u3089\u3001\u3079\u3001\u3046\u3001\u3086"
-    Tips: "\u6700\u521D\u306E\u6587\u5B57\u306F\u300C\u304F\u300D\uFF01"
+    - "\u7D2B"
+    - "\u5C11"
+    - "\u7D0D"
+    - "\u90E8"
+    - "\u6E05"
+    - "\u5F0F"
+    - "\u85E4"
+    - "\u8A00"
+    Tips: "\u6E05\u304B\u3089\u59CB\u307E\u308B\u4EBA\u7269\u3060\u306D\uFF01"

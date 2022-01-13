@@ -32,8 +32,5 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 9fa2a96a64d282c4e8d96f51e9df5be1, type: 2}
   m_anaumeQuizDatas:
   - {fileID: 11400000, guid: 764454af4fecf7f4bb58f75f98215176, type: 2}
-  - {fileID: 11400000, guid: 47ae1e1d7a2857f42aafc76ad8d2e47a, type: 2}
   - {fileID: 11400000, guid: 9a027153cb2fd944a8e613e2b0b85557, type: 2}
-  - {fileID: 11400000, guid: 4734da7f528d7de47bcc6154a6389ec7, type: 2}
-  - {fileID: 11400000, guid: 315367d50a8ef4841a485c4e5a66abe2, type: 2}
-  - {fileID: 11400000, guid: 8cea542b7ef72b64c89320fa6eea51fd, type: 2}
+  - {fileID: 11400000, guid: d090d914b3435f64ba617a2fa4e5ba9f, type: 2}

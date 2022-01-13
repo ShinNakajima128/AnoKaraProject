@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using MasterData;
+using System.Linq;
 
 public class AnaumeQuiz : MonoBehaviour
 {
@@ -54,16 +55,17 @@ public class AnaumeQuiz : MonoBehaviour
     {
         var currentPeriod = GameManager.Instance.CurrentPeriod;
         Debug.Log(currentPeriod);
-        var quizDatas = DataManager.Instance.AnaumeQuizDatabases; //穴埋めデータ取得
-
-        for (int i = 0; i < quizDatas.Length; i++)
-        {
-            if (quizDatas[i].PeriodType == currentPeriod)
-            {
-                m_anaumeQuizdatas = quizDatas[i].AnaumeQuizDatabases;
-                break;
-            }
-        }
+        var quizDatas = DataManager.Instance.AnaumeQuizDatabases.Where(p => p.PeriodType == currentPeriod)
+                                                                 .FirstOrDefault(s => s.StageId == GameManager.Instance.CurrentStageId); //穴埋めデータ取得
+        m_anaumeQuizdatas = quizDatas.AnaumeQuizDatabases;
+        //for (int i = 0; i < quizDatas.Length; i++)
+        //{
+        //    if (quizDatas[i].PeriodType == currentPeriod)
+        //    {
+        //        m_anaumeQuizdatas = quizDatas[i].AnaumeQuizDatabases;
+        //        break;
+        //    }
+        //}
         RandomlySorted(m_anaumeQuizdatas);
         //StartCoroutine(OnAnaumeQuizQuestion(m_gamePanel, m_questionViewText)); //とりあえず
         //Create(); //とりあえず
