@@ -345,6 +345,7 @@ public class ScenarioManager : MonoBehaviour
             {
                 EventManager.OnEvent(Events.Debug);
             }
+
             //キャラクターのアニメーションが終わるまで待つ
             yield return WaitForCharaAnimation(data.DialogData[currentDialogIndex].AllTalker,
                                                data.DialogData[currentDialogIndex].AllPosition,
@@ -375,7 +376,7 @@ public class ScenarioManager : MonoBehaviour
 
             if (!isReactioned)
             {
-                m_tempLog += m_characterName.text + "：";
+                m_tempLog += m_characterName.text.Trim('(', ')') + "：";
             }
             EmphasisCharacter(data.DialogData[currentDialogIndex].AllPosition); //アクティブなキャラ以外を暗転する
 
@@ -389,22 +390,36 @@ public class ScenarioManager : MonoBehaviour
                 }
 
                 //キャラクターの表情の変更があればここで変更
-                if (m_characterName.text != "ナレーター" &&
-                    !m_characterName.text.Contains("（"))
+                if (m_characterName.text != "ナレーター")
                 {
-                    for (int n = 0; n < data.DialogData[currentDialogIndex].AllPosition.Length; n++)
-                    {
-                        if (m_characterImage[data.DialogData[currentDialogIndex].AllPosition[n]].enabled)
-                        {
-                            m_characterImage[data.DialogData[currentDialogIndex].AllPosition[n]].sprite = SetCharaImage(data.DialogData[currentDialogIndex].AllTalker[n], data.DialogData[currentDialogIndex].FaceTypes[i]);
+                    var offChara = false;
 
-                            //モブキャラ以外の場合は感情エフェクトを表示する
-                            if (!m_characterName.text.Contains("村") && !m_characterName.text.Contains("町"))
+                    if (m_characterName.text.Contains("("))
+                    {
+                        var n = m_characterName.text.Trim('(', ')');
+                        m_characterName.text = n;
+                        offChara = true;
+                    }
+
+                    Debug.Log(offChara);
+
+                    if (!offChara)
+                    {
+                        Debug.Log("表情切り替え");
+                        for (int n = 0; n < data.DialogData[currentDialogIndex].AllPosition.Length; n++)
+                        {
+                            if (m_characterImage[data.DialogData[currentDialogIndex].AllPosition[n]].enabled)
                             {
-                                SetFeelingAnim(m_effectPositions[data.DialogData[currentDialogIndex].AllPosition[n]], data.DialogData[currentDialogIndex].FaceTypes[i]);
+                                m_characterImage[data.DialogData[currentDialogIndex].AllPosition[n]].sprite = SetCharaImage(data.DialogData[currentDialogIndex].AllTalker[n], data.DialogData[currentDialogIndex].FaceTypes[i]);
+
+                                //モブキャラ以外の場合は感情エフェクトを表示する
+                                if (!m_characterName.text.Contains("村") && !m_characterName.text.Contains("町"))
+                                {
+                                    SetFeelingAnim(m_effectPositions[data.DialogData[currentDialogIndex].AllPosition[n]], data.DialogData[currentDialogIndex].FaceTypes[i]);
+                                }
                             }
                         }
-                    }
+                    }     
                 }
 
                 //表示されたメッセージをリセット
@@ -610,13 +625,11 @@ public class ScenarioManager : MonoBehaviour
     /// <returns></returns>
     IEnumerator WaitForCharaAnimation(string[] charaName, int[] positionIndex, string animation, int faceType = 3)
     {
-        if (charaName[0] == "ナレーター")
+        if (charaName[0] == "ナレーター" || charaName[0].Contains("("))
         {
             m_namePanel.SetActive(false);
             yield break;
         }
-
-
 
         for (int i = 0; i < charaName.Length; i++)
         {
@@ -906,6 +919,7 @@ public class ScenarioManager : MonoBehaviour
     /// <param name="currentIndex"></param>
     void EmphasisCharacter(int[] currentIndex)
     {
+
         for (int i = 0; i < m_characterImage.Length; i++)
         {
             if (m_characterImage[i].enabled)
