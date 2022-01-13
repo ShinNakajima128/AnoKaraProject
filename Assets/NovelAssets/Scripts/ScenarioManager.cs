@@ -276,6 +276,9 @@ public class ScenarioManager : MonoBehaviour
         set2 = false;
         set3 = false;
 
+        yield return null;
+        EventManager.OnEvent(Events.BeginDialog);
+
         for (int i = 0; i < data.DialogData.Length; i++)
         {
             if (data.DialogData[i].AllPosition[0] == 0 && !set1)

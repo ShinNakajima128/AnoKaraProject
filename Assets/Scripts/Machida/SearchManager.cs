@@ -98,7 +98,7 @@ public class SearchManager : MonoBehaviour
         m_villegersData = new CharacterData[DataManager.Instance.CurrentPeriodAllVillegersData.Length];
         m_villegersData = DataManager.Instance.CurrentPeriodAllVillegersData;
         JidaiSelect();
-        StageSelect();
+        //StageSelect();
         StartCoroutine(PlayEachStageFirstScenario());
         m_InoperablePanel.SetActive(true);
         EventManager.ListenEvents(Events.BeginTask, OnInoperablePanel);
@@ -122,6 +122,7 @@ public class SearchManager : MonoBehaviour
     void OnlyOnceMethod()
     {
         OffInoperablePanel();
+        StageSelect();
         EventManager.RemoveEvents(Events.FinishDialog, OnlyOnceMethod);
     }
     /// <summary>
