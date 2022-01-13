@@ -17,9 +17,9 @@ MonoBehaviour:
   m_choicesSheetName: edo_choice
   m_dialogData:
   - MessageId: 0
-    Talker: "\u6C5F\u6238 \u753A\u4EBA\u5973"
+    Talker: "\u6C5F\u6238 \u753A\u4EBA\u5973\u6027"
     m_talker:
-    - "\u6C5F\u6238 \u753A\u4EBA\u5973"
+    - "\u6C5F\u6238 \u753A\u4EBA\u5973\u6027"
     Position: 2
     m_position: 02000000
     BackgroundType: 8
@@ -55,9 +55,9 @@ MonoBehaviour:
     m_allMessages:
     - "\u306A\u3001\u306A\u3093\u304B\u68D8\u304C\u3042\u308A\u307E\u305B\u3093\uFF1F"
   - MessageId: 2
-    Talker: "\u6C5F\u6238 \u753A\u4EBA\u5973"
+    Talker: "\u6C5F\u6238 \u753A\u4EBA\u5973\u6027"
     m_talker:
-    - "\u6C5F\u6238 \u753A\u4EBA\u5973"
+    - "\u6C5F\u6238 \u753A\u4EBA\u5973\u6027"
     Position: 2
     m_position: 02000000
     BackgroundType: 8
@@ -97,9 +97,9 @@ MonoBehaviour:
     m_allMessages:
     - "\u3048\uFF1F\u5B50\u4F9B\u3092\u6368\u3066\u308B\u306E\uFF1F"
   - MessageId: 4
-    Talker: "\u6C5F\u6238 \u753A\u4EBA\u5973"
+    Talker: "\u6C5F\u6238 \u753A\u4EBA\u5973\u6027"
     m_talker:
-    - "\u6C5F\u6238 \u753A\u4EBA\u5973"
+    - "\u6C5F\u6238 \u753A\u4EBA\u5973\u6027"
     Position: 2
     m_position: 02000000
     BackgroundType: 8
@@ -215,9 +215,9 @@ MonoBehaviour:
     m_allMessages:
     - "\u2026\u2026\u3042\u306E\u3001\u4ECA\u306E\u5C06\u8ECD\u69D8\u306F\u3001\u60AA\u3044\u4EBA\u306A\u3093\u3067\u3059\u304B\uFF1F"
   - MessageId: 10
-    Talker: "\u6C5F\u6238 \u753A\u4EBA\u5973"
+    Talker: "\u6C5F\u6238 \u753A\u4EBA\u5973\u6027"
     m_talker:
-    - "\u6C5F\u6238 \u753A\u4EBA\u5973"
+    - "\u6C5F\u6238 \u753A\u4EBA\u5973\u6027"
     Position: 2
     m_position: 02000000
     BackgroundType: 8
