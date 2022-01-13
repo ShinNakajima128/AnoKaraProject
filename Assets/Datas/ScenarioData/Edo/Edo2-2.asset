@@ -36,9 +36,9 @@ MonoBehaviour:
     m_allMessages:
     - "\u3042\u306E\u3001\u4F55\u304B\u3042\u3063\u305F\u3093\u3067\u3059\u304B\uFF1F"
   - MessageId: 1
-    Talker: "\u6C5F\u6238 \u753A\u4EBA\u7537"
+    Talker: "\u5B89\u571F\u6843\u5C71 \u753A\u6C11\u7537\u6027"
     m_talker:
-    - "\u6C5F\u6238 \u753A\u4EBA\u7537"
+    - "\u5B89\u571F\u6843\u5C71 \u753A\u6C11\u7537\u6027"
     Position: 2
     m_position: 02000000
     BackgroundType: 8
@@ -78,9 +78,9 @@ MonoBehaviour:
     m_allMessages:
     - "\u8239\uFF1F\u8FFD\u3063\u6255\u3063\u3061\u3083\u3046\u3093\u3067\u3059\u304B\uFF1F"
   - MessageId: 3
-    Talker: "\u6C5F\u6238 \u753A\u4EBA\u7537"
+    Talker: "\u5B89\u571F\u6843\u5C71 \u753A\u6C11\u7537\u6027"
     m_talker:
-    - "\u6C5F\u6238 \u753A\u4EBA\u7537"
+    - "\u5B89\u571F\u6843\u5C71 \u753A\u6C11\u7537\u6027"
     Position: 2
     m_position: 02000000
     BackgroundType: 8
