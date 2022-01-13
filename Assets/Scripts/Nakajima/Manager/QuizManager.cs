@@ -235,7 +235,7 @@ public class QuizManager : MonoBehaviour
             Debug.Log("チュートリアル画面表示");
             m_tutorialSelectPanel.SetActive(true);
             m_tutorialSelectPanel.transform.localScale = Vector3.zero;
-            m_tutorialSelectPanel.transform.DOScale(new Vector3(0.8f, 0.8f, 0.8f), 0.3f);
+            m_tutorialSelectPanel.transform.DOScale(new Vector3(1f, 1f, 1f), 0.35f);
 
             m_tutorialButtons[0].onClick.AddListener(() => //「はい」ボタンに登録
             {
