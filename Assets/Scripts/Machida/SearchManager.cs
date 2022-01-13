@@ -106,7 +106,7 @@ public class SearchManager : MonoBehaviour
         SoundManager.Instance.PlayBgm(SoundManager.Instance.BgmName);
 
         //クイズ終了後の場合はシナリオ終了後、時代選択画面に戻る。最後のステージのクイズ後の場合はエンディングに遷移するイベントを登録する
-        if (GameManager.Instance.CurrentPeriod == MasterData.PeriodTypes.Edo && GameManager.Instance.CurrentStageId == 2)
+        if (GameManager.Instance.CurrentPeriod == MasterData.PeriodTypes.Edo && GameManager.Instance.CurrentStageId == 2 && GameManager.Instance.IsAfterQuized)
         {
             EventManager.ListenEvents(Events.FinishDialog, () => 
             {
