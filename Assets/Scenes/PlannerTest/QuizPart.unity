@@ -1570,6 +1570,26 @@ PrefabInstance:
       propertyPath: m_Padding.m_Left
       value: -555
       objectReference: {fileID: 0}
+    - target: {fileID: 73129723166823958, guid: e1dacf4572dd80143b50cb7a73e36d93, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 73129723434313202, guid: e1dacf4572dd80143b50cb7a73e36d93, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 756.8199
+      objectReference: {fileID: 0}
+    - target: {fileID: 73129723434313202, guid: e1dacf4572dd80143b50cb7a73e36d93, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -0.8945
+      objectReference: {fileID: 0}
+    - target: {fileID: 73129723434313205, guid: e1dacf4572dd80143b50cb7a73e36d93, type: 3}
+      propertyPath: m_Text
+      value: Test
+      objectReference: {fileID: 0}
+    - target: {fileID: 73129723434313205, guid: e1dacf4572dd80143b50cb7a73e36d93, type: 3}
+      propertyPath: m_FontData.m_FontSize
+      value: 45
+      objectReference: {fileID: 0}
     - target: {fileID: 73129724149297348, guid: e1dacf4572dd80143b50cb7a73e36d93, type: 3}
       propertyPath: m_Interactable
       value: 0
@@ -1584,6 +1604,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 73129724149297351, guid: e1dacf4572dd80143b50cb7a73e36d93, type: 3}
       propertyPath: m_Color.a
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 73129724859819694, guid: e1dacf4572dd80143b50cb7a73e36d93, type: 3}
+      propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 434024879318317975, guid: e1dacf4572dd80143b50cb7a73e36d93, type: 3}
