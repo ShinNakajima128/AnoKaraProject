@@ -415,7 +415,10 @@ public class ScenarioManager : MonoBehaviour
                                 m_characterImage[data.DialogData[currentDialogIndex].AllPosition[n]].sprite = SetCharaImage(data.DialogData[currentDialogIndex].AllTalker[n], data.DialogData[currentDialogIndex].FaceTypes[i]);
 
                                 //モブキャラ以外の場合は感情エフェクトを表示する
-                                if (!m_characterName.text.Contains("村") && !m_characterName.text.Contains("町"))
+                                if (!m_characterName.text.Contains("村") && 
+                                    !m_characterName.text.Contains("町") && 
+                                    !m_characterName.text.Contains("平民") && 
+                                    !m_characterName.text.Contains("武士"))
                                 {
                                     SetFeelingAnim(m_effectPositions[data.DialogData[currentDialogIndex].AllPosition[n]], data.DialogData[currentDialogIndex].FaceTypes[i]);
                                 }
