@@ -126,29 +126,36 @@ public class PeriodSelectManager : MonoBehaviour
     /// </summary>
     public void SelectPeriod(int period)
     {
-        m_periodNum = period;
-        GetStageClearFlag(period);
-        SetButtonFlag(m_stageButtons, m_stageClearFlag, StageCheck((PeriodTypes)period));
-        SetStageButton(m_stageTexts, m_periodStageData, period);
-        m_stageSelectPanel.SetActive(true);
-        if (m_settingPanel != null)
-        {
-            m_settingPanel.SetActive(false);
-        }
-        SetStageBuckground(period);
-        m_headerText.text = "ステージ選択";
-        m_stageCharactorImage.sprite = DataManager.Instance.PlayerData.PlayerImage[0];
+        //m_periodButtons[period - 1].gameObject.transform.DOMoveY
 
-        foreach (var c in m_achieveCtrls)
+        LoadSceneManager.WhiteFadeOutPanel(() => 
         {
-            c.gameObject.SetActive(false);
-        }
+            m_periodNum = period;
+            GetStageClearFlag(period);
+            SetButtonFlag(m_stageButtons, m_stageClearFlag, StageCheck((PeriodTypes)period));
+            SetStageButton(m_stageTexts, m_periodStageData, period);
+            m_stageSelectPanel.SetActive(true);
+            if (m_settingPanel != null)
+            {
+                m_settingPanel.SetActive(false);
+            }
+            SetStageBuckground(period);
+            m_headerText.text = "ステージ選択";
+            m_stageCharactorImage.sprite = DataManager.Instance.PlayerData.PlayerImage[0];
 
-        for (int i = 0; i < DataManager.Instance.PlayerData.StageAchieves[period - 1].Achieves.Length; i++)
-        {
-            m_achieveCtrls[i].gameObject.SetActive(true);
-            m_achieveCtrls[i].ViewAchieve(DataManager.Instance.PlayerData.StageAchieves[period - 1].Achieves[i]);
-        }
+            foreach (var c in m_achieveCtrls)
+            {
+                c.gameObject.SetActive(false);
+            }
+
+            for (int i = 0; i < DataManager.Instance.PlayerData.StageAchieves[period - 1].Achieves.Length; i++)
+            {
+                m_achieveCtrls[i].gameObject.SetActive(true);
+                m_achieveCtrls[i].ViewAchieve(DataManager.Instance.PlayerData.StageAchieves[period - 1].Achieves[i]);
+            }
+            LoadSceneManager.WhiteFadeInPanel();
+        });
+        
         SoundManager.Instance.PlaySe("SE_touch");
     }
 
