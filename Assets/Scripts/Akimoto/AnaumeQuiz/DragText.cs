@@ -26,12 +26,14 @@ public class DragText : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDrag
             DropText item = hit.gameObject.GetComponent<DropText>();
             if (!item) continue;
             item.GetDrop(m_text);
+            SoundManager.Instance.PlaySe("SE_touch");
         }
     }
 
     public void OnBeginDrag(PointerEventData eventData)
     {
         m_defPos = transform.position;
+        SoundManager.Instance.PlaySe("SE_touch");
     }
 
     public void OnDrag(PointerEventData eventData)
