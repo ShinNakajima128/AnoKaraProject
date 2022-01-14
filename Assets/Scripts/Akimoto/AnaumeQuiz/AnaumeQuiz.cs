@@ -90,6 +90,8 @@ public class AnaumeQuiz : MonoBehaviour
             question.text = m_anaumeQuizdatas[m_currentNum].Question;
             Create();
             QuizManager.Instance.CorrectAnswer = m_anaumeQuizdatas[m_currentNum].Answer;
+            QuizManager.Instance.CurrentQuizTips = CurrentQuizTips;
+
         }
         yield return QuizManager.Instance.TimeLimit();
 

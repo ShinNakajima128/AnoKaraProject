@@ -57,6 +57,7 @@ public class FourChoicesQuizManager : MonoBehaviour
             panel.SetActive(true);
             //各テキストを更新する
             question.text = m_fourChoicesDatas[m_currentNum].Question;
+            QuizManager.Instance.CurrentQuizTips = CurrentQuizTips;
             if (question.text.Length >= 60)
             {
                 question.fontSize = 30;
