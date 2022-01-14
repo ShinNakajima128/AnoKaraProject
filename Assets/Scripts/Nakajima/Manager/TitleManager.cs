@@ -291,10 +291,11 @@ public class TitleManager : MonoBehaviour
     /// </summary>
     public void ResetData()
     {
+        PlayerPrefs.DeleteAll();
+        ResetGameData();
         SoundManager.Instance.PlaySe("SE_title");
         LoadSceneManager.AnyLoadScene("Title", () =>
         {
-            PlayerPrefs.DeleteAll();
             Debug.Log("データを消去しました");
         });
     }
