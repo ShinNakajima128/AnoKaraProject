@@ -161,7 +161,7 @@ MonoBehaviour:
     StartAnimationType: "\u306A\u3057"
     EndAnimationType: "\u306A\u3057"
     Messages: "\u3048\uFF1F\u30DC\u30AF\uFF1F"
-    ChoicesId: 0
+    ChoicesId: 1
     NextId: 8
     VoiceId: koma_005
     m_allVoiceId:
@@ -181,7 +181,7 @@ MonoBehaviour:
     EndAnimationType: "\u306A\u3057"
     Messages: "\u72AC\u304C\u4EBA\u9593\u3088\u308A\u826F\u3044\u3082\u306E\u7740\u3066\u3061\u3083\u306A\u3093\u3067\u3060\u3081\u306A\u306E\uFF01\uFF1F"
     ChoicesId: 0
-    NextId: 9
+    NextId: 10
     VoiceId: "\u306A\u3057"
     m_allVoiceId:
     - "\u306A\u3057"

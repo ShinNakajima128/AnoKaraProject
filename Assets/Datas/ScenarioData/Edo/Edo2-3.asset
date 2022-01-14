@@ -123,7 +123,7 @@ MonoBehaviour:
     StartAnimationType: "\u306A\u3057"
     EndAnimationType: "\u306A\u3057"
     Messages: Do you have only two fingers! ??
-    ChoicesId: 0
+    ChoicesId: 2
     NextId: 6
     VoiceId: "\u306A\u3057"
     m_allVoiceId:
@@ -143,7 +143,7 @@ MonoBehaviour:
     EndAnimationType: "\u306A\u3057"
     Messages: "\u3042\u3044\u304D\u3083\u3093\u3068\u3059\u3074\u30FC\u304F\u3044\u3093\u3050\u308A\u3063\u3057\u3085\uFF01"
     ChoicesId: 0
-    NextId: 7
+    NextId: 8
     VoiceId: "\u306A\u3057"
     m_allVoiceId:
     - "\u306A\u3057"
