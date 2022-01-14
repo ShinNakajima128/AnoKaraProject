@@ -128,10 +128,13 @@ public class PeriodSelectManager : MonoBehaviour
     /// </summary>
     public void SelectPeriod(int period)
     {
+        
+
         var s = DOTween.Sequence();
 
         s.Append(m_periodButtons[period - 1].gameObject.transform.DOMoveY(-150, m_buttonAnimTimer))
-         .Append(m_periodButtons[period - 1].gameObject.transform.DOMoveY(200, m_buttonAnimTimer - 0.2f))
+         .AppendCallback(() => { SoundManager.Instance.PlaySe("SE_title"); })
+         .Append(m_periodButtons[period - 1].gameObject.transform.DOMoveY(200, m_buttonAnimTimer + 0.2f))
          .OnComplete(() => 
          {
              LoadSceneManager.WhiteFadeOutPanel(() =>
@@ -164,7 +167,6 @@ public class PeriodSelectManager : MonoBehaviour
                      LoadSceneManager.WhiteFadeInPanel();
                  });          
              });
-             SoundManager.Instance.PlaySe("SE_touch");
          })
          .Play(); 
     }
