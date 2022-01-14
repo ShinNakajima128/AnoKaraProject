@@ -123,7 +123,7 @@ public class QuizTips : MonoBehaviour
             Sequence s = DOTween.Sequence();
             s.Append(m_tipImage.DOMoveY(m_defPos.y + m_moveValue, m_moveDuration))
                 .Append(m_tipImage.DOMoveY(m_defPos.y, m_moveDuration));
-            SoundManager.Instance.PlaySe("SE_touch");
+            SoundManager.Instance.PlayVoice(VoiceType.Koma, "voice008");
         }
     }
 
@@ -147,6 +147,7 @@ public class QuizTips : MonoBehaviour
             if (m_mashCount >= m_tipsActiveCount)
             {
                 ActiveTips();
+                SoundManager.Instance.PlayVoice(VoiceType.Koma, "voice002");
                 Reset();
                 yield break;
             }
