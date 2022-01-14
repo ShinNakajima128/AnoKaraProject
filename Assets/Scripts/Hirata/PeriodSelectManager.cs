@@ -79,7 +79,7 @@ public class PeriodSelectManager : MonoBehaviour
 
     [SerializeField]
     bool m_isDebugMode = default;
-    
+
     public static PeriodSelectManager Instance { get; private set; }
 
     private void Awake()
@@ -103,7 +103,14 @@ public class PeriodSelectManager : MonoBehaviour
             GetPeriodClearFlag();
             SetButtonFlag(m_periodButtons, m_periodClearFlags, 6);
             DataManager.UpdateData();
-        }     
+
+            //縄文をまだクリアしていなかったらヘルプ画面を表示
+            var a = DataManager.Instance.PlayerData.StageAchieves[0];
+            if (a.Achieves[0] == StageQuizAchieveStates.None)
+            {
+                OnHelpPanel();
+            }
+        }
     }
 
     private void Start()
@@ -152,8 +159,7 @@ public class PeriodSelectManager : MonoBehaviour
     {
         m_periodSelectHelpPanel.SetActive(true);
         m_periodSelectHelpPanel.transform.localScale = Vector3.zero;
-        m_periodSelectHelpPanel.transform.DOScale(Vector3.one, 0.1f);
-        SoundManager.Instance.PlaySe("SE_touch");
+        m_periodSelectHelpPanel.transform.DOScale(Vector3.one, 0.1f).OnComplete(() => { SoundManager.Instance.PlaySe("SE_touch"); });
     }
 
     /// <summary>
@@ -161,7 +167,7 @@ public class PeriodSelectManager : MonoBehaviour
     /// </summary>
     public void OffHelpPanel()
     {
-        m_periodSelectHelpPanel.transform.DOScale(Vector3.zero, 0.1f).OnComplete(() => 
+        m_periodSelectHelpPanel.transform.DOScale(Vector3.zero, 0.1f).OnComplete(() =>
         {
             m_periodSelectHelpPanel.SetActive(false);
         });
@@ -234,7 +240,7 @@ public class PeriodSelectManager : MonoBehaviour
     /// <param name="texts">ボタンのテキスト</param>
     /// <param name="data">時代データ</param>
     /// <param name="period">時代番号</param>
-    void SetStageButton(Text[] texts,PeriodStageData data, int period)
+    void SetStageButton(Text[] texts, PeriodStageData data, int period)
     {
         for (int i = 0; i < 4; i++)
         {
