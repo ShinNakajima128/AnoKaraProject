@@ -266,6 +266,14 @@ public class TitleManager : MonoBehaviour
                 }
             }
         }
+
+        for (int i = 0; i < m_gameDataObject.AllStageAchieves.Length; i++)
+        {
+            for (int n = 0; n < m_gameDataObject.AllStageAchieves[i].Achieves.Length; n++)
+            {
+                m_gameDataObject.AllStageAchieves[i].Achieves[n] = StageQuizAchieveStates.None;
+            }
+        }
         DataManager.SaveData();
     }
 
