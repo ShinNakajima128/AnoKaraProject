@@ -6043,15 +6043,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1024915993, guid: 2507efedb408f5940b98a5383d8fb730, type: 3}
       propertyPath: gameData.ClearFlags.Array.data[1].m_stageClearFlag.Array.data[0]
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1024915993, guid: 2507efedb408f5940b98a5383d8fb730, type: 3}
       propertyPath: gameData.ClearFlags.Array.data[1].m_stageClearFlag.Array.data[1]
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1024915993, guid: 2507efedb408f5940b98a5383d8fb730, type: 3}
       propertyPath: gameData.ClearFlags.Array.data[1].m_stageClearFlag.Array.data[2]
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1218958328587039708, guid: 2507efedb408f5940b98a5383d8fb730, type: 3}
       propertyPath: m_Name
