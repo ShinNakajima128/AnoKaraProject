@@ -274,6 +274,7 @@ public class TitleManager : MonoBehaviour
     /// </summary>
     public void OnFinalConfirmPanel()
     {
+        SoundManager.Instance.PlaySe("SE_touch");
         m_finalConfirmPanel.SetActive(true);
     }
 
@@ -282,6 +283,7 @@ public class TitleManager : MonoBehaviour
     /// </summary>
     public void OffFinalConfirmPanel()
     {
+        SoundManager.Instance.PlaySe("SE_touch");
         m_finalConfirmPanel.SetActive(false);
     }
     /// <summary>
@@ -289,6 +291,7 @@ public class TitleManager : MonoBehaviour
     /// </summary>
     public void ResetData()
     {
+        SoundManager.Instance.PlaySe("SE_title");
         LoadSceneManager.AnyLoadScene("Title", () =>
         {
             PlayerPrefs.DeleteAll();
