@@ -87,6 +87,7 @@ public class LoadSceneManager : MonoBehaviour
     /// <param name="callBack"> フェード後に呼ばれるコールバック </param>
     public static void AnyLoadScene(string name, Action callBack = null)
     {
+        Instance.SetColor(0, 0, 0);
         Instance.m_isFadeOut = true;
         Instance.StartCoroutine(Instance.LoadScene(name, Instance.m_LoadTimer, callBack));
     }
@@ -96,7 +97,7 @@ public class LoadSceneManager : MonoBehaviour
     /// </summary>
     public static void Restart(Action callBack = null)
     {
-        
+        Instance.SetColor(0, 0, 0);
         Instance.m_isFadeOut = true;
         Instance.StartCoroutine(Instance.LoadScene(CurrentScene, Instance.m_LoadTimer, callBack));
     }
@@ -106,6 +107,7 @@ public class LoadSceneManager : MonoBehaviour
     /// </summary>
     public static void LoadBeforeScene(Action callBack = null)
     {
+        Instance.SetColor(0, 0, 0);
         Instance.m_isFadeOut = true;
         Instance.StartCoroutine(Instance.LoadScene(BeforeScene, Instance.m_LoadTimer, callBack));
     }
