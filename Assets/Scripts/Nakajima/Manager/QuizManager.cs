@@ -436,15 +436,19 @@ public class QuizManager : MonoBehaviour
         //ヒントボタンOFF
         m_tipsButton.interactable = false;
         m_countDown.text = "3";
+        SoundManager.Instance.PlaySe("SE_touch");
 
         yield return new WaitForSeconds(1.0f);
         m_countDown.text = "2";
+        SoundManager.Instance.PlaySe("SE_touch");
 
         yield return new WaitForSeconds(1.0f);
         m_countDown.text = "1";
+        SoundManager.Instance.PlaySe("SE_touch");
 
         yield return new WaitForSeconds(1.0f);
         m_countDown.text = "スタート！";
+        SoundManager.Instance.PlaySe("SE_title");
         yield return new WaitForSeconds(1.0f);
         
         //ヒントボタンON
@@ -703,7 +707,6 @@ public class QuizManager : MonoBehaviour
     /// </summary>
     public void OffTutorialPanel()
     {
-        SoundManager.Instance.PlaySe("SE_touch");
         m_tutorialSelectPanel.transform.DOScale(Vector3.zero, 0.25f)
                              .OnComplete(() => 
                              {
