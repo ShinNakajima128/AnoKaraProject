@@ -153,6 +153,7 @@ public class PeriodSelectManager : MonoBehaviour
         m_periodSelectHelpPanel.SetActive(true);
         m_periodSelectHelpPanel.transform.localScale = Vector3.zero;
         m_periodSelectHelpPanel.transform.DOScale(Vector3.one, 0.1f);
+        SoundManager.Instance.PlaySe("SE_touch");
     }
 
     /// <summary>
@@ -164,7 +165,7 @@ public class PeriodSelectManager : MonoBehaviour
         {
             m_periodSelectHelpPanel.SetActive(false);
         });
-
+        SoundManager.Instance.PlaySe("SE_touch");
     }
 
     /// <summary>
