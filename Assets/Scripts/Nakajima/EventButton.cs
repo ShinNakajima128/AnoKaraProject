@@ -21,6 +21,10 @@ public class EventButton : MonoBehaviour
     Image m_buttonImage = default;
     /// <summary> 操作するボタン </summary>
     Button m_eventButton = default;
+
+    /// <summary> 次に表示するタスクオブジェクト </summary>
+    [SerializeField]
+    GameObject[] m_nextTaskObjects = default; 
     
     /// <summary> 操作するボタンのRectTransform </summary>
     RectTransform m_rt = default;
@@ -58,8 +62,16 @@ public class EventButton : MonoBehaviour
         m_rt.DOScale(new Vector3(1, 1, 1), m_animTimer)
             .OnComplete(() => 
             { 
-                SoundManager.Instance.PlaySe("SE_touch");
+                //SoundManager.Instance.PlaySe("SE_touch");
                 SearchManager.Instance.IsTaskComplited = false;
+                if (m_nextTaskObjects != null)
+                {
+                    foreach (var nt in m_nextTaskObjects)
+                    {
+                        nt.SetActive(true);
+                    }
+                    SoundManager.Instance.PlaySe("SE_quiz");
+                }
             });
         
         //EventManagerから関数を削除
