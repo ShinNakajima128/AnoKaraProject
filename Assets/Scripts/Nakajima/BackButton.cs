@@ -64,6 +64,7 @@ public class BackButton : MonoBehaviour
                 m_isOpened = false;
             });
         }
+        SoundManager.Instance.PlaySe("SE_touch");
     }
     
     /// <summary>
@@ -72,15 +73,18 @@ public class BackButton : MonoBehaviour
     public void BackScene()
     {
         LoadSceneManager.AnyLoadScene(m_loadSceneName);
+        SoundManager.Instance.PlaySe("SE_title");
     }
 
     void OnPanel()
     {
         m_allPanel.SetActive(true);
+        //SoundManager.Instance.PlaySe("SE_touch");
     }
 
     void OffPanel()
     {
         m_allPanel.SetActive(false);
+        //SoundManager.Instance.PlaySe("SE_touch");
     }
 }
