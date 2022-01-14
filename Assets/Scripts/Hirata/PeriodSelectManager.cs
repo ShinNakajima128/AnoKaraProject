@@ -80,6 +80,8 @@ public class PeriodSelectManager : MonoBehaviour
     [SerializeField]
     bool m_isDebugMode = default;
 
+    [SerializeField]
+    float m_buttonAnimTimer = 0.5f;
     public static PeriodSelectManager Instance { get; private set; }
 
     private void Awake()
@@ -126,37 +128,45 @@ public class PeriodSelectManager : MonoBehaviour
     /// </summary>
     public void SelectPeriod(int period)
     {
-        //m_periodButtons[period - 1].gameObject.transform.DOMoveY
+        var s = DOTween.Sequence();
 
-        LoadSceneManager.WhiteFadeOutPanel(() => 
-        {
-            m_periodNum = period;
-            GetStageClearFlag(period);
-            SetButtonFlag(m_stageButtons, m_stageClearFlag, StageCheck((PeriodTypes)period));
-            SetStageButton(m_stageTexts, m_periodStageData, period);
-            m_stageSelectPanel.SetActive(true);
-            if (m_settingPanel != null)
-            {
-                m_settingPanel.SetActive(false);
-            }
-            SetStageBuckground(period);
-            m_headerText.text = "ステージ選択";
-            m_stageCharactorImage.sprite = DataManager.Instance.PlayerData.PlayerImage[0];
+        s.Append(m_periodButtons[period - 1].gameObject.transform.DOMoveY(-150, m_buttonAnimTimer))
+         .Append(m_periodButtons[period - 1].gameObject.transform.DOMoveY(200, m_buttonAnimTimer - 0.2f))
+         .OnComplete(() => 
+         {
+             LoadSceneManager.WhiteFadeOutPanel(() =>
+             {
+                 m_periodButtons[period - 1].gameObject.transform.DOMoveY(-48.5f, 0.01f).OnComplete(() => 
+                 {
+                     m_periodNum = period;
+                     GetStageClearFlag(period);
+                     SetButtonFlag(m_stageButtons, m_stageClearFlag, StageCheck((PeriodTypes)period));
+                     SetStageButton(m_stageTexts, m_periodStageData, period);
+                     m_stageSelectPanel.SetActive(true);
+                     if (m_settingPanel != null)
+                     {
+                         m_settingPanel.SetActive(false);
+                     }
+                     SetStageBuckground(period);
+                     m_headerText.text = "ステージ選択";
+                     m_stageCharactorImage.sprite = DataManager.Instance.PlayerData.PlayerImage[0];
 
-            foreach (var c in m_achieveCtrls)
-            {
-                c.gameObject.SetActive(false);
-            }
+                     foreach (var c in m_achieveCtrls)
+                     {
+                         c.gameObject.SetActive(false);
+                     }
 
-            for (int i = 0; i < DataManager.Instance.PlayerData.StageAchieves[period - 1].Achieves.Length; i++)
-            {
-                m_achieveCtrls[i].gameObject.SetActive(true);
-                m_achieveCtrls[i].ViewAchieve(DataManager.Instance.PlayerData.StageAchieves[period - 1].Achieves[i]);
-            }
-            LoadSceneManager.WhiteFadeInPanel();
-        });
-        
-        SoundManager.Instance.PlaySe("SE_touch");
+                     for (int i = 0; i < DataManager.Instance.PlayerData.StageAchieves[period - 1].Achieves.Length; i++)
+                     {
+                         m_achieveCtrls[i].gameObject.SetActive(true);
+                         m_achieveCtrls[i].ViewAchieve(DataManager.Instance.PlayerData.StageAchieves[period - 1].Achieves[i]);
+                     }
+                     LoadSceneManager.WhiteFadeInPanel();
+                 });          
+             });
+             SoundManager.Instance.PlaySe("SE_touch");
+         })
+         .Play(); 
     }
 
     /// <summary>
