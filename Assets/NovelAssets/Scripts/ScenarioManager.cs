@@ -404,8 +404,6 @@ public class ScenarioManager : MonoBehaviour
                         offChara = true;
                     }
 
-                    Debug.Log(offChara);
-
                     if (!offChara)
                     {
                         Debug.Log("表情切り替え");
