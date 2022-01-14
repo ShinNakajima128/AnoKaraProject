@@ -311,6 +311,7 @@ public class ScenarioManager : MonoBehaviour
             //ダイアログをリセット
             m_endMessage = false;
             isClicked = false;
+
             if (currentDialogIndex == 0 && !m_isSearchPart)
             {
                 BackGroundController.BackgroundAnim += FinishReceive;
@@ -491,6 +492,7 @@ public class ScenarioManager : MonoBehaviour
                     if (isClicked)
                     {
                         m_messageText.text = HighlightKeyword(message);
+                        yield return null;
                         break;
                     }
                     yield return null;
@@ -507,7 +509,7 @@ public class ScenarioManager : MonoBehaviour
 
                 if (data.DialogData[currentDialogIndex].ChoicesId != 0) //選択肢がある場合
                 {
-                    yield return new WaitForSeconds(0.8f);
+                    yield return new WaitForSeconds(0.5f);
 
                     m_choicesPanel.SetActive(true);
 
@@ -720,6 +722,7 @@ public class ScenarioManager : MonoBehaviour
             else if (IsInputed())
             {
                 isClicked = true;
+                yield return null;
                 yield break;
             }
             yield return null;
@@ -971,7 +974,7 @@ public class ScenarioManager : MonoBehaviour
             {
                 //クリックフラグをON
                 isChoiced = true;
-
+                SoundManager.Instance.PlaySe("SE_touch");
                 //生成した選択肢を全て消去
                 foreach (Transform child in m_choicesPanel.transform)
                 {
@@ -1067,6 +1070,7 @@ public class ScenarioManager : MonoBehaviour
         //左クリック、Spaceキー、Enterキーのいずれかが押されたらtrueを返す
         if (m_clickReception || Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.Return))
         {
+            //SoundManager.Instance.PlaySe("SE_touch");
             return true;
         }
         else
