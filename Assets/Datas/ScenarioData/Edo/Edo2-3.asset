@@ -285,22 +285,22 @@ MonoBehaviour:
   m_choicesDatas:
   - ChoicesId: 1
     Choices: "\u53CD\u6297\u3059\u308B\n\u4E0B\u304C\u308B"
-    NextMessageId: '11
+    NextMessageId: '8
 
-      11'
+      9'
     m_allChoices:
     - "\u53CD\u6297\u3059\u308B"
     - "\u4E0B\u304C\u308B"
-    m_nextId: 0b0000000b000000
+    m_nextId: 0800000009000000
   - ChoicesId: 2
     Choices: "\u9811\u5F35\u3063\u3066\u82F1\u8A9E\u3067\u8A71\u3059\n\u65E5\u672C\u8A9E\u3067\u8A71\u3059"
-    NextMessageId: '10
+    NextMessageId: '6
 
-      10'
+      7'
     m_allChoices:
     - "\u9811\u5F35\u3063\u3066\u82F1\u8A9E\u3067\u8A71\u3059"
     - "\u65E5\u672C\u8A9E\u3067\u8A71\u3059"
-    m_nextId: 0a0000000a000000
+    m_nextId: 0600000007000000
   - ChoicesId: 3
     Choices: "\u308F\u304B\u3089\u306A\u3044\u3068\u7B54\u3048\u308B\n\u30B3\u30DE\u306B\u805E\u304F"
     NextMessageId: '5
