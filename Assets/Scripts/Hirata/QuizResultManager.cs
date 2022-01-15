@@ -137,6 +137,7 @@ public class QuizResultManager : MonoBehaviour
     {
         m_nextUiButton.interactable = false;
         m_nextUi.SetActive(true);
+        SoundManager.Instance.PlaySe("SE_touch");
     }
 
     /// <summary>
@@ -155,7 +156,8 @@ public class QuizResultManager : MonoBehaviour
             {
                 GameManager.Instance.IsAfterQuized = true;
             });
-        }     
+        }
+        SoundManager.Instance.PlaySe("SE_touch");
     }
 
     /// <summary>
@@ -165,6 +167,7 @@ public class QuizResultManager : MonoBehaviour
     public void QuizRetry()
     {
         LoadSceneManager.LoadBeforeScene();
+        SoundManager.Instance.PlaySe("SE_touch");
     }
 
     /// <summary>
