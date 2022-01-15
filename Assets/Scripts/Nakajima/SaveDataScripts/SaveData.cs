@@ -31,6 +31,7 @@ public class SaveData
     public class GameData
     {
         public bool FirstPlay = true;
+        public bool GameClear = false;
         public string PlayerName;
         public GenderType Gender;
         public GameManager.ClearFlagArray[] ClearFlags;

@@ -149,8 +149,17 @@ public class QuizResultManager : MonoBehaviour
     {
         if (GameManager.Instance.CurrentPeriod == MasterData.PeriodTypes.Edo && GameManager.Instance.CurrentStageId == 3)
         {
-            DataManager.UpdateData();
-            LoadSceneManager.AnyLoadScene("Ending");
+            var gameData = FindObjectOfType<GameDataObject>();
+            if (!gameData.GameClear)
+            {
+                gameData.GameClear = true;
+                DataManager.UpdateData();
+                LoadSceneManager.AnyLoadScene("Ending");
+            }
+            else
+            {
+                LoadSceneManager.AnyLoadScene(scene);
+            }
         }
         else
         {

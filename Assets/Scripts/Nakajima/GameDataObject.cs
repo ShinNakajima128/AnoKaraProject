@@ -16,7 +16,9 @@ public class GameDataObject : MonoBehaviour, ISave
     public SaveData.GameData GameData => gameData;
 
     /// <summary> 初プレイかどうかのフラグを取得する </summary>
-    public bool FirstPlay { get => gameData.FirstPlay; set => gameData.FirstPlay = value; } 
+    public bool FirstPlay { get => gameData.FirstPlay; set => gameData.FirstPlay = value; }
+    /// <summary> ゲームをクリア済みかどうかのフラグを取得する </summary>
+    public bool GameClear { get => gameData.GameClear; set => gameData.GameClear = value; }
 
     /// <summary> プレイヤー名を取得する </summary>
     public string PlayerName { get => gameData.PlayerName; set => gameData.PlayerName = value; }
