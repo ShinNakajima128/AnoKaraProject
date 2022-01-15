@@ -115,7 +115,21 @@ public class SearchManager : MonoBehaviour
         {
             EventManager.ListenEvents(Events.FinishDialog, () => 
             {
-                LoadSceneManager.AnyLoadScene("Ending");
+                GameManager.Instance.IsAfterQuized = false;
+                var gameData = FindObjectOfType<GameDataObject>();
+
+                //江戸のステージ3初クリアの場合、データを保存してエンディングに遷移
+                if (!gameData.GameClear)
+                {
+                    gameData.GameClear = true;
+                    DataManager.UpdateData();
+                    LoadSceneManager.AnyLoadScene("Ending");
+                }
+                else //時代選択画面に戻る
+                {
+                    LoadSceneManager.AnyLoadScene("PeriodSelect");
+                }
+                
             });
         }
         else if (GameManager.Instance.IsAfterQuized)
