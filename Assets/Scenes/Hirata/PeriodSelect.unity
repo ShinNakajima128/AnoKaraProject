@@ -3628,7 +3628,7 @@ MonoBehaviour:
     m_HighlightedSprite: {fileID: 21300000, guid: 26fd050d44630b8458e419a578ec5ee3, type: 3}
     m_PressedSprite: {fileID: 21300000, guid: 26fd050d44630b8458e419a578ec5ee3, type: 3}
     m_SelectedSprite: {fileID: 21300000, guid: 26fd050d44630b8458e419a578ec5ee3, type: 3}
-    m_DisabledSprite: {fileID: 21300000, guid: 26fd050d44630b8458e419a578ec5ee3, type: 3}
+    m_DisabledSprite: {fileID: 21300000, guid: bbb5e1d9c97bbd24da9724ef4d5a103a, type: 3}
   m_AnimationTriggers:
     m_NormalTrigger: Normal
     m_HighlightedTrigger: Highlighted
@@ -3959,7 +3959,7 @@ MonoBehaviour:
     m_HighlightedSprite: {fileID: 21300000, guid: 26fd050d44630b8458e419a578ec5ee3, type: 3}
     m_PressedSprite: {fileID: 21300000, guid: 26fd050d44630b8458e419a578ec5ee3, type: 3}
     m_SelectedSprite: {fileID: 21300000, guid: 26fd050d44630b8458e419a578ec5ee3, type: 3}
-    m_DisabledSprite: {fileID: 21300000, guid: 26fd050d44630b8458e419a578ec5ee3, type: 3}
+    m_DisabledSprite: {fileID: 21300000, guid: bbb5e1d9c97bbd24da9724ef4d5a103a, type: 3}
   m_AnimationTriggers:
     m_NormalTrigger: Normal
     m_HighlightedTrigger: Highlighted
@@ -6451,7 +6451,7 @@ MonoBehaviour:
     m_HighlightedSprite: {fileID: 21300000, guid: 26fd050d44630b8458e419a578ec5ee3, type: 3}
     m_PressedSprite: {fileID: 21300000, guid: 26fd050d44630b8458e419a578ec5ee3, type: 3}
     m_SelectedSprite: {fileID: 21300000, guid: 26fd050d44630b8458e419a578ec5ee3, type: 3}
-    m_DisabledSprite: {fileID: 21300000, guid: 26fd050d44630b8458e419a578ec5ee3, type: 3}
+    m_DisabledSprite: {fileID: 21300000, guid: bbb5e1d9c97bbd24da9724ef4d5a103a, type: 3}
   m_AnimationTriggers:
     m_NormalTrigger: Normal
     m_HighlightedTrigger: Highlighted
@@ -8853,7 +8853,7 @@ MonoBehaviour:
     m_HighlightedSprite: {fileID: 21300000, guid: 26fd050d44630b8458e419a578ec5ee3, type: 3}
     m_PressedSprite: {fileID: 21300000, guid: 26fd050d44630b8458e419a578ec5ee3, type: 3}
     m_SelectedSprite: {fileID: 21300000, guid: 26fd050d44630b8458e419a578ec5ee3, type: 3}
-    m_DisabledSprite: {fileID: 21300000, guid: 26fd050d44630b8458e419a578ec5ee3, type: 3}
+    m_DisabledSprite: {fileID: 21300000, guid: bbb5e1d9c97bbd24da9724ef4d5a103a, type: 3}
   m_AnimationTriggers:
     m_NormalTrigger: Normal
     m_HighlightedTrigger: Highlighted
