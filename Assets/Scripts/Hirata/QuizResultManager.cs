@@ -147,27 +147,8 @@ public class QuizResultManager : MonoBehaviour
     /// </summary>
     public void NextScene(string scene)
     {
-        if (GameManager.Instance.CurrentPeriod == MasterData.PeriodTypes.Edo && GameManager.Instance.CurrentStageId == 3)
-        {
-            var gameData = FindObjectOfType<GameDataObject>();
-            if (!gameData.GameClear)
-            {
-                gameData.GameClear = true;
-                DataManager.UpdateData();
-                LoadSceneManager.AnyLoadScene("Ending");
-            }
-            else
-            {
-                LoadSceneManager.AnyLoadScene(scene);
-            }
-        }
-        else
-        {
-            LoadSceneManager.AnyLoadScene(scene, () =>
-            {
-                GameManager.Instance.IsAfterQuized = true;
-            });
-        }
+        GameManager.Instance.IsAfterQuized = true;
+        LoadSceneManager.AnyLoadScene(scene);
         SoundManager.Instance.PlaySe("SE_touch");
     }
 
