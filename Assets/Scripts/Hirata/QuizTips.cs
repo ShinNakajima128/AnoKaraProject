@@ -168,7 +168,10 @@ public class QuizTips : MonoBehaviour
     void ActiveTips()
     {
         GetTips();
-        m_isTips = true;
+        if (!QuizManager.Instance.IsDebugMode)
+        {
+            m_isTips = true;
+        }
         m_tipsUi.SetActive(true);
         SoundManager.Instance.PlaySe("SE_popup");
         StartCoroutine(CloseTips());
@@ -203,5 +206,6 @@ public class QuizTips : MonoBehaviour
     public void Close()
     {
         m_isTipsActive = false;
+        m_isMash = false;
     }
 }

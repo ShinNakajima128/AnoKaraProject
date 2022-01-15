@@ -210,6 +210,8 @@ public class QuizManager : MonoBehaviour
     public bool IsAnswered { get => m_isAnswered; set => m_isAnswered = value; }
     public string CurrentQuizTips { get => m_currentQuizTips; set => m_currentQuizTips = value; }
     public bool QuizDataUpdated { get; set; } = false;
+
+    public bool IsDebugMode => m_isDebugMode;
     #endregion
     private void Awake()
     {
@@ -430,6 +432,11 @@ public class QuizManager : MonoBehaviour
 
     IEnumerator CountDown()
     {
+        if (GameManager.Instance.CurrentPeriod != PeriodTypes.Jomon_Yayoi)
+        {
+            yield return new WaitForSeconds(0.4f);
+        }
+
         m_countDown.enabled = true;
         //ヒントボタンOFF
         m_tipsButton.interactable = false;
