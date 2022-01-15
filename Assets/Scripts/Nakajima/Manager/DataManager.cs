@@ -110,9 +110,9 @@ public class DataManager : SingletonMonoBehaviour<DataManager>
     }
 
     /// <summary>
-    /// 
+    /// アチーブデータを更新する
     /// </summary>
-    /// <param name="achieve"></param>
+    /// <param name="achieve"> 更新するアチーブ内容 </param>
     public void UpdateAchieve(StageQuizAchieveStates achieve)
     {
         if ((int)achieve > (int)CurrentStageAchieve)
