@@ -69,6 +69,7 @@ public class PeriodSelectManager : MonoBehaviour
     bool[] m_stageClearFlag = new bool[4];
 
     Image m_periodBackground = default;
+    bool m_isScrollAnimed = false;
 
     /// <summary>決定ボタン</summary>
     [SerializeField]
@@ -128,7 +129,12 @@ public class PeriodSelectManager : MonoBehaviour
     /// </summary>
     public void SelectPeriod(int period)
     {
-        
+        if (m_isScrollAnimed)
+        {
+            return;
+        }
+
+        m_isScrollAnimed = true;
 
         var s = DOTween.Sequence();
 
@@ -165,6 +171,7 @@ public class PeriodSelectManager : MonoBehaviour
                          m_achieveCtrls[i].ViewAchieve(DataManager.Instance.PlayerData.StageAchieves[period - 1].Achieves[i]);
                      }
                      LoadSceneManager.WhiteFadeInPanel();
+                     m_isScrollAnimed = false;
                  });          
              });
          })
