@@ -936,6 +936,7 @@ public class ScenarioManager : MonoBehaviour
                     if (i == currentIndex[n])
                     {
                         m_characterImage[i].color = new Color(1, 1, 1); //アクティブにする
+                        break;
                     }
                     else
                     {
