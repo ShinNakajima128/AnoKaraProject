@@ -83,6 +83,7 @@ public class QuizResultManager : MonoBehaviour
         {
             QuizResultUiSet(0);
             StartCoroutine(SetIcon(0, m_iconTimer));
+            FlagOpen();
             DataManager.Instance.UpdateAchieve(StageQuizAchieveStates.One);
         }
         else if (m_hp < 1)
@@ -148,6 +149,7 @@ public class QuizResultManager : MonoBehaviour
     {
         if (GameManager.Instance.CurrentPeriod == MasterData.PeriodTypes.Edo && GameManager.Instance.CurrentStageId == 3)
         {
+            DataManager.UpdateData();
             LoadSceneManager.AnyLoadScene("Ending");
         }
         else
