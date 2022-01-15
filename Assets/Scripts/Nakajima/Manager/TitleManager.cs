@@ -247,6 +247,7 @@ public class TitleManager : MonoBehaviour
     public void ResetGameData()
     {
         m_gameDataObject.FirstPlay = true;
+        m_gameDataObject.GameClear = false;
         m_gameDataObject.PlayerName = "";
         m_gameDataObject.PlayerGender = default;
         for (int i = 0; i < m_gameDataObject.ClearFlag.Length; i++)
