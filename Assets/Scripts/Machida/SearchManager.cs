@@ -428,12 +428,8 @@ public class SearchManager : MonoBehaviour
             EventManager.ListenEvents(Events.FinishDialog, () =>
             {
                 LoadSceneManager.AnyLoadScene("QuizPart");
-                //LoadSceneManager.AnyLoadScene("PeriodSelect", () =>
-                //{
-                //    DataManager.Instance.FlagOpen((int)GameManager.Instance.CurrentPeriod, GameManager.Instance.CurrentStageId);
-                //});
             });
-            Debug.Log("全てのタスクが終了しました");    
+            Debug.Log("全てのタスクが終了しました");
         }
     }
 

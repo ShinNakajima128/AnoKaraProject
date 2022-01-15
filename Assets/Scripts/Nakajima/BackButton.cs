@@ -37,7 +37,14 @@ public class BackButton : MonoBehaviour
         m_confirmPanel.SetActive(false);
         m_backPanel.SetActive(false);
         EventManager.ListenEvents(Events.BeginDialog, OffPanel);
-        EventManager.ListenEvents(Events.FinishDialog, OnPanel);
+        if (!GameManager.Instance.IsAfterQuized)
+        {
+            EventManager.ListenEvents(Events.FinishDialog, OnPanel);
+            EventManager.ListenEvents(Events.TaskComplite, () => 
+            {
+                EventManager.RemoveEvents(Events.FinishDialog, OnPanel);
+            });
+        }
     }
 
     public void OnConfirmPanel()
