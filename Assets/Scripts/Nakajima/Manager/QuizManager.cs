@@ -452,7 +452,7 @@ public class QuizManager : MonoBehaviour
         SoundManager.Instance.PlaySe("SE_touch");
 
         yield return new WaitForSeconds(1.0f);
-        m_countDown.text = "スタート！";
+        m_countDown.text = "開始！";
         SoundManager.Instance.PlaySe("SE_title");
         yield return new WaitForSeconds(1.0f);
         
