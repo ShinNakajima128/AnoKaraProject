@@ -65,14 +65,14 @@ MonoBehaviour:
     m_faceTypes: 05000000
     StartAnimationType: "\u306A\u3057"
     EndAnimationType: "\u306A\u3057"
-    Messages: "\u300C\u805E\u3044\u3066\u307F\u306A\u3044\u300D"
+    Messages: "(\u3058\u30FC)"
     ChoicesId: 0
     NextId: 5
     VoiceId: "\u306A\u3057"
     m_allVoiceId:
     - "\u306A\u3057"
     m_allMessages:
-    - "\u300C\u805E\u3044\u3066\u307F\u306A\u3044\u300D"
+    - "(\u3058\u30FC)"
   - MessageId: 3
     Talker: "\u30D7\u30EC\u30A4\u30E4\u30FC"
     m_talker:
@@ -301,13 +301,13 @@ MonoBehaviour:
     m_nextId: 0300000004000000
   - ChoicesId: 3
     Choices: "\u805E\u3044\u3066\u307F\u308B\n\u805E\u3044\u3066\u307F\u306A\u3044"
-    NextMessageId: '1
+    NextMessageId: '3
 
       2'
     m_allChoices:
     - "\u805E\u3044\u3066\u307F\u308B"
     - "\u805E\u3044\u3066\u307F\u306A\u3044"
-    m_nextId: 0100000002000000
+    m_nextId: 0300000002000000
   - ChoicesId: 4
     Choices: "\u305D\u30FC\u3081\u3093\u306E\u6B66\u58EB\uFF1F\n\u305B\u3093\u3079\u3044\u306E\u6B66\u58EB\uFF1F"
     NextMessageId: '7
@@ -319,13 +319,13 @@ MonoBehaviour:
     m_nextId: 0700000008000000
   - ChoicesId: 5
     Choices: "\u3070\u3061\u3070\u3061\uFF1F\u306F\u3061\uFF1F\u306F\u3061\u307F\u3064\uFF1F\n\u3070\u3061\u3070\u3061\uFF1F\u308F\u305F\u3071\u3061\uFF1F"
-    NextMessageId: '3
+    NextMessageId: '1
 
-      3'
+      2'
     m_allChoices:
     - "\u3070\u3061\u3070\u3061\uFF1F\u306F\u3061\uFF1F\u306F\u3061\u307F\u3064\uFF1F"
     - "\u3070\u3061\u3070\u3061\uFF1F\u308F\u305F\u3071\u3061\uFF1F"
-    m_nextId: 0300000003000000
+    m_nextId: 0100000002000000
   - ChoicesId: 6
     Choices: "\u307E\u304B\u305B\u3066\u3088\uFF01\n\u96E3\u3057\u3044\u306D"
     NextMessageId: '10
@@ -337,31 +337,31 @@ MonoBehaviour:
     m_nextId: 0a0000000b000000
   - ChoicesId: 7
     Choices: "\u307B\u3089\u3001\u3042\u3068\u3067\u306F\u3061\u307F\u3064\u3042\u3052\u308B\u304B\u3089\n\u307B\u3089\u3001\u3042\u3068\u3067\u308F\u305F\u3071\u3061\u3042\u3052\u308B\u304B\u3089"
-    NextMessageId: '4
+    NextMessageId: '2
 
-      4'
+      3'
     m_allChoices:
     - "\u307B\u3089\u3001\u3042\u3068\u3067\u306F\u3061\u307F\u3064\u3042\u3052\u308B\u304B\u3089"
     - "\u307B\u3089\u3001\u3042\u3068\u3067\u308F\u305F\u3071\u3061\u3042\u3052\u308B\u304B\u3089"
-    m_nextId: 0400000004000000
+    m_nextId: 0200000003000000
   - ChoicesId: 8
     Choices: "\u3088\u3057\u3001\u9003\u3052\u3088\u3046\n\u3069\u3046\u3057\u3066\uFF1F"
-    NextMessageId: '3
+    NextMessageId: '1
 
-      4'
+      2'
     m_allChoices:
     - "\u3088\u3057\u3001\u9003\u3052\u3088\u3046"
     - "\u3069\u3046\u3057\u3066\uFF1F"
-    m_nextId: 0300000004000000
+    m_nextId: 0100000002000000
   - ChoicesId: 9
     Choices: "\u52A9\u3051\u308B\n\u52A9\u3051\u306A\u3044"
-    NextMessageId: '14
+    NextMessageId: '12
 
-      15'
+      13'
     m_allChoices:
     - "\u52A9\u3051\u308B"
     - "\u52A9\u3051\u306A\u3044"
-    m_nextId: 0e0000000f000000
+    m_nextId: 0c0000000d000000
   - ChoicesId: 10
     Choices: "\u52A9\u304B\u308B"
     NextMessageId: 17

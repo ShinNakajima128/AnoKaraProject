@@ -10596,7 +10596,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 447483709531774641, guid: a877d34447378504984e2afe6efcb7e0, type: 3}
       propertyPath: m_currentPeriod
-      value: 4
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 447483709531774641, guid: a877d34447378504984e2afe6efcb7e0, type: 3}
       propertyPath: m_isAfterQuized
@@ -10604,7 +10604,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 447483709531774641, guid: a877d34447378504984e2afe6efcb7e0, type: 3}
       propertyPath: m_currentStageId
-      value: 3
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 447483709531774654, guid: a877d34447378504984e2afe6efcb7e0, type: 3}
       propertyPath: m_RootOrder
