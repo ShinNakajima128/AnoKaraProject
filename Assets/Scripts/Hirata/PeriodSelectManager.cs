@@ -172,6 +172,7 @@ public class PeriodSelectManager : MonoBehaviour
                      }
                      LoadSceneManager.WhiteFadeInPanel();
                      m_isScrollAnimed = false;
+                     SelectStage(0);
                  });          
              });
          })
@@ -186,6 +187,15 @@ public class PeriodSelectManager : MonoBehaviour
         m_periodSelectHelpPanel.SetActive(true);
         m_periodSelectHelpPanel.transform.localScale = Vector3.zero;
         m_periodSelectHelpPanel.transform.DOScale(Vector3.one, 0.1f).OnComplete(() => { SoundManager.Instance.PlaySe("SE_touch"); });
+    }
+
+
+    /// <summary>
+    /// 選択したらSEを再生する。ボタンに設置
+    /// </summary>
+    public void PlaySelectSound()
+    {
+        SoundManager.Instance.PlaySe("SE_touch");
     }
 
     /// <summary>
@@ -318,7 +328,6 @@ public class PeriodSelectManager : MonoBehaviour
         m_decisionButton.interactable = true;
         SetStageNum(stage);
         SetStageSprite(m_periodStageData, m_periodNum, m_selectedStageNum);
-        SoundManager.Instance.PlaySe("SE_touch");
     }
 
     /// <summary>
