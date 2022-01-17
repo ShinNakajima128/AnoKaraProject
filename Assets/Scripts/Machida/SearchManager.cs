@@ -280,9 +280,14 @@ public class SearchManager : MonoBehaviour
     /// </summary>
     public void TaskCount()
     {
+        SoundManager.Instance.PlaySe("SE_title");
         StartCoroutine(WaitTask());
     }
 
+    /// <summary>
+    /// 表示しているシナリオが終わるまで待ち、終わったらいくつタスクが終わったか判定する
+    /// </summary>
+    /// <returns></returns>
     IEnumerator WaitTask()
     {
         while (!IsTaskComplited)
