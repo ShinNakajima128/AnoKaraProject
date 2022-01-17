@@ -169,6 +169,7 @@ public class ScenarioManager : MonoBehaviour
     #endregion
 
     #region field
+    /// <summary> 次のメッセージのID </summary>
     int m_nextMessageId = 0;
     int m_AfterReactionMessageId = 0;
     int m_currentBackgroundType = default;
