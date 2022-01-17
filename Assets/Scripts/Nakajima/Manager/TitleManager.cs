@@ -279,6 +279,33 @@ public class TitleManager : MonoBehaviour
     }
 
     /// <summary>
+    /// デバッグ用のゲームデータでリセットする
+    /// </summary>
+    void DebugResetGameData()
+    {
+        m_gameDataObject.FirstPlay = false;
+        m_gameDataObject.GameClear = false;
+        m_gameDataObject.PlayerName = "テストプレイ";
+        m_gameDataObject.PlayerGender = GenderType.Boy;
+        for (int i = 0; i < m_gameDataObject.ClearFlag.Length; i++)
+        {
+            for (int n = 0; n < m_gameDataObject.ClearFlag[i].m_stageClearFlag.Length; n++)
+            {
+                m_gameDataObject.ClearFlag[i].m_stageClearFlag[n] = true;
+            }
+        }
+
+        for (int i = 0; i < m_gameDataObject.AllStageAchieves.Length; i++)
+        {
+            for (int n = 0; n < m_gameDataObject.AllStageAchieves[i].Achieves.Length; n++)
+            {
+                m_gameDataObject.AllStageAchieves[i].Achieves[n] = StageQuizAchieveStates.One;
+            }
+        }
+        DataManager.SaveData();
+    }
+
+    /// <summary>
     /// データ消去の際の最終確認画面を表示。ボタンに設定
     /// </summary>
     public void OnFinalConfirmPanel()
@@ -295,6 +322,7 @@ public class TitleManager : MonoBehaviour
         SoundManager.Instance.PlaySe("SE_touch");
         m_finalConfirmPanel.SetActive(false);
     }
+
     /// <summary>
     /// データをリセットする。ボタンに設定する。
     /// </summary>
@@ -306,6 +334,20 @@ public class TitleManager : MonoBehaviour
         LoadSceneManager.AnyLoadScene("Title", () =>
         {
             Debug.Log("データを消去しました");
+        });
+    }
+
+    /// <summary>
+    /// データをリセットする。ボタンに設定する。
+    /// </summary>
+    public void DebugResetData()
+    {
+        PlayerPrefs.DeleteAll();
+        DebugResetGameData();
+        SoundManager.Instance.PlaySe("SE_title");
+        LoadSceneManager.AnyLoadScene("Title", () =>
+        {
+            Debug.Log("データをデバッグ用に変更しました");
         });
     }
 }
