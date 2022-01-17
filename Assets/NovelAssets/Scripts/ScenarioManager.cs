@@ -7,6 +7,9 @@ using ScenarioMasterData;
 using UnityEngine.Events;
 using DG.Tweening;
 
+/// <summary>
+/// 強調文字の種類
+/// </summary>
 public enum HighlightTextType
 {
     None,
@@ -15,6 +18,9 @@ public enum HighlightTextType
     BoldAndColor
 }
 
+/// <summary>
+/// 表情の種類
+/// </summary>
 public enum FeelingType
 {
     Happy,
@@ -167,6 +173,8 @@ public class ScenarioManager : MonoBehaviour
     int m_AfterReactionMessageId = 0;
     int m_currentBackgroundType = default;
     int m_beforeEmoteType = -1;
+    int m_currentDialogIndex = 0;
+    int m_ScenarioDataLength = 0;
     string m_currentStageGreatMan = default;
     string m_htmlStartCode = default;
     string m_htmlEndCode = default;
@@ -177,6 +185,7 @@ public class ScenarioManager : MonoBehaviour
     bool isChoiced = false;
     bool isReactioned = false;
     bool m_clickReception = false;
+    bool m_scenarioSkiped = false;
     bool isFirst = true;
     bool set1 = false;
     bool set2 = false;
@@ -269,9 +278,12 @@ public class ScenarioManager : MonoBehaviour
     {
         m_choicesPanel.SetActive(false);
         m_display.SetActive(false);
-        int currentDialogIndex = 0;
+        m_currentDialogIndex = 0;
+        m_ScenarioDataLength = data.DialogData.Length;
         m_nextMessageId = 0;
         int setCount = 0;
+        isChoiced = false;
+        m_scenarioSkiped = false;
         set1 = false;
         set2 = false;
         set3 = false;
@@ -279,7 +291,8 @@ public class ScenarioManager : MonoBehaviour
         yield return null;
         EventManager.OnEvent(Events.BeginDialog);
 
-        for (int i = 0; i < data.DialogData.Length; i++)
+        //再生するシナリオで最初にフェードインするキャラクターの画像をセットする
+        for (int i = 0; i < m_ScenarioDataLength; i++)
         {
             if (data.DialogData[i].AllPosition[0] == 0 && !set1)
             {
@@ -300,25 +313,27 @@ public class ScenarioManager : MonoBehaviour
                 setCount++;
             }
 
+            //3ヵ所セットしたら処理を終わる
             if (setCount >= 3)
             {
                 break;
             }
         }
 
-        while (currentDialogIndex < data.DialogData.Length)
+        //ダイアログのデータがなくなるまでシナリオを続ける
+        while (m_currentDialogIndex < data.DialogData.Length)
         {
             //ダイアログをリセット
             m_endMessage = false;
             isClicked = false;
 
-            if (currentDialogIndex == 0 && !m_isSearchPart)
+            if (m_currentDialogIndex == 0 && !m_isSearchPart)
             {
                 BackGroundController.BackgroundAnim += FinishReceive;
 
-                m_bgCtrl.Setup(data.DialogData[currentDialogIndex].BackgroundType); //最初の背景をセットする
-                m_bgCtrl.FadeIn(data.DialogData[currentDialogIndex].BackgroundType); //フェードイン
-                m_currentBackgroundType = data.DialogData[currentDialogIndex].BackgroundType;
+                m_bgCtrl.Setup(data.DialogData[m_currentDialogIndex].BackgroundType); //最初の背景をセットする
+                m_bgCtrl.FadeIn(data.DialogData[m_currentDialogIndex].BackgroundType); //フェードイン
+                m_currentBackgroundType = data.DialogData[m_currentDialogIndex].BackgroundType;
                 isAnimPlaying = true;
 
                 //Animationが終わるまで待つ
@@ -328,13 +343,13 @@ public class ScenarioManager : MonoBehaviour
                 }
                 BackGroundController.BackgroundAnim -= FinishReceive;
             }
-            else if (m_currentBackgroundType != data.DialogData[currentDialogIndex].BackgroundType)
+            else if (m_currentBackgroundType != data.DialogData[m_currentDialogIndex].BackgroundType)
             {
                 m_settingButton.IsActived = false;
                 m_display.SetActive(false);
                 BackGroundController.BackgroundAnim += FinishReceive;
-                m_bgCtrl.Crossfade(data.DialogData[currentDialogIndex].BackgroundType); //次の背景にクロスフェードする
-                m_currentBackgroundType = data.DialogData[currentDialogIndex].BackgroundType;
+                m_bgCtrl.Crossfade(data.DialogData[m_currentDialogIndex].BackgroundType); //次の背景にクロスフェードする
+                m_currentBackgroundType = data.DialogData[m_currentDialogIndex].BackgroundType;
                 isAnimPlaying = true;
 
                 //Animationが終わるまで待つ
@@ -351,22 +366,22 @@ public class ScenarioManager : MonoBehaviour
             }
 
             //キャラクターのアニメーションが終わるまで待つ
-            yield return WaitForCharaAnimation(data.DialogData[currentDialogIndex].AllTalker,
-                                               data.DialogData[currentDialogIndex].AllPosition,
-                                               data.DialogData[currentDialogIndex].StartAnimationType);
+            yield return WaitForCharaAnimation(data.DialogData[m_currentDialogIndex].AllTalker,
+                                               data.DialogData[m_currentDialogIndex].AllPosition,
+                                               data.DialogData[m_currentDialogIndex].StartAnimationType);
 
             m_display.SetActive(true);
             OnContinueDialog();
 
             m_characterName.text = "";
 
-            for (int i = 0; i < data.DialogData[currentDialogIndex].AllTalker.Length; i++)
+            for (int i = 0; i < data.DialogData[m_currentDialogIndex].AllTalker.Length; i++)
             {
                 if (i > 0)
                 {
                     m_characterName.text += "＆";
                 }
-                m_characterName.text += data.DialogData[currentDialogIndex].AllTalker[i].Replace("プレイヤー", m_playerName);
+                m_characterName.text += data.DialogData[m_currentDialogIndex].AllTalker[i].Replace("プレイヤー", m_playerName);
             }
 
             if (m_characterName.text == "ナレーター")
@@ -382,12 +397,12 @@ public class ScenarioManager : MonoBehaviour
             {
                 m_tempLog += m_characterName.text.Trim('(', ')') + "：";
             }
-            EmphasisCharacter(data.DialogData[currentDialogIndex].AllPosition); //アクティブなキャラ以外を暗転する
+            EmphasisCharacter(data.DialogData[m_currentDialogIndex].AllPosition); //アクティブなキャラ以外を暗転する
 
             //各キャラクターの全てのメッセージを順に表示する
-            for (int i = 0; i < data.DialogData[currentDialogIndex].AllMessages.Length; i++)
+            for (int i = 0; i < data.DialogData[m_currentDialogIndex].AllMessages.Length; i++)
             {
-                if (data.DialogData[currentDialogIndex].AllMessages[i] == "")
+                if (data.DialogData[m_currentDialogIndex].AllMessages[i] == "")
                 {
                     m_display.SetActive(false);
                     break;
@@ -408,11 +423,11 @@ public class ScenarioManager : MonoBehaviour
                     if (!offChara)
                     {
                         Debug.Log("表情切り替え");
-                        for (int n = 0; n < data.DialogData[currentDialogIndex].AllPosition.Length; n++)
+                        for (int n = 0; n < data.DialogData[m_currentDialogIndex].AllPosition.Length; n++)
                         {
-                            if (m_characterImage[data.DialogData[currentDialogIndex].AllPosition[n]].enabled)
+                            if (m_characterImage[data.DialogData[m_currentDialogIndex].AllPosition[n]].enabled)
                             {
-                                m_characterImage[data.DialogData[currentDialogIndex].AllPosition[n]].sprite = SetCharaImage(data.DialogData[currentDialogIndex].AllTalker[n], data.DialogData[currentDialogIndex].FaceTypes[i]);
+                                m_characterImage[data.DialogData[m_currentDialogIndex].AllPosition[n]].sprite = SetCharaImage(data.DialogData[m_currentDialogIndex].AllTalker[n], data.DialogData[m_currentDialogIndex].FaceTypes[i]);
 
                                 //モブキャラ以外の場合は感情エフェクトを表示する
                                 if (!m_characterName.text.Contains("村") && 
@@ -420,7 +435,7 @@ public class ScenarioManager : MonoBehaviour
                                     !m_characterName.text.Contains("平民") && 
                                     !m_characterName.text.Contains("武士"))
                                 {
-                                    SetFeelingAnim(m_effectPositions[data.DialogData[currentDialogIndex].AllPosition[n]], data.DialogData[currentDialogIndex].FaceTypes[i]);
+                                    SetFeelingAnim(m_effectPositions[data.DialogData[m_currentDialogIndex].AllPosition[n]], data.DialogData[m_currentDialogIndex].FaceTypes[i]);
                                 }
                             }
                         }
@@ -430,33 +445,33 @@ public class ScenarioManager : MonoBehaviour
                 //表示されたメッセージをリセット
                 m_clickIcon.SetActive(false);
                 m_messageText.text = "";
-                string message = data.DialogData[currentDialogIndex].AllMessages[i].Replace("プレイヤー", m_playerName)
+                string message = data.DialogData[m_currentDialogIndex].AllMessages[i].Replace("プレイヤー", m_playerName)
                                                                                    .Replace(m_replacePlayerNameKeyword, DataManager.Instance.PlayerData.PlayerGender == GenderType.Boy ? m_malePronoun : m_famalePronoun);
                 bool isHighlighted = false;
                 m_clickReception = false;
 
                 //メッセージにボイスが設定されていたら
-                if (data.DialogData[currentDialogIndex].AllVoiceId[i] != "なし")
+                if (data.DialogData[m_currentDialogIndex].AllVoiceId[i] != "なし")
                 {
                     //各ボイスに合わせたSourceで音声を再生
                     if (m_characterName.text == "コマ")　//コマの音声を再生
                     {
-                        FixPlayVoice(VoiceType.Koma, data.DialogData[currentDialogIndex].AllVoiceId[i]);
+                        FixPlayVoice(VoiceType.Koma, data.DialogData[m_currentDialogIndex].AllVoiceId[i]);
                     }
                     else if (m_characterName.text == m_playerName)　//プレイヤーの音声を再生
                     {
-                        FixPlayVoice(VoiceType.Player, data.DialogData[currentDialogIndex].AllVoiceId[i]);
+                        FixPlayVoice(VoiceType.Player, data.DialogData[m_currentDialogIndex].AllVoiceId[i]);
 
                     }
                     else　//ナレーターやモブが話している場合
                     {
-                        if (data.DialogData[currentDialogIndex].AllVoiceId[i].Contains("player"))
+                        if (data.DialogData[m_currentDialogIndex].AllVoiceId[i].Contains("player"))
                         {
-                            FixPlayVoice(VoiceType.Player, data.DialogData[currentDialogIndex].AllVoiceId[i]);
+                            FixPlayVoice(VoiceType.Player, data.DialogData[m_currentDialogIndex].AllVoiceId[i]);
                         }
-                        else if (data.DialogData[currentDialogIndex].AllVoiceId[i].Contains("koma"))
+                        else if (data.DialogData[m_currentDialogIndex].AllVoiceId[i].Contains("koma"))
                         {
-                            FixPlayVoice(VoiceType.Koma, data.DialogData[currentDialogIndex].AllVoiceId[i]);
+                            FixPlayVoice(VoiceType.Koma, data.DialogData[m_currentDialogIndex].AllVoiceId[i]);
                         }
                     }
                 }
@@ -510,7 +525,7 @@ public class ScenarioManager : MonoBehaviour
 
                 yield return null;
 
-                if (data.DialogData[currentDialogIndex].ChoicesId != 0) //選択肢がある場合
+                if (data.DialogData[m_currentDialogIndex].ChoicesId != 0) //選択肢がある場合
                 {
                     yield return new WaitForSeconds(0.5f);
 
@@ -518,7 +533,7 @@ public class ScenarioManager : MonoBehaviour
 
                     for (int k = 0; k < data.ChoicesDatas.Length; k++)
                     {
-                        if (data.ChoicesDatas[k].ChoicesId == data.DialogData[currentDialogIndex].ChoicesId) //IDが一致したら
+                        if (data.ChoicesDatas[k].ChoicesId == data.DialogData[m_currentDialogIndex].ChoicesId) //IDが一致したら
                         {
                             CreateChoices(data.DialogData, data.ChoicesDatas[k], data.ChoicesDatas[k].NextId); //選択肢を生成
                             break;
@@ -529,9 +544,9 @@ public class ScenarioManager : MonoBehaviour
                     m_choicesPanel.SetActive(false); //選択肢画面を非表示にする
 
                     //選択肢を選択した直後だったら
-                    if (isChoiced && !isReactioned)
+                    if (isChoiced && !isReactioned && !m_scenarioSkiped)
                     {
-                        currentDialogIndex = m_nextMessageId; //選択した項目に対応したメッセージに次に表示する
+                        m_currentDialogIndex = m_nextMessageId; //選択した項目に対応したメッセージに次に表示する
                         isChoiced = false;
                         isReactioned = true;
                     }
@@ -565,7 +580,7 @@ public class ScenarioManager : MonoBehaviour
                         yield return null;
                     }
 
-                    if (i < data.DialogData[currentDialogIndex].AllMessages.Length - 1)
+                    if (i < data.DialogData[m_currentDialogIndex].AllMessages.Length - 1)
                     {
                         m_tempLog += HighlightKeyword(message) + "\n" + new string('　', m_characterName.text.Length) + "　";
                     }
@@ -577,27 +592,27 @@ public class ScenarioManager : MonoBehaviour
                 yield return null;
             }
             //キャラクターのアニメーションが終わるまで待つ
-            yield return WaitForCharaAnimation(data.DialogData[currentDialogIndex].AllTalker,
-                                               data.DialogData[currentDialogIndex].AllPosition,
-                                               data.DialogData[currentDialogIndex].EndAnimationType, data.DialogData[currentDialogIndex].FaceTypes[data.DialogData[currentDialogIndex].FaceTypes.Length - 1]);
+            yield return WaitForCharaAnimation(data.DialogData[m_currentDialogIndex].AllTalker,
+                                               data.DialogData[m_currentDialogIndex].AllPosition,
+                                               data.DialogData[m_currentDialogIndex].EndAnimationType, data.DialogData[m_currentDialogIndex].FaceTypes[data.DialogData[m_currentDialogIndex].FaceTypes.Length - 1]);
 
             //選択肢に対応したメッセージが表示済みだったら
             if (isReactioned)
             {
-                currentDialogIndex = m_AfterReactionMessageId;
+                m_currentDialogIndex = m_AfterReactionMessageId;
                 isReactioned = false;
             }
             else
             {
                 //NextIdが100だったら、クイズUIを表示し、そのステージのクイズを開始する
-                if (data.DialogData[currentDialogIndex].NextId == 100)
+                if (data.DialogData[m_currentDialogIndex].NextId == 100)
                 {
                     Debug.Log("クイズ開始");
-                    currentDialogIndex += 100;
+                    m_currentDialogIndex += 100;
                 }
                 else
                 {
-                    currentDialogIndex = data.DialogData[currentDialogIndex].NextId;
+                    m_currentDialogIndex = data.DialogData[m_currentDialogIndex].NextId;
                 }
             }
             yield return null;
@@ -617,7 +632,6 @@ public class ScenarioManager : MonoBehaviour
                 SearchManager.Instance.IsTaskComplited = true;
             }
         }
-        //OnEndDialog();
         EventManager.OnEvent(Events.FinishDialog);
         #endregion
     }
@@ -731,19 +745,6 @@ public class ScenarioManager : MonoBehaviour
             yield return null;
         }
     }
-
-    /// <summary>
-    /// スキップ判定
-    /// </summary>
-    /// <returns></returns>
-    IEnumerator SkipDecision(int currentId)
-    {
-        for (int i = currentId; i < m_character.Length; i++)
-        {
-
-        }
-        yield break;
-    }
     #endregion
 
     #region public function
@@ -833,6 +834,18 @@ public class ScenarioManager : MonoBehaviour
         {
             Time.timeScale = 1f; //コルーチン再開
         }
+    }
+
+    /// <summary>
+    /// スキップ判定
+    /// </summary>
+    /// <returns></returns>
+    public void Skip()
+    {
+        m_currentDialogIndex = m_ScenarioDataLength - 1;
+        isChoiced = true;
+        m_scenarioSkiped = true;
+        Reception();
     }
 
     /// <summary>
@@ -955,6 +968,11 @@ public class ScenarioManager : MonoBehaviour
     /// <param name="id"> 選択肢を押した後に表示するメッセージのID </param>
     void CreateChoices(DialogData[] characterDatas, ChoicesData data, int[] id)
     {
+        foreach (Transform child in m_choicesPanel.transform)
+        {
+            Destroy(child.gameObject);
+        }
+
         //選択肢の数だけボタンを生成
         for (int i = 0; i < data.AllChoices.Length; i++)
         {
@@ -984,6 +1002,7 @@ public class ScenarioManager : MonoBehaviour
                 {
                     Destroy(child.gameObject);
                 }
+                Debug.Log("選択肢をリセット");
             });
 
             //選択肢の項目名をボタンオブジェクトの下にあるテキストに代入

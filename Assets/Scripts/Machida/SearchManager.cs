@@ -308,6 +308,8 @@ public class SearchManager : MonoBehaviour
 
         if (CurrentTaskNum >= m_maxTaskNum)
         {
+            EventManager.OnEvent(Events.AllTaskFinish);
+
             var a = ScenarioManager.Instance.Data;
             var stage = GameManager.Instance.CurrentStageId;
 

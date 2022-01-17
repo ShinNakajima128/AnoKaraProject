@@ -40,9 +40,10 @@ public class BackButton : MonoBehaviour
         if (!GameManager.Instance.IsAfterQuized)
         {
             EventManager.ListenEvents(Events.FinishDialog, OnPanel);
-            EventManager.ListenEvents(Events.TaskComplite, () => 
+            EventManager.ListenEvents(Events.AllTaskFinish, () => 
             {
                 EventManager.RemoveEvents(Events.FinishDialog, OnPanel);
+                Debug.Log("OnPanel関数を削除");
             });
         }
     }
@@ -86,12 +87,12 @@ public class BackButton : MonoBehaviour
     void OnPanel()
     {
         m_allPanel.SetActive(true);
-        //SoundManager.Instance.PlaySe("SE_touch");
+        Debug.Log("設定画面音ON");
     }
 
     void OffPanel()
     {
         m_allPanel.SetActive(false);
-        //SoundManager.Instance.PlaySe("SE_touch");
+        Debug.Log("設定画面音OFF");
     }
 }

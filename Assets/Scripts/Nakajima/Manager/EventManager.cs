@@ -18,7 +18,8 @@ public enum Events
     Debug,
     Transition,
     BeginTask,
-    TaskComplite
+    TaskComplite,
+    AllTaskFinish
 }
 /// <summary>
 /// イベントを管理するクラス
