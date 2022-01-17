@@ -5,6 +5,13 @@ using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using System;
 
+///画面をフェードする時の色の種類
+public enum PanelColor
+{
+    Black,
+    White
+}
+
 /// <summary>
 /// Scene遷移を管理するクラス
 /// </summary>
@@ -95,9 +102,9 @@ public class LoadSceneManager : MonoBehaviour
     /// <summary>
     /// Sceneのリスタート。もう一度遊ぶ、やり直すといった機能を使いたい時に使用してください
     /// </summary>
-    public static void Restart(Action callBack = null)
+    public static void Restart(PanelColor color = PanelColor.Black, Action callBack = null)
     {
-        Instance.SetColor(0, 0, 0);
+        Instance.SetColorbyType(color);
         Instance.m_isFadeOut = true;
         Instance.StartCoroutine(Instance.LoadScene(CurrentScene, Instance.m_LoadTimer, callBack));
     }
@@ -105,9 +112,9 @@ public class LoadSceneManager : MonoBehaviour
     /// <summary>
     /// 前のSceneに遷移する。ゲームを中断する時などに使用してください。
     /// </summary>
-    public static void LoadBeforeScene(Action callBack = null)
+    public static void LoadBeforeScene(PanelColor color = PanelColor.Black, Action callBack = null)
     {
-        Instance.SetColor(0, 0, 0);
+        Instance.SetColorbyType(color);
         Instance.m_isFadeOut = true;
         Instance.StartCoroutine(Instance.LoadScene(BeforeScene, Instance.m_LoadTimer, callBack));
     }
@@ -125,9 +132,9 @@ public class LoadSceneManager : MonoBehaviour
     /// フェードイン(画面を徐々に表示)する
     /// </summary>
     /// <param name="callBack"> フェードイン後のコールバック </param>
-    public static void FadeInPanel(Action callBack = null)
+    public static void FadeInPanel(PanelColor color = PanelColor.Black, Action callBack = null)
     {
-        Instance.SetColor(0, 0, 0);
+        Instance.SetColorbyType(color);
         Instance.m_isFadeIn = true;
         Instance.m_currentFade = Instance.StartCoroutine(Instance.FadeIn(callBack));
     }
@@ -136,9 +143,9 @@ public class LoadSceneManager : MonoBehaviour
     /// 白い画面でフェードイン(画面を徐々に表示)する
     /// </summary>
     /// <param name="callBack"> フェードイン後のコールバック </param>
-    public static void WhiteFadeInPanel(Action callBack = null)
+    public static void WhiteFadeInPanel(PanelColor color = PanelColor.White, Action callBack = null)
     {
-        Instance.SetColor(1, 1, 1);
+        Instance.SetColorbyType(color);
         Instance.m_isFadeIn = true;
         Instance.m_currentFade = Instance.StartCoroutine(Instance.FadeIn(callBack));
     }
@@ -147,9 +154,9 @@ public class LoadSceneManager : MonoBehaviour
     /// フェードアウト(画面が徐々に暗転)する
     /// </summary>
     /// <param name="action"> フェードアウト後のコールバック </param>
-    public static void FadeOutPanel(Action callBack = null)
+    public static void FadeOutPanel(PanelColor color = PanelColor.Black, Action callBack = null)
     {
-        Instance.SetColor(0, 0, 0);
+        Instance.SetColorbyType(color);
         Instance.m_isFadeOut = true;
         Instance.m_currentFade = Instance.StartCoroutine(Instance.FadeOut(callBack));
     }
@@ -158,9 +165,9 @@ public class LoadSceneManager : MonoBehaviour
     /// 白い画面でフェードアウト(画面が徐々に暗転)する
     /// </summary>
     /// <param name="action"> フェードアウト後のコールバック </param>
-    public static void WhiteFadeOutPanel(Action callBack = null)
+    public static void WhiteFadeOutPanel(Action callBack = null, PanelColor color = PanelColor.White)
     {
-        Instance.SetColor(1, 1, 1);
+        Instance.SetColorbyType(color);
         Instance.m_isFadeOut = true;
         Instance.m_currentFade = Instance.StartCoroutine(Instance.FadeOut(callBack));
     }
@@ -173,11 +180,36 @@ public class LoadSceneManager : MonoBehaviour
         m_fadeImage.color = new Color(m_red, m_green, m_blue, m_alfa);
     }
 
+    /// <summary>
+    /// 色を設定する
+    /// </summary>
+    /// <param name="r"> 赤の値 </param>
+    /// <param name="g"> 緑の値 </param>
+    /// <param name="b"> 青の値 </param>
     void SetColor(float r, float g, float b)
     {
         m_red = r;
         m_green = g;
         m_blue = b;
+    }
+
+    /// <summary>
+    /// パネルの色を指定された色に変更する
+    /// </summary>
+    /// <param name="color"> 色 </param>
+    void SetColorbyType(PanelColor color)
+    {
+        switch (color)
+        {
+            case PanelColor.Black:
+                SetColor(0, 0, 0);
+                break;
+            case PanelColor.White:
+                SetColor(1, 1, 1);
+                break;
+            default:
+                break;
+        }
     }
     #endregion
 
