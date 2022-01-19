@@ -70,6 +70,7 @@ public class PeriodSelectManager : MonoBehaviour
 
     Image m_periodBackground = default;
     bool m_isScrollAnimed = false;
+    Sequence m_decisionButtonSeq = default;
 
     /// <summary>決定ボタン</summary>
     [SerializeField]
@@ -328,6 +329,8 @@ public class PeriodSelectManager : MonoBehaviour
         m_decisionButton.interactable = true;
         SetStageNum(stage);
         SetStageSprite(m_periodStageData, m_periodNum, m_selectedStageNum);
+
+        DecisionButtonAnim();
     }
 
     /// <summary>
@@ -339,6 +342,24 @@ public class PeriodSelectManager : MonoBehaviour
         m_stageSelectImages[m_selectedStageNum].gameObject.SetActive(false);
         m_selectedStageNum = stage;
         m_stageSelectImages[m_selectedStageNum].gameObject.SetActive(true);
+    }
+
+    /// <summary>
+    /// ステージ選択の決定ボタンのアニメーション
+    /// </summary>
+    void DecisionButtonAnim()
+    {
+        if (m_decisionButtonSeq == null)
+        {
+            m_decisionButtonSeq = DOTween.Sequence();
+            var db = m_decisionButton.gameObject.GetComponent<RectTransform>();
+            var startEndValue = new Vector3(1.1f, 1.1f, 1.1f);
+
+            m_decisionButtonSeq.Append(db.DOScale(startEndValue, 1f))
+                                                      .Append(db.DOScale(Vector3.one, 1f))
+                                                      .SetLoops(-1)
+                                                      .Play();
+        }     
     }
 
     /// <summary>
