@@ -527,6 +527,7 @@ public class ScenarioManager : MonoBehaviour
                 if (!IsAutoflow)
                 {
                     m_clickIcon.SetActive(true);
+                    m_clickReception = false;
                 }
 
                 yield return null;
