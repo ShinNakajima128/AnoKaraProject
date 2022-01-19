@@ -58,7 +58,9 @@ MonoBehaviour:
   - {fileID: 21300000, guid: f07e39e199b91ee4787bcc3aaa075bf2, type: 3}
   - {fileID: 21300000, guid: fec63bfd8b0922642b23f00bb0bac653, type: 3}
   - {fileID: 21300000, guid: 80d692d491bee744b81b7a28af6bb286, type: 3}
+  m_tutorialMessage: []
   m_nextButtonText: {fileID: 936732022}
+  m_tutorialText: {fileID: 0}
 --- !u!1 &9287811
 GameObject:
   m_ObjectHideFlags: 0
@@ -5224,7 +5226,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Padding:
-    m_Left: 22
+    m_Left: 34
     m_Right: 418
     m_Top: 0
     m_Bottom: 0
@@ -7592,6 +7594,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_answerTime: 20
   m_nextQuestionTimer: 2
+  m_quizType: 0
   m_timeLimit: {fileID: 434024880768296506}
   m_currentQuestionUI: {fileID: 911191367}
   m_question: {fileID: 434024880841983926}
@@ -7636,6 +7639,7 @@ MonoBehaviour:
   - {fileID: 869393774}
   - {fileID: 358584484}
   m_finishPanel: {fileID: 1805129516}
+  m_tipsButton: {fileID: 0}
   m_fourChoicesQuizPanel: {fileID: 434024879581997528}
   m_choices:
   - {fileID: 434024880204794294}
@@ -7651,6 +7655,7 @@ MonoBehaviour:
   - {fileID: 294008319}
   m_tutorialGuideText: {fileID: 1123000379}
   questionLimit: 10
+  m_isDebugMode: 0
   m_panel: {fileID: 1412438760}
 --- !u!1 &434024879928823098
 GameObject:
