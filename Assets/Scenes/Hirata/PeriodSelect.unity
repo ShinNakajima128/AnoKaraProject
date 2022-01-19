@@ -7258,7 +7258,7 @@ MonoBehaviour:
   m_periodSelectHelpPanel: {fileID: 2016090810}
   m_decisionButton: {fileID: 1177229735}
   m_headerText: {fileID: 359697090}
-  m_isDebugMode: 1
+  m_isDebugMode: 0
   m_buttonAnimTimer: 0.25
 --- !u!4 &1456176694
 Transform:
