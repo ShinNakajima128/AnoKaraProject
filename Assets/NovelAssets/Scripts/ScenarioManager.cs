@@ -438,6 +438,11 @@ public class ScenarioManager : MonoBehaviour
                                 {
                                     SetFeelingAnim(m_effectPositions[data.DialogData[m_currentDialogIndex].AllPosition[n]], data.DialogData[m_currentDialogIndex].FaceTypes[i]);
                                 }
+                                else
+                                {
+                                    //モブの場合はエフェクトを非表示にする
+                                    m_effectPositions[data.DialogData[m_currentDialogIndex].AllPosition[n]].enabled = false;
+                                }
                             }
                         }
                     }     
@@ -1135,7 +1140,12 @@ public class ScenarioManager : MonoBehaviour
 
     void SetFeelingAnim(Image image, int emoteType)
     {
-        if (m_beforeEmoteType == emoteType) return;
+        //前回と同じ感情エフェクトだったら何もしない
+        if (m_beforeEmoteType == emoteType) 
+        {
+            return; 
+        }
+        image.enabled = true;
         image.sprite = m_feelingEffects[emoteType];
         m_beforeEmoteType = emoteType;
         FeelingType feelingType = (FeelingType)emoteType;
