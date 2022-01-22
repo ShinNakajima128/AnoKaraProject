@@ -1,9 +1,6 @@
 # AnoKaraProject
 後期チーム制作「花丸ヒストラベル(旧あの頃のあの場所から)」プロジェクトのリポジトリ
 
-プロジェクトの全体の資料等を確認したい時は、以下のリンクから確認できます。
-https://drive.google.com/drive/folders/1EwIOxDUXA3VMiXBjZzvWy8vnHS-tq2vs
-
 ## 以下の注意事項は随時更新していく予定です。更新があった場合はSlackにてお知らせします。
 
 ### ブランチを作る際の注意
