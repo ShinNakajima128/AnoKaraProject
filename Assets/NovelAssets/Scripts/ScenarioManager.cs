@@ -43,6 +43,10 @@ public class ScenarioManager : MonoBehaviour
     [SerializeField]
     bool isDebug = default;
 
+    [Header("アニメーションの所要時間")]
+    [SerializeField]
+    float m_requiredTime = 2.0f;
+
     [Header("ダイアログリスト")]
     [SerializeField]
     ScenarioData[] m_data = default;
@@ -431,9 +435,9 @@ public class ScenarioManager : MonoBehaviour
                                 m_characterImage[data.DialogData[m_currentDialogIndex].AllPosition[n]].sprite = SetCharaImage(data.DialogData[m_currentDialogIndex].AllTalker[n], data.DialogData[m_currentDialogIndex].FaceTypes[i]);
 
                                 //モブキャラ以外の場合は感情エフェクトを表示する
-                                if (!m_characterName.text.Contains("村") && 
-                                    !m_characterName.text.Contains("町") && 
-                                    !m_characterName.text.Contains("平民") && 
+                                if (!m_characterName.text.Contains("村") &&
+                                    !m_characterName.text.Contains("町") &&
+                                    !m_characterName.text.Contains("平民") &&
                                     !m_characterName.text.Contains("武士"))
                                 {
                                     SetFeelingAnim(m_effectPositions[data.DialogData[m_currentDialogIndex].AllPosition[n]], data.DialogData[m_currentDialogIndex].FaceTypes[i]);
@@ -445,7 +449,7 @@ public class ScenarioManager : MonoBehaviour
                                 }
                             }
                         }
-                    }     
+                    }
                 }
 
                 //表示されたメッセージをリセット
@@ -892,18 +896,41 @@ public class ScenarioManager : MonoBehaviour
                 break;
             case "SlideInFromLeft":
                 //キャラクタ―の話す位置のRectTransformを取得
-                var tfm = m_anim[index].gameObject.GetComponent<RectTransform>();
+                var leftSlideTfm = m_anim[index].gameObject.GetComponent<RectTransform>();
                 //取得した位置のx座標の値を保持
-                var x = tfm.position.x;
-
+                var sfl_x = leftSlideTfm.position.x;
+                var sfl_y = leftSlideTfm.position.y;
                 //左画面外へ移動
-                tfm.position = new Vector3(-1500, tfm.position.y, tfm.position.z);
+                leftSlideTfm.position = new Vector3(-1500, leftSlideTfm.position.y, leftSlideTfm.position.z);
                 //左からスライドイン
-                tfm.DOMoveX(x, 2.0f)
-                    .OnComplete(() => 
+                var sfl_seq = DOTween.Sequence();
+                sfl_seq.Append(leftSlideTfm.DOMoveX(sfl_x, m_requiredTime)
+                    .OnComplete(() =>
                     {
                         isAnimPlaying = false;
-                    });
+                    }))
+                    .Join(leftSlideTfm.DOMoveY(sfl_y + 40, m_requiredTime / 8)
+                    .SetLoops(8, LoopType.Yoyo))
+                    .Play();
+                break;
+            case "SlideInFromRight":
+                //キャラクタ―の話す位置のRectTransformを取得
+                var rightSlideTfm = m_anim[index].gameObject.GetComponent<RectTransform>();
+                //取得した位置のx座標の値を保持
+                var sfr_x = rightSlideTfm.position.x;
+                var sfr_y = rightSlideTfm.position.y;
+                //右画面外へ移動
+                rightSlideTfm.position = new Vector3(1800, rightSlideTfm.position.y, rightSlideTfm.position.z);
+                //右からスライドイン
+                var sfr_seq = DOTween.Sequence();
+                sfr_seq.Append(rightSlideTfm.DOMoveX(sfr_x, m_requiredTime)
+                       .OnComplete(() =>
+                       {
+                           isAnimPlaying = false;
+                       }))
+                       .Join(rightSlideTfm.DOMoveY(sfr_y + 40, m_requiredTime / 8)
+                       .SetLoops(8, LoopType.Yoyo))
+                       .Play();
                 break;
             case "AllFadeIn":
                 for (int i = 0; i < m_characterImage.Length; i++)
@@ -1157,9 +1184,9 @@ public class ScenarioManager : MonoBehaviour
     void SetFeelingAnim(Image image, int emoteType)
     {
         //前回と同じ感情エフェクトだったら何もしない
-        if (m_beforeEmoteType == emoteType) 
+        if (m_beforeEmoteType == emoteType)
         {
-            return; 
+            return;
         }
         image.enabled = true;
         image.sprite = m_feelingEffects[emoteType];
