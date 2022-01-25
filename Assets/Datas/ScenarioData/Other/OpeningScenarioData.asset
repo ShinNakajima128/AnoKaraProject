@@ -25,7 +25,7 @@ MonoBehaviour:
     BackgroundType: 0
     FaceType: 2
     m_faceTypes: 02000000
-    StartAnimationType: FadeIn
+    StartAnimationType: SlideInFromLeft
     EndAnimationType: "\u306A\u3057"
     Messages: "\u300C\u3042\u3041\u3001\u3069\u3046\u3057\u3088\u3046\u30FB\u30FB\u30FB\u300D"
     ChoicesId: 0

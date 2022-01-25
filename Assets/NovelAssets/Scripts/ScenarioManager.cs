@@ -890,6 +890,21 @@ public class ScenarioManager : MonoBehaviour
                     m_effectPositions[i].sprite = m_transparentSprite;
                 }
                 break;
+            case "SlideInFromLeft":
+                //キャラクタ―の話す位置のRectTransformを取得
+                var tfm = m_anim[index].gameObject.GetComponent<RectTransform>();
+                //取得した位置のx座標の値を保持
+                var x = tfm.position.x;
+
+                //左画面外へ移動
+                tfm.position = new Vector3(-1500, tfm.position.y, tfm.position.z);
+                //左からスライドイン
+                tfm.DOMoveX(x, 2.0f)
+                    .OnComplete(() => 
+                    {
+                        isAnimPlaying = false;
+                    });
+                break;
             case "AllFadeIn":
                 for (int i = 0; i < m_characterImage.Length; i++)
                 {
