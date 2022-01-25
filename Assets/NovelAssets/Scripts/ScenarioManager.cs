@@ -965,6 +965,44 @@ public class ScenarioManager : MonoBehaviour
                     m_effectPositions[i].sprite = m_transparentSprite;
                 }
                 break;
+            case "AllSlideInFromLeft":
+                for (int i = 0; i < m_characterImage.Length; i++)
+                {
+                    if (i == 0 && set1)
+                    {
+                        m_characterImage[i].enabled = true;
+                    }
+                    else if (i == 1 && set2)
+                    {
+                        m_characterImage[i].enabled = true;
+                    }
+                    else if (i == 2 && set3)
+                    {
+                        m_characterImage[i].enabled = true;
+                        
+                    }
+                    if (m_characterImage[i].enabled)
+                    {
+                        //キャラクタ―の話す位置のRectTransformを取得
+                        var leftSlideTfms = m_anim[i].gameObject.GetComponent<RectTransform>();
+                        //取得した位置のx座標の値を保持
+                        var sfls_x = leftSlideTfms.position.x;
+                        var sfls_y = leftSlideTfms.position.y;
+                        //左画面外へ移動
+                        leftSlideTfms.position = new Vector3(-1500, leftSlideTfms.position.y, leftSlideTfms.position.z);
+                        //左からスライドイン
+                        var sfls_seq = DOTween.Sequence();
+                        sfls_seq.Append(leftSlideTfms.DOMoveX(sfls_x, m_requiredTime)
+                            .OnComplete(() =>
+                            {
+                                isAnimPlaying = false;
+                            }))
+                            .Join(leftSlideTfms.DOMoveY(sfls_y + 40, m_requiredTime / 8)
+                            .SetLoops(8, LoopType.Yoyo))
+                            .Play();
+                    }
+                }
+                break;
             default:
                 m_anim[index].Play("Idle");
                 break;
