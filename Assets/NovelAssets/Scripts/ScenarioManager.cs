@@ -935,10 +935,6 @@ public class ScenarioManager : MonoBehaviour
             case "AllFadeIn":
                 for (int i = 0; i < m_characterImage.Length; i++)
                 {
-                    //if (!m_characterImage[i].enabled)
-                    //{
-                    //    m_characterImage[i].enabled = true;
-                    //}
                     if (i == 0 && set1)
                     {
                         m_characterImage[i].enabled = true;
